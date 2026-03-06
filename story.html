@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — Gamper Klimmek Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f4f1ec;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --teal: #1a6b7a;
+    --teal-deep: #0d3d47;
+    --white: #ffffff;
+    --muted: #6b6b7a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ink);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: linear-gradient(180deg, rgba(10,10,15,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(4px);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-back {
+    font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: color 0.3s;
+  }
+  .nav-back:hover { color: var(--gold); }
+  .nav-back::before { content: '←'; }
+
+  /* HERO */
+  .story-hero {
+    min-height: 60vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 10rem 4rem 5rem;
+    position: relative; overflow: hidden;
+    background: var(--ink);
+  }
+  .story-hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(26,107,122,0.25) 0%, transparent 55%),
+                radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.1) 0%, transparent 50%),
+                var(--ink);
+  }
+  .story-hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  }
+  .story-hero-inner { position: relative; z-index: 2; max-width: 900px; }
+  .story-eyebrow {
+    font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
+  }
+  .story-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+  .story-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 900; line-height: 1.02;
+    margin-bottom: 2rem;
+  }
+  .story-hero h1 em { font-style: italic; color: var(--gold); }
+  .story-hero-sub {
+    font-size: 1.2rem; line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+    max-width: 600px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    background: var(--paper); color: var(--ink);
+    padding: 7rem 4rem;
+  }
+  .timeline-inner { max-width: 1000px; margin: 0 auto; }
+
+  .timeline-intro {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    margin-bottom: 6rem; align-items: start;
+  }
+  .timeline-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 900; line-height: 1.1;
+  }
+  .timeline-intro p {
+    font-size: 1.05rem; line-height: 1.8;
+    color: rgba(10,10,15,0.65);
+    padding-top: 0.5rem;
+  }
+
+  .timeline-items { position: relative; }
+  .timeline-items::before {
+    content: '';
+    position: absolute; left: 140px; top: 0; bottom: 0;
+    width: 1px; background: rgba(10,10,15,0.12);
+  }
+
+  .timeline-item {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 3rem; margin-bottom: 4rem; position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: 136px; top: 0.4rem;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--paper);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+  }
+
+  .timeline-year {
+    font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); padding-top: 0.35rem;
+    text-align: right; padding-right: 2rem;
+  }
+  .timeline-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700;
+    margin-bottom: 0.6rem; color: var(--ink);
+  }
+  .timeline-content p {
+    font-size: 0.97rem; line-height: 1.8;
+    color: rgba(10,10,15,0.62);
+  }
+  .timeline-content .location {
+    font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .timeline-content .location::before { content: '◉'; font-size: 0.6rem; }
+
+  .timeline-callout {
+    background: var(--ink); color: var(--white);
+    padding: 2rem 2.5rem; margin: 1rem 0;
+    border-left: 3px solid var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 1.1rem; line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+  }
+  .timeline-callout span {
+    display: block; margin-top: 0.75rem;
+    font-family: 'Syne', sans-serif; font-style: normal;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+  }
+
+  /* MEET SECTION */
+  .meet-section {
+    background: var(--ink); padding: 7rem 4rem;
+  }
+  .meet-inner { max-width: 1000px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+  }
+  .section-label::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+
+  .profiles { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 4rem; }
+
+  .profile-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 2.5rem;
+    transition: border-color 0.3s;
+  }
+  .profile-card:hover { border-color: rgba(201,168,76,0.3); }
+
+  .profile-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; margin-bottom: 0.3rem;
+  }
+  .profile-role {
+    font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+  }
+  .profile-bio {
+    font-size: 0.95rem; line-height: 1.8;
+    color: rgba(255,255,255,0.55); margin-bottom: 2rem;
+  }
+  .profile-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .profile-tag {
+    font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); border: 1px solid rgba(26,107,122,0.3);
+    padding: 0.35rem 0.8rem;
+  }
+
+  /* WHY WE CONSULT */
+  .why-section {
+    background: linear-gradient(135deg, var(--teal-deep) 0%, #0a1520 100%);
+    padding: 7rem 4rem; position: relative; overflow: hidden;
+  }
+  .why-section::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  }
+  .why-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 2; }
+  .why-inner .section-label { color: var(--gold); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: center; }
+  .why-grid h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 900; line-height: 1.1;
+  }
+  .why-grid h2 em { font-style: italic; color: var(--gold); }
+  .why-points { display: flex; flex-direction: column; gap: 1.5rem; }
+  .why-point { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .why-point-num {
+    font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900;
+    color: rgba(201,168,76,0.3); flex-shrink: 0; line-height: 1; margin-top: 0.1rem;
+  }
+  .why-point-text h4 {
+    font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700;
+    margin-bottom: 0.3rem; color: var(--white);
+  }
+  .why-point-text p { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.5); }
+
+  /* CTA */
+  .story-cta {
+    background: var(--paper); color: var(--ink);
+    padding: 7rem 4rem; text-align: center;
+  }
+  .story-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem;
+  }
+  .story-cta h2 em { font-style: italic; color: var(--teal); }
+  .story-cta p {
+    font-size: 1.1rem; color: rgba(10,10,15,0.55);
+    max-width: 500px; margin: 0 auto 3rem; line-height: 1.7;
+  }
+  .cta-btn {
+    font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--white); text-decoration: none;
+    background: var(--ink); padding: 1.2rem 3.5rem;
+    display: inline-block; transition: all 0.3s;
+  }
+  .cta-btn:hover {
+    background: var(--teal);
+    box-shadow: 0 20px 60px rgba(26,107,122,0.3);
+    transform: translateY(-3px);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2.5rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--white); text-decoration: none;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .story-hero { padding: 8rem 1.5rem 4rem; }
+    .timeline { padding: 4rem 1.5rem; }
+    .timeline-intro { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+    .timeline-items::before { left: 80px; }
+    .timeline-item { grid-template-columns: 80px 1fr; gap: 1.5rem; }
+    .timeline-item::before { left: 76px; }
+    .timeline-year { font-size: 0.65rem; padding-right: 1rem; }
+    .meet-section { padding: 4rem 1.5rem; }
+    .profiles { grid-template-columns: 1fr; gap: 1.5rem; }
+    .why-section { padding: 4rem 1.5rem; }
+    .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .story-cta { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Gamper Klimmek<span>.</span></a>
+  <a href="index.html" class="nav-back">Back to home</a>
+</nav>
+
+<!-- HERO -->
+<section class="story-hero">
+  <div class="story-hero-bg"></div>
+  <div class="story-hero-grid"></div>
+  <div class="story-hero-inner">
+    <div class="story-eyebrow">Our Story</div>
+    <h1>We didn't learn this<br>in a <em>boardroom.</em></h1>
+    <p class="story-hero-sub">
+      From a chance meeting on a dive boat in Bali to running a five-star resort in Belize, managing operations across four continents, and building AI systems for small businesses — this is how we got here.
+    </p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div class="timeline-inner">
+
+    <div class="timeline-intro">
+      <h2>Fifteen years of<br>real operations.</h2>
+      <p>Most consultants tell you how to run a business. We've actually run them — in a dozen countries, in three languages, under pressure. That's what makes us different. Not our credentials. Our calluses.</p>
+    </div>
+
+    <div class="timeline-items">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2005–2009</div>
+        <div class="timeline-content">
+          <div class="location">Silicon Valley, USA</div>
+          <h3>Jessica starts in software.</h3>
+          <p>Before the dive boats and the cave systems, there was Silicon Valley. Jessica spent four years in software sales — learning how technology gets sold, how businesses make buying decisions, and what separates a product that sticks from one that doesn't. It's a foundation she still draws on every day.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2009</div>
+        <div class="timeline-content">
+          <div class="location">Bali, Indonesia</div>
+          <h3>She trades the office for the ocean.</h3>
+          <p>In 2009, Jessica left Silicon Valley to travel — and ended up in Bali doing her Divemaster training. It was there she met Matthias. Shortly after, Matthias moved to Thailand to begin his own Divemaster training. Jessica followed. A shared passion for the underwater world — and for each other — turned out to be enough.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2009–2010</div>
+        <div class="timeline-content">
+          <div class="location">Thailand</div>
+          <h3>Divemasters. First season together.</h3>
+          <p>Working side by side as divemasters in Thailand, we ran briefings, managed guests from a dozen different countries, and learned what it actually takes to deliver a flawless experience under pressure. The dive industry is unforgiving of poor operations. We learned fast.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2010</div>
+        <div class="timeline-content">
+          <div class="location">Florida Keys, USA</div>
+          <h3>PADI Instructor certification.</h3>
+          <p>Both completed the PADI Instructor Development Course in the Florida Keys — one of the most demanding training environments in the world. Running courses, managing equipment, coordinating logistics, keeping guests safe. Every day, without margin for error.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2010</div>
+        <div class="timeline-content">
+          <div class="location">Egypt</div>
+          <h3>Instructing in the Red Sea.</h3>
+          <p>From the Florida Keys straight to Egypt. Teaching in the Red Sea meant adapting fast — different guests, different conditions, different cultural context. The operational lessons kept stacking up.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">Late 2010</div>
+        <div class="timeline-content">
+          <div class="location">Koh Phi Phi, Thailand</div>
+          <h3>First dive operation management.</h3>
+          <p>Back to Thailand — this time in a management role, running a dive operation on Koh Phi Phi. Scheduling, staffing, equipment, safety systems, supplier relationships. We built SOPs from scratch because there were none. We found out exactly how much time bad processes cost, and exactly how much good ones save.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2011</div>
+        <div class="timeline-content">
+          <div class="location">Honduras</div>
+          <h3>IDC Staff Instructor.</h3>
+          <p>One of the highest certifications in recreational diving — focused not on teaching divers, but on training instructors. Precision, communication, and the ability to transfer complex skills under pressure. We brought that standard to everything that followed.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2011–2012</div>
+        <div class="timeline-content">
+          <div class="location">Mexico · Canada</div>
+          <h3>Mexico, then a remote dive lodge in Canada.</h3>
+          <p>A stint instructing in Mexico, then a remote dive lodge in Canada — as different as operations get. One was high-volume and fast-paced; the other was wilderness logistics in cold water. Both taught us how to adapt systems to context rather than forcing context into systems.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2012</div>
+        <div class="timeline-content">
+          <div class="location">Corsica · Thailand</div>
+          <h3>Cruise directors on the liveaboards.</h3>
+          <p>Corsica, then back to Thailand as cruise directors on liveaboard dive vessels — some of the most logistically complex dive operations in the world. Multi-day expeditions in open water, responsible for the full guest experience from departure to return. No margin for error. No way to call for backup.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2013</div>
+        <div class="timeline-content">
+          <div class="location">Mexico</div>
+          <h3>We got married. Then went cave diving.</h3>
+          <p>In 2013 we got married and headed to Mexico. For the honeymoon, Matthias suggested completing the TDI Full Cave Diver certification — the most technically demanding dive course in the technical diving world.</p>
+          <div class="timeline-callout">
+            "Full cave diving was not what Jessica had in mind for a honeymoon. I maintain it was a perfectly romantic choice. She disagrees. We are still married, which I consider a win."
+            <span>— Matthias</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2013–2014</div>
+        <div class="timeline-content">
+          <div class="location">Belize</div>
+          <h3>Managing a 5-star resort.</h3>
+          <p>From Mexico to Belize to manage a five-star dive resort. Every touchpoint of the guest experience — from first enquiry to final review. Staff coordination, inventory, guest communications, quality control. At this level, operational failure has a very direct cost. We didn't fail.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2015</div>
+        <div class="timeline-content">
+          <div class="location">Mexico</div>
+          <h3>Work permit approved. Our own business.</h3>
+          <p>After years of building systems for other people's operations, we finally got to build one for ourselves. Work permit approved, we moved back to Mexico and opened our own dive operation — building everything from scratch the way we'd always known it should be done.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2016</div>
+        <div class="timeline-content">
+          <div class="location">Mexico</div>
+          <h3>Our daughter arrives. Jessica returns to SaaS.</h3>
+          <p>Our daughter was born in 2016. Jessica returned to the software world — bringing her Silicon Valley foundation and seven years of field operations back into SaaS sales. The perspective was different this time. She knew exactly where the technology fell short, and exactly where it could deliver.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-content">
+          <div class="location">Europe</div>
+          <h3>Back to Europe. Matthias joins SaaS.</h3>
+          <p>We moved back to Europe for our daughter's education. Matthias transitioned into software — joining companies including PayFit and Beekeeper in Zurich in sales and account management. Both of us were now in SaaS, watching the same operational problems we'd fixed manually in dive centers repeat themselves in small businesses everywhere — only now with bigger budgets and software that still only partially solved them.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-content">
+          <div class="location">Lucerne, Switzerland</div>
+          <h3>Jessica moves into Marketing & Communications.</h3>
+          <p>Jessica transitioned into Marketing and Communications for a company specialising in synthetic fiber treatment for industrial applications. A long way from dive boats — but the same core challenge: communicating complex value clearly, to the right audience, at the right moment. The answer increasingly involved AI.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-content">
+          <div class="location">Lucerne, Switzerland</div>
+          <h3>Gamper Klimmek Consulting.</h3>
+          <p>We founded Gamper Klimmek Consulting to bring everything together. Silicon Valley software sales. Dive operations across four continents. SaaS sales and account management. AI implementation. Two people who have run real businesses under real pressure — and know exactly what it takes to make them work better.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE TEAM -->
+<section class="meet-section">
+  <div class="meet-inner">
+    <div class="section-label reveal">The People</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;line-height:1.1;" class="reveal reveal-d1">
+      Jessica & Matthias<br>Gamper Klimmek.
+    </h2>
+
+    <div class="profiles">
+      <div class="profile-card reveal">
+        <div class="profile-name">Jessica Gamper Klimmek</div>
+        <div class="profile-role">Co-Founder · AI Implementation & Strategy</div>
+        <p class="profile-bio">
+          Jessica started her career in Silicon Valley software sales before leaving to travel and dive in 2009. After a decade of running operations across four continents, she returned to the software world in 2016 — bringing a rare field-level perspective to SaaS sales and account management. In 2023 she moved into Marketing and Communications. She now combines all of it: sales instinct, operational experience, and AI implementation expertise.
+        </p>
+        <div class="profile-tags">
+          <span class="profile-tag">PADI IDC Staff Instructor</span>
+          <span class="profile-tag">Silicon Valley · Berlin</span>
+          <span class="profile-tag">SaaS Sales & Marketing</span>
+          <span class="profile-tag">AI Implementation</span>
+          <span class="profile-tag">TDI Full Cave Diver</span>
+        </div>
+      </div>
+
+      <div class="profile-card reveal reveal-d1">
+        <div class="profile-name">Matthias Klimmek</div>
+        <div class="profile-role">Co-Founder · Operations & Consulting</div>
+        <p class="profile-bio">
+          Matthias spent years running dive operations across Thailand, Egypt, Corsica, Canada, Honduras, Belize, and Mexico before moving into SaaS in 2018. He joined companies including PayFit and Beekeeper in Zurich in sales and account management. He's seen how small businesses get sold software they barely use — and how much better it goes when the implementation is built around how the business actually operates.
+        </p>
+        <div class="profile-tags">
+          <span class="profile-tag">PADI IDC Staff Instructor</span>
+          <span class="profile-tag">PayFit · Beekeeper</span>
+          <span class="profile-tag">Berlin · Zurich</span>
+          <span class="profile-tag">SaaS Sales & Account Management</span>
+          <span class="profile-tag">TDI Full Cave Diver</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY WE CONSULT -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="section-label">Why We Do This</div>
+    <div class="why-grid">
+      <h2>We know what it <em>actually</em> costs to run a small business.</h2>
+      <div class="why-points">
+        <div class="why-point reveal">
+          <div class="why-point-num">01</div>
+          <div class="why-point-text">
+            <h4>We've lived the problem</h4>
+            <p>We've spent years dealing with manual booking follow-up, guest communications that fall through the cracks, and SOPs that exist only in one person's head. We're not diagnosing problems from a whiteboard.</p>
+          </div>
+        </div>
+        <div class="why-point reveal reveal-d1">
+          <div class="why-point-num">02</div>
+          <div class="why-point-text">
+            <h4>We've seen the solution at scale</h4>
+            <p>A decade in European SaaS showed us what good systems look like when they work — and how much time and money bad ones waste. We bring that perspective to every engagement.</p>
+          </div>
+        </div>
+        <div class="why-point reveal reveal-d2">
+          <div class="why-point-num">03</div>
+          <div class="why-point-text">
+            <h4>We build, not just advise</h4>
+            <p>We don't hand you a report and leave. We map your operations, identify what to automate, build the systems, and stay until your team is using them confidently.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="story-cta">
+  <h2>Ready to have a<br><em>real conversation?</em></h2>
+  <p>No pitch. No pressure. Just an honest look at where your business is and whether we're the right people to help.</p>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn">Book a free 30-min call</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">Gamper Klimmek<span>.</span></a>
+  <span class="footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
