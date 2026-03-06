@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gamper Klimmek Consulting — AI &amp; Automation for Owner-Operated Businesses</title>
+<title>Lucen Studios — AI & Automation Consulting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
@@ -718,18 +718,147 @@
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+
+  /* Tablet — 1024px */
+  @media (max-width: 1024px) {
+    nav { padding: 1.25rem 2rem; }
+
+    .hero { grid-template-columns: 1fr 1fr; }
+    .hero-left { padding: 7rem 2rem 4rem 2rem; }
+    .hero-right { padding: 7rem 2rem 4rem 1rem; }
+
+    .services-inner { padding: 0 1rem; }
+    .services-header { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    .team-inner { gap: 3rem; }
+
+    section { padding: 5rem 2rem; }
+    .stats { padding: 3rem 2rem; }
+    .quote-band { padding: 5rem 2rem; }
+    .cta-band { padding: 5rem 2rem; }
+    footer { padding: 2.5rem 2rem; }
+  }
+
+  /* Mobile — 768px */
+  @media (max-width: 768px) {
+    /* NAV */
+    nav {
+      padding: 1rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .nav-links { display: none; }
+    .nav-langs { margin-left: auto; }
+
+    /* HERO */
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding-bottom: 3rem;
+    }
+    .hero-left {
+      padding: 7rem 1.5rem 3rem;
+      text-align: left;
+    }
+    .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+    .hero-body { font-size: 1rem; max-width: 100%; }
+    .hero-right {
+      padding: 0 1.5rem 2rem;
+      justify-content: flex-start;
+    }
+    .hero-visual { max-width: 100%; }
+    .hero-img-frame { aspect-ratio: 4/3; }
+    .hero-stat-badge {
+      left: 1rem;
+      bottom: -1rem;
+    }
+
+    /* TICKER */
+    .ticker-item { padding: 0 1.5rem; font-size: 0.75rem; }
+
+    /* SERVICES */
+    .services { padding: 4rem 1.5rem; }
+    .services-header { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card {
+      border-right: none;
+      border-bottom: 1px solid rgba(10,10,15,0.1);
+      padding: 2rem 1.5rem;
+    }
+    .service-card:last-child { border-bottom: none; }
+    .section-title { font-size: clamp(2rem, 8vw, 3rem); }
+
+    /* QUOTE */
+    .quote-band { padding: 4rem 1.5rem; }
+    .quote-text { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+
+    /* CLIENTS */
+    .clients { padding: 4rem 1.5rem; }
+    .clients-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .client-card { height: 320px; }
+
+    /* STATS */
+    .stats { padding: 2.5rem 1.5rem; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .stat-num { font-size: 2.2rem; }
+
+    /* TEAM */
+    .team { padding: 4rem 1.5rem; }
+    .team-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .team-img-wrap { max-width: 100%; }
+    .team-img-placeholder { aspect-ratio: 3/2; }
+    .team-label-float { left: 0; bottom: 1rem; }
+    .team-accent { display: none; }
+    .team-tags { gap: 0.5rem; }
+
+    /* CTA */
+    .cta-band { padding: 4rem 1.5rem; }
+    .cta-subtitle { font-size: 1rem; }
+    .cta-btn { padding: 1rem 2rem; font-size: 0.85rem; }
+
+    /* FOOTER */
+    footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 2rem 1.5rem;
+    }
+    .footer-links { flex-wrap: wrap; gap: 1rem; }
+
+    /* SECTIONS */
+    section { padding: 4rem 1.5rem; }
+  }
+
+  /* Small mobile — 480px */
+  @media (max-width: 480px) {
+    .hero-title { font-size: clamp(2rem, 12vw, 3rem); }
+    .hero-ctas { flex-direction: column; }
+    .btn-primary, .btn-ghost { text-align: center; width: 100%; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .stat-num { font-size: 1.8rem; }
+    .clients-grid { grid-template-columns: 1fr; }
+    .client-card { height: 280px; }
+    .quote-text { font-size: 1rem; }
+    footer { align-items: center; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Gamper Klimmek<span>.</span></a>
+  <a href="#" class="nav-logo">Lucen Studios<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#team">About</a></li>
-    <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
   </ul>
   <div class="nav-langs">
     <a href="#" class="active">EN</a>
@@ -740,7 +869,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
+<section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
 
@@ -755,8 +884,8 @@
       AI automation, process optimization, and digital transformation — built by people who've run real operations, not just PowerPoints.
     </p>
     <div class="hero-ctas">
-      <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary">For Business</a>
-      <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-ghost">For Operators</a>
+      <a href="#" class="btn-primary">For Business</a>
+      <a href="#" class="btn-ghost">For Operators</a>
     </div>
   </div>
 
@@ -796,7 +925,7 @@
 </div>
 
 <!-- SERVICES -->
-<section class="services" id="services">
+<section class="services">
   <div class="services-inner">
     <div class="services-header">
       <div>
@@ -852,7 +981,7 @@
           <div class="client-tag">Primary Track</div>
           <div class="client-title">Businesses & SMBs</div>
           <p class="client-body">Established companies modernizing operations, adopting AI, and staying competitive. Insurance agencies, professional services, Swiss SMEs.</p>
-          <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="client-link">Learn more →</a>
+          <a href="#" class="client-link">Learn more →</a>
         </div>
       </div>
       <div class="client-card client-card-ops reveal reveal-delay-1">
@@ -862,7 +991,7 @@
           <div class="client-tag">Adventure Track</div>
           <div class="client-title">Operators & Experience Brands</div>
           <p class="client-body">Dive centers, surf schools, tour operators, and adventure businesses. We speak your language because we've worked your high season.</p>
-          <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="client-link">Learn more →</a>
+          <a href="#" class="client-link">Learn more →</a>
         </div>
       </div>
     </div>
@@ -892,7 +1021,7 @@
 </div>
 
 <!-- TEAM -->
-<section class="team" id="team">
+<section class="team">
   <div class="team-inner">
     <div class="team-img-wrap reveal">
       <div class="team-img-placeholder">
@@ -920,8 +1049,8 @@
         <span class="tag">4 Languages</span>
         <span class="tag">Silicon Valley</span>
       </div>
-      <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="team-cta reveal reveal-delay-3">Our full story</a>
-      <p class="team-legal reveal reveal-delay-3"><strong>Gamper Klimmek Consulting</strong> — AI &amp; Automation for Owner-Operated Businesses. Registered sole proprietorship, Lucerne, Switzerland.</p>
+      <a href="#" class="team-cta reveal reveal-delay-3">Our full story</a>
+      <p class="team-legal reveal reveal-delay-3">Lucen Studios operates under <strong>Gamper Klimmek Consulting</strong>, a registered sole proprietorship based in Lucerne, Switzerland.</p>
     </div>
   </div>
 </section>
@@ -932,20 +1061,20 @@
     <h2 class="section-title reveal">Let's have a<br><em>real conversation</em></h2>
     <p class="cta-subtitle reveal reveal-delay-1">No pitch. No pressure. Just an honest look at where your business is headed — and whether we're the right people to help.</p>
     <br><br>
-    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn reveal reveal-delay-2">Book a free 30-min call</a>
+    <a href="#" class="cta-btn reveal reveal-delay-2">Book a free 30-min call</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <a href="#hero" class="footer-logo">Gamper Klimmek<span>.</span></a>
+  <a href="#" class="footer-logo">Lucen Studios<span>.</span></a>
   <ul class="footer-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#team">About</a></li>
-    <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
-    <li><a href="https://lucenstudios.io" target="_blank">lucenstudios.io</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">lucenstudios.com</a></li>
   </ul>
-  <span class="footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+  <span class="footer-copy">© 2026 Lucen Studios · A brand of <strong>Gamper Klimmek Consulting</strong> · Lucerne, CH</span>
 </footer>
 
 <script>
