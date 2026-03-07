@@ -4,7 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Operators & Experience Brands — Gamper Klimmek Consulting</title>
+<meta name="description" content="AI automation for dive centers, surf schools, and tour operators. Built by former PADI IDC Staff Instructors and resort managers who've worked your high season.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.gamperklimmek.com/operators.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI for Operators &amp; Experience Brands — Gamper Klimmek Consulting">
+<meta property="og:description" content="Built by former PADI IDC Staff Instructors and resort managers who've worked your high season. We know what breaks.">
+<meta property="og:url" content="https://www.gamperklimmek.com/operators.html">
+<meta property="og:image" content="https://www.gamperklimmek.com/og-image.png">
+<meta property="og:site_name" content="Gamper Klimmek Consulting">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI for Operators &amp; Experience Brands — Gamper Klimmek Consulting">
+<meta name="twitter:description" content="Built by former PADI IDC Staff Instructors and resort managers who've worked your high season. We know what breaks.">
+<meta name="twitter:image" content="https://www.gamperklimmek.com/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -37,6 +56,52 @@
   .nav-back { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
   .nav-back:hover { color: var(--gold); }
   .nav-back::before { content: '←'; }
+
+  /* MOBILE MENU */
+  .nav-hamburger {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    width: 32px; height: 24px;
+    position: relative; z-index: 110;
+  }
+  .nav-hamburger span {
+    display: block; width: 100%; height: 2px;
+    background: var(--white);
+    position: absolute; left: 0;
+    transition: all 0.3s;
+  }
+  .nav-hamburger span:nth-child(1) { top: 0; }
+  .nav-hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+  .nav-hamburger span:nth-child(3) { bottom: 0; }
+  .nav-hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+  .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 99;
+    background: rgba(10,10,15,0.97);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    transition: color 0.3s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .mobile-cta {
+    margin-top: 1rem;
+    background: var(--gold); color: var(--ink);
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+  }
 
   /* HERO */
   .page-hero {
@@ -164,10 +229,18 @@
   .reveal-d2 { transition-delay: 0.2s; }
   .reveal-d3 { transition-delay: 0.3s; }
 
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .nav-back { display: none; }
+    .nav-hamburger { display: block; margin-left: auto; }
     .page-hero { padding: 8rem 1.5rem 4rem; }
     .cred-band { padding: 2rem 1.5rem; }
     .cred-inner { gap: 1.5rem; }
@@ -197,7 +270,17 @@
     <li><a href="businesses.html">For Businesses</a></li>
   </ul>
   <a href="index.html" class="nav-back">Back to home</a>
+  <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="businesses.html">For Businesses</a>
+  <a href="story.html">Our Story</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta">Book a Call</a>
+</div>
 
 <!-- HERO -->
 <section class="page-hero">
