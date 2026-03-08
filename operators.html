@@ -259,6 +259,23 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- Google Consent Mode v2 — analytics denied by default until user accepts -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1Z1TC3H4R"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-J1Z1TC3H4R');
+</script>
 </head>
 <body>
 
@@ -469,7 +486,7 @@
     <li><a href="businesses.html">For Businesses</a></li>
     <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
   </ul>
-  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Impressum &amp; Privacy Policy</a><span class="footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Cookie Settings</button><span class="footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
 </footer>
 
 <script>
@@ -479,5 +496,6 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
+<script src="cookie-consent.js"></script>
 </body>
 </html>
