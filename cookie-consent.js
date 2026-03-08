@@ -3,6 +3,8 @@
  * GDPR / Swiss FADP compliant: analytics denied by default,
  * only granted after explicit user acceptance.
  *
+ * Also gates the FEA Create CRM tracking script behind consent.
+ *
  * Exposes window.GK_openCookieSettings() to reopen the banner.
  */
 (function () {
@@ -16,6 +18,19 @@
 
   function saveConsent(value) {
     try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+  }
+
+  /* FEA Create / GoHighLevel CRM tracking script */
+  var FEA_SRC = 'https://link.gamperklimmek.com/js/external-tracking.js';
+  var FEA_TID = 'tk_ae9529981d674c5ebbdeb28a95ac2143';
+
+  function loadFeaTracking() {
+    if (document.querySelector('script[data-tracking-id="' + FEA_TID + '"]')) return;
+    var s = document.createElement('script');
+    s.src = FEA_SRC;
+    s.setAttribute('data-tracking-id', FEA_TID);
+    s.async = true;
+    document.body.appendChild(s);
   }
 
   function updateGtag(storage) {
@@ -126,6 +141,7 @@
     document.getElementById('gk-cb-accept').addEventListener('click', function () {
       saveConsent('granted');
       updateGtag('granted');
+      loadFeaTracking();
       removeBanner();
     });
 
@@ -148,6 +164,11 @@
 
   if (stored === 'granted') {
     updateGtag('granted');
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadFeaTracking);
+    } else {
+      loadFeaTracking();
+    }
     /* no banner needed */
   } else if (stored === 'denied') {
     /* stays denied — no banner */
