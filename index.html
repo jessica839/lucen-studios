@@ -1051,8 +1051,9 @@
   <a href="#hero" class="nav-logo">Gamper Klimmek<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#systems">Services</a></li>
     <li><a href="#team">About</a></li>
+    <li><a href="start.html" style="color:var(--gold);">Start Here</a></li>
     <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
@@ -1063,8 +1064,9 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu">
   <a href="#hero" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Home</a>
-  <a href="#services" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Services</a>
+  <a href="#systems" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Services</a>
   <a href="#team" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">About</a>
+  <a href="start.html" style="color:var(--gold);" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Start Here</a>
   <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta">Book a Call</a>
 </div>
 
@@ -1076,16 +1078,16 @@
   <div class="hero-left">
     <div class="hero-eyebrow">Based in Lucerne · Est. 2026</div>
     <h1 class="hero-title">
-      Intelligence<br>
-      That <em>Works</em><br>
-      For You
+      Stop running<br>
+      your business<br>
+      on <em>chaos.</em>
     </h1>
     <p class="hero-body">
-      AI automation, process optimization, and digital transformation — built by people who've run real operations, not just PowerPoints.
+      We help small businesses save 10–20 hours a week by automating the work that's eating their time — client inquiries, booking and appointment communication, follow-ups, and the questions your team answers on repeat. Built by people who've run real operations, not just PowerPoints.
     </p>
     <div class="hero-ctas">
-      <a href="businesses.html" class="btn-primary">For Business</a>
-      <a href="operators.html" class="btn-ghost">For Operators</a>
+      <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary">Book a free 30-minute audit</a>
+      <a href="start.html" class="btn-ghost">See how it works</a>
     </div>
   </div>
 
@@ -1107,68 +1109,111 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item">AI Automation <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Process Optimization <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Booking Automation <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Digital Transformation <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">SMB Consulting <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Swiss Quality <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Global Reach <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">AI Automation <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Process Optimization <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Booking Automation <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Digital Transformation <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">SMB Consulting <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Swiss Quality <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Global Reach <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Inquiry Automation <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Booking Communication <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Client Follow-Up <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Multilingual Messaging <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Staff Knowledge Systems <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Built to Run Without You <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Real-World Workflows <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Inquiry Automation <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Booking Communication <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Client Follow-Up <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Multilingual Messaging <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Staff Knowledge Systems <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Built to Run Without You <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Real-World Workflows <span class="ticker-dot">·</span></span>
   </div>
 </div>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="services-inner">
-    <div class="services-header">
-      <div>
-        <div class="section-label reveal">What We Do</div>
-        <h2 class="section-title reveal reveal-delay-1">
-          Built for<br>the real world
-        </h2>
-      </div>
-      <p class="services-intro reveal reveal-delay-2">
-        We don't sell generic AI hype. We map your actual operations, find where time and money are bleeding out, and build systems that fix it — permanently.
-      </p>
+<!-- PROBLEM SECTION -->
+<style>
+  .problem { background: var(--ink); padding: 7rem 4rem; }
+  .problem-inner { max-width: 1100px; margin: 0 auto; }
+  .problem .section-label { color: var(--gold); }
+  .problem .section-label::before { background: var(--gold); }
+  .problem-header { margin-bottom: 4rem; }
+  .problem-header .section-title { color: var(--white); max-width: 700px; }
+  .problem-header .section-title em { color: var(--gold); font-style: italic; }
+  .problem-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; border: 1px solid rgba(255,255,255,0.07);
+  }
+  .problem-item {
+    padding: 2rem 2.25rem;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .problem-item:nth-child(3),
+  .problem-item:nth-child(6) { border-right: none; }
+  .problem-item:nth-child(4),
+  .problem-item:nth-child(5),
+  .problem-item:nth-child(6) { border-bottom: none; }
+  .problem-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .problem-text {
+    font-size: 0.95rem; line-height: 1.65;
+    color: rgba(255,255,255,0.55);
+  }
+  .problem-text strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+  .problem-transition {
+    margin-top: 3.5rem; padding-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-style: italic; line-height: 1.45;
+    color: var(--gold); max-width: 750px;
+  }
+  @media (max-width: 768px) {
+    .problem { padding: 4rem 1.5rem; }
+    .problem-grid { grid-template-columns: 1fr; border: none; }
+    .problem-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .problem-item:last-child { border-bottom: none; }
+  }
+</style>
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <div class="problem-header">
+      <div class="section-label reveal">Sound Familiar?</div>
+      <h2 class="section-title reveal reveal-delay-1">Your business probably<br>runs on <em>this</em> right now.</h2>
     </div>
-
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-num">01</div>
-        <div class="service-icon">⚡</div>
-        <div class="service-title">AI Automation</div>
-        <p class="service-body">Automate the repetitive. Free your team for the work that actually grows your business. From quote follow-up to client intake — we build it, test it, and hand it off.</p>
+    <div class="problem-grid">
+      <div class="problem-item reveal">
+        <div class="problem-icon">📬</div>
+        <p class="problem-text"><strong>Inquiries pile up faster than your team can respond.</strong> Busy periods push your inbox past capacity. Every slow reply is a potential client you didn't win.</p>
       </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-num">02</div>
-        <div class="service-icon">◈</div>
-        <div class="service-title">Process Optimization</div>
-        <p class="service-body">We find the bottlenecks before they find you. A clear-eyed audit of your operations, mapped to a prioritized action plan you can act on the same week.</p>
+      <div class="problem-item reveal reveal-delay-1">
+        <div class="problem-icon">🔁</div>
+        <p class="problem-text"><strong>Your team answers the same questions on repeat.</strong> Pricing, availability, what to expect, how to get there — all day, every day.</p>
       </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-num">03</div>
-        <div class="service-icon">∞</div>
-        <div class="service-title">Digital Transformation</div>
-        <p class="service-body">Strategy without execution is just a document. We stay with you through the build, the rollout, and the moment your team stops going back to the old way.</p>
+      <div class="problem-item reveal reveal-delay-2">
+        <div class="problem-icon">📅</div>
+        <p class="problem-text"><strong>Follow-ups get forgotten.</strong> Confirmations, reminders, review requests — they only go out if someone remembers to send them.</p>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-icon">🧠</div>
+        <p class="problem-text"><strong>How things work lives in one person's head.</strong> When they're sick, on holiday, or gone — everything has to be re-explained from scratch.</p>
+      </div>
+      <div class="problem-item reveal reveal-delay-1">
+        <div class="problem-icon">🌐</div>
+        <p class="problem-text"><strong>Your clients write in languages your team doesn't speak fluently.</strong> International customers get slower, less confident responses — and sometimes none at all.</p>
+      </div>
+      <div class="problem-item reveal reveal-delay-2">
+        <div class="problem-icon">🔧</div>
+        <p class="problem-text"><strong>Your tools don't talk to each other.</strong> Bookings in one system, emails in another, client data somewhere else. Everything requires a manual step in between.</p>
       </div>
     </div>
+    <p class="problem-transition reveal">We fix these problems using simple AI-powered systems — built around how your operation actually works.</p>
   </div>
 </section>
 
 <!-- MID-PAGE CTA STRIP -->
 <div style="background:var(--teal);padding:2.25rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
   <div>
-    <p style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.4rem;">Free · No commitment</p>
-    <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;line-height:1.2;">Curious if this is right for your business?</p>
+    <p style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.4rem;">Free · 30 minutes · No commitment</p>
+    <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;line-height:1.2;">Find the 3 workflows you should automate first.</p>
   </div>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);background:#fff;padding:0.9rem 2.2rem;text-decoration:none;white-space:nowrap;transition:all 0.3s;flex-shrink:0;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='#fff'">Book a free 30-min call →</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);background:#fff;padding:0.9rem 2.2rem;text-decoration:none;white-space:nowrap;transition:all 0.3s;flex-shrink:0;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='#fff'">Book a free 30-minute audit →</a>
 </div>
 
 <!-- QUOTE BAND -->
@@ -1202,6 +1247,78 @@
           <p class="client-body">Dive operations, liveaboard expeditions, five-star resort management, tour operations. We speak your language because we've worked your high season.</p>
           <a href="operators.html" class="client-link">Learn more →</a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLE SYSTEMS WE BUILD -->
+<style>
+  .systems { background: var(--paper); color: var(--ink); padding: 7rem 4rem; }
+  .systems-inner { max-width: 1100px; margin: 0 auto; }
+  .systems .section-label { color: var(--teal); }
+  .systems .section-label::before { background: var(--teal); }
+  .systems-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
+  .systems-intro { font-size: 1.05rem; line-height: 1.8; color: rgba(10,10,15,0.6); padding-top: 0.5rem; }
+  .systems-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .system-card { padding: 2.5rem; border: 1px solid rgba(10,10,15,0.1); transition: all 0.3s; }
+  .system-card:hover { border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 16px 50px rgba(26,107,122,0.08); }
+  .system-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+  .system-title-icon { font-size: 1.3rem; }
+  .system-items { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .system-items li { font-size: 0.92rem; line-height: 1.6; color: rgba(10,10,15,0.62); display: flex; align-items: flex-start; gap: 0.65rem; }
+  .system-items li::before { content: '→'; color: var(--teal); font-size: 0.85rem; flex-shrink: 0; margin-top: 0.1rem; }
+  @media (max-width: 768px) {
+    .systems { padding: 4rem 1.5rem; }
+    .systems-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+    .systems-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<section class="systems" id="systems">
+  <div class="systems-inner">
+    <div class="systems-header">
+      <div>
+        <div class="section-label reveal">What We Build</div>
+        <h2 class="section-title reveal reveal-delay-1">Example systems<br>we build.</h2>
+      </div>
+      <p class="systems-intro reveal reveal-delay-2">We don't hand you a strategy document. We build the actual systems, test them in your operation, and hand them over ready to run. Here's what that looks like in practice.</p>
+    </div>
+    <div class="systems-grid">
+      <div class="system-card reveal">
+        <div class="system-title"><span class="system-title-icon">📬</span> Inquiry Response Automation</div>
+        <ul class="system-items">
+          <li>Every inquiry gets a response within minutes — day or night</li>
+          <li>AI handles common questions about pricing, availability, and logistics</li>
+          <li>Only the conversations that need a human actually reach your team</li>
+          <li>Works in multiple languages automatically</li>
+        </ul>
+      </div>
+      <div class="system-card reveal reveal-delay-1">
+        <div class="system-title"><span class="system-title-icon">📅</span> Booking & Appointment Communication</div>
+        <ul class="system-items">
+          <li>Instant confirmations sent automatically after every booking</li>
+          <li>Pre-visit reminders with relevant information and next steps</li>
+          <li>Document or waiver reminders timed before the appointment</li>
+          <li>Post-visit review requests and follow-up offers</li>
+        </ul>
+      </div>
+      <div class="system-card reveal">
+        <div class="system-title"><span class="system-title-icon">🎓</span> Staff Knowledge System</div>
+        <ul class="system-items">
+          <li>New and seasonal staff get instant answers to operational questions</li>
+          <li>How-to guides, procedures, and policies — all in one place</li>
+          <li>Reduces onboarding time and removes dependence on your busiest person</li>
+          <li>Built from how your business actually runs, not a generic template</li>
+        </ul>
+      </div>
+      <div class="system-card reveal reveal-delay-1">
+        <div class="system-title"><span class="system-title-icon">🌐</span> Multilingual Client Communication</div>
+        <ul class="system-items">
+          <li>Client messages answered in their own language, automatically</li>
+          <li>No extra staff required to handle international customers</li>
+          <li>Consistent, professional tone regardless of which language is used</li>
+          <li>Particularly valuable during high-volume inquiry periods</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1266,9 +1383,11 @@
 <!-- CTA -->
 <section class="cta-band">
   <div class="cta-band-inner">
-    <h2 class="section-title reveal">Let's have a<br><em>real conversation</em></h2>
-    <p class="cta-subtitle reveal reveal-delay-1">No pitch. No pressure. Just an honest look at where your business is headed — and whether we're the right people to help.</p>
-    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn reveal reveal-delay-2">Book a free 30-min call</a>
+    <h2 class="section-title reveal">Ready to find out<br>what's <em>actually possible?</em></h2>
+    <p class="cta-subtitle reveal reveal-delay-1">A free 30-minute audit. We map your workflows, identify what to automate first, and give you a clear picture of what changes. No pitch. Just an honest assessment from people who've run real operations.</p>
+    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn reveal reveal-delay-2">Book a free 30-minute audit</a>
+    <br>
+    <a href="start.html" style="display:inline-block;margin-top:1.25rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Or read how it works first →</a>
   </div>
 </section>
 
@@ -1311,7 +1430,7 @@
 <footer>
   <a href="#hero" class="footer-logo">Gamper Klimmek<span>.</span></a>
   <ul class="footer-links">
-    <li><a href="#services">Services</a></li>
+    <li><a href="#systems">Services</a></li>
     <li><a href="story.html">About</a></li>
     <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
   </ul>

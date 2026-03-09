@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Here — Gamper Klimmek Consulting</title>
+<meta name="description" content="We help small businesses save 10–20 hours a week by automating the work eating their time — inquiries, client communication, follow-ups, and the questions your team answers on repeat.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.gamperklimmek.com/start.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Start Here — Gamper Klimmek Consulting">
+<meta property="og:description" content="We help small businesses automate the work eating their time — inquiries, client communication, follow-ups, and the questions your team answers on repeat.">
+<meta property="og:url" content="https://www.gamperklimmek.com/start.html">
+<meta property="og:image" content="https://www.gamperklimmek.com/og-image.png">
+<meta property="og:site_name" content="Gamper Klimmek Consulting">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Start Here — Gamper Klimmek Consulting">
+<meta name="twitter:description" content="We help small businesses automate the work eating their time — inquiries, client communication, follow-ups, and the questions your team answers on repeat.">
+<meta name="twitter:image" content="https://www.gamperklimmek.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f4f1ec;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --teal: #1a6b7a;
+    --teal-deep: #0d3d47;
+    --white: #ffffff;
+    --muted: #6b6b7a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: linear-gradient(180deg, rgba(10,10,15,0.97) 0%, transparent 100%);
+    backdrop-filter: blur(4px);
+  }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* MOBILE MENU */
+  .nav-hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 32px; height: 24px; position: relative; z-index: 110;
+  }
+  .nav-hamburger span { display: block; width: 100%; height: 2px; background: var(--white); position: absolute; left: 0; transition: all 0.3s; }
+  .nav-hamburger span:nth-child(1) { top: 0; }
+  .nav-hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+  .nav-hamburger span:nth-child(3) { bottom: 0; }
+  .nav-hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+  .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99; background: rgba(10,10,15,0.97); backdrop-filter: blur(12px); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .mobile-cta { margin-top: 1rem; background: var(--gold); color: var(--ink); padding: 0.9rem 2rem; font-size: 0.9rem; }
+
+  /* HERO */
+  .start-hero {
+    min-height: 75vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 10rem 4rem 6rem;
+    position: relative; overflow: hidden;
+  }
+  .start-hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 25%, rgba(26,107,122,0.3) 0%, transparent 55%),
+                radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 50%),
+                var(--ink);
+  }
+  .start-hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at 40% 50%, black 20%, transparent 65%);
+  }
+  .start-hero-inner { position: relative; z-index: 2; max-width: 800px; }
+  .start-eyebrow {
+    font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
+  }
+  .start-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+  .start-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.02; margin-bottom: 2rem; }
+  .start-hero h1 em { font-style: italic; color: var(--gold); }
+  .start-hero-sub { font-size: 1.2rem; line-height: 1.75; color: rgba(255,255,255,0.55); max-width: 620px; margin-bottom: 3rem; }
+  .btn-primary { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; background: var(--gold); padding: 1rem 2.5rem; display: inline-block; transition: all 0.3s; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+
+  /* SHARED */
+  .section-label { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .section-label::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 900; line-height: 1.1; }
+
+  /* SECTION: WHO THIS IS FOR */
+  .for-who { background: var(--paper); color: var(--ink); padding: 7rem 4rem; }
+  .for-who-inner { max-width: 1100px; margin: 0 auto; }
+  .for-who .section-label { color: var(--teal); }
+  .for-who .section-label::before { background: var(--teal); }
+  .for-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+  .for-who-intro { font-size: 1.05rem; line-height: 1.8; color: rgba(10,10,15,0.65); }
+  .for-who-intro p { margin-bottom: 1rem; }
+  .for-who-intro p:last-child { margin-bottom: 0; }
+  .for-who-checks { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .for-who-checks li { font-size: 0.97rem; line-height: 1.65; color: rgba(10,10,15,0.7); display: flex; align-items: flex-start; gap: 0.85rem; padding: 1.1rem 1.25rem; border: 1px solid rgba(10,10,15,0.1); background: rgba(255,255,255,0.6); }
+  .for-who-checks li::before { content: '✓'; color: var(--teal); font-weight: 700; font-size: 0.95rem; flex-shrink: 0; margin-top: 0.05rem; }
+  .for-who-checks li strong { color: var(--ink); }
+
+  /* SECTION: WHAT WE BUILD */
+  .what-we-build { background: var(--ink); padding: 7rem 4rem; }
+  .what-we-build-inner { max-width: 1100px; margin: 0 auto; }
+  .build-intro { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 600px; margin-top: 0.5rem; margin-bottom: 4rem; }
+  .build-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+  .build-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 2.5rem; transition: border-color 0.3s; }
+  .build-card:hover { border-color: rgba(201,168,76,0.3); }
+  .build-card-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+  .build-card-icon { font-size: 1.2rem; }
+  .build-items { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .build-items li { font-size: 0.9rem; line-height: 1.65; color: rgba(255,255,255,0.5); display: flex; align-items: flex-start; gap: 0.65rem; }
+  .build-items li::before { content: '→'; color: var(--gold); font-size: 0.8rem; flex-shrink: 0; margin-top: 0.15rem; }
+
+  /* SECTION: WHO WE WORK BEST WITH */
+  .best-fit { background: linear-gradient(135deg, var(--teal-deep) 0%, #0a1520 100%); padding: 7rem 4rem; position: relative; overflow: hidden; }
+  .best-fit::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%); }
+  .best-fit-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+  .best-fit .section-label { color: var(--gold); }
+  .best-fit .section-label::before { background: var(--gold); }
+  .best-fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; align-items: start; }
+  .best-fit h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; line-height: 1.1; }
+  .best-fit h2 em { font-style: italic; color: var(--gold); }
+  .best-fit-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .best-fit-list li { font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.75rem; }
+  .best-fit-list li::before { content: '◉'; font-size: 0.55rem; color: var(--gold); flex-shrink: 0; }
+  .best-fit-not { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
+  .best-fit-not-label { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.75rem; }
+  .best-fit-not p { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.45); }
+
+  /* SECTION: AI OPERATIONS AUDIT */
+  .audit-section { background: var(--paper); color: var(--ink); padding: 7rem 4rem; }
+  .audit-inner { max-width: 1100px; margin: 0 auto; }
+  .audit-section .section-label { color: var(--teal); }
+  .audit-section .section-label::before { background: var(--teal); }
+  .audit-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; margin-top: 3rem; align-items: start; }
+  .audit-text p { font-size: 1rem; line-height: 1.8; color: rgba(10,10,15,0.65); margin-bottom: 1.25rem; }
+  .audit-text p:last-child { margin-bottom: 0; }
+  .audit-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+  .audit-step { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.5rem; border: 1px solid rgba(10,10,15,0.1); }
+  .audit-step-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: rgba(10,10,15,0.08); line-height: 1; flex-shrink: 0; }
+  .audit-step-content h4 { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .audit-step-content p { font-size: 0.88rem; line-height: 1.65; color: rgba(10,10,15,0.6); }
+
+  /* SECTION: CTA */
+  .start-cta { background: var(--ink); padding: 8rem 4rem; text-align: center; position: relative; overflow: hidden; }
+  .start-cta::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,168,76,0.07) 0%, transparent 60%); }
+  .start-cta-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+  .start-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+  .start-cta h2 em { font-style: italic; color: var(--gold); }
+  .start-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.5); max-width: 520px; margin: 0 auto 2rem; line-height: 1.7; }
+  .cta-btn { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; background: var(--gold); padding: 1.2rem 3.5rem; display: inline-block; transition: all 0.3s; box-shadow: 0 0 0 2px var(--gold); margin-bottom: 1.5rem; }
+  .cta-btn:hover { background: var(--gold-light); box-shadow: 0 20px 60px rgba(201,168,76,0.4), 0 0 0 2px var(--gold-light); transform: translateY(-3px); }
+  .cta-meta { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+
+  /* FOOTER */
+  footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .footer-logo span { color: var(--gold); }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; margin-left: auto; }
+    .start-hero { padding: 8rem 1.5rem 4rem; }
+    .for-who, .what-we-build, .best-fit, .audit-section, .start-cta { padding: 4rem 1.5rem; }
+    .for-who-grid, .best-fit-grid, .audit-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .build-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+    .footer-links { justify-content: center; flex-wrap: wrap; }
+  }
+</style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- Google Consent Mode v2 — analytics denied by default until user accepts -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1Z1TC3H4R"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-J1Z1TC3H4R');
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Gamper Klimmek<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="operators.html">For Operators</a></li>
+    <li><a href="businesses.html">For Businesses</a></li>
+    <li><a href="story.html">Our Story</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu">
+  <a href="index.html" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Home</a>
+  <a href="operators.html" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">For Operators</a>
+  <a href="businesses.html" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">For Businesses</a>
+  <a href="story.html" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Our Story</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta">Book a Call</a>
+</div>
+
+<!-- HERO -->
+<section class="start-hero">
+  <div class="start-hero-bg"></div>
+  <div class="start-hero-grid"></div>
+  <div class="start-hero-inner">
+    <div class="start-eyebrow">Based in Lucerne · Est. 2026</div>
+    <h1>You built a good business.<br>You shouldn't spend all day<br><em>running it manually.</em></h1>
+    <p class="start-hero-sub">
+      We help small businesses — from medical spas and insurance agencies to dive centers and ski schools — automate the work that's eating their time. Client inquiries, booking and appointment communication, follow-ups, and the questions your team answers on repeat. Here's how we do it.
+    </p>
+    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary">Book a free 30-minute audit</a>
+  </div>
+</section>
+
+<!-- SECTION 1: WHO THIS IS FOR -->
+<section class="for-who">
+  <div class="for-who-inner">
+    <div class="section-label reveal">Who This Is For</div>
+    <h2 class="section-title reveal reveal-d1">If you're running a small operation<br>in a state of <em>controlled chaos</em> —</h2>
+    <div class="for-who-grid">
+      <div class="for-who-intro reveal reveal-d2">
+        <p>You know the feeling. Busy periods push the inbox past capacity. Your best team member is still answering the same questions they answered last week. Confirmations and follow-ups go out when someone remembers. A new hire has to learn everything from whoever's available to show them.</p>
+        <p>It works. But it only works because you and your team are constantly plugging the gaps. The business runs on people, not on systems. And when things calm down, you're exhausted — and the same problems are waiting for next time.</p>
+        <p>That's what we fix. Not with complicated enterprise software. With practical, AI-powered systems that match how your business actually runs.</p>
+      </div>
+      <ul class="for-who-checks reveal reveal-d2">
+        <li><strong>You run a small service business</strong> — medical spa, insurance agency, mortgage broker, professional services firm, dive center, surf school, ski school, tour operator, or similar</li>
+        <li><strong>You have between 3 and 30 people</strong> on your team, full-time, part-time, or seasonal</li>
+        <li><strong>You handle a significant volume of client inquiries</strong>, especially around pricing, availability, and next steps</li>
+        <li><strong>Communication is largely manual</strong> — confirmations, reminders, and follow-ups require someone to remember and send them</li>
+        <li><strong>You serve clients who write in multiple languages</strong>, or you'd simply like to respond faster and more consistently</li>
+        <li><strong>You know things could run better</strong> but the day-to-day never leaves enough time to fix them</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: WHAT WE BUILD -->
+<section class="what-we-build">
+  <div class="what-we-build-inner">
+    <div class="section-label reveal">What We Build</div>
+    <h2 class="section-title reveal reveal-d1">Concrete systems.<br>Not strategy documents.</h2>
+    <p class="build-intro reveal reveal-d2">We build the actual systems, test them against your real workflows, and hand them over ready to run. Here's what that looks like in practice.</p>
+    <div class="build-grid">
+      <div class="build-card reveal">
+        <div class="build-card-title"><span class="build-card-icon">📬</span> Inquiry Automation</div>
+        <ul class="build-items">
+          <li>Every inquiry gets a response within minutes — including at 2am when you're asleep</li>
+          <li>AI handles the common questions: pricing, availability, what to expect, next steps</li>
+          <li>Only complex or unusual conversations go to your team</li>
+          <li>Works in multiple languages automatically</li>
+        </ul>
+      </div>
+      <div class="build-card reveal reveal-d1">
+        <div class="build-card-title"><span class="build-card-icon">📅</span> Booking Communication</div>
+        <ul class="build-items">
+          <li>Instant booking confirmations sent automatically</li>
+          <li>Pre-visit or pre-appointment reminders with relevant information and next steps</li>
+          <li>Waiver or document reminders timed before the appointment</li>
+          <li>Post-visit review requests and follow-up offers</li>
+        </ul>
+      </div>
+      <div class="build-card reveal">
+        <div class="build-card-title"><span class="build-card-icon">🎓</span> Staff Answer System</div>
+        <ul class="build-items">
+          <li>New and seasonal staff can ask questions and get instant, accurate answers</li>
+          <li>How-to guides, procedures, and house rules — all in one place your team can actually access</li>
+          <li>Reduces onboarding time and removes dependence on your busiest person</li>
+          <li>Built from how your business actually runs, not a generic template</li>
+        </ul>
+      </div>
+      <div class="build-card reveal reveal-d1">
+        <div class="build-card-title"><span class="build-card-icon">🌐</span> Multilingual Client Communication</div>
+        <ul class="build-items">
+          <li>Client messages answered in their own language, automatically</li>
+          <li>No extra staff required to handle international customers</li>
+          <li>Consistent, professional tone regardless of which language is used</li>
+          <li>Particularly valuable during high-volume inquiry periods</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: WHO WE WORK BEST WITH -->
+<section class="best-fit">
+  <div class="best-fit-inner">
+    <div class="section-label reveal">Who We Work Best With</div>
+    <div class="best-fit-grid">
+      <div>
+        <h2 class="reveal reveal-d1">We're operators<br>who <em>build systems.</em></h2>
+        <p style="margin-top:1.5rem;font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.55);" class="reveal reveal-d2">We met on a dive boat in Bali, ran operations across four continents, managed a five-star resort, opened our own dive business, and spent a decade in European SaaS. When we say we understand your operation — we mean it in the most literal sense.</p>
+        <a href="story.html" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap 0.3s;" class="reveal reveal-d2" onmouseover="this.style.gap='0.9rem'" onmouseout="this.style.gap='0.5rem'">Read our full story →</a>
+      </div>
+      <div>
+        <ul class="best-fit-list reveal reveal-d1">
+          <li>Medical spas, aesthetic clinics, and wellness practices</li>
+          <li>Insurance agencies and mortgage brokers</li>
+          <li>Professional services firms (legal, accounting, financial advisory)</li>
+          <li>Dive centers, surf schools, ski schools, and tour operators</li>
+          <li>Any service business with high inquiry or communication volume</li>
+          <li>3–30 person teams, full-time or seasonal</li>
+          <li>Businesses where the owner is still involved in daily operations</li>
+        </ul>
+        <div class="best-fit-not reveal reveal-d2">
+          <div class="best-fit-not-label">Not the right fit if —</div>
+          <p>You're a large enterprise, looking for a full-time employee, or primarily need a marketing agency. We work with owner-operators who want real systems, not reports.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: AI OPERATIONS AUDIT -->
+<section class="audit-section">
+  <div class="audit-inner">
+    <div class="section-label reveal">The Starting Point</div>
+    <h2 class="section-title reveal reveal-d1">Free 30-minute<br>workflow audit.</h2>
+    <div class="audit-grid">
+      <div class="audit-text reveal reveal-d2">
+        <p>Before we build anything, we want to understand your operation — how it actually runs, not how it's supposed to run. That's why we start with a free, focused 30-minute conversation.</p>
+        <p>We'll map your key workflows, identify where your team's time is going, and tell you exactly which three things to automate first. You leave with a clear picture of what's possible and what it would take to get there. No pitch. No pressure. Just an honest assessment from people who've been in your shoes.</p>
+        <p>If it makes sense to work together, great. If it doesn't, you still have a useful operations map you can act on yourself.</p>
+      </div>
+      <div class="audit-steps reveal reveal-d2">
+        <div class="audit-step">
+          <div class="audit-step-num">01</div>
+          <div class="audit-step-content">
+            <h4>We map your workflows</h4>
+            <p>We walk through your most time-consuming workflows — inquiries, booking communication, staff onboarding, client follow-up — and identify where the gaps are.</p>
+          </div>
+        </div>
+        <div class="audit-step">
+          <div class="audit-step-num">02</div>
+          <div class="audit-step-content">
+            <h4>We identify what to automate first</h4>
+            <p>Not everything needs automating — and not everything can be. We prioritise by impact: what will save the most time, with the least disruption to your operation.</p>
+          </div>
+        </div>
+        <div class="audit-step">
+          <div class="audit-step-num">03</div>
+          <div class="audit-step-content">
+            <h4>We recommend the right tools</h4>
+            <p>We work with what you already have where possible, and recommend only what actually fits a business your size. No enterprise software. No six-month rollouts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: CTA -->
+<section class="start-cta">
+  <div class="start-cta-inner">
+    <h2 class="reveal">Book your free<br><em>30-minute audit.</em></h2>
+    <p class="reveal reveal-d1">30 minutes. We map your business, find the biggest time drains, and tell you exactly what to automate first. No pitch. No commitment.</p>
+    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn reveal reveal-d2">Book a free 30-minute call</a>
+    <div class="cta-meta reveal reveal-d3">Free · No commitment · Real-world systems</div>
+  </div>
+</section>
+
+<style>
+  .footer-nl{background:#0a0a0f;border-top:1px solid rgba(255,255,255,0.04);padding:1.5rem 4rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+  .footer-nl-label{font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;}
+  .footer-nl-link{font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.04em;color:#c9a84c;text-decoration:none;transition:color 0.2s,letter-spacing 0.2s;}
+  .footer-nl-link:hover{color:#e8c97a;letter-spacing:0.06em;}
+  @media(max-width:768px){.footer-nl{padding:1.25rem 2rem;}}
+</style>
+<div class="footer-nl">
+  <span class="footer-nl-label">Newsletter</span>
+  <a href="index.html#newsletter" class="footer-nl-link">Get practical AI insights — subscribe →</a>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Gamper Klimmek<span>.</span></a>
+  <ul class="footer-links">
+    <li><a href="operators.html">For Operators</a></li>
+    <li><a href="businesses.html">For Businesses</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
+  </ul>
+  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Cookie Settings</button><span class="footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>
