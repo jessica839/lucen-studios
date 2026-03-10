@@ -56,6 +56,19 @@
   .nav-back { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
   .nav-back:hover { color: var(--gold); }
   .nav-back::before { content: '←'; }
+  .gk-lang-switcher { display: inline-flex; gap: 0.25rem; margin-left: 1rem; }
+  .gk-lang-btn {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    padding: 0.28rem 0.4rem;
+    cursor: pointer;
+  }
+  .gk-lang-btn.active { color: var(--gold); border-color: var(--gold); }
 
   /* MOBILE MENU */
   .nav-hamburger {
@@ -266,26 +279,42 @@
   gtag('config', 'G-J1Z1TC3H4R');
 </script>
 </head>
-<body>
+<body data-i18n-page="businesses">
 
 <nav>
   <a href="index.html" class="nav-logo">Gamper Klimmek<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="index.html#team">About</a></li>
-    <li><a href="operators.html">For Operators</a></li>
+    <li><a href="index.html#services" data-i18n="nav_services">Services</a></li>
+    <li><a href="index.html#team" data-i18n="nav_about">About</a></li>
+    <li><a href="operators.html" data-i18n="nav_for_operators">For Operators</a></li>
+    <li><a href="resources.html" data-i18n="nav_case_studies">Case Studies</a></li>
   </ul>
-  <a href="index.html" class="nav-back">Back to home</a>
+  <a href="index.html" class="nav-back" data-i18n="nav_back_home">Back to home</a>
+  <div class="gk-lang-switcher" aria-label="Language switcher">
+    <button class="gk-lang-btn" data-lang="en" type="button">EN</button>
+    <button class="gk-lang-btn" data-lang="de" type="button">DE</button>
+    <button class="gk-lang-btn" data-lang="fr" type="button">FR</button>
+    <button class="gk-lang-btn" data-lang="it" type="button">IT</button>
+    <button class="gk-lang-btn" data-lang="es" type="button">ES</button>
+  </div>
   <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="operators.html">For Operators</a>
-  <a href="story.html">Our Story</a>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta">Book a Call</a>
+  <a href="index.html" data-i18n="nav_home">Home</a>
+  <a href="operators.html" data-i18n="nav_for_operators">For Operators</a>
+  <a href="story.html" data-i18n="nav_our_story">Our Story</a>
+  <a href="resources.html" data-i18n="nav_case_studies">Case Studies</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta" data-i18n="mobile_book_call">Book a Call</a>
+  <div class="gk-lang-switcher" aria-label="Language switcher">
+    <button class="gk-lang-btn" data-lang="en" type="button">EN</button>
+    <button class="gk-lang-btn" data-lang="de" type="button">DE</button>
+    <button class="gk-lang-btn" data-lang="fr" type="button">FR</button>
+    <button class="gk-lang-btn" data-lang="it" type="button">IT</button>
+    <button class="gk-lang-btn" data-lang="es" type="button">ES</button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -293,12 +322,12 @@
   <div class="page-hero-bg"></div>
   <div class="page-hero-grid"></div>
   <div class="page-hero-inner">
-    <div class="page-eyebrow">For Businesses & SMBs</div>
-    <h1>Your team is spending<br>time on things<br><em>AI should handle.</em></h1>
-    <p class="page-hero-sub">
+    <div class="page-eyebrow" data-i18n="eyebrow">For Businesses & SMBs</div>
+    <h1 data-i18n="hero_title">Your team is spending<br>time on things<br><em>AI should handle.</em></h1>
+    <p class="page-hero-sub" data-i18n="businesses_hero_sub">
       Quote follow-up. Client intake. Renewal emails. Status replies. The repetitive, high-volume work that fills your team's day and keeps them from the work that actually grows your business. We fix that.
     </p>
-    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary">Book a free 30-min call</a>
+    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary" data-i18n="hero_btn">Book a free 30-min call</a>
   </div>
 </section>
 
@@ -307,41 +336,41 @@
   <div class="pain-inner">
     <div class="pain-header">
       <div>
-        <div class="section-label reveal">Sound familiar?</div>
-        <h2 class="section-title reveal reveal-d1">The problems<br>we solve.</h2>
+        <div class="section-label reveal" data-i18n="businesses_pain_label">Sound familiar?</div>
+        <h2 class="section-title reveal reveal-d1" data-i18n="businesses_pain_title">The problems<br>we solve.</h2>
       </div>
-      <p class="pain-intro reveal reveal-d2">We work with independent insurance agencies, medical spas, professional services firms, and Swiss SMEs. The names are different. The problems are almost always the same.</p>
+      <p class="pain-intro reveal reveal-d2" data-i18n="businesses_pain_intro">We work with independent insurance agencies, medical spas, professional services firms, and Swiss SMEs. The names are different. The problems are almost always the same.</p>
     </div>
     <div class="pain-grid">
       <div class="pain-card reveal">
         <div class="pain-icon">📬</div>
-        <div class="pain-title">Lead leakage</div>
-        <p class="pain-body">Quotes go out. Follow-up is manual, slow, and inconsistent. Warm leads go cold before anyone gets back to them. Revenue disappears into the gap between inquiry and response.</p>
+        <div class="pain-title" data-i18n="businesses_pain_1_title">Lead leakage</div>
+        <p class="pain-body" data-i18n="businesses_pain_1_body">Quotes go out. Follow-up is manual, slow, and inconsistent. Warm leads go cold before anyone gets back to them. Revenue disappears into the gap between inquiry and response.</p>
       </div>
       <div class="pain-card reveal reveal-d1">
         <div class="pain-icon">📧</div>
-        <div class="pain-title">Email overload</div>
-        <p class="pain-body">Your team spends hours every day answering the same questions, writing the same renewal notices, sending the same status updates. It's not skilled work — it's volume work. AI handles volume.</p>
+        <div class="pain-title" data-i18n="businesses_pain_2_title">Email overload</div>
+        <p class="pain-body" data-i18n="businesses_pain_2_body">Your team spends hours every day answering the same questions, writing the same renewal notices, sending the same status updates. It's not skilled work — it's volume work. AI handles volume.</p>
       </div>
       <div class="pain-card reveal reveal-d2">
         <div class="pain-icon">📋</div>
-        <div class="pain-title">Manual client intake</div>
-        <p class="pain-body">New client onboarding still runs on phone calls, PDFs, and email chains. It's slow, it's inconsistent, and it makes a poor first impression. There's a better way — and it takes days to build, not months.</p>
+        <div class="pain-title" data-i18n="businesses_pain_3_title">Manual client intake</div>
+        <p class="pain-body" data-i18n="businesses_pain_3_body">New client onboarding still runs on phone calls, PDFs, and email chains. It's slow, it's inconsistent, and it makes a poor first impression. There's a better way — and it takes days to build, not months.</p>
       </div>
       <div class="pain-card reveal">
         <div class="pain-icon">🔧</div>
-        <div class="pain-title">Tools you're not using</div>
-        <p class="pain-body">You've invested in software. Your team uses maybe 20% of what it can do. The rest sits idle because nobody had time to set it up properly. We get more out of what you already have.</p>
+        <div class="pain-title" data-i18n="businesses_pain_4_title">Tools you're not using</div>
+        <p class="pain-body" data-i18n="businesses_pain_4_body">You've invested in software. Your team uses maybe 20% of what it can do. The rest sits idle because nobody had time to set it up properly. We get more out of what you already have.</p>
       </div>
       <div class="pain-card reveal reveal-d1">
         <div class="pain-icon">📁</div>
-        <div class="pain-title">Knowledge in people's heads</div>
-        <p class="pain-body">Your SOPs live in one person's memory. When they're sick, on holiday, or gone — the process breaks. We document, systematise, and build the AI tools that keep things running regardless.</p>
+        <div class="pain-title" data-i18n="businesses_pain_5_title">Knowledge in people's heads</div>
+        <p class="pain-body" data-i18n="businesses_pain_5_body">Your SOPs live in one person's memory. When they're sick, on holiday, or gone — the process breaks. We document, systematise, and build the AI tools that keep things running regardless.</p>
       </div>
       <div class="pain-card reveal reveal-d2">
         <div class="pain-icon">⏱</div>
-        <div class="pain-title">No time to fix it</div>
-        <p class="pain-body">You know the problems. You've known for a while. But every week is too busy to step back and fix the systems that are causing the busy. We step in, map it, and build the fix — without disrupting your operation.</p>
+        <div class="pain-title" data-i18n="businesses_pain_6_title">No time to fix it</div>
+        <p class="pain-body" data-i18n="businesses_pain_6_body">You know the problems. You've known for a while. But every week is too busy to step back and fix the systems that are causing the busy. We step in, map it, and build the fix — without disrupting your operation.</p>
       </div>
     </div>
   </div>
@@ -445,7 +474,7 @@
 <section class="page-cta">
   <h2 class="reveal">Ready to stop<br><em>doing it manually?</em></h2>
   <p class="reveal reveal-d1">A free 30-minute call is all it takes to find out whether we're the right fit. No pitch. No pressure. Just an honest look at your operation and what's possible.</p>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn-dark reveal reveal-d2">Book a free 30-min call</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn-dark reveal reveal-d2" data-i18n="hero_btn">Book a free 30-min call</a>
 </section>
 
 <style>
@@ -456,19 +485,20 @@
   @media(max-width:768px){.footer-nl{padding:1.25rem 2rem;}}
 </style>
 <div class="footer-nl">
-  <span class="footer-nl-label">Newsletter</span>
-  <a href="index.html#newsletter" class="footer-nl-link">Get practical AI insights — subscribe →</a>
+  <span class="footer-nl-label" data-i18n="footer_newsletter">Newsletter</span>
+  <a href="index.html#newsletter" class="footer-nl-link" data-i18n="footer_newsletter_cta">Get practical AI insights — subscribe →</a>
 </div>
 
 <footer>
   <a href="index.html" class="footer-logo">Gamper Klimmek<span>.</span></a>
   <ul class="footer-links">
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="story.html">Our Story</a></li>
-    <li><a href="operators.html">For Operators</a></li>
-    <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
+    <li><a href="index.html#services" data-i18n="nav_services">Services</a></li>
+    <li><a href="story.html" data-i18n="nav_our_story">Our Story</a></li>
+    <li><a href="operators.html" data-i18n="nav_for_operators">For Operators</a></li>
+    <li><a href="resources.html" data-i18n="nav_case_studies">Case Studies</a></li>
+    <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" data-i18n="nav_contact">Contact</a></li>
   </ul>
-  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Cookie Settings</button><span class="footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer_legal">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer_cookie_settings">Cookie Settings</button><span class="footer-copy" data-i18n="footer_copyright">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
 </footer>
 
 <script>
@@ -478,6 +508,7 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
+<script src="i18n.js"></script>
 <script src="cookie-consent.js"></script>
 </body>
 </html>

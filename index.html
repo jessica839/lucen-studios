@@ -110,6 +110,19 @@
     transition: color 0.3s;
   }
   .nav-links a:hover { color: var(--gold); }
+  .gk-lang-switcher { display: inline-flex; gap: 0.25rem; margin-left: 1rem; }
+  .gk-lang-btn {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    padding: 0.28rem 0.4rem;
+    cursor: pointer;
+  }
+  .gk-lang-btn.active { color: var(--gold); border-color: var(--gold); }
 
   /* ── MOBILE MENU ── */
   .nav-hamburger {
@@ -1044,18 +1057,26 @@
   gtag('config', 'G-J1Z1TC3H4R');
 </script>
 </head>
-<body>
+<body data-i18n-page="index">
 
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">Gamper Klimmek<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#systems">Services</a></li>
-    <li><a href="#team">About</a></li>
-    <li><a href="start.html" style="color:var(--gold);">Start Here</a></li>
-    <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
+    <li><a href="#hero" data-i18n="nav_home">Home</a></li>
+    <li><a href="#systems" data-i18n="nav_services">Services</a></li>
+    <li><a href="#team" data-i18n="nav_about">About</a></li>
+    <li><a href="resources.html" data-i18n="nav_case_studies">Case Studies</a></li>
+    <li><a href="start.html" style="color:var(--gold);" data-i18n="nav_start_here">Start Here</a></li>
+    <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" data-i18n="nav_contact">Contact</a></li>
   </ul>
+  <div class="gk-lang-switcher" aria-label="Language switcher">
+    <button class="gk-lang-btn" data-lang="en" type="button">EN</button>
+    <button class="gk-lang-btn" data-lang="de" type="button">DE</button>
+    <button class="gk-lang-btn" data-lang="fr" type="button">FR</button>
+    <button class="gk-lang-btn" data-lang="it" type="button">IT</button>
+    <button class="gk-lang-btn" data-lang="es" type="button">ES</button>
+  </div>
   <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
     <span></span><span></span><span></span>
   </button>
@@ -1063,11 +1084,19 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu">
-  <a href="#hero" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Home</a>
-  <a href="#systems" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Services</a>
-  <a href="#team" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">About</a>
-  <a href="start.html" style="color:var(--gold);" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Start Here</a>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta">Book a Call</a>
+  <a href="#hero" data-i18n="nav_home" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Home</a>
+  <a href="#systems" data-i18n="nav_services" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Services</a>
+  <a href="#team" data-i18n="nav_about" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">About</a>
+  <a href="resources.html" data-i18n="nav_case_studies" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Case Studies</a>
+  <a href="start.html" style="color:var(--gold);" data-i18n="nav_start_here" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Start Here</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta" data-i18n="mobile_book_call">Book a Call</a>
+  <div class="gk-lang-switcher" aria-label="Language switcher">
+    <button class="gk-lang-btn" data-lang="en" type="button">EN</button>
+    <button class="gk-lang-btn" data-lang="de" type="button">DE</button>
+    <button class="gk-lang-btn" data-lang="fr" type="button">FR</button>
+    <button class="gk-lang-btn" data-lang="it" type="button">IT</button>
+    <button class="gk-lang-btn" data-lang="es" type="button">ES</button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -1076,18 +1105,18 @@
   <div class="hero-grid"></div>
 
   <div class="hero-left">
-    <div class="hero-eyebrow">Based in Lucerne · Est. 2026</div>
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">Based in Lucerne · Est. 2026</div>
     <h1 class="hero-title">
-      Stop running<br>
+      <span data-i18n="hero_title">Stop running<br>
       your business<br>
-      on <em>chaos.</em>
+      on <em>chaos.</em></span>
     </h1>
-    <p class="hero-body">
+    <p class="hero-body" data-i18n="hero_body">
       We help small businesses save 10–20 hours a week by automating the work that's eating their time — client inquiries, booking and appointment communication, follow-ups, and the questions your team answers on repeat. Built by people who've run real operations, not just PowerPoints.
     </p>
     <div class="hero-ctas">
-      <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary">Book a free 30-minute audit</a>
-      <a href="start.html" class="btn-ghost">See how it works</a>
+      <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary" data-i18n="hero_btn_primary">Book a free 30-minute audit</a>
+      <a href="start.html" class="btn-ghost" data-i18n="hero_btn_secondary">See how it works</a>
     </div>
   </div>
 
@@ -1109,20 +1138,20 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item">Inquiry Automation <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Booking Communication <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Client Follow-Up <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Multilingual Messaging <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Staff Knowledge Systems <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Built to Run Without You <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Real-World Workflows <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Inquiry Automation <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Booking Communication <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Client Follow-Up <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Multilingual Messaging <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Staff Knowledge Systems <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Built to Run Without You <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Real-World Workflows <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_1">Inquiry Automation <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_2">Booking Communication <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_3">Client Follow-Up <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_4">Multilingual Messaging <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_5">Staff Knowledge Systems <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_6">Built to Run Without You <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_7">Real-World Workflows <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_1">Inquiry Automation <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_2">Booking Communication <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_3">Client Follow-Up <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_4">Multilingual Messaging <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_5">Staff Knowledge Systems <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_6">Built to Run Without You <span class="ticker-dot">·</span></span>
+    <span class="ticker-item" data-i18n="ticker_7">Real-World Workflows <span class="ticker-dot">·</span></span>
   </div>
 </div>
 
@@ -1174,79 +1203,79 @@
 <section class="problem" id="problem">
   <div class="problem-inner">
     <div class="problem-header">
-      <div class="section-label reveal">Sound Familiar?</div>
-      <h2 class="section-title reveal reveal-delay-1">Your business probably<br>runs on <em>this</em> right now.</h2>
+      <div class="section-label reveal" data-i18n="problem_label">Sound Familiar?</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="problem_title">Your business probably<br>runs on <em>this</em> right now.</h2>
     </div>
     <div class="problem-grid">
       <div class="problem-item reveal">
         <div class="problem-icon">📬</div>
-        <p class="problem-text"><strong>Inquiries pile up faster than your team can respond.</strong> Busy periods push your inbox past capacity. Every slow reply is a potential client you didn't win.</p>
+        <p class="problem-text" data-i18n="problem_item_1"><strong>Inquiries pile up faster than your team can respond.</strong> Busy periods push your inbox past capacity. Every slow reply is a potential client you didn't win.</p>
       </div>
       <div class="problem-item reveal reveal-delay-1">
         <div class="problem-icon">🔁</div>
-        <p class="problem-text"><strong>Your team answers the same questions on repeat.</strong> Pricing, availability, what to expect, how to get there — all day, every day.</p>
+        <p class="problem-text" data-i18n="problem_item_2"><strong>Your team answers the same questions on repeat.</strong> Pricing, availability, what to expect, how to get there — all day, every day.</p>
       </div>
       <div class="problem-item reveal reveal-delay-2">
         <div class="problem-icon">📅</div>
-        <p class="problem-text"><strong>Follow-ups get forgotten.</strong> Confirmations, reminders, review requests — they only go out if someone remembers to send them.</p>
+        <p class="problem-text" data-i18n="problem_item_3"><strong>Follow-ups get forgotten.</strong> Confirmations, reminders, review requests — they only go out if someone remembers to send them.</p>
       </div>
       <div class="problem-item reveal">
         <div class="problem-icon">🧠</div>
-        <p class="problem-text"><strong>How things work lives in one person's head.</strong> When they're sick, on holiday, or gone — everything has to be re-explained from scratch.</p>
+        <p class="problem-text" data-i18n="problem_item_4"><strong>How things work lives in one person's head.</strong> When they're sick, on holiday, or gone — everything has to be re-explained from scratch.</p>
       </div>
       <div class="problem-item reveal reveal-delay-1">
         <div class="problem-icon">🌐</div>
-        <p class="problem-text"><strong>Your clients write in languages your team doesn't speak fluently.</strong> International customers get slower, less confident responses — and sometimes none at all.</p>
+        <p class="problem-text" data-i18n="problem_item_5"><strong>Your clients write in languages your team doesn't speak fluently.</strong> International customers get slower, less confident responses — and sometimes none at all.</p>
       </div>
       <div class="problem-item reveal reveal-delay-2">
         <div class="problem-icon">🔧</div>
-        <p class="problem-text"><strong>Your tools don't talk to each other.</strong> Bookings in one system, emails in another, client data somewhere else. Everything requires a manual step in between.</p>
+        <p class="problem-text" data-i18n="problem_item_6"><strong>Your tools don't talk to each other.</strong> Bookings in one system, emails in another, client data somewhere else. Everything requires a manual step in between.</p>
       </div>
     </div>
-    <p class="problem-transition reveal">We fix these problems using simple AI-powered systems — built around how your operation actually works.</p>
+    <p class="problem-transition reveal" data-i18n="problem_transition">We fix these problems using simple AI-powered systems — built around how your operation actually works.</p>
   </div>
 </section>
 
 <!-- MID-PAGE CTA STRIP -->
 <div style="background:var(--teal);padding:2.25rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
   <div>
-    <p style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.4rem;">Free · 30 minutes · No commitment</p>
-    <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;line-height:1.2;">Find the 3 workflows you should automate first.</p>
+    <p style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.4rem;" data-i18n="mid_cta_label">Free · 30 minutes · No commitment</p>
+    <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;line-height:1.2;" data-i18n="mid_cta_title">Find the 3 workflows you should automate first.</p>
   </div>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);background:#fff;padding:0.9rem 2.2rem;text-decoration:none;white-space:nowrap;transition:all 0.3s;flex-shrink:0;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='#fff'">Book a free 30-minute audit →</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);background:#fff;padding:0.9rem 2.2rem;text-decoration:none;white-space:nowrap;transition:all 0.3s;flex-shrink:0;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='#fff'" data-i18n="mid_cta_btn">Book a free 30-minute audit →</a>
 </div>
 
 <!-- QUOTE BAND -->
 <div class="quote-band">
-  <p class="quote-text reveal">"We've been on both sides of the table — as operators and as consultants. That's what makes us different."</p>
-  <div class="quote-attr reveal reveal-delay-1">— Jessica & Matthias, Gamper Klimmek Consulting</div>
+  <p class="quote-text reveal" data-i18n="quote_text">"We've been on both sides of the table — as operators and as consultants. That's what makes us different."</p>
+  <div class="quote-attr reveal reveal-delay-1" data-i18n="quote_attr">— Jessica & Matthias, Gamper Klimmek Consulting</div>
 </div>
 
 <!-- WHO WE WORK WITH -->
 <section class="clients">
   <div class="clients-inner">
-    <div class="section-label reveal">Who We Work With</div>
-    <h2 class="section-title reveal reveal-delay-1">Two worlds.<br>One firm.</h2>
-    <p class="section-subtitle reveal reveal-delay-2">We partner with two distinct client worlds — and we've built our firm around serving both exceptionally well.</p>
+    <div class="section-label reveal" data-i18n="clients_label">Who We Work With</div>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n="clients_title">Two worlds.<br>One firm.</h2>
+    <p class="section-subtitle reveal reveal-delay-2" data-i18n="clients_subtitle">We partner with two distinct client worlds — and we've built our firm around serving both exceptionally well.</p>
     <div class="clients-grid">
       <div class="client-card client-card-sme reveal">
         <div class="client-card-bg client-card-bg-sme"></div>
         <div class="client-card-pattern"></div>
         <div class="client-card-content">
-          <div class="client-tag">Owner-Operated Businesses</div>
-          <div class="client-title">Businesses & SMBs</div>
-          <p class="client-body">Established companies modernizing operations, adopting AI, and staying competitive. Insurance agencies, medical spas, professional services — US, Swiss & DACH.</p>
-          <a href="businesses.html" class="client-link">Learn more →</a>
+          <div class="client-tag" data-i18n="client_sme_tag">Owner-Operated Businesses</div>
+          <div class="client-title" data-i18n="client_sme_title">Businesses & SMBs</div>
+          <p class="client-body" data-i18n="client_sme_body">Established companies modernizing operations, adopting AI, and staying competitive. Insurance agencies, medical spas, professional services — US, Swiss & DACH.</p>
+          <a href="businesses.html" class="client-link" data-i18n="client_learn_more">Learn more →</a>
         </div>
       </div>
       <div class="client-card client-card-ops reveal reveal-delay-1">
         <div class="client-card-bg client-card-bg-ops"></div>
         <div class="client-card-pattern"></div>
         <div class="client-card-content">
-          <div class="client-tag">Experience Operators</div>
-          <div class="client-title">Operators & Experience Brands</div>
-          <p class="client-body">Dive operations, liveaboard expeditions, five-star resort management, tour operations. We speak your language because we've worked your high season.</p>
-          <a href="operators.html" class="client-link">Learn more →</a>
+          <div class="client-tag" data-i18n="client_ops_tag">Experience Operators</div>
+          <div class="client-title" data-i18n="client_ops_title">Operators & Experience Brands</div>
+          <p class="client-body" data-i18n="client_ops_body">Dive operations, liveaboard expeditions, five-star resort management, tour operations. We speak your language because we've worked your high season.</p>
+          <a href="operators.html" class="client-link" data-i18n="client_learn_more">Learn more →</a>
         </div>
       </div>
     </div>
@@ -1279,46 +1308,46 @@
   <div class="systems-inner">
     <div class="systems-header">
       <div>
-        <div class="section-label reveal">What We Build</div>
-        <h2 class="section-title reveal reveal-delay-1">Example systems<br>we build.</h2>
+        <div class="section-label reveal" data-i18n="systems_label">What We Build</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="systems_title">Example systems<br>we build.</h2>
       </div>
-      <p class="systems-intro reveal reveal-delay-2">We don't hand you a strategy document. We build the actual systems, test them in your operation, and hand them over ready to run. Here's what that looks like in practice.</p>
+      <p class="systems-intro reveal reveal-delay-2" data-i18n="systems_intro">We don't hand you a strategy document. We build the actual systems, test them in your operation, and hand them over ready to run. Here's what that looks like in practice.</p>
     </div>
     <div class="systems-grid">
       <div class="system-card reveal">
-        <div class="system-title"><span class="system-title-icon">📬</span> Inquiry Response Automation</div>
+        <div class="system-title"><span class="system-title-icon">📬</span><span data-i18n="system_1_title">Inquiry Response Automation</span></div>
         <ul class="system-items">
-          <li>Every inquiry gets a response within minutes — day or night</li>
-          <li>AI handles common questions about pricing, availability, and logistics</li>
-          <li>Only the conversations that need a human actually reach your team</li>
-          <li>Works in multiple languages automatically</li>
+          <li data-i18n="system_1_item_1">Every inquiry gets a response within minutes — day or night</li>
+          <li data-i18n="system_1_item_2">AI handles common questions about pricing, availability, and logistics</li>
+          <li data-i18n="system_1_item_3">Only the conversations that need a human actually reach your team</li>
+          <li data-i18n="system_1_item_4">Works in multiple languages automatically</li>
         </ul>
       </div>
       <div class="system-card reveal reveal-delay-1">
-        <div class="system-title"><span class="system-title-icon">📅</span> Booking & Appointment Communication</div>
+        <div class="system-title"><span class="system-title-icon">📅</span><span data-i18n="system_2_title">Booking & Appointment Communication</span></div>
         <ul class="system-items">
-          <li>Instant confirmations sent automatically after every booking</li>
-          <li>Pre-visit reminders with relevant information and next steps</li>
-          <li>Document or waiver reminders timed before the appointment</li>
-          <li>Post-visit review requests and follow-up offers</li>
+          <li data-i18n="system_2_item_1">Instant confirmations sent automatically after every booking</li>
+          <li data-i18n="system_2_item_2">Pre-visit reminders with relevant information and next steps</li>
+          <li data-i18n="system_2_item_3">Document or waiver reminders timed before the appointment</li>
+          <li data-i18n="system_2_item_4">Post-visit review requests and follow-up offers</li>
         </ul>
       </div>
       <div class="system-card reveal">
-        <div class="system-title"><span class="system-title-icon">🎓</span> Staff Knowledge System</div>
+        <div class="system-title"><span class="system-title-icon">🎓</span><span data-i18n="system_3_title">Staff Knowledge System</span></div>
         <ul class="system-items">
-          <li>New and seasonal staff get instant answers to operational questions</li>
-          <li>How-to guides, procedures, and policies — all in one place</li>
-          <li>Reduces onboarding time and removes dependence on your busiest person</li>
-          <li>Built from how your business actually runs, not a generic template</li>
+          <li data-i18n="system_3_item_1">New and seasonal staff get instant answers to operational questions</li>
+          <li data-i18n="system_3_item_2">How-to guides, procedures, and policies — all in one place</li>
+          <li data-i18n="system_3_item_3">Reduces onboarding time and removes dependence on your busiest person</li>
+          <li data-i18n="system_3_item_4">Built from how your business actually runs, not a generic template</li>
         </ul>
       </div>
       <div class="system-card reveal reveal-delay-1">
-        <div class="system-title"><span class="system-title-icon">🌐</span> Multilingual Client Communication</div>
+        <div class="system-title"><span class="system-title-icon">🌐</span><span data-i18n="system_4_title">Multilingual Client Communication</span></div>
         <ul class="system-items">
-          <li>Client messages answered in their own language, automatically</li>
-          <li>No extra staff required to handle international customers</li>
-          <li>Consistent, professional tone regardless of which language is used</li>
-          <li>Particularly valuable during high-volume inquiry periods</li>
+          <li data-i18n="system_4_item_1">Client messages answered in their own language, automatically</li>
+          <li data-i18n="system_4_item_2">No extra staff required to handle international customers</li>
+          <li data-i18n="system_4_item_3">Consistent, professional tone regardless of which language is used</li>
+          <li data-i18n="system_4_item_4">Particularly valuable during high-volume inquiry periods</li>
         </ul>
       </div>
     </div>
@@ -1330,15 +1359,15 @@
   <div class="stats-inner">
     <div class="stat-item reveal">
       <span class="stat-num">15+</span>
-      <span class="stat-label">Years in Operations</span>
+      <span class="stat-label" data-i18n="stat_label_1">Years in Operations</span>
     </div>
     <div class="stat-item reveal reveal-delay-1">
       <span class="stat-num">12</span>
-      <span class="stat-label">Countries Worked In</span>
+      <span class="stat-label" data-i18n="stat_label_2">Countries Worked In</span>
     </div>
     <div class="stat-item reveal reveal-delay-2">
       <span class="stat-num">2–3wk</span>
-      <span class="stat-label">Avg. Time to First Live System</span>
+      <span class="stat-label" data-i18n="stat_label_3">Avg. Time to First Live System</span>
     </div>
   </div>
 </div>
@@ -1354,16 +1383,16 @@
       <div class="team-label-float">Lucerne · Switzerland</div>
     </div>
     <div class="team-content">
-      <div class="section-label reveal">Meet the Team</div>
-      <h2 class="section-title reveal reveal-delay-1">Not typical<br>consultants.</h2>
-      <p class="team-bio reveal reveal-delay-2">
+      <div class="section-label reveal" data-i18n="team_label">Meet the Team</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="team_title">Not typical<br>consultants.</h2>
+      <p class="team-bio reveal reveal-delay-2" data-i18n="team_bio">
         We've run dive operations in Southeast Asia and the Caribbean, led growth at European SaaS companies, and built brands in Silicon Valley. That combination — hands-on operational experience plus deep technical expertise — is rare. We bring all of it to every client engagement.
       </p>
       <div class="team-tags reveal reveal-delay-2">
-        <span class="tag">PADI IDC Staff Instructors</span>
-        <span class="tag">SaaS — Beekeeper & PayFit</span>
-        <span class="tag">Based in Lucerne</span>
-        <span class="tag">Silicon Valley</span>
+        <span class="tag" data-i18n="team_tag_1">PADI IDC Staff Instructors</span>
+        <span class="tag" data-i18n="team_tag_2">SaaS — Beekeeper & PayFit</span>
+        <span class="tag" data-i18n="team_tag_3">Based in Lucerne</span>
+        <span class="tag" data-i18n="team_tag_4">Silicon Valley</span>
       </div>
       <div class="reveal reveal-delay-3" style="display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
         <a href="https://www.linkedin.com/in/jessicagamper/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(26,107,122,0.35);padding:0.4rem 0.9rem;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.background='var(--teal)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--teal)'">
@@ -1375,8 +1404,8 @@
           Matthias
         </a>
       </div>
-      <a href="story.html" class="team-cta reveal reveal-delay-3">Our full story</a>
-      <p class="team-legal reveal reveal-delay-3"><strong>Gamper Klimmek Consulting</strong> — AI &amp; Automation for Owner-Operated Businesses. Registered sole proprietorship, Lucerne, Switzerland.</p>
+      <a href="story.html" class="team-cta reveal reveal-delay-3" data-i18n="team_story_link">Our full story</a>
+      <p class="team-legal reveal reveal-delay-3" data-i18n="team_legal"><strong>Gamper Klimmek Consulting</strong> — AI &amp; Automation for Owner-Operated Businesses. Registered sole proprietorship, Lucerne, Switzerland.</p>
     </div>
   </div>
 </section>
@@ -1384,20 +1413,20 @@
 <!-- CTA -->
 <section class="cta-band">
   <div class="cta-band-inner">
-    <h2 class="section-title reveal">Ready to find out<br>what's <em>actually possible?</em></h2>
-    <p class="cta-subtitle reveal reveal-delay-1">A free 30-minute audit. We map your workflows, identify what to automate first, and give you a clear picture of what changes. No pitch. Just an honest assessment from people who've run real operations.</p>
-    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn reveal reveal-delay-2">Book a free 30-minute audit</a>
+    <h2 class="section-title reveal" data-i18n="cta_title">Ready to find out<br>what's <em>actually possible?</em></h2>
+    <p class="cta-subtitle reveal reveal-delay-1" data-i18n="cta_subtitle">A free 30-minute audit. We map your workflows, identify what to automate first, and give you a clear picture of what changes. No pitch. Just an honest assessment from people who've run real operations.</p>
+    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn reveal reveal-delay-2" data-i18n="cta_btn">Book a free 30-minute audit</a>
     <br>
-    <a href="start.html" style="display:inline-block;margin-top:1.25rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Or read how it works first →</a>
+    <a href="start.html" style="display:inline-block;margin-top:1.25rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'" data-i18n="cta_secondary_link">Or read how it works first →</a>
   </div>
 </section>
 
 <!-- NEWSLETTER -->
 <section class="newsletter" id="newsletter">
   <div class="newsletter-inner">
-    <p class="section-label reveal">Stay sharp</p>
-    <h2 class="section-title reveal reveal-delay-1">Practical AI insights for<br><em>owners who mean business.</em></h2>
-    <p class="newsletter-sub reveal reveal-delay-2">No jargon, no hype. A short, useful newsletter on AI automation and process thinking — written for people who actually run things.</p>
+    <p class="section-label reveal" data-i18n="newsletter_label">Stay sharp</p>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n="newsletter_title">Practical AI insights for<br><em>owners who mean business.</em></h2>
+    <p class="newsletter-sub reveal reveal-delay-2" data-i18n="newsletter_sub">No jargon, no hype. A short, useful newsletter on AI automation and process thinking — written for people who actually run things.</p>
     <div class="newsletter-iframe-wrap reveal reveal-delay-3">
       <iframe
         src="https://link.gamperklimmek.com/widget/form/AHoEQ2FKFilITjybZouK"
@@ -1417,25 +1446,26 @@
         title="Lead Gen Opt-in Form"
       ></iframe>
     </div>
-    <p class="newsletter-note reveal">No spam. Unsubscribe anytime. <a href="legal.html#privacy">Privacy Policy</a></p>
+    <p class="newsletter-note reveal" data-i18n="newsletter_note">No spam. Unsubscribe anytime. <a href="legal.html#privacy">Privacy Policy</a></p>
   </div>
 </section>
 
 <!-- FOOTER NEWSLETTER -->
 <div class="footer-nl">
-  <span class="footer-nl-label">Newsletter</span>
-  <a href="#newsletter" class="footer-nl-link">Get practical AI insights — subscribe →</a>
+  <span class="footer-nl-label" data-i18n="footer_newsletter">Newsletter</span>
+  <a href="#newsletter" class="footer-nl-link" data-i18n="footer_newsletter_cta">Get practical AI insights — subscribe →</a>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <a href="#hero" class="footer-logo">Gamper Klimmek<span>.</span></a>
   <ul class="footer-links">
-    <li><a href="#systems">Services</a></li>
-    <li><a href="story.html">About</a></li>
-    <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
+    <li><a href="#systems" data-i18n="nav_services">Services</a></li>
+    <li><a href="story.html" data-i18n="nav_about">About</a></li>
+    <li><a href="resources.html" data-i18n="nav_case_studies">Case Studies</a></li>
+    <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" data-i18n="nav_contact">Contact</a></li>
   </ul>
-  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Cookie Settings</button><span class="footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer_legal">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer_cookie_settings">Cookie Settings</button><span class="footer-copy" data-i18n="footer_copyright">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
 </footer>
 
 <script>
@@ -1449,6 +1479,7 @@
   reveals.forEach(el => observer.observe(el));
 </script>
 <script src="https://link.gamperklimmek.com/js/form_embed.js"></script>
+<script src="i18n.js"></script>
 <script src="cookie-consent.js"></script>
 </body>
 </html>

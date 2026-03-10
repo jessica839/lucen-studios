@@ -45,6 +45,19 @@
   .nav-back { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
   .nav-back:hover { color: var(--gold); }
   .nav-back::before { content: '←'; }
+  .gk-lang-switcher { display: inline-flex; gap: 0.25rem; margin-left: 1rem; }
+  .gk-lang-btn {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    padding: 0.28rem 0.4rem;
+    cursor: pointer;
+  }
+  .gk-lang-btn.active { color: var(--gold); border-color: var(--gold); }
 
   /* HERO */
   .legal-hero {
@@ -203,128 +216,143 @@
   gtag('config', 'G-J1Z1TC3H4R');
 </script>
 </head>
-<body>
+<body data-i18n-page="legal">
 
 <nav>
   <a href="index.html" class="nav-logo">Gamper Klimmek<span>.</span></a>
-  <a href="index.html" class="nav-back">Back to home</a>
+  <a href="index.html" class="nav-back" data-i18n="nav_back_home">Back to home</a>
+  <div class="gk-lang-switcher" aria-label="Language switcher">
+    <button class="gk-lang-btn" data-lang="en" type="button">EN</button>
+    <button class="gk-lang-btn" data-lang="de" type="button">DE</button>
+    <button class="gk-lang-btn" data-lang="fr" type="button">FR</button>
+    <button class="gk-lang-btn" data-lang="it" type="button">IT</button>
+    <button class="gk-lang-btn" data-lang="es" type="button">ES</button>
+  </div>
   <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="businesses.html">For Businesses</a>
-  <a href="operators.html">For Operators</a>
-  <a href="story.html">Our Story</a>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta">Book a Call</a>
+  <a href="index.html" data-i18n="nav_home">Home</a>
+  <a href="businesses.html" data-i18n="nav_for_businesses">For Businesses</a>
+  <a href="operators.html" data-i18n="nav_for_operators">For Operators</a>
+  <a href="story.html" data-i18n="nav_our_story">Our Story</a>
+  <a href="resources.html" data-i18n="nav_case_studies">Case Studies</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta" data-i18n="mobile_book_call">Book a Call</a>
+  <div class="gk-lang-switcher" aria-label="Language switcher">
+    <button class="gk-lang-btn" data-lang="en" type="button">EN</button>
+    <button class="gk-lang-btn" data-lang="de" type="button">DE</button>
+    <button class="gk-lang-btn" data-lang="fr" type="button">FR</button>
+    <button class="gk-lang-btn" data-lang="it" type="button">IT</button>
+    <button class="gk-lang-btn" data-lang="es" type="button">ES</button>
+  </div>
 </div>
 
 <div class="legal-hero">
   <div class="legal-hero-inner">
-    <div class="page-eyebrow">Legal</div>
-    <h1>Impressum &<br>Privacy Policy</h1>
-    <p>Legal information and data protection notice for gamperklimmek.com, in accordance with Swiss law (DSG) and applicable regulations.</p>
+    <div class="page-eyebrow" data-i18n="eyebrow">Legal</div>
+    <h1 data-i18n="hero_title">Impressum &<br>Privacy Policy</h1>
+    <p data-i18n="hero_body">Legal information and data protection notice for gamperklimmek.com, in accordance with Swiss law (DSG) and applicable regulations.</p>
   </div>
 </div>
 
 <div class="legal-tabs">
-  <a href="#impressum" class="legal-tab active">Impressum</a>
-  <a href="#privacy" class="legal-tab">Privacy Policy</a>
+  <a href="#impressum" class="legal-tab active" data-i18n="legal_tab_impressum">Impressum</a>
+  <a href="#privacy" class="legal-tab" data-i18n="legal_tab_privacy">Privacy Policy</a>
 </div>
 
 <div class="legal-body">
 
   <!-- IMPRESSUM -->
   <section class="legal-section" id="impressum">
-    <h2>Impressum</h2>
+    <h2 data-i18n="legal_impressum_h2">Impressum</h2>
 
-    <h3>Responsible Party</h3>
+    <h3 data-i18n="legal_responsible_h3">Responsible Party</h3>
     <div class="info-block">
       <p><strong>Gamper Klimmek Consulting</strong></p>
-      <p>Einzelfirma (Sole Proprietorship)</p>
-      <p>Owner: Jessica Gamper Klimmek</p>
+      <p data-i18n="legal_responsible_line_2">Einzelfirma (Sole Proprietorship)</p>
+      <p data-i18n="legal_responsible_line_3">Owner: Jessica Gamper Klimmek</p>
       <p>UID: CHE-235.928.528</p>
       <p>Seeburgstrasse 22</p>
       <p>6006 Luzern</p>
-      <p>Switzerland</p>
+      <p data-i18n="legal_responsible_line_7">Switzerland</p>
     </div>
 
-    <h3>Contact</h3>
+    <h3 data-i18n="legal_contact_h3">Contact</h3>
     <div class="info-block">
       <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#aec6cbc2c2c1eec9cfc3decbdcc5c2c7c3c3cbc580cdc1c3"><span class="__cf_email__" data-cfemail="355d5059595a755254584550475e595c5858505e1b565a58">[email&#160;protected]</span></a></p>
-      <p><strong>Website:</strong> <a href="https://www.gamperklimmek.com">www.gamperklimmek.com</a></p>
+      <p data-i18n="legal_contact_website"><strong>Website:</strong> <a href="https://www.gamperklimmek.com">www.gamperklimmek.com</a></p>
     </div>
 
-    <h3>Legal Form</h3>
-    <p>Gamper Klimmek Consulting is registered as a sole proprietorship (Einzelfirma) in Switzerland under the name of Jessica Gamper Klimmek. Matthias Klimmek acts as strategic and technical advisor.</p>
+    <h3 data-i18n="legal_form_h3">Legal Form</h3>
+    <p data-i18n="legal_form_p">Gamper Klimmek Consulting is registered as a sole proprietorship (Einzelfirma) in Switzerland under the name of Jessica Gamper Klimmek. Matthias Klimmek acts as strategic and technical advisor.</p>
 
-    <h3>Disclaimer</h3>
-    <p>The content of this website has been compiled with the utmost care and to the best of our knowledge. However, we cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with Swiss law.</p>
-    <p>We are not obligated to monitor transmitted or stored third-party information or to investigate circumstances indicating illegal activity. Obligations to remove or block the use of information under general law remain unaffected. However, liability in this regard is only possible from the point in time at which a concrete legal infringement becomes known.</p>
+    <h3 data-i18n="legal_disclaimer_h3">Disclaimer</h3>
+    <p data-i18n="legal_disclaimer_p1">The content of this website has been compiled with the utmost care and to the best of our knowledge. However, we cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with Swiss law.</p>
+    <p data-i18n="legal_disclaimer_p2">We are not obligated to monitor transmitted or stored third-party information or to investigate circumstances indicating illegal activity. Obligations to remove or block the use of information under general law remain unaffected. However, liability in this regard is only possible from the point in time at which a concrete legal infringement becomes known.</p>
 
-    <h3>External Links</h3>
-    <p>This website contains links to external websites over which we have no control. Therefore, we cannot accept any responsibility for this external content. The respective provider or operator of the linked pages is always responsible for the content of those pages.</p>
+    <h3 data-i18n="legal_links_h3">External Links</h3>
+    <p data-i18n="legal_links_p">This website contains links to external websites over which we have no control. Therefore, we cannot accept any responsibility for this external content. The respective provider or operator of the linked pages is always responsible for the content of those pages.</p>
   </section>
 
   <hr class="divider">
 
   <!-- PRIVACY POLICY -->
   <section class="legal-section" id="privacy">
-    <h2>Privacy Policy</h2>
+    <h2 data-i18n="legal_privacy_h2">Privacy Policy</h2>
 
-    <p>We take the protection of your personal data seriously. This privacy policy explains how Gamper Klimmek Consulting collects, uses, and protects information when you visit our website. This policy is in accordance with the Swiss Federal Act on Data Protection (DSG / nDSG, in force since 1 September 2023).</p>
+    <p data-i18n="legal_privacy_intro">We take the protection of your personal data seriously. This privacy policy explains how Gamper Klimmek Consulting collects, uses, and protects information when you visit our website. This policy is in accordance with the Swiss Federal Act on Data Protection (DSG / nDSG, in force since 1 September 2023).</p>
 
-    <h3>Controller</h3>
+    <h3 data-i18n="legal_controller_h3">Controller</h3>
     <div class="info-block">
       <p><strong>Gamper Klimmek Consulting</strong></p>
       <p>Jessica Gamper Klimmek</p>
-      <p>Seeburgstrasse 22, 6006 Luzern, Switzerland</p>
+      <p data-i18n="legal_controller_line_3">Seeburgstrasse 22, 6006 Luzern, Switzerland</p>
       <p><a href="/cdn-cgi/l/email-protection#650d0009090a250204081500170e090c0808000e4b060a08"><span class="__cf_email__" data-cfemail="b5ddd0d9d9daf5d2d4d8c5d0c7ded9dcd8d8d0de9bd6dad8">[email&#160;protected]</span></a></p>
     </div>
 
-    <h3>Data We Collect</h3>
-    <p>When you visit this website, the following data may be automatically collected by our hosting provider (Vercel):</p>
-    <p>IP address, browser type and version, operating system, referrer URL, date and time of access, and pages visited. This data is processed for the purpose of operating the website securely and analysing usage. It is not used to identify individual users.</p>
+    <h3 data-i18n="legal_data_h3">Data We Collect</h3>
+    <p data-i18n="legal_data_p1">When you visit this website, the following data may be automatically collected by our hosting provider (Vercel):</p>
+    <p data-i18n="legal_data_p2">IP address, browser type and version, operating system, referrer URL, date and time of access, and pages visited. This data is processed for the purpose of operating the website securely and analysing usage. It is not used to identify individual users.</p>
 
-    <h3>Contact & Booking</h3>
-    <p>If you book a call or make contact through our scheduling tool (powered by GoHighLevel / LeadConnector), personal data you provide — such as your name, email address, and any details you submit — will be processed for the sole purpose of scheduling and conducting that call. We will not share this information with third parties, and we will not use it for unsolicited marketing without your explicit consent.</p>
+    <h3 data-i18n="legal_booking_h3">Contact & Booking</h3>
+    <p data-i18n="legal_booking_p">If you book a call or make contact through our scheduling tool (powered by GoHighLevel / LeadConnector), personal data you provide — such as your name, email address, and any details you submit — will be processed for the sole purpose of scheduling and conducting that call. We will not share this information with third parties, and we will not use it for unsolicited marketing without your explicit consent.</p>
 
-    <h3>Google Analytics</h3>
-    <p>This website uses Google Analytics, a web analytics service provided by Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Google Analytics uses cookies — small text files stored on your device — to help analyse how visitors use this website.</p>
-    <p>The information generated by the cookie (including your anonymised IP address) is transmitted to and stored by Google on servers in the United States. We have enabled IP anonymisation, meaning your IP address is truncated within the EU/EEA before being transmitted.</p>
-    <p>Google will use this information to evaluate your use of the website, compile reports on website activity, and provide other services relating to website activity. Google may also transfer this information to third parties where required by law or where such third parties process the information on Google's behalf.</p>
-    <p>You can prevent the storage of cookies by adjusting your browser settings. You can also opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Browser Add-on</a>.</p>
-    <p>For more information on how Google uses data, please visit: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+    <h3 data-i18n="legal_ga_h3">Google Analytics</h3>
+    <p data-i18n="legal_ga_p1">This website uses Google Analytics, a web analytics service provided by Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Google Analytics uses cookies — small text files stored on your device — to help analyse how visitors use this website.</p>
+    <p data-i18n="legal_ga_p2">The information generated by the cookie (including your anonymised IP address) is transmitted to and stored by Google on servers in the United States. We have enabled IP anonymisation, meaning your IP address is truncated within the EU/EEA before being transmitted.</p>
+    <p data-i18n="legal_ga_p3">Google will use this information to evaluate your use of the website, compile reports on website activity, and provide other services relating to website activity. Google may also transfer this information to third parties where required by law or where such third parties process the information on Google's behalf.</p>
+    <p data-i18n="legal_ga_p4">You can prevent the storage of cookies by adjusting your browser settings. You can also opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Browser Add-on</a>.</p>
+    <p data-i18n="legal_ga_p5">For more information on how Google uses data, please visit: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
 
-    <h3 id="cookies">Cookies &amp; Consent</h3>
-    <p>This website uses cookies to improve your experience. Functional cookies are required for the website to operate. Analytics cookies (Google Analytics) are used to understand how visitors interact with our website — these are only set after you explicitly accept in the cookie banner.</p>
-    <p>You can change your cookie preference at any time using the button below, or by adjusting your browser settings.</p>
-    <p><button onclick="window.GK_openCookieSettings()" style="background:#c9a84c;color:#0a0a0f;border:none;border-radius:4px;padding:0.5rem 1.1rem;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:0.02em;">Manage cookie preferences</button></p>
+    <h3 id="cookies" data-i18n="legal_cookies_h3">Cookies &amp; Consent</h3>
+    <p data-i18n="legal_cookies_p1">This website uses cookies to improve your experience. Functional cookies are required for the website to operate. Analytics cookies (Google Analytics) are used to understand how visitors interact with our website — these are only set after you explicitly accept in the cookie banner.</p>
+    <p data-i18n="legal_cookies_p2">You can change your cookie preference at any time using the button below, or by adjusting your browser settings.</p>
+    <p><button onclick="window.GK_openCookieSettings()" style="background:#c9a84c;color:#0a0a0f;border:none;border-radius:4px;padding:0.5rem 1.1rem;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:0.02em;" data-i18n="legal_cookies_btn">Manage cookie preferences</button></p>
 
-    <h3>Your Rights</h3>
-    <p>Under Swiss data protection law (nDSG), you have the following rights regarding your personal data:</p>
-    <p><strong>Right of access:</strong> You may request information about what personal data we hold about you.</p>
-    <p><strong>Right to rectification:</strong> You may request that inaccurate data be corrected.</p>
-    <p><strong>Right to erasure:</strong> You may request that your data be deleted, subject to legal retention obligations.</p>
-    <p><strong>Right to object:</strong> You may object to the processing of your data for certain purposes.</p>
-    <p>To exercise any of these rights, please contact us at <a href="/cdn-cgi/l/email-protection#e8808d848487a88f8985988d9a83848185858d83c68b8785"><span class="__cf_email__" data-cfemail="19717c757576597e7874697c6b72757074747c72377a7674">[email&#160;protected]</span></a>. We will respond within 30 days.</p>
+    <h3 data-i18n="legal_rights_h3">Your Rights</h3>
+    <p data-i18n="legal_rights_intro">Under Swiss data protection law (nDSG), you have the following rights regarding your personal data:</p>
+    <p data-i18n="legal_rights_access"><strong>Right of access:</strong> You may request information about what personal data we hold about you.</p>
+    <p data-i18n="legal_rights_rectification"><strong>Right to rectification:</strong> You may request that inaccurate data be corrected.</p>
+    <p data-i18n="legal_rights_erasure"><strong>Right to erasure:</strong> You may request that your data be deleted, subject to legal retention obligations.</p>
+    <p data-i18n="legal_rights_object"><strong>Right to object:</strong> You may object to the processing of your data for certain purposes.</p>
+    <p data-i18n="legal_rights_contact">To exercise any of these rights, please contact us at <a href="/cdn-cgi/l/email-protection#e8808d848487a88f8985988d9a83848185858d83c68b8785"><span class="__cf_email__" data-cfemail="19717c757576597e7874697c6b72757074747c72377a7674">[email&#160;protected]</span></a>. We will respond within 30 days.</p>
 
-    <h3>Data Retention</h3>
-    <p>We retain personal data only for as long as necessary for the purpose for which it was collected, or as required by Swiss law. Contact and booking data is retained for the duration of our business relationship and for a maximum of 10 years thereafter in accordance with Swiss commercial record-keeping obligations.</p>
+    <h3 data-i18n="legal_retention_h3">Data Retention</h3>
+    <p data-i18n="legal_retention_p">We retain personal data only for as long as necessary for the purpose for which it was collected, or as required by Swiss law. Contact and booking data is retained for the duration of our business relationship and for a maximum of 10 years thereafter in accordance with Swiss commercial record-keeping obligations.</p>
 
-    <h3>International Data Transfers</h3>
-    <p>Some of the tools we use (including Google Analytics and our booking platform) may transfer data to servers outside Switzerland, including to the United States. Where such transfers occur, we ensure that appropriate safeguards are in place in accordance with Swiss data protection requirements.</p>
+    <h3 data-i18n="legal_transfers_h3">International Data Transfers</h3>
+    <p data-i18n="legal_transfers_p">Some of the tools we use (including Google Analytics and our booking platform) may transfer data to servers outside Switzerland, including to the United States. Where such transfers occur, we ensure that appropriate safeguards are in place in accordance with Swiss data protection requirements.</p>
 
-    <h3>Changes to This Policy</h3>
-    <p>We reserve the right to update this privacy policy at any time. The current version will always be available on this page. We recommend checking this page periodically for any changes.</p>
+    <h3 data-i18n="legal_changes_h3">Changes to This Policy</h3>
+    <p data-i18n="legal_changes_p">We reserve the right to update this privacy policy at any time. The current version will always be available on this page. We recommend checking this page periodically for any changes.</p>
 
-    <h3>Contact & Complaints</h3>
-    <p>For any questions about this privacy policy or how we handle your data, please contact us at <a href="/cdn-cgi/l/email-protection#553d3039393a153234382530273e393c3838303e7b363a38"><span class="__cf_email__" data-cfemail="d6beb3babab996b1b7bba6b3a4bdbabfbbbbb3bdf8b5b9bb">[email&#160;protected]</span></a>.</p>
-    <p>If you believe your data protection rights have been violated, you have the right to lodge a complaint with the Swiss Federal Data Protection and Information Commissioner (FDPIC): <a href="https://www.edoeb.admin.ch" target="_blank">www.edoeb.admin.ch</a></p>
+    <h3 data-i18n="legal_complaints_h3">Contact & Complaints</h3>
+    <p data-i18n="legal_complaints_p1">For any questions about this privacy policy or how we handle your data, please contact us at <a href="/cdn-cgi/l/email-protection#553d3039393a153234382530273e393c3838303e7b363a38"><span class="__cf_email__" data-cfemail="d6beb3babab996b1b7bba6b3a4bdbabfbbbbb3bdf8b5b9bb">[email&#160;protected]</span></a>.</p>
+    <p data-i18n="legal_complaints_p2">If you believe your data protection rights have been violated, you have the right to lodge a complaint with the Swiss Federal Data Protection and Information Commissioner (FDPIC): <a href="https://www.edoeb.admin.ch" target="_blank">www.edoeb.admin.ch</a></p>
 
-    <p class="last-updated">Last updated: March 2026</p>
+    <p class="last-updated" data-i18n="legal_last_updated">Last updated: March 2026</p>
   </section>
 
 </div>
@@ -337,14 +365,15 @@
   @media(max-width:768px){.footer-nl{padding:1.25rem 2rem;}}
 </style>
 <div class="footer-nl">
-  <span class="footer-nl-label">Newsletter</span>
-  <a href="index.html#newsletter" class="footer-nl-link">Get practical AI insights — subscribe →</a>
+  <span class="footer-nl-label" data-i18n="footer_newsletter">Newsletter</span>
+  <a href="index.html#newsletter" class="footer-nl-link" data-i18n="footer_newsletter_cta">Get practical AI insights — subscribe →</a>
 </div>
 
 <footer>
   <a href="index.html" class="footer-logo">Gamper Klimmek<span>.</span></a>
-  <button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-right:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Cookie Settings</button><span class="footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+  <button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-right:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer_cookie_settings">Cookie Settings</button><span class="footer-copy" data-i18n="footer_copyright">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
 </footer>
+<script src="i18n.js"></script>
 <script src="cookie-consent.js"></script>
-
-<script data-cfasy
+</body>
+</html>
