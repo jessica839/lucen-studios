@@ -1615,14 +1615,37 @@
     return file.replace(".html", "") || "index";
   }
 
-  function normalizeLanguage(lang) {
-    if (!lang) return DEFAULT_LANGUAGE;
+  function toSupportedLanguage(lang) {
+    if (!lang) return null;
     const normalized = String(lang).toLowerCase().slice(0, 2);
-    return SUPPORTED_LANGUAGES.includes(normalized) ? normalized : DEFAULT_LANGUAGE;
+    return SUPPORTED_LANGUAGES.includes(normalized) ? normalized : null;
+  }
+
+  function normalizeLanguage(lang) {
+    return toSupportedLanguage(lang) || DEFAULT_LANGUAGE;
+  }
+
+  function getSavedLanguageStrict() {
+    return toSupportedLanguage(localStorage.getItem(STORAGE_KEY));
   }
 
   function getSavedLanguage() {
-    return normalizeLanguage(localStorage.getItem(STORAGE_KEY));
+    return getSavedLanguageStrict() || DEFAULT_LANGUAGE;
+  }
+
+  function getBrowserLanguage() {
+    const candidates = Array.isArray(navigator.languages) && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language];
+    for (const candidate of candidates) {
+      const supported = toSupportedLanguage(candidate);
+      if (supported) return supported;
+    }
+    return null;
+  }
+
+  function resolveInitialLanguage() {
+    return getSavedLanguageStrict() || getBrowserLanguage() || DEFAULT_LANGUAGE;
   }
 
   function getTranslation(lang, key) {
@@ -1678,11 +1701,10 @@
   }
 
   function initializeI18n() {
-    const saved = getSavedLanguage();
     document.querySelectorAll(".gk-lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
     });
-    setLanguage(saved || DEFAULT_LANGUAGE);
+    setLanguage(resolveInitialLanguage());
   }
 
   window.GK_i18n = {
