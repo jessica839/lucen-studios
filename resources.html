@@ -668,11 +668,19 @@
     btn.addEventListener("click", () => setTimeout(updateSummary, 0));
   });
 
-  async function submitToFEA(formUrl, firstName, email, company) {
+  function getActiveLang() {
+    // Read active language from i18n system — falls back to html lang attr, then 'en'
+    const active = document.querySelector('.gk-lang-btn.active');
+    if (active) return active.dataset.lang || 'en';
+    return document.documentElement.lang || 'en';
+  }
+
+  async function submitToFEA(formUrl, firstName, email, company, lang) {
     const body = new URLSearchParams();
     body.append("first_name", firstName);
     body.append("email", email);
     if (company) body.append("company", company);
+    body.append("language", lang);
     try {
       await fetch(formUrl, {
         method: "POST",
@@ -690,6 +698,7 @@
     const firstName = document.getElementById("firstName").value.trim();
     const email = document.getElementById("email").value.trim();
     const company = document.getElementById("company").value.trim();
+    const lang = getActiveLang();
 
     if (!firstName || !email || selected.size === 0) return;
 
@@ -699,7 +708,7 @@
     // Fire a silent submission to each selected case study's FEA form in parallel
     const submissions = [...selected].map((id) => {
       const url = FEA_FORMS[id];
-      if (url) return submitToFEA(url, firstName, email, company);
+      if (url) return submitToFEA(url, firstName, email, company, lang);
     }).filter(Boolean);
 
     await Promise.allSettled(submissions);
