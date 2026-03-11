@@ -240,24 +240,31 @@
 <nav>
   <a href="index.html" class="nav-logo">Gamper Klimmek<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="operators.html">For Operators</a></li>
-    <li><a href="businesses.html">For Businesses</a></li>
-    <li><a href="story.html">Our Story</a></li>
-    <li><a href="resources.html">Case Studies</a></li>
+    <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+    <li><a href="operators.html" data-i18n="nav_for_operators">For Operators</a></li>
+    <li><a href="businesses.html" data-i18n="nav_for_businesses">For Businesses</a></li>
+    <li><a href="story.html" data-i18n="nav_our_story">Our Story</a></li>
+    <li><a href="resources.html" data-i18n="nav_case_studies">Case Studies</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
     <span></span><span></span><span></span>
   </button>
+  <div class="gk-lang-switcher" aria-label="Language switcher">
+    <button class="gk-lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>
+    <button class="gk-lang-btn" data-lang="de" type="button" aria-pressed="false">DE</button>
+    <button class="gk-lang-btn" data-lang="fr" type="button" aria-pressed="false">FR</button>
+    <button class="gk-lang-btn" data-lang="it" type="button" aria-pressed="false">IT</button>
+    <button class="gk-lang-btn" data-lang="es" type="button" aria-pressed="false">ES</button>
+  </div>
 </nav>
 
 <div class="mobile-menu">
-  <a href="index.html" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Home</a>
-  <a href="operators.html" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">For Operators</a>
-  <a href="businesses.html" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">For Businesses</a>
-  <a href="story.html" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Our Story</a>
-  <a href="resources.html" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Case Studies</a>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta">Book a Call</a>
+  <a href="index.html" data-i18n="nav_home" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Home</a>
+  <a href="operators.html" data-i18n="nav_for_operators" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">For Operators</a>
+  <a href="businesses.html" data-i18n="nav_for_businesses" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">For Businesses</a>
+  <a href="story.html" data-i18n="nav_our_story" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Our Story</a>
+  <a href="resources.html" data-i18n="nav_case_studies" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Case Studies</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta" data-i18n="mobile_book_call">Book a Call</a>
 </div>
 
 <!-- HERO -->
@@ -265,33 +272,33 @@
   <div class="start-hero-bg"></div>
   <div class="start-hero-grid"></div>
   <div class="start-hero-inner">
-    <div class="start-eyebrow">Based in Lucerne · Est. 2026</div>
-    <h1>You built a good business.<br>You shouldn't spend all day<br><em>running it manually.</em></h1>
-    <p class="start-hero-sub">
+    <div class="start-eyebrow" data-i18n="start_eyebrow">Based in Lucerne · Est. 2026</div>
+    <h1 data-i18n="start_hero_title">You built a good business.<br>You shouldn't spend all day<br><em>running it manually.</em></h1>
+    <p class="start-hero-sub" data-i18n="start_hero_body">
       We help small businesses — from medical spas and insurance agencies to dive centers and ski schools — automate the work that's eating their time. Client inquiries, booking and appointment communication, follow-ups, and the questions your team answers on repeat. Here's how we do it.
     </p>
-    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary">Book a free 30-minute audit</a>
+    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary" data-i18n="start_hero_btn">Book a free 30-minute audit</a>
   </div>
 </section>
 
 <!-- SECTION 1: WHO THIS IS FOR -->
 <section class="for-who">
   <div class="for-who-inner">
-    <div class="section-label reveal">Who This Is For</div>
-    <h2 class="section-title reveal reveal-d1">If you're running a small operation<br>in a state of <em>controlled chaos</em> —</h2>
+    <div class="section-label reveal" data-i18n="start_for_label">Who This Is For</div>
+    <h2 class="section-title reveal reveal-d1" data-i18n="start_for_title">If you're running a small operation<br>in a state of <em>controlled chaos</em> —</h2>
     <div class="for-who-grid">
       <div class="for-who-intro reveal reveal-d2">
-        <p>You know the feeling. Busy periods push the inbox past capacity. Your best team member is still answering the same questions they answered last week. Confirmations and follow-ups go out when someone remembers. A new hire has to learn everything from whoever's available to show them.</p>
-        <p>It works. But it only works because you and your team are constantly plugging the gaps. The business runs on people, not on systems. And when things calm down, you're exhausted — and the same problems are waiting for next time.</p>
-        <p>That's what we fix. Not with complicated enterprise software. With practical, AI-powered systems that match how your business actually runs.</p>
+        <p data-i18n="start_for_body_1">You know the feeling. Busy periods push the inbox past capacity. Your best team member is still answering the same questions they answered last week. Confirmations and follow-ups go out when someone remembers. A new hire has to learn everything from whoever's available to show them.</p>
+        <p data-i18n="start_for_body_2">It works. But it only works because you and your team are constantly plugging the gaps. The business runs on people, not on systems. And when things calm down, you're exhausted — and the same problems are waiting for next time.</p>
+        <p data-i18n="start_for_body_3">That's what we fix. Not with complicated enterprise software. With practical, AI-powered systems that match how your business actually runs.</p>
       </div>
       <ul class="for-who-checks reveal reveal-d2">
-        <li><strong>You run a small service business</strong> — medical spa, insurance agency, mortgage broker, professional services firm, dive center, surf school, ski school, tour operator, or similar</li>
-        <li><strong>You have between 3 and 30 people</strong> on your team, full-time, part-time, or seasonal</li>
-        <li><strong>You handle a significant volume of client inquiries</strong>, especially around pricing, availability, and next steps</li>
-        <li><strong>Communication is largely manual</strong> — confirmations, reminders, and follow-ups require someone to remember and send them</li>
-        <li><strong>You serve clients who write in multiple languages</strong>, or you'd simply like to respond faster and more consistently</li>
-        <li><strong>You know things could run better</strong> but the day-to-day never leaves enough time to fix them</li>
+        <li data-i18n="start_fit_1"><strong>You run a small service business</strong> — medical spa, insurance agency, mortgage broker, professional services firm, dive center, surf school, ski school, tour operator, or similar</li>
+        <li data-i18n="start_fit_2"><strong>You have between 3 and 30 people</strong> on your team, full-time, part-time, or seasonal</li>
+        <li data-i18n="start_fit_3"><strong>You handle a significant volume of client inquiries</strong>, especially around pricing, availability, and next steps</li>
+        <li data-i18n="start_fit_4"><strong>Communication is largely manual</strong> — confirmations, reminders, and follow-ups require someone to remember and send them</li>
+        <li data-i18n="start_fit_5"><strong>You serve clients who write in multiple languages</strong>, or you'd simply like to respond faster and more consistently</li>
+        <li data-i18n="start_fit_6"><strong>You know things could run better</strong> but the day-to-day never leaves enough time to fix them</li>
       </ul>
     </div>
   </div>
@@ -300,44 +307,44 @@
 <!-- SECTION 2: WHAT WE BUILD -->
 <section class="what-we-build">
   <div class="what-we-build-inner">
-    <div class="section-label reveal">What We Build</div>
-    <h2 class="section-title reveal reveal-d1">Concrete systems.<br>Not strategy documents.</h2>
-    <p class="build-intro reveal reveal-d2">We build the actual systems, test them against your real workflows, and hand them over ready to run. Here's what that looks like in practice.</p>
+    <div class="section-label reveal" data-i18n="start_build_label">What We Build</div>
+    <h2 class="section-title reveal reveal-d1" data-i18n="start_build_title">Concrete systems.<br>Not strategy documents.</h2>
+    <p class="build-intro reveal reveal-d2" data-i18n="start_build_intro">We build the actual systems, test them against your real workflows, and hand them over ready to run. Here's what that looks like in practice.</p>
     <div class="build-grid">
       <div class="build-card reveal">
-        <div class="build-card-title"><span class="build-card-icon">📬</span> Inquiry Automation</div>
+        <div class="build-card-title" data-i18n="start_sys1_title"><span class="build-card-icon">📬</span> Inquiry Automation</div>
         <ul class="build-items">
-          <li>Every inquiry gets a response within minutes — including at 2am when you're asleep</li>
-          <li>AI handles the common questions: pricing, availability, what to expect, next steps</li>
-          <li>Only complex or unusual conversations go to your team</li>
-          <li>Works in multiple languages automatically</li>
+          <li data-i18n="start_sys1_item_1">Every inquiry gets a response within minutes — including at 2am when you're asleep</li>
+          <li data-i18n="start_sys1_item_2">AI handles the common questions: pricing, availability, what to expect, next steps</li>
+          <li data-i18n="start_sys1_item_3">Only complex or unusual conversations go to your team</li>
+          <li data-i18n="start_sys1_item_4">Works in multiple languages automatically</li>
         </ul>
       </div>
       <div class="build-card reveal reveal-d1">
-        <div class="build-card-title"><span class="build-card-icon">📅</span> Booking Communication</div>
+        <div class="build-card-title" data-i18n="start_sys2_title"><span class="build-card-icon">📅</span> Booking Communication</div>
         <ul class="build-items">
-          <li>Instant booking confirmations sent automatically</li>
-          <li>Pre-visit or pre-appointment reminders with relevant information and next steps</li>
-          <li>Waiver or document reminders timed before the appointment</li>
-          <li>Post-visit review requests and follow-up offers</li>
+          <li data-i18n="start_sys2_item_1">Instant booking confirmations sent automatically</li>
+          <li data-i18n="start_sys2_item_2">Pre-visit or pre-appointment reminders with relevant information and next steps</li>
+          <li data-i18n="start_sys2_item_3">Waiver or document reminders timed before the appointment</li>
+          <li data-i18n="start_sys2_item_4">Post-visit review requests and follow-up offers</li>
         </ul>
       </div>
       <div class="build-card reveal">
-        <div class="build-card-title"><span class="build-card-icon">🎓</span> Staff Answer System</div>
+        <div class="build-card-title" data-i18n="start_sys3_title"><span class="build-card-icon">🎓</span> Staff Answer System</div>
         <ul class="build-items">
-          <li>New and seasonal staff can ask questions and get instant, accurate answers</li>
-          <li>How-to guides, procedures, and house rules — all in one place your team can actually access</li>
-          <li>Reduces onboarding time and removes dependence on your busiest person</li>
-          <li>Built from how your business actually runs, not a generic template</li>
+          <li data-i18n="start_sys3_item_1">New and seasonal staff can ask questions and get instant, accurate answers</li>
+          <li data-i18n="start_sys3_item_2">How-to guides, procedures, and house rules — all in one place your team can actually access</li>
+          <li data-i18n="start_sys3_item_3">Reduces onboarding time and removes dependence on your busiest person</li>
+          <li data-i18n="start_sys3_item_4">Built from how your business actually runs, not a generic template</li>
         </ul>
       </div>
       <div class="build-card reveal reveal-d1">
-        <div class="build-card-title"><span class="build-card-icon">🌐</span> Multilingual Client Communication</div>
+        <div class="build-card-title" data-i18n="start_sys4_title"><span class="build-card-icon">🌐</span> Multilingual Client Communication</div>
         <ul class="build-items">
-          <li>Client messages answered in their own language, automatically</li>
-          <li>No extra staff required to handle international customers</li>
-          <li>Consistent, professional tone regardless of which language is used</li>
-          <li>Particularly valuable during high-volume inquiry periods</li>
+          <li data-i18n="start_sys4_item_1">Client messages answered in their own language, automatically</li>
+          <li data-i18n="start_sys4_item_2">No extra staff required to handle international customers</li>
+          <li data-i18n="start_sys4_item_3">Consistent, professional tone regardless of which language is used</li>
+          <li data-i18n="start_sys4_item_4">Particularly valuable during high-volume inquiry periods</li>
         </ul>
       </div>
     </div>
@@ -347,26 +354,26 @@
 <!-- SECTION 3: WHO WE WORK BEST WITH -->
 <section class="best-fit">
   <div class="best-fit-inner">
-    <div class="section-label reveal">Who We Work Best With</div>
+    <div class="section-label reveal" data-i18n="start_who_label">Who We Work Best With</div>
     <div class="best-fit-grid">
       <div>
-        <h2 class="reveal reveal-d1">We're operators<br>who <em>build systems.</em></h2>
-        <p style="margin-top:1.5rem;font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.55);" class="reveal reveal-d2">We met on a dive boat in Bali, ran operations across four continents, managed a five-star resort, opened our own dive business, and spent a decade in European SaaS. When we say we understand your operation — we mean it in the most literal sense.</p>
-        <a href="story.html" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap 0.3s;" class="reveal reveal-d2" onmouseover="this.style.gap='0.9rem'" onmouseout="this.style.gap='0.5rem'">Read our full story →</a>
+        <h2 class="reveal reveal-d1" data-i18n="start_who_title">We're operators<br>who <em>build systems.</em></h2>
+        <p style="margin-top:1.5rem;font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.55);" class="reveal reveal-d2" data-i18n="start_who_body">We met on a dive boat in Bali, ran operations across four continents, managed a five-star resort, opened our own dive business, and spent a decade in European SaaS. When we say we understand your operation — we mean it in the most literal sense.</p>
+        <a href="story.html" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap 0.3s;" class="reveal reveal-d2" onmouseover="this.style.gap='0.9rem'" onmouseout="this.style.gap='0.5rem'" data-i18n="start_who_link">Read our full story →</a>
       </div>
       <div>
         <ul class="best-fit-list reveal reveal-d1">
-          <li>Medical spas, aesthetic clinics, and wellness practices</li>
-          <li>Insurance agencies and mortgage brokers</li>
-          <li>Professional services firms (legal, accounting, financial advisory)</li>
-          <li>Dive centers, surf schools, ski schools, and tour operators</li>
-          <li>Any service business with high inquiry or communication volume</li>
-          <li>3–30 person teams, full-time or seasonal</li>
-          <li>Businesses where the owner is still involved in daily operations</li>
+          <li data-i18n="start_who_fit_1">Medical spas, aesthetic clinics, and wellness practices</li>
+          <li data-i18n="start_who_fit_2">Insurance agencies and mortgage brokers</li>
+          <li data-i18n="start_who_fit_3">Professional services firms (legal, accounting, financial advisory)</li>
+          <li data-i18n="start_who_fit_4">Dive centers, surf schools, ski schools, and tour operators</li>
+          <li data-i18n="start_who_fit_5">Any service business with high inquiry or communication volume</li>
+          <li data-i18n="start_who_fit_6">3–30 person teams, full-time or seasonal</li>
+          <li data-i18n="start_who_fit_7">Businesses where the owner is still involved in daily operations</li>
         </ul>
         <div class="best-fit-not reveal reveal-d2">
-          <div class="best-fit-not-label">Not the right fit if —</div>
-          <p>You're a large enterprise, looking for a full-time employee, or primarily need a marketing agency. We work with owner-operators who want real systems, not reports.</p>
+          <div class="best-fit-not-label" data-i18n="start_notfit_label">Not the right fit if —</div>
+          <p data-i18n="start_notfit_body">You're a large enterprise, looking for a full-time employee, or primarily need a marketing agency. We work with owner-operators who want real systems, not reports.</p>
         </div>
       </div>
     </div>
@@ -376,34 +383,34 @@
 <!-- SECTION 4: AI OPERATIONS AUDIT -->
 <section class="audit-section">
   <div class="audit-inner">
-    <div class="section-label reveal">The Starting Point</div>
-    <h2 class="section-title reveal reveal-d1">Free 30-minute<br>workflow audit.</h2>
+    <div class="section-label reveal" data-i18n="start_audit_label">The Starting Point</div>
+    <h2 class="section-title reveal reveal-d1" data-i18n="start_audit_title">Free 30-minute<br>workflow audit.</h2>
     <div class="audit-grid">
       <div class="audit-text reveal reveal-d2">
-        <p>Before we build anything, we want to understand your operation — how it actually runs, not how it's supposed to run. That's why we start with a free, focused 30-minute conversation.</p>
-        <p>We'll map your key workflows, identify where your team's time is going, and tell you exactly which three things to automate first. You leave with a clear picture of what's possible and what it would take to get there. No pitch. No pressure. Just an honest assessment from people who've been in your shoes.</p>
-        <p>If it makes sense to work together, great. If it doesn't, you still have a useful operations map you can act on yourself.</p>
+        <p data-i18n="start_audit_body_1">Before we build anything, we want to understand your operation — how it actually runs, not how it's supposed to run. That's why we start with a free, focused 30-minute conversation.</p>
+        <p data-i18n="start_audit_body_2">We'll map your key workflows, identify where your team's time is going, and tell you exactly which three things to automate first. You leave with a clear picture of what's possible and what it would take to get there. No pitch. No pressure. Just an honest assessment from people who've been in your shoes.</p>
+        <p data-i18n="start_audit_body_3">If it makes sense to work together, great. If it doesn't, you still have a useful operations map you can act on yourself.</p>
       </div>
       <div class="audit-steps reveal reveal-d2">
         <div class="audit-step">
           <div class="audit-step-num">01</div>
           <div class="audit-step-content">
-            <h4>We map your workflows</h4>
-            <p>We walk through your most time-consuming workflows — inquiries, booking communication, staff onboarding, client follow-up — and identify where the gaps are.</p>
+            <h4 data-i18n="start_step1_title">We map your workflows</h4>
+            <p data-i18n="start_step1_body">We walk through your most time-consuming workflows — inquiries, booking communication, staff onboarding, client follow-up — and identify where the gaps are.</p>
           </div>
         </div>
         <div class="audit-step">
           <div class="audit-step-num">02</div>
           <div class="audit-step-content">
-            <h4>We identify what to automate first</h4>
-            <p>Not everything needs automating — and not everything can be. We prioritise by impact: what will save the most time, with the least disruption to your operation.</p>
+            <h4 data-i18n="start_step2_title">We identify what to automate first</h4>
+            <p data-i18n="start_step2_body">Not everything needs automating — and not everything can be. We prioritise by impact: what will save the most time, with the least disruption to your operation.</p>
           </div>
         </div>
         <div class="audit-step">
           <div class="audit-step-num">03</div>
           <div class="audit-step-content">
-            <h4>We recommend the right tools</h4>
-            <p>We work with what you already have where possible, and recommend only what actually fits a business your size. No enterprise software. No six-month rollouts.</p>
+            <h4 data-i18n="start_step3_title">We recommend the right tools</h4>
+            <p data-i18n="start_step3_body">We work with what you already have where possible, and recommend only what actually fits a business your size. No enterprise software. No six-month rollouts.</p>
           </div>
         </div>
       </div>
@@ -414,10 +421,10 @@
 <!-- SECTION 5: CTA -->
 <section class="start-cta">
   <div class="start-cta-inner">
-    <h2 class="reveal">Book your free<br><em>30-minute audit.</em></h2>
-    <p class="reveal reveal-d1">30 minutes. We map your business, find the biggest time drains, and tell you exactly what to automate first. No pitch. No commitment.</p>
-    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn reveal reveal-d2">Book a free 30-minute call</a>
-    <div class="cta-meta reveal reveal-d3">Free · No commitment · Real-world systems</div>
+    <h2 class="reveal" data-i18n="start_cta_title">Book your free<br><em>30-minute audit.</em></h2>
+    <p class="reveal reveal-d1" data-i18n="start_cta_body">30 minutes. We map your business, find the biggest time drains, and tell you exactly what to automate first. No pitch. No commitment.</p>
+    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn reveal reveal-d2" data-i18n="start_cta_btn">Book a free 30-minute call</a>
+    <div class="cta-meta reveal reveal-d3" data-i18n="start_cta_tagline">Free · No commitment · Real-world systems</div>
   </div>
 </section>
 
@@ -430,7 +437,7 @@
 </style>
 <div class="footer-nl">
   <span class="footer-nl-label">Newsletter</span>
-  <a href="index.html#newsletter" class="footer-nl-link">Get practical AI insights — subscribe →</a>
+  <a href="index.html#newsletter" class="footer-nl-link" data-i18n="footer_newsletter_cta">Get practical AI insights — subscribe →</a>
 </div>
 
 <footer>
@@ -442,7 +449,7 @@
     <li><a href="resources.html">Case Studies</a></li>
     <li><a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank">Contact</a></li>
   </ul>
-  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">Cookie Settings</button><span class="footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer_legal">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer_cookie_settings">Cookie Settings</button><span class="footer-copy" data-i18n="footer_copyright">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
 </footer>
 
 <script>
@@ -452,6 +459,7 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
+<script src="/i18n.js"></script>
 <script src="cookie-consent.js"></script>
 </body>
 </html>
