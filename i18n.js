@@ -122,7 +122,7 @@
           meta_title: "Gamper Klimmek Consulting - AI & Automation for Owner-Operated Businesses",
           meta_description: "AI automation, process optimization, and digital transformation for owner-operated businesses. Swiss-based consultants with 10+ years of hands-on operational experience. Based in Lucerne.",
           hero_eyebrow: "Based in Lucerne",
-          hero_title: "Running a business well and running it manually are two different things.",
+          hero_title: "Well-run. Not manually-run.",
           hero_body: "Your time is the most expensive resource in your business. Most of it shouldn't go to admin. We build the systems that take the operational weight off your plate — so you and your team can focus on the work that actually requires you.",
           hero_btn_primary: "Find out what manual work is actually costing you — in 30 minutes",
           hero_btn_secondary: "See how it works",
