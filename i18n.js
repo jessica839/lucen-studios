@@ -121,21 +121,21 @@
         en: {
           meta_title: "Gamper Klimmek Consulting - AI & Automation for Owner-Operated Businesses",
           meta_description: "AI automation, process optimization, and digital transformation for owner-operated businesses. Swiss-based consultants with 10+ years of hands-on operational experience. Based in Lucerne.",
-          hero_eyebrow: "Based in Lucerne",
+          hero_eyebrow: "AI · Automation · Systems",
           hero_title: "Well-run. Not <em>manually</em>-run.",
-          hero_body: "Your time is the most expensive resource in your business. Most of it shouldn't go to admin. We build the systems that take the operational weight off your plate — so you and your team can focus on the work that actually requires you.",
+          hero_body: "Most of your time shouldn't go to admin. We build the systems that take the operational weight off your plate — so you and your team can focus on the work that actually requires you.",
           hero_btn_primary: "Book your free 30-minute audit →",
-          hero_btn_secondary: "See how it works",
+          hero_btn_secondary: "See if this is for you →",
           problem_label: "Sound Familiar?",
           problem_title: "Your business probably<br>runs on <em>this</em> right now.",
           systems_label: "What We Build",
-          systems_title: "Example systems<br>we build.",
+          systems_title: "Systems<br>we build.",
           team_label: "Meet the Team",
-          team_title: "Not typical<br>consultants.",
+          team_title: "We've worked the high season.<br>We've built the tools.",
           cta_title: "Find out exactly where<br>your business is <em>losing time.</em>",
           cta_btn: "Book a free 30-minute audit",
           newsletter_label: "Stay sharp",
-          hero_stat_label: "Yrs Experience",
+          hero_stat_label: "Countries Worked In",
           ticker_1: "Inquiry Automation <span class=\"ticker-dot\">·</span>",
           ticker_2: "Booking Communication <span class=\"ticker-dot\">·</span>",
           ticker_3: "Client Follow-Up <span class=\"ticker-dot\">·</span>",
@@ -149,12 +149,12 @@
           problem_item_4: "<strong>How things work lives in one person's head.</strong> When they're sick, on holiday, or gone - everything has to be re-explained from scratch.",
           problem_item_5: "<strong>Your clients write in languages your team doesn't speak fluently.</strong> International customers get slower, less confident responses - and sometimes none at all.",
           problem_item_6: "<strong>Your tools don't talk to each other.</strong> Bookings in one system, emails in another, client data somewhere else. Everything requires a manual step in between.",
-          problem_transition: "We fix these problems using simple AI-powered systems - built around how your operation actually works.",
+          problem_transition: "We fix these problems using simple AI-powered systems — built around how your operation actually works.",
           mid_cta_label: "Free · 30 minutes · No commitment",
           mid_cta_title: "Find the 3 workflows you should automate first.",
           mid_cta_btn: "Book a free 30-minute audit ->",
-          quote_text: "\"We've been on both sides of the table - as operators and as consultants. That's what makes us different.\"",
-          quote_attr: "- Jessica & Matthias, Gamper Klimmek Consulting",
+          quote_text: "We've been on both sides of the table — as operators and as consultants. That's what makes us different.",
+          quote_attr: "",
           clients_label: "Who We Work With",
           clients_title: "Two worlds.<br>One firm.",
           clients_subtitle: "We partner with two distinct client worlds - and we've built our firm around serving both exceptionally well.",
@@ -189,7 +189,7 @@
           stat_label_1: "Years in Operations",
           stat_label_2: "Countries Worked In",
           stat_label_3: "Avg. Time to First Live System",
-          team_bio: "We've run dive operations in Southeast Asia and the Caribbean, contributed to growth at European SaaS companies, and built brands in Switzerland. That combination - hands-on operational experience plus deep technical expertise - is rare. We bring all of it to every client engagement.",
+          team_bio: "We've run dive operations in Southeast Asia and the Caribbean, built growth at Beekeeper and PayFit, and launched brands in Switzerland. That combination — hands-on operational experience plus deep technical expertise — is rare. We bring all of it to every client engagement.",
           team_tag_1: "PADI IDC Staff Instructors",
           team_tag_2: "SaaS - Beekeeper & PayFit",
           team_tag_3: "Based in Lucerne",
@@ -1712,6 +1712,14 @@
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       const value = getTranslation(lang, key);
+      if (key === "quote_attr") {
+        if (!value) {
+          el.innerHTML = "";
+          el.style.display = "none";
+          return;
+        }
+        el.style.display = "";
+      }
       if (!value) return;
       el.innerHTML = value;
     });
