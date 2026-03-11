@@ -200,7 +200,17 @@
           cta_secondary_link: "Or read how it works first ->",
           newsletter_title: "Practical AI insights for<br><em>owners who mean business.</em>",
           newsletter_sub: "No jargon, no hype. A short, useful newsletter on AI automation and process thinking - written for people who actually run things.",
-          newsletter_note: "No spam. Unsubscribe anytime. <a href=\"legal.html#privacy\">Privacy Policy</a>"
+          newsletter_note: "No spam. Unsubscribe anytime. <a href=\"legal.html#privacy\">Privacy Policy</a>",
+          newsletter_field_first_name: "First Name",
+          newsletter_field_email: "Email",
+          newsletter_placeholder_first_name: "Jessica",
+          newsletter_placeholder_email: "you@yourcompany.com",
+          newsletter_consent: "I understand my information will be saved under GDPR compliance.",
+          newsletter_submit: "Subscribe",
+          newsletter_submit_sending: "Sending...",
+          newsletter_error_required: "Please complete first name, email, and consent.",
+          newsletter_success_title: "You are in.",
+          newsletter_success_body: "Thanks for subscribing. Check your inbox for practical AI insights."
         },
         de: {
           meta_title: "Gamper Klimmek Consulting - KI & Automatisierung für inhabergeführte Unternehmen",
@@ -284,7 +294,17 @@
           cta_secondary_link: "Oder zuerst lesen, wie es funktioniert ->",
           newsletter_title: "Praktische KI-Impulse fur<br><em>Unternehmer mit Anspruch.</em>",
           newsletter_sub: "Kein Jargon, kein Hype. Ein kurzer, nutzlicher Newsletter zu KI-Automatisierung und Prozessdenken - geschrieben fur Menschen, die wirklich Verantwortung tragen.",
-          newsletter_note: "Kein Spam. Jederzeit abmeldbar. <a href=\"legal.html#privacy\">Datenschutz</a>"
+          newsletter_note: "Kein Spam. Jederzeit abmeldbar. <a href=\"legal.html#privacy\">Datenschutz</a>",
+          newsletter_field_first_name: "Vorname",
+          newsletter_field_email: "E-Mail",
+          newsletter_placeholder_first_name: "Jessica",
+          newsletter_placeholder_email: "sie@ihrunternehmen.ch",
+          newsletter_consent: "Ich verstehe, dass meine Daten gemass DSGVO gespeichert werden.",
+          newsletter_submit: "Abonnieren",
+          newsletter_submit_sending: "Wird gesendet...",
+          newsletter_error_required: "Bitte Vorname, E-Mail und Einwilligung ausfullen.",
+          newsletter_success_title: "Sie sind dabei.",
+          newsletter_success_body: "Danke fur Ihre Anmeldung. Schauen Sie in Ihr Postfach fur praktische KI-Impulse."
         },
         fr: {
           meta_title: "Gamper Klimmek Consulting - IA & automatisation pour entreprises dirigées par leur propriétaire",
@@ -368,7 +388,17 @@
           cta_secondary_link: "Ou lire d'abord comment cela fonctionne ->",
           newsletter_title: "Des insights IA concrets pour<br><em>dirigeants exigeants.</em>",
           newsletter_sub: "Pas de jargon, pas de hype. Une newsletter courte et utile sur l'automatisation IA et les processus - pour celles et ceux qui font tourner l'activité.",
-          newsletter_note: "Aucun spam. Désinscription à tout moment. <a href=\"legal.html#privacy\">Politique de confidentialité</a>"
+          newsletter_note: "Aucun spam. Désinscription à tout moment. <a href=\"legal.html#privacy\">Politique de confidentialité</a>",
+          newsletter_field_first_name: "Prenom",
+          newsletter_field_email: "E-mail",
+          newsletter_placeholder_first_name: "Jessica",
+          newsletter_placeholder_email: "vous@votreentreprise.com",
+          newsletter_consent: "Je comprends que mes informations seront enregistrees conformement au RGPD.",
+          newsletter_submit: "S'abonner",
+          newsletter_submit_sending: "Envoi...",
+          newsletter_error_required: "Merci de renseigner le prenom, l'e-mail et le consentement.",
+          newsletter_success_title: "C'est fait.",
+          newsletter_success_body: "Merci pour votre inscription. Verifiez votre boite mail pour recevoir nos insights IA."
         },
         it: {
           meta_title: "Gamper Klimmek Consulting - IA e automazione per aziende a gestione proprietaria",
@@ -452,7 +482,17 @@
           cta_secondary_link: "Oppure prima leggi come funziona ->",
           newsletter_title: "Insight pratici di IA per<br><em>imprenditori concreti.</em>",
           newsletter_sub: "Niente gergo, niente hype. Una newsletter breve e utile su automazione IA e processi - per chi gestisce davvero le operations.",
-          newsletter_note: "Niente spam. Disiscrizione in qualsiasi momento. <a href=\"legal.html#privacy\">Privacy Policy</a>"
+          newsletter_note: "Niente spam. Disiscrizione in qualsiasi momento. <a href=\"legal.html#privacy\">Privacy Policy</a>",
+          newsletter_field_first_name: "Nome",
+          newsletter_field_email: "Email",
+          newsletter_placeholder_first_name: "Jessica",
+          newsletter_placeholder_email: "tu@azienda.com",
+          newsletter_consent: "Confermo che i miei dati saranno salvati in conformita al GDPR.",
+          newsletter_submit: "Iscriviti",
+          newsletter_submit_sending: "Invio...",
+          newsletter_error_required: "Compila nome, email e consenso per continuare.",
+          newsletter_success_title: "Iscrizione completata.",
+          newsletter_success_body: "Grazie per l'iscrizione. Controlla la tua casella per i nostri insight pratici di IA."
         },
         es: {
           meta_title: "Gamper Klimmek Consulting - IA y automatizacion para empresas gestionadas por sus dueños",
@@ -536,7 +576,17 @@
           cta_secondary_link: "O primero lee como funciona ->",
           newsletter_title: "Ideas practicas de IA para<br><em>duenos que van en serio.</em>",
           newsletter_sub: "Sin jerga, sin hype. Un newsletter breve y util sobre automatizacion con IA y pensamiento de procesos - para quienes realmente operan el negocio.",
-          newsletter_note: "Sin spam. Puedes darte de baja cuando quieras. <a href=\"legal.html#privacy\">Politica de privacidad</a>"
+          newsletter_note: "Sin spam. Puedes darte de baja cuando quieras. <a href=\"legal.html#privacy\">Politica de privacidad</a>",
+          newsletter_field_first_name: "Nombre",
+          newsletter_field_email: "Correo electronico",
+          newsletter_placeholder_first_name: "Jessica",
+          newsletter_placeholder_email: "tu@empresa.com",
+          newsletter_consent: "Entiendo que mi informacion se guardara bajo cumplimiento del GDPR.",
+          newsletter_submit: "Suscribirme",
+          newsletter_submit_sending: "Enviando...",
+          newsletter_error_required: "Completa nombre, correo y consentimiento para continuar.",
+          newsletter_success_title: "Ya estas dentro.",
+          newsletter_success_body: "Gracias por suscribirte. Revisa tu correo para recibir ideas practicas de IA."
         }
       },
       businesses: {

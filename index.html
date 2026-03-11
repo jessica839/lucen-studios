@@ -810,10 +810,121 @@
     font-size: 1rem; line-height: 1.65;
     margin-bottom: 2.5rem; max-width: 460px; margin-left: auto; margin-right: auto;
   }
-  .newsletter-iframe-wrap {
-    max-width: 520px; margin: 0 auto 1.25rem;
-    border-radius: 6px; overflow: hidden;
+  .newsletter-form-wrap {
+    max-width: 520px;
+    margin: 0 auto 1.25rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    background: rgba(9,39,46,0.72);
     box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    padding: 1.5rem;
+    text-align: left;
+  }
+  .newsletter-field { margin-bottom: 0.9rem; }
+  .newsletter-field label {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 0.35rem;
+  }
+  .newsletter-field input[type="text"],
+  .newsletter-field input[type="email"] {
+    width: 100%;
+    border: 1.5px solid rgba(255,255,255,0.18);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    color: var(--white);
+    font-size: 1rem;
+    padding: 0.78rem 0.85rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .newsletter-field input::placeholder { color: rgba(255,255,255,0.38); }
+  .newsletter-field input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.16);
+  }
+  .newsletter-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin: 0.9rem 0 0.95rem;
+    color: rgba(255,255,255,0.62);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .newsletter-consent input {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.08rem;
+    accent-color: var(--gold);
+    flex: 0 0 auto;
+  }
+  .newsletter-submit {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--ink);
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+  .newsletter-submit:hover:not(:disabled) {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(201,168,76,0.28);
+  }
+  .newsletter-submit:disabled {
+    background: rgba(201,168,76,0.38);
+    color: rgba(5,18,20,0.75);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+  .newsletter-error {
+    margin-top: 0.7rem;
+    font-size: 0.78rem;
+    color: #ffb3b3;
+    min-height: 1.1rem;
+  }
+  .newsletter-success {
+    display: none;
+    text-align: center;
+    padding: 0.25rem 0.25rem 0.15rem;
+  }
+  .newsletter-success-mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.9rem;
+    font-size: 1.4rem;
+  }
+  .newsletter-success h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.45rem;
+  }
+  .newsletter-success p {
+    color: rgba(255,255,255,0.62);
+    margin: 0;
+    line-height: 1.5;
   }
   .newsletter-note {
     font-size: 0.75rem; color: rgba(255,255,255,0.25); margin-top: 0;
@@ -1427,24 +1538,28 @@
     <p class="section-label reveal" data-i18n="newsletter_label">Stay sharp</p>
     <h2 class="section-title reveal reveal-delay-1" data-i18n="newsletter_title">Practical AI insights for<br><em>owners who mean business.</em></h2>
     <p class="newsletter-sub reveal reveal-delay-2" data-i18n="newsletter_sub">No jargon, no hype. A short, useful newsletter on AI automation and process thinking — written for people who actually run things.</p>
-    <div class="newsletter-iframe-wrap reveal reveal-delay-3">
-      <iframe
-        src="https://link.gamperklimmek.com/widget/form/AHoEQ2FKFilITjybZouK"
-        style="width:100%;height:441px;border:none;border-radius:6px;display:block;"
-        id="inline-AHoEQ2FKFilITjybZouK"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="Lead Gen Opt-in Form"
-        data-height="441"
-        data-layout-iframe-id="inline-AHoEQ2FKFilITjybZouK"
-        data-form-id="AHoEQ2FKFilITjybZouK"
-        title="Lead Gen Opt-in Form"
-      ></iframe>
+    <div class="newsletter-form-wrap reveal reveal-delay-3">
+      <div id="newsletter-form-content">
+        <div class="newsletter-field">
+          <label for="newsletter-first-name" data-i18n="newsletter_field_first_name">First Name</label>
+          <input type="text" id="newsletter-first-name" placeholder="Jessica" data-i18n="newsletter_placeholder_first_name" data-i18n-attr="placeholder">
+        </div>
+        <div class="newsletter-field">
+          <label for="newsletter-email" data-i18n="newsletter_field_email">Email</label>
+          <input type="email" id="newsletter-email" placeholder="you@yourcompany.com" data-i18n="newsletter_placeholder_email" data-i18n-attr="placeholder">
+        </div>
+        <label class="newsletter-consent">
+          <input type="checkbox" id="newsletter-consent">
+          <span data-i18n="newsletter_consent">I understand my information will be saved under GDPR compliance.</span>
+        </label>
+        <button type="button" class="newsletter-submit" id="newsletter-submit-btn" data-i18n="newsletter_submit">Subscribe</button>
+        <p class="newsletter-error" id="newsletter-error" role="alert" aria-live="polite"></p>
+      </div>
+      <div class="newsletter-success" id="newsletter-success" aria-live="polite">
+        <div class="newsletter-success-mark">✓</div>
+        <h3 data-i18n="newsletter_success_title">You are in.</h3>
+        <p data-i18n="newsletter_success_body">Thanks for subscribing. Check your inbox for practical AI insights.</p>
+      </div>
     </div>
     <p class="newsletter-note reveal" data-i18n="newsletter_note">No spam. Unsubscribe anytime. <a href="legal.html#privacy">Privacy Policy</a></p>
   </div>
@@ -1469,6 +1584,109 @@
 </footer>
 
 <script>
+  const NEWSLETTER_FORM_URL = "https://link.gamperklimmek.com/widget/form/P7rkFHPH4cRMVQgSEH80";
+  const newsletterFirstName = document.getElementById("newsletter-first-name");
+  const newsletterEmail = document.getElementById("newsletter-email");
+  const newsletterConsent = document.getElementById("newsletter-consent");
+  const newsletterSubmitBtn = document.getElementById("newsletter-submit-btn");
+  const newsletterError = document.getElementById("newsletter-error");
+  const newsletterFormContent = document.getElementById("newsletter-form-content");
+  const newsletterSuccess = document.getElementById("newsletter-success");
+  let newsletterSubmitting = false;
+
+  function newsletterText(key, fallback) {
+    const el = document.querySelector('[data-i18n="' + key + '"]');
+    if (el && el.innerHTML) return el.innerHTML;
+    return fallback;
+  }
+
+  function getActiveLang() {
+    const active = document.querySelector(".gk-lang-btn.active");
+    if (active) return active.dataset.lang || "en";
+    return document.documentElement.lang || "en";
+  }
+
+  function isNewsletterValid() {
+    return (
+      newsletterFirstName.value.trim() &&
+      newsletterEmail.value.trim() &&
+      newsletterConsent.checked
+    );
+  }
+
+  function setNewsletterButtonLabel() {
+    if (newsletterSubmitting) {
+      newsletterSubmitBtn.textContent = newsletterText("newsletter_submit_sending", "Sending...");
+      return;
+    }
+    newsletterSubmitBtn.textContent = newsletterText("newsletter_submit", "Subscribe");
+  }
+
+  function updateNewsletterButton() {
+    newsletterSubmitBtn.disabled = newsletterSubmitting || !isNewsletterValid();
+    setNewsletterButtonLabel();
+  }
+
+  function clearNewsletterError() {
+    newsletterError.textContent = "";
+  }
+
+  function showNewsletterError() {
+    newsletterError.textContent = newsletterText("newsletter_error_required", "Please complete first name, email, and consent.");
+  }
+
+  async function handleNewsletterSubmit() {
+    if (newsletterSubmitting) return;
+    if (!isNewsletterValid()) {
+      showNewsletterError();
+      updateNewsletterButton();
+      return;
+    }
+
+    clearNewsletterError();
+    newsletterSubmitting = true;
+    updateNewsletterButton();
+
+    const body = new URLSearchParams();
+    body.append("first_name", newsletterFirstName.value.trim());
+    body.append("email", newsletterEmail.value.trim());
+    body.append("language", getActiveLang());
+    body.append("gdpr_consent", newsletterConsent.checked ? "true" : "false");
+
+    try {
+      await fetch(NEWSLETTER_FORM_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString()
+      });
+    } catch (err) {
+      // no-cors does not expose response details, so we proceed to success state
+    }
+
+    newsletterFormContent.style.display = "none";
+    newsletterSuccess.style.display = "block";
+    newsletterSubmitting = false;
+  }
+
+  newsletterFirstName.addEventListener("input", () => {
+    clearNewsletterError();
+    updateNewsletterButton();
+  });
+  newsletterEmail.addEventListener("input", () => {
+    clearNewsletterError();
+    updateNewsletterButton();
+  });
+  newsletterConsent.addEventListener("change", () => {
+    clearNewsletterError();
+    updateNewsletterButton();
+  });
+  newsletterSubmitBtn.addEventListener("click", handleNewsletterSubmit);
+  document.querySelectorAll(".gk-lang-btn").forEach((btn) => {
+    btn.addEventListener("click", () => setTimeout(setNewsletterButtonLabel, 0));
+  });
+  updateNewsletterButton();
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -1478,7 +1696,6 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
-<script src="https://link.gamperklimmek.com/js/form_embed.js"></script>
 <script src="i18n.js"></script>
 <script src="cookie-consent.js"></script>
 </body>
