@@ -54,6 +54,19 @@
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.3s; }
   .nav-links a:hover { color: var(--gold); }
+  .gk-lang-switcher { display: inline-flex; gap: 0.25rem; margin-left: 1rem; }
+  .gk-lang-btn {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    padding: 0.28rem 0.4rem;
+    cursor: pointer;
+  }
+  .gk-lang-btn.active { color: var(--gold); border-color: var(--gold); }
 
   /* MOBILE MENU */
   .nav-hamburger {
@@ -234,7 +247,7 @@
   gtag('config', 'G-J1Z1TC3H4R');
 </script>
 </head>
-<body>
+<body data-i18n-page="start">
 
 <!-- NAV -->
 <nav>

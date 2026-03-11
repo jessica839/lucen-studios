@@ -2003,8 +2003,10 @@
     const pageFromAttr = document.body && document.body.getAttribute("data-i18n-page");
     if (pageFromAttr) return pageFromAttr;
     const path = window.location.pathname;
-    const file = path.split("/").pop() || "index.html";
-    return file.replace(".html", "") || "index";
+    const segments = path.split("/").filter(Boolean);
+    const file = segments.length ? segments[segments.length - 1] : "index.html";
+    if (file.endsWith(".html")) return file.replace(".html", "") || "index";
+    return file || "index";
   }
 
   function toSupportedLanguage(lang) {
