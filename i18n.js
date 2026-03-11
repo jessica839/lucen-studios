@@ -121,10 +121,10 @@
         en: {
           meta_title: "Gamper Klimmek Consulting - AI & Automation for Owner-Operated Businesses",
           meta_description: "AI automation, process optimization, and digital transformation for owner-operated businesses. Swiss-based consultants with 10+ years of hands-on operational experience. Based in Lucerne.",
-          hero_eyebrow: "Based in Lucerne · Est. 2026",
-          hero_title: "Stop running<br>your business<br>on <em>chaos.</em>",
-          hero_body: "We help small businesses save 10-20 hours a week by automating the work that's eating their time - client inquiries, booking and appointment communication, follow-ups, and the questions your team answers on repeat.",
-          hero_btn_primary: "Book a free 30-minute audit",
+          hero_eyebrow: "Based in Lucerne",
+          hero_title: "Running a business well and running it manually are two different things.",
+          hero_body: "Your time is the most expensive resource in your business. Most of it shouldn't go to admin. We build the systems that take the operational weight off your plate — so you and your team can focus on the work that actually requires you.",
+          hero_btn_primary: "Find out what manual work is actually costing you — in 30 minutes",
           hero_btn_secondary: "See how it works",
           problem_label: "Sound Familiar?",
           problem_title: "Your business probably<br>runs on <em>this</em> right now.",
@@ -215,7 +215,7 @@
         de: {
           meta_title: "Gamper Klimmek Consulting - KI & Automatisierung für inhabergeführte Unternehmen",
           meta_description: "KI-Automatisierung, Prozessoptimierung und digitale Transformation für inhabergeführte Unternehmen. Schweizer Beratung mit echter operativer Erfahrung.",
-          hero_eyebrow: "In Luzern · Gegründet 2026",
+          hero_eyebrow: "In Luzern",
           hero_title: "Hören Sie auf,<br>Ihr Unternehmen<br>im <em>Chaos</em> zu führen.",
           hero_body: "Wir helfen kleinen Unternehmen, pro Woche 10-20 Stunden zu gewinnen - durch Automatisierung von Anfragen, Buchungskommunikation, Follow-ups und wiederkehrenden Teamfragen.",
           hero_btn_primary: "Kostenlosen 30-Minuten-Audit buchen",
@@ -309,7 +309,7 @@
         fr: {
           meta_title: "Gamper Klimmek Consulting - IA & automatisation pour entreprises dirigées par leur propriétaire",
           meta_description: "Automatisation IA, optimisation des processus et transformation digitale pour entreprises dirigées par leur propriétaire. Basé à Lucerne.",
-          hero_eyebrow: "Basé à Lucerne · Depuis 2026",
+          hero_eyebrow: "Basé à Lucerne",
           hero_title: "Arrêtez de gérer<br>votre entreprise<br>dans le <em>chaos.</em>",
           hero_body: "Nous aidons les petites entreprises à gagner 10-20 heures par semaine en automatisant les demandes clients, la communication de réservation, les suivis et les questions répétitives.",
           hero_btn_primary: "Réserver un audit gratuit de 30 min",
@@ -403,7 +403,7 @@
         it: {
           meta_title: "Gamper Klimmek Consulting - IA e automazione per aziende a gestione proprietaria",
           meta_description: "Automazione IA, ottimizzazione dei processi e trasformazione digitale per aziende a gestione proprietaria. Basati a Lucerna.",
-          hero_eyebrow: "Con sede a Lucerna · Dal 2026",
+          hero_eyebrow: "Con sede a Lucerna",
           hero_title: "Smetti di gestire<br>la tua azienda<br>nel <em>caos.</em>",
           hero_body: "Aiutiamo le piccole imprese a recuperare 10-20 ore a settimana automatizzando richieste clienti, comunicazioni di prenotazione, follow-up e domande ripetitive al team.",
           hero_btn_primary: "Prenota un audit gratuito di 30 minuti",
@@ -497,7 +497,7 @@
         es: {
           meta_title: "Gamper Klimmek Consulting - IA y automatizacion para empresas gestionadas por sus dueños",
           meta_description: "Automatizacion con IA, optimizacion de procesos y transformacion digital para empresas gestionadas por sus dueños. Con base en Lucerna.",
-          hero_eyebrow: "Con base en Lucerna · Desde 2026",
+          hero_eyebrow: "Con base en Lucerna",
           hero_title: "Deja de llevar<br>tu negocio<br>en <em>caos.</em>",
           hero_body: "Ayudamos a pequenas empresas a recuperar 10-20 horas por semana automatizando consultas, comunicacion de reservas, seguimientos y preguntas repetitivas del equipo.",
           hero_btn_primary: "Reservar auditoria gratuita de 30 minutos",
