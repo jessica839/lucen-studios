@@ -62,10 +62,10 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  img, video, iframe { max-width: 100%; height: auto; }
 
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
     width: 100%;
   }
 
@@ -73,7 +73,7 @@
     font-family: 'DM Sans', sans-serif;
     background: var(--ink);
     color: var(--white);
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
     min-height: 100vh;
     min-height: -webkit-fill-available;
@@ -944,7 +944,7 @@
   .footer-nl-label {
     font-family: 'Syne', sans-serif; font-size: 0.7rem;
     font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.25); white-space: nowrap;
+    color: rgba(255,255,255,0.25);
   }
   .footer-nl-link {
     font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 600;
@@ -954,6 +954,60 @@
   .footer-nl-link:hover { color: var(--gold-light); letter-spacing: 0.06em; }
   @media (max-width: 768px) {
     .footer-nl { padding: 1.25rem 2rem; }
+  }
+
+  .mid-cta-strip {
+    background: var(--teal);
+    padding: 2.25rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .mid-cta-copy { min-width: 0; }
+  .mid-cta-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.4rem;
+  }
+  .mid-cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .mid-cta-btn {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: #fff;
+    padding: 0.9rem 2.2rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+  .mid-cta-btn:hover { background: var(--gold-light); }
+  @media (max-width: 768px) {
+    .mid-cta-strip { padding: 1.75rem 1.5rem; }
+    .mid-cta-btn {
+      width: 100%;
+      white-space: normal;
+      text-align: center;
+      overflow-wrap: anywhere;
+      flex-shrink: 1;
+    }
   }
 
   /* ── FOOTER ── */
@@ -1346,12 +1400,12 @@
 </section>
 
 <!-- MID-PAGE CTA STRIP -->
-<div style="background:var(--teal);padding:2.25rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
-  <div>
-    <p style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.4rem;" data-i18n="mid_cta_label">Free · 30 minutes · No commitment</p>
-    <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;line-height:1.2;" data-i18n="mid_cta_title">Find the 3 workflows you should automate first.</p>
+<div class="mid-cta-strip">
+  <div class="mid-cta-copy">
+    <p class="mid-cta-label" data-i18n="mid_cta_label">Free · 30 minutes · No commitment</p>
+    <p class="mid-cta-title" data-i18n="mid_cta_title">Find the 3 workflows you should automate first.</p>
   </div>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);background:#fff;padding:0.9rem 2.2rem;text-decoration:none;white-space:nowrap;transition:all 0.3s;flex-shrink:0;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='#fff'" data-i18n="mid_cta_btn">Book a free 30-minute audit →</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mid-cta-btn" data-i18n="mid_cta_btn">Book a free 30-minute audit →</a>
 </div>
 
 <!-- QUOTE BAND -->

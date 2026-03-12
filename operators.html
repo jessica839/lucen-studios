@@ -37,8 +37,9 @@
     --muted: #6b6b7a;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  img, video, iframe { max-width: 100%; height: auto; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--white); overflow-x: hidden; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--white); }
 
   /* NAV */
   nav {
@@ -510,7 +511,7 @@
 
 <style>
   .footer-nl{background:#0a0a0f;border-top:1px solid rgba(255,255,255,0.04);padding:1.5rem 4rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
-  .footer-nl-label{font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;}
+  .footer-nl-label{font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
   .footer-nl-link{font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.04em;color:#c9a84c;text-decoration:none;transition:color 0.2s,letter-spacing 0.2s;}
   .footer-nl-link:hover{color:#e8c97a;letter-spacing:0.06em;}
   @media(max-width:768px){.footer-nl{padding:1.25rem 2rem;}}

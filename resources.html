@@ -31,8 +31,9 @@
     --teal: #1a6b7a;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
-  body { font-family: "DM Sans", sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; width: 100%; }
+  img, video, iframe { max-width: 100%; height: auto; }
+  html { scroll-behavior: smooth; width: 100%; }
+  body { font-family: "DM Sans", sans-serif; background: var(--paper); color: var(--ink); width: 100%; }
 
   nav {
     position: fixed;

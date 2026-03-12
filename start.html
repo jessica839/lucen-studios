@@ -38,8 +38,9 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  img, video, iframe { max-width: 100%; height: auto; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--white); overflow-x: hidden; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--white); overflow-x: clip; }
 
   /* NAV */
   nav {
@@ -85,6 +86,8 @@
   .mobile-menu a { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
   .mobile-menu a:hover { color: var(--gold); }
   .mobile-menu .mobile-cta { margin-top: 1rem; background: var(--gold); color: var(--ink); padding: 0.9rem 2rem; font-size: 0.9rem; }
+  .mobile-lang { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+  .mobile-lang .gk-lang-btn { font-size: 0.7rem; padding: 0.3rem 0.55rem; }
 
   /* HERO */
   .start-hero {
@@ -217,6 +220,7 @@
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    nav > .gk-lang-switcher { display: none; }
     .nav-hamburger { display: block; margin-left: auto; }
     .start-hero { padding: 8rem 1.5rem 4rem; }
     .for-who, .what-we-build, .best-fit, .audit-section, .start-cta { padding: 4rem 1.5rem; }
@@ -278,6 +282,13 @@
   <a href="story.html" data-i18n="nav_our_story" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Our Story</a>
   <a href="resources.html" data-i18n="nav_case_studies" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Case Studies</a>
   <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta" data-i18n="mobile_book_call">Book a Call</a>
+  <div class="mobile-lang" aria-label="Language switcher">
+    <button class="gk-lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>
+    <button class="gk-lang-btn" data-lang="de" type="button" aria-pressed="false">DE</button>
+    <button class="gk-lang-btn" data-lang="fr" type="button" aria-pressed="false">FR</button>
+    <button class="gk-lang-btn" data-lang="it" type="button" aria-pressed="false">IT</button>
+    <button class="gk-lang-btn" data-lang="es" type="button" aria-pressed="false">ES</button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -443,7 +454,7 @@
 
 <style>
   .footer-nl{background:#0a0a0f;border-top:1px solid rgba(255,255,255,0.04);padding:1.5rem 4rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
-  .footer-nl-label{font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;}
+  .footer-nl-label{font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
   .footer-nl-link{font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.04em;color:#c9a84c;text-decoration:none;transition:color 0.2s,letter-spacing 0.2s;}
   .footer-nl-link:hover{color:#e8c97a;letter-spacing:0.06em;}
   @media(max-width:768px){.footer-nl{padding:1.25rem 2rem;}}
