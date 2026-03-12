@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /legal.html
 
 Sitemap: https://www.gamperklimmek.com/sitemap.xml

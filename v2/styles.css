@@ -522,7 +522,7 @@ nav {
 .story-year { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; color: rgba(255,255,255,0.28); padding-top: 0.2rem; text-align: right; white-space: nowrap; }
 .story-dot { width: 10px; height: 10px; border: 1px solid var(--gold); background: var(--ink); border-radius: 50%; margin-top: 0.25rem; position: relative; z-index: 1; flex-shrink: 0; }
 .story-dot.now { background: var(--gold); }
-.story-content h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 900; margin-bottom: 0.3rem; }
+.story-content h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 900; margin: 0 0 0.3rem; }
 .story-location { font-family: 'Syne', sans-serif; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.45rem; }
 .story-content p { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
