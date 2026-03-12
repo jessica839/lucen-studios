@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time &amp; Cost Leak Calculator | Gamper Klimmek Consulting</title>
+  <meta name="description" content="Estimate weekly and yearly time loss from manual work and see what part your business could recover with better workflows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/v2/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="/v2/index.html" class="nav-back" data-i18n="story.back">Back to home</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="it">IT</button>
+    </div>
+  </nav>
+
+  <section class="leak-calc" id="leak-calculator">
+    <div class="leak-calc-inner">
+      <div class="leak-calc-header">
+        <p class="section-label" data-i18n="calc.label">Time &amp; Cost Leak Calculator</p>
+        <h1 class="section-title" data-i18n="calc.title">How much time and money is manual work costing your business?</h1>
+        <p class="leak-calc-sub" data-i18n="calc.sub">Use the calculator below to estimate how much repetitive admin, communication, and coordination may be costing your team each year.</p>
+      </div>
+
+      <div class="leak-calc-grid">
+        <div class="leak-calc-inputs">
+          <div class="leak-calc-field">
+            <label for="calcCurrency" class="leak-calc-label" data-i18n="calc.input.currency">Currency</label>
+            <select id="calcCurrency" class="leak-calc-select" aria-describedby="calcCurrencyHint">
+              <option value="CHF">CHF</option>
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+            </select>
+            <p id="calcCurrencyHint" class="leak-calc-hint" data-i18n="calc.input.currency.hint">Used for salary and estimated yearly cost.</p>
+          </div>
+
+          <div class="leak-calc-field">
+            <div class="leak-calc-label-row">
+              <label for="calcEmployees" class="leak-calc-label" data-i18n="calc.input.employees">Number of employees</label>
+              <span class="leak-calc-live" id="calcEmployeesValue">5</span>
+            </div>
+            <input id="calcEmployees" class="leak-calc-range" type="range" min="1" max="25" step="1" value="5" />
+          </div>
+
+          <div class="leak-calc-field">
+            <label for="calcSalary" class="leak-calc-label" data-i18n="calc.input.salary">Average annual salary</label>
+            <input id="calcSalary" class="leak-calc-number" type="number" inputmode="numeric" min="0" step="1000" value="80000" />
+          </div>
+
+          <div class="leak-calc-field">
+            <div class="leak-calc-label-row">
+              <label for="calcCommHours" class="leak-calc-label" data-i18n="calc.input.comm">Weekly hours per employee spent on emails / messages</label>
+              <span class="leak-calc-live" id="calcCommHoursValue">2.0</span>
+            </div>
+            <input id="calcCommHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="2" />
+          </div>
+
+          <div class="leak-calc-field">
+            <div class="leak-calc-label-row">
+              <label for="calcAdminHours" class="leak-calc-label" data-i18n="calc.input.admin">Weekly hours per employee spent on admin tasks</label>
+              <span class="leak-calc-live" id="calcAdminHoursValue">2.0</span>
+            </div>
+            <input id="calcAdminHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="2" />
+          </div>
+
+          <div class="leak-calc-field">
+            <div class="leak-calc-label-row">
+              <label for="calcOpsHours" class="leak-calc-label" data-i18n="calc.input.ops">Weekly hours per employee spent on scheduling / coordination</label>
+              <span class="leak-calc-live" id="calcOpsHoursValue">2.0</span>
+            </div>
+            <input id="calcOpsHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="2" />
+          </div>
+        </div>
+
+        <aside class="leak-calc-results" aria-live="polite">
+          <p class="leak-calc-results-label" data-i18n="calc.results.label">Estimated impact</p>
+
+          <div class="leak-calc-result">
+            <p class="leak-calc-result-title" data-i18n="calc.results.weeklyHours.title">Estimated time lost each week</p>
+            <p class="leak-calc-result-value"><span id="calcWeeklyHoursLost">30</span> <span data-i18n="calc.unit.hours">hours</span></p>
+          </div>
+
+          <div class="leak-calc-result">
+            <p class="leak-calc-result-title" data-i18n="calc.results.yearlyHours.title">Estimated time lost each year</p>
+            <p class="leak-calc-result-value"><span id="calcYearlyHoursLost">1560</span> <span data-i18n="calc.unit.hours">hours</span></p>
+          </div>
+
+          <div class="leak-calc-result">
+            <p class="leak-calc-result-title" data-i18n="calc.results.annualCost.title">Estimated annual cost of manual work</p>
+            <p class="leak-calc-result-value" id="calcEstimatedAnnualCost">CHF 62’400</p>
+          </div>
+
+          <div class="leak-calc-result">
+            <p class="leak-calc-result-title" data-i18n="calc.results.recoverable.title">If only 20% of this is reduced</p>
+            <p class="leak-calc-result-value"><span id="calcRecoverableSavings">CHF 12’480</span> <span class="leak-calc-inline-note" data-i18n="calc.results.recoverable.suffix">/ year</span></p>
+          </div>
+
+          <div class="leak-calc-audit">
+            <p class="leak-calc-audit-title" data-i18n="calc.results.audit.title">Our Website &amp; Workflow Audit</p>
+            <p class="leak-calc-audit-price">CHF 1’500</p>
+            <p class="leak-calc-audit-equivalent" id="calcAuditEquivalent">CHF 1’500</p>
+            <p class="leak-calc-audit-note" data-i18n="calc.results.audit.note">Approximate equivalent.</p>
+          </div>
+
+          <p class="leak-calc-support" data-i18n="calc.results.support">Even small improvements in your workflows can recover a significant amount of this time.</p>
+          <p class="leak-calc-payoff" id="calcPayoffLine">At this estimate, the audit pays for itself in about 6 weeks.</p>
+
+          <a href="/v2/index.html#audit" class="btn-gold-full" data-i18n="calc.cta">Find your biggest time leaks</a>
+          <p class="leak-calc-microcopy" data-i18n="calc.cta.microcopy">30 minutes. No preparation needed.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Gamper<span>.</span>Klimmek</div>
+    <ul class="footer-links">
+      <li><a href="/v2/index.html" data-i18n="story.back">Back to home</a></li>
+      <li><a href="/v2/index.html#audit" data-i18n="audit.btn">See how many hours you could save</a></li>
+      <li><a href="/legal.html" data-i18n="footer.legal">Impressum</a></li>
+    </ul>
+    <p class="footer-meta">© 2026 Gamper Klimmek Consulting · CHE-235.928.528</p>
+  </footer>
+
+  <script src="/v2/i18n.js?v=20260312-2"></script>
+  <script>
+    const CALC_SALARY_DEFAULTS = { CHF: 80000, EUR: 60000, USD: 65000 };
+    const CALC_AUDIT_EQUIVALENTS = { CHF: "CHF 1’500", EUR: "EUR 1,550", USD: "USD 1,650" };
+    const CALC_AUDIT_PRICE_CHF = 1500;
+
+    function i18nText(key, fallback) {
+      if (typeof t === "function") return t(key) || fallback;
+      return fallback;
+    }
+
+    function formatCHF(value) {
+      const rounded = Math.round(value);
+      return String(rounded).replace(/\B(?=(\d{3})+(?!\d))/g, "’");
+    }
+
+    function formatMoney(value, currency) {
+      const rounded = Math.round(value);
+      const grouped = currency === "CHF"
+        ? formatCHF(rounded)
+        : rounded.toLocaleString("en-US");
+      return `${currency} ${grouped}`;
+    }
+
+    function updateLeakCalculator() {
+      const currencyEl = document.getElementById("calcCurrency");
+      const currency = currencyEl.value;
+      const employees = Number(document.getElementById("calcEmployees").value) || 0;
+      const salary = Number(document.getElementById("calcSalary").value) || 0;
+      const commHours = Number(document.getElementById("calcCommHours").value) || 0;
+      const adminHours = Number(document.getElementById("calcAdminHours").value) || 0;
+      const opsHours = Number(document.getElementById("calcOpsHours").value) || 0;
+
+      const totalWeeklyHoursLost = employees * (commHours + adminHours + opsHours);
+      const totalYearlyHoursLost = totalWeeklyHoursLost * 52;
+      const hourlyRate = salary / 2000;
+      const estimatedAnnualCost = totalYearlyHoursLost * hourlyRate;
+      const recoverableSavings = estimatedAnnualCost * 0.2;
+      const weeklyRecoveredValue = recoverableSavings / 52;
+      const approxWeeksToRecoverAudit = weeklyRecoveredValue > 0 ? (CALC_AUDIT_PRICE_CHF / weeklyRecoveredValue) : Infinity;
+
+      document.getElementById("calcEmployeesValue").textContent = String(Math.round(employees));
+      document.getElementById("calcCommHoursValue").textContent = commHours.toFixed(1);
+      document.getElementById("calcAdminHoursValue").textContent = adminHours.toFixed(1);
+      document.getElementById("calcOpsHoursValue").textContent = opsHours.toFixed(1);
+
+      document.getElementById("calcWeeklyHoursLost").textContent = String(Math.round(totalWeeklyHoursLost));
+      document.getElementById("calcYearlyHoursLost").textContent = String(Math.round(totalYearlyHoursLost));
+      document.getElementById("calcEstimatedAnnualCost").textContent = formatMoney(estimatedAnnualCost, currency);
+      document.getElementById("calcRecoverableSavings").textContent = formatMoney(recoverableSavings, currency);
+      document.getElementById("calcAuditEquivalent").textContent = CALC_AUDIT_EQUIVALENTS[currency] || CALC_AUDIT_EQUIVALENTS.CHF;
+
+      const payoffLine = document.getElementById("calcPayoffLine");
+      if (!Number.isFinite(approxWeeksToRecoverAudit) || approxWeeksToRecoverAudit <= 0) {
+        payoffLine.style.display = "none";
+        return;
+      }
+
+      const roundedWeeks = Math.max(1, Math.round(approxWeeksToRecoverAudit));
+      payoffLine.style.display = "block";
+      payoffLine.textContent = i18nText(
+        "calc.results.payoff",
+        "At this estimate, the audit pays for itself in about {weeks} weeks."
+      ).replace("{weeks}", String(roundedWeeks));
+    }
+
+    function setupLeakCalculator() {
+      const currencyEl = document.getElementById("calcCurrency");
+      const salaryEl = document.getElementById("calcSalary");
+      const boundElements = [
+        currencyEl,
+        document.getElementById("calcEmployees"),
+        salaryEl,
+        document.getElementById("calcCommHours"),
+        document.getElementById("calcAdminHours"),
+        document.getElementById("calcOpsHours")
+      ];
+
+      currencyEl.addEventListener("change", () => {
+        salaryEl.value = String(CALC_SALARY_DEFAULTS[currencyEl.value] || CALC_SALARY_DEFAULTS.CHF);
+        updateLeakCalculator();
+      });
+
+      boundElements.forEach((el) => {
+        el.addEventListener("input", updateLeakCalculator);
+        el.addEventListener("change", updateLeakCalculator);
+      });
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          setTimeout(updateLeakCalculator, 0);
+        });
+      });
+
+      updateLeakCalculator();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setupLeakCalculator();
+    });
+  </script>
+</body>
+</html>

@@ -200,6 +200,161 @@ nav {
   color: rgba(255,255,255,0.45);
 }
 
+/* ── TIME & COST LEAK CALCULATOR ── */
+.leak-calc {
+  background: linear-gradient(180deg, #0f151d 0%, var(--ink) 70%);
+  padding: 6.5rem 4rem 6rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.leak-calc-inner { max-width: var(--max); margin: 0 auto; }
+.leak-calc-header { max-width: 860px; margin-bottom: 3rem; }
+.leak-calc-sub { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.58); max-width: 680px; margin-top: 1.2rem; }
+
+.leak-calc-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.leak-calc-inputs {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.leak-calc-field { display: flex; flex-direction: column; gap: 0.65rem; }
+.leak-calc-label-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.leak-calc-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.leak-calc-live {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+.leak-calc-hint { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+.leak-calc-select,
+.leak-calc-number {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  padding: 0.85rem 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.leak-calc-range {
+  width: 100%;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.leak-calc-select:focus-visible,
+.leak-calc-number:focus-visible,
+.leak-calc-range:focus-visible,
+.leak-calc .btn-gold-full:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+.leak-calc-results {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.28);
+  backdrop-filter: blur(8px);
+  padding: 2.4rem;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+.leak-calc-results-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.leak-calc-result { border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 0; }
+.leak-calc-result:first-of-type { border-top: none; padding-top: 0; }
+.leak-calc-result-title { font-size: 0.85rem; color: rgba(255,255,255,0.58); line-height: 1.5; margin-bottom: 0.4rem; }
+.leak-calc-result-value {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  line-height: 1.1;
+  font-weight: 900;
+  color: var(--white);
+}
+.leak-calc-inline-note {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.leak-calc-audit {
+  margin: 1rem 0 1.25rem;
+  padding: 1.25rem;
+  background: rgba(10,10,15,0.45);
+  border: 1px solid rgba(201,168,76,0.3);
+}
+.leak-calc-audit-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+.leak-calc-audit-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 0.35rem;
+}
+.leak-calc-audit-equivalent { font-size: 0.92rem; color: rgba(255,255,255,0.72); margin-top: 0.3rem; }
+.leak-calc-audit-note {
+  margin-top: 0.25rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.32);
+}
+
+.leak-calc-support { font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.62); margin-bottom: 0.6rem; }
+.leak-calc-payoff {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--gold-light);
+  margin-bottom: 1.25rem;
+}
+.leak-calc .btn-gold-full { margin-bottom: 0.7rem; }
+.leak-calc-microcopy {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.34);
+  text-align: center;
+}
+
 /* ── TICKER ── */
 .ticker {
   background: var(--teal-deep); padding: 0.9rem 0; overflow: hidden;
@@ -467,11 +622,11 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .nav-hamburger { display: block; }
 
   .hero { padding: 8rem 1.5rem 5rem; }
-  .problem, .flow, .who, .process, .cases, .story, .audit-embed, .newsletter { padding: 5rem 1.5rem; }
+  .problem, .flow, .who, .process, .cases, .story, .audit-embed, .newsletter, .leak-calc { padding: 5rem 1.5rem; }
   .trust-strip { padding: 2.5rem 1.5rem; }
   footer { padding: 2.5rem 1.5rem; flex-direction: column; align-items: flex-start; }
 
-  .problem-header, .flow-header, .cases-header, .story-header, .newsletter-inner, .audit-embed-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .problem-header, .flow-header, .cases-header, .story-header, .newsletter-inner, .audit-embed-inner, .leak-calc-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .problem-grid, .process-steps, .cases-grid, .who-grid, .team-grid { grid-template-columns: 1fr; }
   .flow-diagram { grid-template-columns: repeat(3, 1fr); }
   .invisible-work-block { grid-template-columns: 1fr; }
@@ -480,6 +635,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .cases-cta { grid-template-columns: 1fr; gap: 2rem; }
   .trust-strip-inner { flex-direction: column; align-items: flex-start; }
   .audit-card { clip-path: none; }
+  .leak-calc-results { clip-path: none; }
   .story-timeline::before { left: 3.5rem; }
   .story-item { grid-template-columns: 3.25rem 1.5rem 1fr; }
   .story-excerpt { padding: 1.75rem; }
@@ -497,7 +653,9 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .who-card,
   .process-step,
   .case-card,
-  .team-card { padding: 2rem 1.5rem; }
+  .team-card,
+  .leak-calc-inputs,
+  .leak-calc-results { padding: 2rem 1.5rem; }
   .process-num { font-size: 3.5rem; }
   .who-card h3,
   .team-name { font-size: 1.4rem; }
