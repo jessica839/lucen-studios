@@ -2180,7 +2180,7 @@
           legal_rights_rectification: "<strong>Right to rectification:</strong> You may request that inaccurate data be corrected.",
           legal_rights_erasure: "<strong>Right to erasure:</strong> You may request that your data be deleted, subject to legal retention obligations.",
           legal_rights_object: "<strong>Right to object:</strong> You may object to the processing of your data for certain purposes.",
-          legal_rights_contact: "To exercise any of these rights, please contact us at <a href=\"/cdn-cgi/l/email-protection#e8808d848487a88f8985988d9a83848185858d83c68b8785\"><span class=\"__cf_email__\" data-cfemail=\"19717c757576597e7874697c6b72757074747c72377a7674\">[email&#160;protected]</span></a>. We will respond within 30 days.",
+          legal_rights_contact: "To exercise any of these rights, please contact us at <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>. We will respond within 30 days.",
           legal_retention_h3: "Data Retention",
           legal_retention_p: "We retain personal data only for as long as necessary for the purpose for which it was collected, or as required by Swiss law. Contact and booking data is retained for the duration of our business relationship and for a maximum of 10 years thereafter in accordance with Swiss commercial record-keeping obligations.",
           legal_transfers_h3: "International Data Transfers",
@@ -2188,7 +2188,7 @@
           legal_changes_h3: "Changes to This Policy",
           legal_changes_p: "We reserve the right to update this privacy policy at any time. The current version will always be available on this page. We recommend checking this page periodically for any changes.",
           legal_complaints_h3: "Contact & Complaints",
-          legal_complaints_p1: "For any questions about this privacy policy or how we handle your data, please contact us at <a href=\"/cdn-cgi/l/email-protection#553d3039393a153234382530273e393c3838303e7b363a38\"><span class=\"__cf_email__\" data-cfemail=\"d6beb3babab996b1b7bba6b3a4bdbabfbbbbb3bdf8b5b9bb\">[email&#160;protected]</span></a>.",
+          legal_complaints_p1: "For any questions about this privacy policy or how we handle your data, please contact us at <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>.",
           legal_complaints_p2: "If you believe your data protection rights have been violated, you have the right to lodge a complaint with the Swiss Federal Data Protection and Information Commissioner (FDPIC): <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\">www.edoeb.admin.ch</a>",
           legal_last_updated: "Last updated: March 2026"
         },
@@ -2237,7 +2237,7 @@
           legal_rights_rectification: "<strong>Berichtigung:</strong> Sie können die Korrektur unrichtiger Daten verlangen.",
           legal_rights_erasure: "<strong>Löschung:</strong> Sie können die Löschung Ihrer Daten im Rahmen der gesetzlichen Vorgaben verlangen.",
           legal_rights_object: "<strong>Widerspruch:</strong> Sie können der Verarbeitung für bestimmte Zwecke widersprechen.",
-          legal_rights_contact: "Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte unter <a href=\"/cdn-cgi/l/email-protection#e8808d848487a88f8985988d9a83848185858d83c68b8785\"><span class=\"__cf_email__\" data-cfemail=\"19717c757576597e7874697c6b72757074747c72377a7674\">[email&#160;protected]</span></a>.",
+          legal_rights_contact: "Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte unter <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>.",
           legal_retention_h3: "Aufbewahrung",
           legal_retention_p: "Personenbezogene Daten speichern wir nur so lange, wie es für den Zweck erforderlich oder gesetzlich vorgeschrieben ist.",
           legal_transfers_h3: "Internationale Datenübermittlungen",
@@ -2245,7 +2245,7 @@
           legal_changes_h3: "Änderungen dieser Richtlinie",
           legal_changes_p: "Wir behalten uns vor, diese Datenschutzerklärung jederzeit anzupassen. Es gilt jeweils die aktuelle Version auf dieser Seite.",
           legal_complaints_h3: "Kontakt & Beschwerden",
-          legal_complaints_p1: "Bei Fragen zur Datenverarbeitung kontaktieren Sie uns bitte unter <a href=\"/cdn-cgi/l/email-protection#553d3039393a153234382530273e393c3838303e7b363a38\"><span class=\"__cf_email__\" data-cfemail=\"d6beb3babab996b1b7bba6b3a4bdbabfbbbbb3bdf8b5b9bb\">[email&#160;protected]</span></a>.",
+          legal_complaints_p1: "Bei Fragen zur Datenverarbeitung kontaktieren Sie uns bitte unter <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>.",
           legal_complaints_p2: "Sie haben zudem das Recht auf Beschwerde beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDOB): <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\">www.edoeb.admin.ch</a>",
           legal_last_updated: "Zuletzt aktualisiert: März 2026"
         },
@@ -2294,7 +2294,7 @@
           legal_rights_rectification: "<strong>Droit de rectification:</strong> vous pouvez demander la correction de données inexactes.",
           legal_rights_erasure: "<strong>Droit d'effacement:</strong> vous pouvez demander la suppression de vos données, sous réserve d'obligations légales.",
           legal_rights_object: "<strong>Droit d'opposition:</strong> vous pouvez vous opposer à certains traitements.",
-          legal_rights_contact: "Pour exercer vos droits, contactez-nous à <a href=\"/cdn-cgi/l/email-protection#e8808d848487a88f8985988d9a83848185858d83c68b8785\"><span class=\"__cf_email__\" data-cfemail=\"19717c757576597e7874697c6b72757074747c72377a7674\">[email&#160;protected]</span></a>.",
+          legal_rights_contact: "Pour exercer vos droits, contactez-nous à <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>.",
           legal_retention_h3: "Conservation des données",
           legal_retention_p: "Nous conservons les données personnelles uniquement pendant la durée nécessaire au but poursuivi ou selon les obligations légales.",
           legal_transfers_h3: "Transferts internationaux",
@@ -2302,7 +2302,7 @@
           legal_changes_h3: "Modifications de cette politique",
           legal_changes_p: "Nous pouvons mettre à jour cette politique à tout moment. La version en vigueur est toujours disponible sur cette page.",
           legal_complaints_h3: "Contact & réclamations",
-          legal_complaints_p1: "Pour toute question sur cette politique, contactez-nous à <a href=\"/cdn-cgi/l/email-protection#553d3039393a153234382530273e393c3838303e7b363a38\"><span class=\"__cf_email__\" data-cfemail=\"d6beb3babab996b1b7bba6b3a4bdbabfbbbbb3bdf8b5b9bb\">[email&#160;protected]</span></a>.",
+          legal_complaints_p1: "Pour toute question sur cette politique, contactez-nous à <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>.",
           legal_complaints_p2: "Vous pouvez également déposer une plainte auprès du Préposé fédéral suisse (PFPDT): <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\">www.edoeb.admin.ch</a>",
           legal_last_updated: "Dernière mise à jour: mars 2026"
         },
@@ -2351,7 +2351,7 @@
           legal_rights_rectification: "<strong>Diritto di rettifica:</strong> puoi richiedere la correzione di dati inesatti.",
           legal_rights_erasure: "<strong>Diritto alla cancellazione:</strong> puoi richiedere la cancellazione, salvo obblighi legali.",
           legal_rights_object: "<strong>Diritto di opposizione:</strong> puoi opporti a determinati trattamenti.",
-          legal_rights_contact: "Per esercitare i tuoi diritti, contattaci a <a href=\"/cdn-cgi/l/email-protection#e8808d848487a88f8985988d9a83848185858d83c68b8785\"><span class=\"__cf_email__\" data-cfemail=\"19717c757576597e7874697c6b72757074747c72377a7674\">[email&#160;protected]</span></a>.",
+          legal_rights_contact: "Per esercitare i tuoi diritti, contattaci a <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>.",
           legal_retention_h3: "Conservazione dei dati",
           legal_retention_p: "Conserviamo i dati personali solo per il tempo necessario alle finalita dichiarate o come richiesto dalla legge.",
           legal_transfers_h3: "Trasferimenti internazionali",
@@ -2359,7 +2359,7 @@
           legal_changes_h3: "Modifiche a questa policy",
           legal_changes_p: "Ci riserviamo il diritto di aggiornare questa informativa in qualsiasi momento. La versione corrente e sempre disponibile su questa pagina.",
           legal_complaints_h3: "Contatti & reclami",
-          legal_complaints_p1: "Per domande su questa policy o sul trattamento dati, contattaci a <a href=\"/cdn-cgi/l/email-protection#553d3039393a153234382530273e393c3838303e7b363a38\"><span class=\"__cf_email__\" data-cfemail=\"d6beb3babab996b1b7bba6b3a4bdbabfbbbbb3bdf8b5b9bb\">[email&#160;protected]</span></a>.",
+          legal_complaints_p1: "Per domande su questa policy o sul trattamento dati, contattaci a <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>.",
           legal_complaints_p2: "Hai diritto a presentare reclamo all'autorita federale svizzera competente (IFPDT): <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\">www.edoeb.admin.ch</a>",
           legal_last_updated: "Ultimo aggiornamento: marzo 2026"
         },
@@ -2408,7 +2408,7 @@
           legal_rights_rectification: "<strong>Derecho de rectificación:</strong> puedes solicitar la corrección de datos inexactos.",
           legal_rights_erasure: "<strong>Derecho de supresión:</strong> puedes solicitar la eliminación de tus datos, sujeto a obligaciones legales.",
           legal_rights_object: "<strong>Derecho de oposición:</strong> puedes oponerte al tratamiento para determinados fines.",
-          legal_rights_contact: "Para ejercer estos derechos, contáctanos en <a href=\"/cdn-cgi/l/email-protection#e8808d848487a88f8985988d9a83848185858d83c68b8785\"><span class=\"__cf_email__\" data-cfemail=\"19717c757576597e7874697c6b72757074747c72377a7674\">[email&#160;protected]</span></a>.",
+          legal_rights_contact: "Para ejercer estos derechos, contáctanos en <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>.",
           legal_retention_h3: "Conservación de datos",
           legal_retention_p: "Conservamos los datos personales solo durante el tiempo necesario para la finalidad declarada o según exija la ley.",
           legal_transfers_h3: "Transferencias internacionales",
@@ -2416,7 +2416,7 @@
           legal_changes_h3: "Cambios en esta política",
           legal_changes_p: "Nos reservamos el derecho de actualizar esta política en cualquier momento. La versión vigente estará siempre disponible en esta página.",
           legal_complaints_h3: "Contacto y reclamaciones",
-          legal_complaints_p1: "Para preguntas sobre esta política o el tratamiento de datos, contáctanos en <a href=\"/cdn-cgi/l/email-protection#553d3039393a153234382530273e393c3838303e7b363a38\"><span class=\"__cf_email__\" data-cfemail=\"d6beb3babab996b1b7bba6b3a4bdbabfbbbbb3bdf8b5b9bb\">[email&#160;protected]</span></a>.",
+          legal_complaints_p1: "Para preguntas sobre esta política o el tratamiento de datos, contáctanos en <a href=\"#\" class=\"gk-obfuscated-email\" data-email-user=\"hello\" data-email-host=\"gamperklimmek\" data-email-tld=\"com\">hello [at] gamperklimmek [dot] com</a>.",
           legal_complaints_p2: "También tienes derecho a presentar una reclamación ante la autoridad federal suiza competente (FDPIC): <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\">www.edoeb.admin.ch</a>",
           legal_last_updated: "Última actualización: marzo 2026"
         }
@@ -2477,6 +2477,19 @@
     return "";
   }
 
+  function hydrateObfuscatedEmails() {
+    document.querySelectorAll("a.gk-obfuscated-email").forEach((el) => {
+      const user = el.getAttribute("data-email-user");
+      const host = el.getAttribute("data-email-host");
+      const tld = el.getAttribute("data-email-tld");
+      if (!user || !host || !tld) return;
+      const address = `${user}@${host}.${tld}`;
+      el.setAttribute("href", `mailto:${address}`);
+      el.setAttribute("aria-label", address);
+      el.textContent = address;
+    });
+  }
+
   function applyTranslations(lang) {
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
@@ -2500,6 +2513,8 @@
       const attrs = el.getAttribute("data-i18n-attr").split(",").map((a) => a.trim()).filter(Boolean);
       attrs.forEach((attr) => el.setAttribute(attr, value));
     });
+
+    hydrateObfuscatedEmails();
   }
 
   function updateLanguageSwitcher(lang) {
