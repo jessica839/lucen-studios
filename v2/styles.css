@@ -339,6 +339,14 @@ nav {
 .story-header { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; margin-bottom: 5rem; }
 .story-intro-text { font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,0.55); padding-top: 0.5rem; }
 .story-intro-text strong { color: var(--white); font-weight: 500; }
+.story-excerpt {
+  max-width: 780px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.02);
+  padding: 2rem 2.25rem;
+}
+.story-excerpt p { font-size: 0.98rem; line-height: 1.8; color: rgba(255,255,255,0.65); }
+.story-excerpt-link { margin-top: 1.25rem; display: inline-block; }
 
 /* Timeline */
 .story-timeline { display: flex; flex-direction: column; position: relative; }
@@ -370,6 +378,9 @@ nav {
 .team-tag { font-family: 'Syne', sans-serif; font-size: 0.61rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.38); border: 1px solid rgba(255,255,255,0.1); padding: 0.28rem 0.65rem; }
 .team-link { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); text-decoration: none; transition: color 0.2s; }
 .team-link:hover { color: var(--gold-light); }
+
+/* Story page */
+.story-page .story-full { padding-top: 9rem; }
 
 /* ── AUDIT EMBED ── */
 .audit-embed { background: var(--teal-deep); padding: 7rem 4rem; position: relative; overflow: hidden; }
@@ -461,6 +472,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .audit-card { clip-path: none; }
   .story-timeline::before { left: 3.5rem; }
   .story-item { grid-template-columns: 3.25rem 1.5rem 1fr; }
+  .story-excerpt { padding: 1.75rem; }
 }
 
 @media (max-width: 600px) {
