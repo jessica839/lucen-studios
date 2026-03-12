@@ -511,6 +511,215 @@
 
   <!-- ══ SCRIPTS ══════════════════════════════════════════════ -->
   <script src="/v2/i18n.js"></script>
+  <script>
+    const NEWSLETTER_FORM_URL = "https://link.gamperklimmek.com/widget/form/P7rkFHPH4cRMVQgSEH80";
+    const CASE_STUDY_FORMS = {
+      cs1: "https://link.gamperklimmek.com/widget/form/BRGYgJnPbOnPtOt8Wc7X",
+      cs2: "https://link.gamperklimmek.com/widget/form/4uH80XYluvb0lyvRggti",
+      cs3: "https://link.gamperklimmek.com/widget/form/coiWdRzKwWh7f13r3PF2"
+    };
+
+    const selectedCases = new Set();
+    let newsletterSubmitting = false;
+    let casesSubmitting = false;
+    let casesSubmitted = false;
+
+    function i18nText(key, fallback) {
+      if (typeof t === "function") return t(key) || fallback;
+      return fallback;
+    }
+
+    function getActiveLang() {
+      return document.documentElement.lang || "en";
+    }
+
+    function closeMobile() {
+      const menu = document.getElementById("mobileMenu");
+      const hamburger = document.getElementById("hamburger");
+      menu.classList.remove("open");
+      hamburger.classList.remove("active");
+    }
+
+    function toggleMobile() {
+      const menu = document.getElementById("mobileMenu");
+      const hamburger = document.getElementById("hamburger");
+      menu.classList.toggle("open");
+      hamburger.classList.toggle("active");
+    }
+
+    function updateCasesFormState() {
+      const noneMsg = document.getElementById("casesNoneMsg");
+      const fields = document.getElementById("casesFields");
+      const success = document.getElementById("casesSuccess");
+      const submitBtn = fields.querySelector(".form-submit");
+
+      if (casesSubmitted) {
+        noneMsg.style.display = "none";
+        fields.style.display = "none";
+        success.style.display = "block";
+        return;
+      }
+
+      const hasSelection = selectedCases.size > 0;
+      const firstName = document.getElementById("csFirstName").value.trim();
+      const email = document.getElementById("csEmail").value.trim();
+
+      noneMsg.style.display = hasSelection ? "none" : "block";
+      fields.style.display = hasSelection ? "flex" : "none";
+      if (!hasSelection) success.style.display = "none";
+
+      submitBtn.disabled = !hasSelection || !firstName || !email || casesSubmitting;
+      submitBtn.style.opacity = submitBtn.disabled ? "0.65" : "1";
+      submitBtn.style.cursor = submitBtn.disabled ? "not-allowed" : "pointer";
+    }
+
+    function toggleCase(caseId) {
+      const card = document.getElementById(caseId);
+      if (!card) return;
+
+      if (selectedCases.has(caseId)) {
+        selectedCases.delete(caseId);
+        card.classList.remove("selected");
+      } else {
+        selectedCases.add(caseId);
+        card.classList.add("selected");
+      }
+
+      updateCasesFormState();
+    }
+
+    async function submitCases() {
+      if (casesSubmitting || selectedCases.size === 0) return;
+
+      const firstName = document.getElementById("csFirstName").value.trim();
+      const email = document.getElementById("csEmail").value.trim();
+      const company = document.getElementById("csCompany").value.trim();
+      const formPanel = document.getElementById("casesFields");
+      const success = document.getElementById("casesSuccess");
+      const submitBtn = formPanel.querySelector(".form-submit");
+      const lang = getActiveLang();
+
+      if (!firstName || !email) {
+        updateCasesFormState();
+        return;
+      }
+
+      casesSubmitting = true;
+      submitBtn.textContent = i18nText("cs.form.sending", "Sending...");
+      updateCasesFormState();
+
+      const submissions = [...selectedCases].map((caseId) => {
+        const endpoint = CASE_STUDY_FORMS[caseId];
+        if (!endpoint) return null;
+
+        const body = new URLSearchParams();
+        body.append("first_name", firstName);
+        body.append("email", email);
+        if (company) body.append("company", company);
+        body.append("language", lang);
+        body.append("selected_case", caseId);
+
+        return fetch(endpoint, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: body.toString()
+        });
+      }).filter(Boolean);
+
+      try {
+        await Promise.allSettled(submissions);
+      } catch (err) {
+        // no-cors suppresses response details, continue to success state
+      }
+
+      formPanel.style.display = "none";
+      success.style.display = "block";
+      casesSubmitted = true;
+
+      casesSubmitting = false;
+      submitBtn.textContent = i18nText("cs.form.cta", "Send me the case studies");
+      updateCasesFormState();
+    }
+
+    async function submitNewsletter() {
+      if (newsletterSubmitting) return;
+
+      const firstName = document.getElementById("nlFirstName").value.trim();
+      const email = document.getElementById("nlEmail").value.trim();
+      const form = document.getElementById("nlForm");
+      const success = document.getElementById("nlSuccess");
+      const btn = form.querySelector(".nl-submit");
+
+      if (!firstName || !email) return;
+
+      newsletterSubmitting = true;
+      btn.disabled = true;
+      btn.textContent = i18nText("nl.sending", "Sending...");
+
+      const body = new URLSearchParams();
+      body.append("first_name", firstName);
+      body.append("email", email);
+      body.append("language", getActiveLang());
+      body.append("gdpr_consent", "true");
+
+      try {
+        await fetch(NEWSLETTER_FORM_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: body.toString()
+        });
+      } catch (err) {
+        // no-cors suppresses response details, continue to success state
+      }
+
+      form.style.display = "none";
+      success.style.display = "block";
+      newsletterSubmitting = false;
+      btn.disabled = false;
+      btn.textContent = i18nText("nl.cta", "Subscribe");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const nlFirstName = document.getElementById("nlFirstName");
+      const nlEmail = document.getElementById("nlEmail");
+      const nlSubmit = document.querySelector("#nlForm .nl-submit");
+      const csFirstName = document.getElementById("csFirstName");
+      const csEmail = document.getElementById("csEmail");
+      const csCompany = document.getElementById("csCompany");
+
+      hamburger.addEventListener("click", toggleMobile);
+
+      [csFirstName, csEmail, csCompany].forEach((input) => {
+        input.addEventListener("input", updateCasesFormState);
+      });
+
+      [nlFirstName, nlEmail].forEach((input) => {
+        input.addEventListener("input", () => {
+          const ready = nlFirstName.value.trim() && nlEmail.value.trim() && !newsletterSubmitting;
+          nlSubmit.disabled = !ready;
+          nlSubmit.style.opacity = ready ? "1" : "0.65";
+          nlSubmit.style.cursor = ready ? "pointer" : "not-allowed";
+        });
+      });
+
+      document.querySelectorAll(".case-card").forEach((card) => {
+        card.addEventListener("keydown", (event) => {
+          if (event.key === " " || event.key === "Spacebar") {
+            event.preventDefault();
+            toggleCase(card.id);
+          }
+        });
+      });
+
+      updateCasesFormState();
+      nlSubmit.disabled = true;
+      nlSubmit.style.opacity = "0.65";
+      nlSubmit.style.cursor = "not-allowed";
+    });
+  </script>
 
 </body>
 </html>
