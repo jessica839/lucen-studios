@@ -226,6 +226,7 @@ const translations = {
 
     /* Footer */
     'footer.legal': 'Impressum',
+    'footer.cookie_settings': 'Cookie Settings',
 
     /* Form placeholders */
     'ph.firstname': 'First name',
@@ -414,6 +415,7 @@ const translations = {
     'nl.success.h3': 'Sie sind dabei.',
     'nl.success.p':  'Danke für Ihre Anmeldung. Prüfen Sie Ihren Posteingang für Ihre erste Ausgabe.',
     'footer.legal':  'Impressum',
+    'footer.cookie_settings': 'Cookie-Einstellungen',
     'ph.firstname':  'Vorname',
     'ph.email':      'E-Mail-Adresse',
     'ph.company':    'Unternehmen (optional)',
@@ -600,6 +602,7 @@ const translations = {
     'nl.success.h3': 'C\'est parti.',
     'nl.success.p':  'Merci pour votre inscription. Vérifiez votre boîte de réception.',
     'footer.legal':  'Mentions légales',
+    'footer.cookie_settings': 'Paramètres des cookies',
     'ph.firstname':  'Prénom',
     'ph.email':      'Adresse e-mail',
     'ph.company':    'Entreprise (optionnel)',
@@ -786,6 +789,7 @@ const translations = {
     'nl.success.h3': 'Ya estás dentro.',
     'nl.success.p':  'Gracias por suscribirte. Revisa tu bandeja de entrada para tu primer número.',
     'footer.legal':  'Aviso legal',
+    'footer.cookie_settings': 'Configuración de cookies',
     'ph.firstname':  'Nombre',
     'ph.email':      'Correo electrónico',
     'ph.company':    'Empresa (opcional)',
@@ -972,6 +976,7 @@ const translations = {
     'nl.success.h3': 'Sei dentro.',
     'nl.success.p':  'Grazie per l\'iscrizione. Controlla la tua casella per il primo numero.',
     'footer.legal':  'Note legali',
+    'footer.cookie_settings': 'Impostazioni cookie',
     'ph.firstname':  'Nome',
     'ph.email':      'Indirizzo email',
     'ph.company':    'Azienda (opzionale)',

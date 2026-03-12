@@ -112,7 +112,7 @@
 
     var legalPage = (window.location.pathname.indexOf('legal') !== -1)
       ? '#cookies'
-      : 'legal.html#cookies';
+      : '/legal.html#cookies';
 
     banner.innerHTML =
       '<div id="gk-cb-inner">' +
