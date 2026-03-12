@@ -861,7 +861,7 @@ function detectBrowserLang() {
 
 function t(key) {
   const lang = translations[currentLang] || translations[DEFAULT_LANG];
-  return lang[key] ?? translations[DEFAULT_LANG][key] ?? key;
+  return lang[key] ?? translations[DEFAULT_LANG][key] ?? null;
 }
 
 function applyTranslations(lang) {
@@ -873,14 +873,14 @@ function applyTranslations(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     const val = t(key);
-    if (val !== undefined) el.innerHTML = val;
+    if (val !== null) el.innerHTML = val;
   });
 
   // placeholders
   document.querySelectorAll('[data-i18n-ph]').forEach(el => {
     const key = el.getAttribute('data-i18n-ph');
     const val = t(key);
-    if (val !== undefined) el.placeholder = val;
+    if (val !== null) el.placeholder = val;
   });
 
   // lang buttons active state
