@@ -17,12 +17,12 @@ const translations = {
      ============================================================ */
   en: {
     /* Nav */
-    'nav.who':        "Who It's For",
+    'nav.who':        'Who is it for',
     'nav.cases':      'Case Studies',
     'nav.story':      'Our Story',
-    'nav.problems':   'The Problems',
-    'nav.how_it_works': 'How It Works',
-    'nav.what_changes': 'What Changes',
+    'nav.problems':   'The Problem',
+    'nav.how_it_works': 'The process',
+    'nav.what_changes': 'What we fix',
     'story.back':     'Back to home',
     'nav.newsletter': 'Newsletter',
     'nav.contact':    'Contact',
@@ -390,12 +390,12 @@ const translations = {
      GERMAN
      ============================================================ */
   de: {
-    'nav.who':        'Für wen',
+    'nav.who':        'Für wen ist das',
     'nav.cases':      'Fallstudien',
     'nav.story':      'Unsere Geschichte',
-    'nav.problems':   'Die Probleme',
-    'nav.how_it_works': 'So funktioniert es',
-    'nav.what_changes': 'Was sich ändert',
+    'nav.problems':   'Das Problem',
+    'nav.how_it_works': 'Der Prozess',
+    'nav.what_changes': 'Was wir verbessern',
     'story.back':     'Zur Startseite',
     'nav.newsletter': 'Newsletter',
     'nav.contact':    'Kontakt',
@@ -721,12 +721,12 @@ const translations = {
      FRENCH
      ============================================================ */
   fr: {
-    'nav.who':        'Pour qui',
+    'nav.who':        'Pour qui est-ce',
     'nav.cases':      'Études de cas',
     'nav.story':      'Notre histoire',
-    'nav.problems':   'Les problèmes',
-    'nav.how_it_works': 'Comment ça marche',
-    'nav.what_changes': 'Ce qui change',
+    'nav.problems':   'Le problème',
+    'nav.how_it_works': 'Le processus',
+    'nav.what_changes': 'Ce que nous corrigeons',
     'story.back':     'Retour à l\'accueil',
     'nav.newsletter': 'Newsletter',
     'nav.contact':    'Contact',
@@ -1052,12 +1052,12 @@ const translations = {
      SPANISH
      ============================================================ */
   es: {
-    'nav.who':        'Para quién',
+    'nav.who':        'Para quién es',
     'nav.cases':      'Casos de éxito',
     'nav.story':      'Nuestra historia',
-    'nav.problems':   'Los problemas',
-    'nav.how_it_works': 'Cómo funciona',
-    'nav.what_changes': 'Qué cambia',
+    'nav.problems':   'El problema',
+    'nav.how_it_works': 'El proceso',
+    'nav.what_changes': 'Lo que arreglamos',
     'story.back':     'Volver al inicio',
     'nav.newsletter': 'Newsletter',
     'nav.contact':    'Contacto',
@@ -1383,12 +1383,12 @@ const translations = {
      ITALIAN
      ============================================================ */
   it: {
-    'nav.who':        'Per chi',
+    'nav.who':        'A chi e rivolto',
     'nav.cases':      'Casi studio',
     'nav.story':      'La nostra storia',
-    'nav.problems':   'I problemi',
-    'nav.how_it_works': 'Come funziona',
-    'nav.what_changes': 'Cosa cambia',
+    'nav.problems':   'Il problema',
+    'nav.how_it_works': 'Il processo',
+    'nav.what_changes': 'Cosa risolviamo',
     'story.back':     'Torna alla home',
     'nav.newsletter': 'Newsletter',
     'nav.contact':    'Contatto',
