@@ -342,37 +342,36 @@
 <nav>
   <a href="index.html" class="nav-logo">Gamper Klimmek<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="index.html#services" data-i18n="nav_services">Services</a></li>
-    <li><a href="index.html#team" data-i18n="nav_about">About</a></li>
-    <li><a href="businesses.html" data-i18n="nav_for_businesses">For Businesses</a></li>
-    <li><a href="resources.html" data-i18n="nav_case_studies">Case Studies</a></li>
-    <li><a href="start.html" style="color:var(--gold);" data-i18n="nav_start_here">Start Here</a></li>
+    <li><a href="#problems" data-i18n="nav.problems">The Problems</a></li>
+    <li><a href="#how-it-works" data-i18n="nav.how_it_works">How It Works</a></li>
+    <li><a href="#what-changes" data-i18n="nav.what_changes">What Changes</a></li>
+    <li><a href="resources.html" data-i18n="nav.cases">Case Studies</a></li>
   </ul>
-  <a href="index.html" class="nav-back" data-i18n="nav_back_home">Back to home</a>
+  <a href="index.html" class="nav-back" data-i18n="nav.back_home">Back to home</a>
   <div class="gk-lang-switcher" aria-label="Language switcher">
-    <button class="gk-lang-btn" data-lang="en" type="button">EN</button>
-    <button class="gk-lang-btn" data-lang="de" type="button">DE</button>
-    <button class="gk-lang-btn" data-lang="fr" type="button">FR</button>
-    <button class="gk-lang-btn" data-lang="it" type="button">IT</button>
-    <button class="gk-lang-btn" data-lang="es" type="button">ES</button>
+    <button class="gk-lang-btn lang-btn" data-lang="en" type="button">EN</button>
+    <button class="gk-lang-btn lang-btn" data-lang="de" type="button">DE</button>
+    <button class="gk-lang-btn lang-btn" data-lang="fr" type="button">FR</button>
+    <button class="gk-lang-btn lang-btn" data-lang="it" type="button">IT</button>
+    <button class="gk-lang-btn lang-btn" data-lang="es" type="button">ES</button>
   </div>
-  <button class="nav-hamburger" aria-label="Open menu" data-i18n="aria_open_menu" data-i18n-attr="aria-label" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
+  <button class="nav-hamburger" aria-label="Open menu" data-i18n="aria.open_menu" data-i18n-attr="aria-label" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-menu">
-  <a href="index.html" data-i18n="nav_home">Home</a>
-  <a href="businesses.html" data-i18n="nav_for_businesses">For Businesses</a>
-  <a href="story.html" data-i18n="nav_our_story">Our Story</a>
-  <a href="resources.html" data-i18n="nav_case_studies">Case Studies</a>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="mobile-cta" data-i18n="mobile_book_call">Book a Call</a>
-  <div class="gk-lang-switcher" aria-label="Language switcher">
-    <button class="gk-lang-btn" data-lang="en" type="button">EN</button>
-    <button class="gk-lang-btn" data-lang="de" type="button">DE</button>
-    <button class="gk-lang-btn" data-lang="fr" type="button">FR</button>
-    <button class="gk-lang-btn" data-lang="it" type="button">IT</button>
-    <button class="gk-lang-btn" data-lang="es" type="button">ES</button>
+  <a href="#problems" data-i18n="nav.problems">The Problems</a>
+  <a href="#how-it-works" data-i18n="nav.how_it_works">How It Works</a>
+  <a href="#what-changes" data-i18n="nav.what_changes">What Changes</a>
+  <a href="resources.html" data-i18n="nav.cases">Case Studies</a>
+  <a href="index.html" data-i18n="nav.back_home">Back to home</a>
+  <div class="gk-lang-switcher mobile-lang" aria-label="Language switcher">
+    <button class="gk-lang-btn lang-btn" data-lang="en" type="button">EN</button>
+    <button class="gk-lang-btn lang-btn" data-lang="de" type="button">DE</button>
+    <button class="gk-lang-btn lang-btn" data-lang="fr" type="button">FR</button>
+    <button class="gk-lang-btn lang-btn" data-lang="it" type="button">IT</button>
+    <button class="gk-lang-btn lang-btn" data-lang="es" type="button">ES</button>
   </div>
 </div>
 
@@ -386,7 +385,7 @@
     <p class="page-hero-sub" data-i18n="operators_hero_sub">
       Inquiry overload. Guest comms that fall through the cracks. How everything works trapped in one person's head. Staff time eaten up by questions that should answer themselves. Whether you run a dive center, surf school, ski school, or tour operation — we've lived those problems, and we build the systems that fix them.
     </p>
-    <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="btn-primary" data-i18n="hero_btn">Book a free 30-minute audit</a>
+    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="btn-primary" data-i18n="operators_cta_btn">Book a free 30-minute audit</a>
   </div>
 </section>
 
@@ -405,7 +404,7 @@
 </div>
 
 <!-- PAIN POINTS -->
-<section class="pain">
+<section class="pain" id="problems">
   <div class="pain-inner">
     <div class="pain-header">
       <div>
@@ -477,7 +476,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how">
+<section class="how" id="how-it-works">
   <div class="how-inner">
     <div class="how-header">
       <div>
@@ -510,7 +509,7 @@
 </section>
 
 <!-- OUTCOMES -->
-<section class="outcomes">
+<section class="outcomes" id="what-changes">
   <div class="outcomes-inner">
     <div class="section-label reveal" data-i18n="operators_outcomes_label">What Changes</div>
     <h2 class="section-title reveal reveal-d1" data-i18n="operators_outcomes_title">What your operation<br>looks like after.</h2>
@@ -552,7 +551,7 @@
 <section class="page-cta">
   <h2 class="reveal" data-i18n="operators_cta_title">Talk to someone who's<br><em>worked your season.</em></h2>
   <p class="reveal reveal-d1" data-i18n="operators_cta_body">A free 30-minute audit. We'll map your busiest workflows, identify what to automate first, and tell you exactly what one well-built system would change. No pitch. Just an honest conversation between operators.</p>
-  <a href="https://link.gamperklimmek.com/widget/bookings/jessica-gamper-klimmek-personal-calendar-driidod5u" target="_blank" class="cta-btn-dark reveal reveal-d2" data-i18n="operators_cta_btn">Book a free 30-minute audit</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="cta-btn-dark reveal reveal-d2" data-i18n="operators_cta_btn">Book a free 30-minute audit</a>
 </section>
 
 <style>
@@ -563,20 +562,20 @@
   @media(max-width:768px){.footer-nl{padding:1.25rem 2rem;}}
 </style>
 <div class="footer-nl">
-  <span class="footer-nl-label" data-i18n="footer_newsletter">Newsletter</span>
-  <a href="index.html#newsletter" class="footer-nl-link" data-i18n="footer_newsletter_cta">Get practical AI insights — subscribe →</a>
+  <span class="footer-nl-label" data-i18n="footer.newsletter">Newsletter</span>
+  <a href="index.html#newsletter" class="footer-nl-link" data-i18n="footer.newsletter_cta">Get practical AI insights — subscribe →</a>
 </div>
 
 <footer>
   <a href="index.html" class="footer-logo">Gamper Klimmek<span>.</span></a>
   <ul class="footer-links">
-    <li><a href="index.html#services" data-i18n="nav_services">Services</a></li>
-    <li><a href="story.html" data-i18n="nav_our_story">Our Story</a></li>
-    <li><a href="businesses.html" data-i18n="nav_for_businesses">For Businesses</a></li>
-    <li><a href="resources.html" data-i18n="nav_case_studies">Case Studies</a></li>
+    <li><a href="index.html#who" data-i18n="nav.who">Who It's For</a></li>
+    <li><a href="index.html#story" data-i18n="nav.story">Our Story</a></li>
+    <li><a href="businesses.html" data-i18n="nav.businesses">For Businesses</a></li>
+    <li><a href="resources.html" data-i18n="nav.cases">Case Studies</a></li>
     <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
-  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer_legal">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer_cookie_settings">Cookie Settings</button><span class="footer-copy" data-i18n="footer_copyright">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+  <a href="legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer.legal">Impressum &amp; Privacy Policy</a><button onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer.cookie_settings">Cookie Settings</button><span class="footer-copy" data-i18n="footer.copyright">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
 </footer>
 
 <script>
