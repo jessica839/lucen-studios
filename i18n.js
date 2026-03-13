@@ -90,7 +90,7 @@ const translations = {
 
     /* Flow */
     'flow.label':  'What we fix',
-    'flow.title':  'Website, booking flow, and operations<br><em>built around your real day-to-day.</em>',
+    'flow.title':  'Website, booking flow, and&nbsp;operations<br><em>built around your real day-to-day.</em>',
     'flow.intro':  'No vague digital projects. We focus on the parts of your business that impact revenue and time: how customers reach you, how quickly you respond, and how efficiently your team runs day to day.',
     'fs.1.title': 'Website and conversion improvements',     'fs.1.desc': 'Clearer pages, stronger inquiry paths, and fewer drop-offs between the first visit and someone contacting or buying from you.',
     'fs.2.title': 'Faster response and follow-up',           'fs.2.desc': 'Customer inquiries are handled quickly and consistently across email, forms, and messaging channels.',
