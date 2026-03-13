@@ -578,6 +578,23 @@ nav {
 .audit-card-note { font-family: 'Syne', sans-serif; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.2); text-align: center; }
 
 /* ── NEWSLETTER ── */
+.contact { background: var(--ink); color: var(--white); padding: 7rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.contact-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+.contact h2 em { font-style: italic; color: var(--gold); }
+.contact-sub { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.8; }
+.contact-form { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-input { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); padding: 0.9rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--white); outline: none; width: 100%; transition: border-color 0.2s; }
+.contact-input::placeholder { color: rgba(255,255,255,0.35); }
+.contact-input:focus { border-color: rgba(201,168,76,0.55); }
+.contact-textarea { min-height: 8.5rem; resize: vertical; }
+.contact-submit { background: var(--gold); color: var(--ink); border: none; padding: 1rem; font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; width: 100%; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
+.contact-submit:hover { background: var(--gold-light); }
+.contact-note { font-size: 0.72rem; color: rgba(255,255,255,0.42); }
+.contact-success { display: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.3); padding: 2rem; }
+.contact-success h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; margin-bottom: 0.5rem; color: var(--white); }
+.contact-success p { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
 .newsletter { background: var(--paper); color: var(--ink); padding: 7rem 4rem; }
 .newsletter-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
 .newsletter h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
@@ -624,11 +641,11 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .nav-hamburger { display: block; }
 
   .hero { padding: 8rem 1.5rem 5rem; }
-  .problem, .flow, .who, .process, .cases, .story, .audit-embed, .newsletter, .leak-calc { padding: 5rem 1.5rem; }
+  .problem, .flow, .who, .process, .cases, .story, .audit-embed, .contact, .newsletter, .leak-calc { padding: 5rem 1.5rem; }
   .trust-strip { padding: 2.5rem 1.5rem; }
   footer { padding: 2.5rem 1.5rem; flex-direction: column; align-items: flex-start; }
 
-  .problem-header, .flow-header, .cases-header, .story-header, .newsletter-inner, .audit-embed-inner, .leak-calc-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .problem-header, .flow-header, .cases-header, .story-header, .contact-inner, .newsletter-inner, .audit-embed-inner, .leak-calc-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .problem-grid, .process-steps, .cases-grid, .who-grid, .team-grid { grid-template-columns: 1fr; }
   .flow-diagram { grid-template-columns: repeat(3, 1fr); }
   .invisible-work-block { grid-template-columns: 1fr; }
@@ -663,6 +680,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .team-name { font-size: 1.4rem; }
   .cases-cta,
   .audit-embed-inner,
+  .contact-inner,
   .newsletter-inner { gap: 2rem; }
   .hero h1 { font-size: 2.4rem; }
 }
