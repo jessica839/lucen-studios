@@ -92,7 +92,7 @@ const translations = {
     'flow.label':  'What we fix',
     'flow.title':  'Website, booking flow, and&nbsp;operations<br><em>built around your real day-to-day.</em>',
     'flow.intro':  'No vague digital projects. We focus on the parts of your business that impact revenue and time: how customers reach you, how quickly you respond, and how efficiently your team runs day to day.',
-    'fs.1.title': 'Website and conversion improvements',     'fs.1.desc': 'Clearer pages, stronger inquiry paths, and fewer drop-offs between the first visit and someone contacting or buying from you.',
+    'fs.1.title': 'Website and conversion<br>improvements',     'fs.1.desc': 'Clearer pages, stronger inquiry paths, and fewer drop-offs between the first visit and someone contacting or buying from you.',
     'fs.2.title': 'Faster response and follow-up',           'fs.2.desc': 'Customer inquiries are handled quickly and consistently across email, forms, and messaging channels.',
     'fs.3.title': 'Less manual admin every day',             'fs.3.desc': 'Repetitive tasks are handled by simple workflows so your team can focus on customers instead of busywork.',
     'fs.4.title': 'Connected tools and cleaner handoffs',    'fs.4.desc': 'No more copy-paste between systems, missing information, or broken steps between sales, admin, and operations.',
