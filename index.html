@@ -318,14 +318,14 @@
         </div>
         <div class="cases-cta-right" id="casesFormArea">
           <p class="cases-none-selected" id="casesNoneMsg" data-i18n="cs.form.none">Select at least one case study above</p>
-          <div id="casesFields" style="display:none; display:flex; flex-direction:column; gap:0.75rem;">
+          <div id="casesFields" style="display:none; flex-direction:column; gap:0.75rem;">
             <input class="form-input" type="text"  id="csFirstName" data-i18n-ph="ph.firstname" placeholder="First name" />
             <input class="form-input" type="email" id="csEmail"     data-i18n-ph="ph.email"     placeholder="Email address" />
             <input class="form-input" type="text"  id="csCompany"   data-i18n-ph="ph.company"   placeholder="Company (optional)" />
             <button class="form-submit" onclick="submitCases()" data-i18n="cs.form.cta">Send me the case studies</button>
             <p class="form-note" data-i18n="cs.form.note">No spam. Unsubscribe anytime.</p>
           </div>
-          <div class="cases-success" id="casesSuccess">
+          <div class="cases-success" id="casesSuccess" style="display:none">
             <h3 data-i18n="cs.success.h3">On its way.</h3>
             <p data-i18n="cs.success.p">Check your inbox. If you don't see it in a few minutes, check your spam folder.</p>
             <a href="/calculator" class="btn-primary" style="margin-top:1.25rem;display:inline-block" data-i18n="hero.cta">See how many hours you could save</a>
