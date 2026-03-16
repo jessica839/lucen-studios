@@ -58,6 +58,9 @@ const translations = {
     'calc.unit.hours': 'hours',
     'calc.cta': 'Find your biggest time leaks',
     'calc.cta.microcopy': '30 minutes. No preparation needed.',
+    'calc.trap.cta': 'Run the Manual Trap Audit (5 min)',
+    'calc.trap.helper': 'Complete this before booking the 90-minute Business Systems Review.',
+    'calc.bsr.cta': 'Book the 90-minute Business Systems Review',
 
     /* Trust strip */
     'trust.quote':  '"Built by people who\'ve run real operations, not just PowerPoints."',
@@ -218,6 +221,7 @@ const translations = {
     'audit.btn':         'Book your free 30-minute consultation',
     'audit.card.cta':    'Book your Business Systems Review',
     'audit.card.note':   'Best as the next step after your free consultation.',
+    'audit.card.prework': 'Before your 90-minute review, complete the Manual Trap Audit (Typeform pre-work).',
 
     /* Workflow audit calculator section */
     'audit.heading':          'Now find exactly where it\'s going.',
@@ -497,6 +501,9 @@ const translations = {
     'calc.unit.hours': 'Stunden',
     'calc.cta': 'Finden Sie Ihre größten Zeitverluste',
     'calc.cta.microcopy': '30 Minuten. Keine Vorbereitung nötig.',
+    'calc.trap.cta': 'Manual-Trap-Audit starten (5 Min.)',
+    'calc.trap.helper': 'Bitte vor der Buchung des 90-minütigen Business Systems Reviews ausfüllen.',
+    'calc.bsr.cta': '90-minütiges Business Systems Review buchen',
     'trust.quote':  '„Von Menschen gebaut, die echte Betriebe geführt haben - nicht nur PowerPoints."',
     'trust.byline': 'Jessica Gamper &amp; Matthias Klimmek',
     'trust.role':   'Operatoren, Gründer und Umsetzungspartner',
@@ -631,6 +638,7 @@ const translations = {
     'audit.btn':         'Kostenloses 30-Minuten-Erstgespräch buchen',
     'audit.card.cta':    'Business Systems Review buchen',
     'audit.card.note':   'Ideal als nächster Schritt nach dem Erstgespräch.',
+    'audit.card.prework': 'Bitte vor dem 90-minütigen Review das Manual Trap Audit ausfüllen (Typeform-Pre-Work).',
 
     /* Workflow-Audit-Rechner */
     'audit.heading':          'Finden Sie jetzt heraus, wo genau die Zeit verloren geht.',
@@ -897,6 +905,9 @@ const translations = {
     'calc.unit.hours': 'heures',
     'calc.cta': 'Identifiez vos plus grandes fuites de temps',
     'calc.cta.microcopy': '30 minutes. Aucune préparation nécessaire.',
+    'calc.trap.cta': 'Lancer le Manual Trap Audit (5 min)',
+    'calc.trap.helper': 'A completer avant de reserver le Business Systems Review de 90 minutes.',
+    'calc.bsr.cta': 'Reserver le Business Systems Review de 90 minutes',
     'trust.quote':  '« Construit par des personnes qui ont dirigé de vraies opérations, pas seulement des PowerPoints. »',
     'trust.byline': 'Jessica Gamper &amp; Matthias Klimmek',
     'trust.role':   'Opérateurs, fondateurs et partenaires d\'implémentation',
@@ -1031,6 +1042,7 @@ const translations = {
     'audit.btn':         'Réserver une consultation gratuite de 30 minutes',
     'audit.card.cta':    'Réserver votre Business Systems Review',
     'audit.card.note':   'Idéal comme étape suivante après la consultation gratuite.',
+    'audit.card.prework': 'Avant la session de 90 minutes, completez le Manual Trap Audit (pre-work Typeform).',
 
     /* Calculateur d'audit de workflows */
     'audit.heading':          'Découvrez maintenant exactement où elle part.',
@@ -1297,6 +1309,9 @@ const translations = {
     'calc.unit.hours': 'horas',
     'calc.cta': 'Encuentra tus mayores fugas de tiempo',
     'calc.cta.microcopy': '30 minutos. No necesitas preparar nada.',
+    'calc.trap.cta': 'Completar el Manual Trap Audit (5 min)',
+    'calc.trap.helper': 'Completa esto antes de reservar el Business Systems Review de 90 minutos.',
+    'calc.bsr.cta': 'Reservar el Business Systems Review de 90 minutos',
     'trust.quote':  '«Creado por personas que han llevado operaciones reales, no solo PowerPoints.»',
     'trust.byline': 'Jessica Gamper &amp; Matthias Klimmek',
     'trust.role':   'Operadores, fundadores y socios de implementación',
@@ -1431,6 +1446,7 @@ const translations = {
     'audit.btn':         'Reservar consulta gratuita de 30 minutos',
     'audit.card.cta':    'Reserva tu Business Systems Review',
     'audit.card.note':   'Ideal como siguiente paso tras la consulta gratuita.',
+    'audit.card.prework': 'Antes de la sesion de 90 minutos, completa el Manual Trap Audit (pre-work en Typeform).',
 
     /* Calculadora de auditoría de flujos */
     'audit.heading':          'Ahora descubre exactamente a dónde va.',
@@ -1697,6 +1713,9 @@ const translations = {
     'calc.unit.hours': 'ore',
     'calc.cta': 'Trova le tue principali perdite di tempo',
     'calc.cta.microcopy': '30 minuti. Nessuna preparazione necessaria.',
+    'calc.trap.cta': 'Compila il Manual Trap Audit (5 min)',
+    'calc.trap.helper': 'Completalo prima di prenotare il Business Systems Review da 90 minuti.',
+    'calc.bsr.cta': 'Prenota il Business Systems Review da 90 minuti',
     'trust.quote':  '«Creato da persone che hanno gestito operazioni reali, non solo PowerPoint.»',
     'trust.byline': 'Jessica Gamper &amp; Matthias Klimmek',
     'trust.role':   'Operatori, fondatori e partner di implementazione',
@@ -1831,6 +1850,7 @@ const translations = {
     'audit.btn':         'Prenota una consulenza gratuita di 30 minuti',
     'audit.card.cta':    'Prenota il tuo Business Systems Review',
     'audit.card.note':   'Ideale come passo successivo dopo la consulenza gratuita.',
+    'audit.card.prework': 'Prima della sessione di 90 minuti, completa il Manual Trap Audit (pre-work su Typeform).',
 
     /* Calcolatore audit flussi di lavoro */
     'audit.heading':          'Scopri ora esattamente dove va.',

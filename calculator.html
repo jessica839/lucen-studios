@@ -246,6 +246,41 @@
       text-align: center;
       margin-top: 0.875rem;
     }
+    .leak-calc-secondary-link {
+      display: inline-block;
+      margin-top: 0.85rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold, #c9a84c);
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+    }
+    .leak-calc-secondary-link:hover { opacity: 0.78; }
+    .leak-calc-prework-note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.73rem;
+      color: var(--muted, #8a8070);
+      text-align: center;
+      margin-top: 0.55rem;
+    }
+    .leak-calc-bsr-link {
+      display: inline-block;
+      margin-top: 0.55rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.78);
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+    }
+    .leak-calc-bsr-link:hover { color: var(--gold, #c9a84c); }
 
     /* Mobile: stacked card layout */
     @media (max-width: 640px) {
@@ -400,9 +435,11 @@
           </div>
 
           <p class="leak-calc-support" data-i18n="calc.results.support">Even small improvements in your workflows can recover a significant amount of this time.</p>
-          <p class="leak-calc-payoff" id="calcPayoffLine" style="display:none;">At this estimate, the recoverable savings are 3× the cost of the review.</p>
 
           <a href="/#audit" class="btn-gold-full" id="calcCtaBtn">Book your free 30-minute call</a>
+          <a href="https://form.typeform.com/to/REPLACE_TRAP_AUDIT_ID" class="leak-calc-secondary-link" target="_blank" rel="noopener" data-i18n="calc.trap.cta">Run the Manual Trap Audit (5 min)</a>
+          <p class="leak-calc-prework-note" data-i18n="calc.trap.helper">Complete this before booking the 90-minute Business Systems Review.</p>
+          <a href="https://link.gamperklimmek.com/widget/bookings/operations-strategy-call-90-minutes" class="leak-calc-bsr-link" data-i18n="calc.bsr.cta">Book the 90-minute Business Systems Review</a>
           <p class="leak-calc-microcopy" id="calcCtaMicrocopy">We'll map your biggest opportunities together. No preparation needed.</p>
           <p class="leak-calc-cta-note" id="calcCtaNote">Your data stays in your browser. Nothing is sent until you book.</p>
         </aside>
@@ -492,7 +529,6 @@
       const hourlyRate = salary / 2000;
       const estimatedAnnualCost = totalYearlyHoursLost * hourlyRate;
       const recoverableSavings = estimatedAnnualCost * 0.2;
-      const savingsMultiple = recoverableSavings > 0 ? recoverableSavings / CALC_AUDIT_PRICE_CHF : 0;
 
       document.getElementById("calcEmployeesValue").textContent = String(Math.round(employees));
       document.getElementById("calcCommHoursValue").textContent = commHours.toFixed(1);
@@ -509,18 +545,6 @@
       if (typeof showWfAudit === "function") showWfAudit(estimatedAnnualCost > 0);
       if (typeof updateWfAudit === "function") updateWfAudit();
 
-      const payoffLine = document.getElementById("calcPayoffLine");
-      if (savingsMultiple < 1) {
-        payoffLine.style.display = "none";
-        return;
-      }
-
-      const multiple = Math.round(savingsMultiple);
-      payoffLine.style.display = "block";
-      payoffLine.textContent = i18nText(
-        "calc.results.payoff",
-        "At this estimate, the recoverable savings are {n}\u00D7 the cost of the review."
-      ).replace("{n}", String(multiple));
     }
 
     function setupLeakCalculator() {
