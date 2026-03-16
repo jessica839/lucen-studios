@@ -72,6 +72,215 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
+  <style>
+    /* ===== WORKFLOW AUDIT ===== */
+    .workflow-audit {
+      margin-top: 2.5rem;
+      padding: 2rem 2.5rem 2.5rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+    }
+    .workflow-audit-header { margin-bottom: 2rem; }
+    .workflow-audit-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      font-weight: 700;
+      color: var(--white, #f5f0e8);
+      margin: 0.5rem 0 0.75rem;
+      line-height: 1.25;
+    }
+    .workflow-audit-subtext {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted, #8a8070);
+      margin: 0;
+    }
+
+    /* Table */
+    .workflow-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 0.5rem;
+    }
+    .workflow-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 580px;
+    }
+    .workflow-table thead th {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold, #c9a84c);
+      padding: 0 0.75rem 0.875rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      white-space: nowrap;
+    }
+    .workflow-table thead th:last-child { width: 2.5rem; }
+    .workflow-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .workflow-table tbody tr:last-child { border-bottom: none; }
+    .workflow-table tbody td { padding: 0.5rem 0.75rem; vertical-align: middle; }
+
+    /* Inputs */
+    .wf-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 3px;
+      color: var(--white, #f5f0e8);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      padding: 0.45rem 0.625rem;
+      box-sizing: border-box;
+      transition: border-color 0.15s;
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+    .wf-input:focus { outline: none; border-color: rgba(201,168,76,0.6); background: rgba(255,255,255,0.07); }
+    .wf-input::placeholder { color: rgba(255,255,255,0.22); }
+    .wf-input::-webkit-outer-spin-button,
+    .wf-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    select.wf-input {
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c9a84c' opacity='0.55'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.6rem center;
+      padding-right: 1.75rem;
+    }
+    .wf-annual-cost {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gold, #c9a84c);
+      white-space: nowrap;
+    }
+    .wf-remove-cell { width: 2.5rem; text-align: center; padding: 0.5rem 0.375rem 0.5rem 0 !important; }
+    .wf-remove-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      background: none;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.85rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+      padding: 0;
+    }
+    .wf-remove-btn:hover { border-color: rgba(220,80,60,0.5); color: rgba(220,80,60,0.8); }
+
+    /* Add row button */
+    .workflow-add-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: transparent;
+      border: 1px dashed rgba(201,168,76,0.35);
+      border-radius: 3px;
+      color: var(--gold, #c9a84c);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.125rem;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      margin-top: 0.75rem;
+    }
+    .workflow-add-btn:hover { background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.6); }
+
+    /* Priorities */
+    .workflow-priorities { margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.07); }
+    .workflow-priorities-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold, #c9a84c);
+      margin: 0 0 1rem;
+    }
+    .workflow-priorities-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .workflow-priority-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: rgba(255,255,255,0.025);
+      border-radius: 3px;
+      border-left: 2px solid rgba(201,168,76,0.25);
+      flex-wrap: wrap;
+    }
+    .workflow-priority-name { font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color: var(--white, #f5f0e8); flex: 1; min-width: 0; }
+    .workflow-priority-cost { font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 500; color: var(--gold, #c9a84c); white-space: nowrap; }
+    .workflow-badge {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2em 0.55em;
+      border-radius: 2px;
+      white-space: nowrap;
+      line-height: 1.7;
+    }
+    .workflow-badge-high { background: #c9a84c; color: #1a1209; }
+    .workflow-badge-review { background: #1a6b7a; color: #fff; }
+
+    /* CTA note */
+    .leak-calc-cta-note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.73rem;
+      color: var(--muted, #8a8070);
+      text-align: center;
+      margin-top: 0.875rem;
+    }
+
+    /* Mobile: stacked card layout */
+    @media (max-width: 640px) {
+      .workflow-audit { padding: 1.5rem; }
+      .workflow-table { min-width: 0; }
+      .workflow-table thead { display: none; }
+      .workflow-table,
+      .workflow-table tbody,
+      .workflow-table tr.workflow-row,
+      .workflow-table td { display: block; width: 100%; box-sizing: border-box; }
+      .workflow-table tr.workflow-row {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 4px;
+        padding: 0.875rem 2.5rem 0.5rem 0.875rem;
+        margin-bottom: 0.75rem;
+        position: relative;
+      }
+      .workflow-table td { padding: 0.25rem 0 0.375rem; border: none; }
+      .workflow-table td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        font-family: 'Syne', sans-serif;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold, #c9a84c);
+        margin-bottom: 0.25rem;
+      }
+      .wf-remove-cell { position: absolute; top: 0.625rem; right: 0.625rem; width: auto; padding: 0 !important; }
+      .wf-remove-cell::before { display: none !important; }
+      .workflow-priority-item { flex-direction: column; align-items: flex-start; gap: 0.375rem; }
+    }
+  </style>
   <!-- Google Consent Mode v2 — analytics denied by default until user accepts -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -193,10 +402,43 @@
           <p class="leak-calc-support" data-i18n="calc.results.support">Even small improvements in your workflows can recover a significant amount of this time.</p>
           <p class="leak-calc-payoff" id="calcPayoffLine">At this estimate, the audit pays for itself in about 6 weeks.</p>
 
-          <a href="/#audit" class="btn-gold-full" data-i18n="calc.cta">Find your biggest time leaks</a>
-          <p class="leak-calc-microcopy" data-i18n="calc.cta.microcopy">30 minutes. No preparation needed.</p>
+          <a href="/#audit" class="btn-gold-full" id="calcCtaBtn">Book your free 30-minute call</a>
+          <p class="leak-calc-microcopy" id="calcCtaMicrocopy">We'll map your biggest opportunities together. No preparation needed.</p>
+          <p class="leak-calc-cta-note" id="calcCtaNote">Your data stays in your browser. Nothing is sent until you book.</p>
         </aside>
       </div>
+
+      <!-- Workflow Audit — visible once annual cost > 0 -->
+      <div class="workflow-audit" id="workflowAudit" style="display:none;">
+        <div class="workflow-audit-header">
+          <h2 class="workflow-audit-heading" id="auditHeading">Now find exactly where it's going.</h2>
+          <p class="workflow-audit-subtext" id="auditSubtext">Add your top manual workflows below. We'll show you which ones to fix first.</p>
+        </div>
+
+        <div class="workflow-table-wrap">
+          <table class="workflow-table" role="table">
+            <thead>
+              <tr>
+                <th id="wfColTask">Workflow / task</th>
+                <th id="wfColFreq">How often per week</th>
+                <th id="wfColMins">Minutes per time</th>
+                <th id="wfColCat">Category</th>
+                <th id="wfColAnnual">Annual cost</th>
+                <th aria-label="Actions"></th>
+              </tr>
+            </thead>
+            <tbody id="workflowTableBody"></tbody>
+          </table>
+        </div>
+
+        <button type="button" class="workflow-add-btn" id="workflowAddBtn">+ Add workflow</button>
+
+        <div class="workflow-priorities" id="workflowPriorities" style="display:none;">
+          <p class="workflow-priorities-title" id="prioritiesTitle">Your top priorities</p>
+          <ul class="workflow-priorities-list" id="workflowPrioritiesList"></ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -212,6 +454,7 @@
   </footer>
 
   <script src="/i18n.js?v=20260312-2"></script>
+  <script src="/currency.js"></script>
   <script>
     const CALC_SALARY_DEFAULTS = { CHF: 80000, EUR: 60000, USD: 65000 };
     const CALC_AUDIT_EQUIVALENTS = { CHF: "CHF 1’500", EUR: "EUR 1,550", USD: "USD 1,650" };
@@ -263,6 +506,10 @@
       document.getElementById("calcRecoverableSavings").textContent = formatMoney(recoverableSavings, currency);
       document.getElementById("calcAuditEquivalent").textContent = CALC_AUDIT_EQUIVALENTS[currency] || CALC_AUDIT_EQUIVALENTS.CHF;
 
+      // Show/hide workflow audit and refresh its costs when main inputs change
+      if (typeof showWfAudit === "function") showWfAudit(estimatedAnnualCost > 0);
+      if (typeof updateWfAudit === "function") updateWfAudit();
+
       const payoffLine = document.getElementById("calcPayoffLine");
       if (!Number.isFinite(approxWeeksToRecoverAudit) || approxWeeksToRecoverAudit <= 0) {
         payoffLine.style.display = "none";
@@ -310,6 +557,207 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       setupLeakCalculator();
+    });
+  </script>
+  <script>
+    // ===== WORKFLOW AUDIT =====
+    (function () {
+      var _wfRowId = 0;
+      var MAX_WF_ROWS = 8;
+      var INIT_WF_ROWS = 3;
+
+      var CAT_OPTS = [
+        { v: "",              l: "— select —" },
+        { v: "client_comms",  l: "Client comms" },
+        { v: "sales",         l: "Sales / follow-up" },
+        { v: "admin",         l: "Admin" },
+        { v: "internal_ops",  l: "Internal ops" },
+        { v: "other",         l: "Other" }
+      ];
+
+      function wfRate()     { return (Number(document.getElementById("calcSalary").value) || 0) / 2000; }
+      function wfCurrency() { return document.getElementById("calcCurrency").value; }
+
+      function escHtml(s) {
+        return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+      }
+
+      function makeCatOptions() {
+        return CAT_OPTS.map(function(o){ return "<option value=\""+o.v+"\">"+o.l+"</option>"; }).join("");
+      }
+
+      function createWfRow(isFirst) {
+        _wfRowId++;
+        var id       = _wfRowId;
+        var taskLbl  = i18nText("audit.col.workflow",  "Workflow / task");
+        var freqLbl  = i18nText("audit.col.frequency", "How often per week");
+        var minsLbl  = i18nText("audit.col.minutes",   "Minutes per time");
+        var catLbl   = i18nText("audit.col.category",  "Category");
+        var annLbl   = i18nText("audit.col.annual",    "Annual cost");
+        var taskPh   = escHtml(i18nText("audit.placeholder.task", "e.g. Sending quote follow-ups"));
+        var freqPh   = escHtml(i18nText("audit.placeholder.freq", "×/week"));
+        var minsPh   = escHtml(i18nText("audit.placeholder.mins", "mins"));
+        var removeBtn = isFirst ? "" :
+          "<button type=\"button\" class=\"wf-remove-btn\" data-wf-remove=\"1\" aria-label=\"Remove\">×</button>";
+
+        return "<tr class=\"workflow-row\" data-wf-id=\""+id+"\">"
+          + "<td data-label=\""+escHtml(taskLbl)+"\">"
+            + "<input type=\"text\" class=\"wf-input wf-task\" placeholder=\""+taskPh+"\" aria-label=\""+escHtml(taskLbl)+"\" />"
+          + "</td>"
+          + "<td data-label=\""+escHtml(freqLbl)+"\">"
+            + "<input type=\"number\" class=\"wf-input wf-freq\" min=\"1\" max=\"50\" placeholder=\""+freqPh+"\" aria-label=\""+escHtml(freqLbl)+"\" />"
+          + "</td>"
+          + "<td data-label=\""+escHtml(minsLbl)+"\">"
+            + "<input type=\"number\" class=\"wf-input wf-mins\" min=\"1\" max=\"300\" placeholder=\""+minsPh+"\" aria-label=\""+escHtml(minsLbl)+"\" />"
+          + "</td>"
+          + "<td data-label=\""+escHtml(catLbl)+"\">"
+            + "<select class=\"wf-input wf-cat\" aria-label=\""+escHtml(catLbl)+"\">"+makeCatOptions()+"</select>"
+          + "</td>"
+          + "<td data-label=\""+escHtml(annLbl)+"\" class=\"wf-annual-cost\">—</td>"
+          + "<td class=\"wf-remove-cell\">"+removeBtn+"</td>"
+          + "</tr>";
+      }
+
+      function getWfRows() {
+        var rows = document.querySelectorAll("#workflowTableBody .workflow-row");
+        var rate = wfRate();
+        return Array.prototype.map.call(rows, function(row) {
+          var freq = parseFloat(row.querySelector(".wf-freq").value);
+          var mins = parseFloat(row.querySelector(".wf-mins").value);
+          var task = row.querySelector(".wf-task").value.trim();
+          var cost = (!isNaN(freq) && !isNaN(mins) && freq > 0 && mins > 0)
+            ? (freq * mins / 60) * rate * 52
+            : null;
+          return { task: task, cost: cost, row: row };
+        });
+      }
+
+      function updateWfAudit() {
+        var currency = wfCurrency();
+        var rows     = getWfRows();
+
+        // Update per-row annual cost cells
+        rows.forEach(function(r) {
+          var cell = r.row.querySelector(".wf-annual-cost");
+          cell.textContent = r.cost !== null ? formatMoney(r.cost, currency) : "—";
+        });
+
+        // Build ranked list
+        var completed = rows.filter(function(r){ return r.cost !== null; });
+        var ranked    = completed.slice().sort(function(a,b){ return b.cost - a.cost; });
+
+        var prioEl = document.getElementById("workflowPriorities");
+        var listEl = document.getElementById("workflowPrioritiesList");
+        if (ranked.length === 0) {
+          prioEl.style.display = "none";
+        } else {
+          prioEl.style.display = "block";
+          listEl.innerHTML = ranked.map(function(r) {
+            var badge = "";
+            if (r.cost >= 10000) {
+              badge = "<span class=\"workflow-badge workflow-badge-high\">"
+                + escHtml(i18nText("audit.badge.high", "High priority")) + "</span>";
+            } else if (r.cost >= 3000) {
+              badge = "<span class=\"workflow-badge workflow-badge-review\">"
+                + escHtml(i18nText("audit.badge.review", "Review")) + "</span>";
+            }
+            var name = r.task || i18nText("audit.unnamed", "Unnamed workflow");
+            return "<li class=\"workflow-priority-item\">"
+              + "<span class=\"workflow-priority-name\">" + escHtml(name) + "</span>"
+              + "<span class=\"workflow-priority-cost\">" + formatMoney(r.cost, currency) + "</span>"
+              + badge
+              + "</li>";
+          }).join("");
+        }
+
+        // CTA two-state
+        var ctaBtn = document.getElementById("calcCtaBtn");
+        var ctaSub = document.getElementById("calcCtaMicrocopy");
+        if (ctaBtn && ctaSub) {
+          if (completed.length > 0) {
+            ctaBtn.textContent = i18nText("audit.cta.active", "Book your call — bring these results");
+            ctaSub.textContent = i18nText("audit.cta.active.sub", "Your top workflows are ready. We\u2019ll build your fix plan on the call.");
+          } else {
+            ctaBtn.textContent = i18nText("audit.cta.default", "Book your free 30-minute call");
+            ctaSub.textContent = i18nText("audit.cta.default.sub", "We\u2019ll map your biggest opportunities together. No preparation needed.");
+          }
+        }
+
+        // Refresh translatable static labels (handles language switches)
+        var staticMap = {
+          "wfColTask":       i18nText("audit.col.workflow",        "Workflow / task"),
+          "wfColFreq":       i18nText("audit.col.frequency",       "How often per week"),
+          "wfColMins":       i18nText("audit.col.minutes",         "Minutes per time"),
+          "wfColCat":        i18nText("audit.col.category",        "Category"),
+          "wfColAnnual":     i18nText("audit.col.annual",          "Annual cost"),
+          "auditHeading":    i18nText("audit.heading",             "Now find exactly where it\u2019s going."),
+          "auditSubtext":    i18nText("audit.subtext",             "Add your top manual workflows below. We\u2019ll show you which ones to fix first."),
+          "workflowAddBtn":  i18nText("audit.add_row",             "+ Add workflow"),
+          "prioritiesTitle": i18nText("audit.priorities.title",    "Your top priorities"),
+          "calcCtaNote":     i18nText("audit.cta.note",            "Your data stays in your browser. Nothing is sent until you book.")
+        };
+        Object.keys(staticMap).forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.textContent = staticMap[id];
+        });
+      }
+
+      function addWfRow() {
+        var tbody = document.getElementById("workflowTableBody");
+        var count = tbody.querySelectorAll(".workflow-row").length;
+        if (count >= MAX_WF_ROWS) return;
+        tbody.insertAdjacentHTML("beforeend", createWfRow(false));
+        if (tbody.querySelectorAll(".workflow-row").length >= MAX_WF_ROWS) {
+          document.getElementById("workflowAddBtn").style.display = "none";
+        }
+        updateWfAudit();
+      }
+
+      function removeWfRow(btn) {
+        var row = btn.closest ? btn.closest(".workflow-row") : null;
+        if (!row) { row = btn.parentNode; while (row && !row.classList.contains("workflow-row")) row = row.parentNode; }
+        if (row && row.parentNode) {
+          row.parentNode.removeChild(row);
+          document.getElementById("workflowAddBtn").style.display = "";
+          updateWfAudit();
+        }
+      }
+
+      function showWfAudit(show) {
+        var el = document.getElementById("workflowAudit");
+        if (el) el.style.display = show ? "block" : "none";
+      }
+
+      function setupWfAudit() {
+        var tbody = document.getElementById("workflowTableBody");
+        for (var i = 0; i < INIT_WF_ROWS; i++) {
+          tbody.insertAdjacentHTML("beforeend", createWfRow(i === 0));
+        }
+        // Event delegation: inputs & selects
+        tbody.addEventListener("input",  updateWfAudit);
+        tbody.addEventListener("change", updateWfAudit);
+        // Event delegation: remove buttons
+        tbody.addEventListener("click", function(e) {
+          var btn = null;
+          if (e.target && e.target.getAttribute && e.target.getAttribute("data-wf-remove")) {
+            btn = e.target;
+          } else if (e.target && e.target.closest) {
+            btn = e.target.closest("[data-wf-remove]");
+          }
+          if (btn) removeWfRow(btn);
+        });
+        document.getElementById("workflowAddBtn").addEventListener("click", addWfRow);
+        updateWfAudit();
+      }
+
+      // Expose to global scope
+      window.showWfAudit   = showWfAudit;
+      window.updateWfAudit = updateWfAudit;
+      window.setupWfAudit  = setupWfAudit;
+    })();
+
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof setupWfAudit === "function") setupWfAudit();
     });
   </script>
   <script src="/cookie-consent.js"></script>
