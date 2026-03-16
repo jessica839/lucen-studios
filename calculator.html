@@ -394,13 +394,13 @@
 
           <div class="leak-calc-audit">
             <p class="leak-calc-audit-title" data-i18n="calc.results.audit.title">Our Website &amp; Workflow Audit</p>
-            <p class="leak-calc-audit-price">CHF 1’500</p>
+            <p class="leak-calc-audit-price">CHF 950</p>
             <p class="leak-calc-audit-equivalent" id="calcAuditEquivalent">CHF 1’500</p>
             <p class="leak-calc-audit-note" data-i18n="calc.results.audit.note">Approximate equivalent.</p>
           </div>
 
           <p class="leak-calc-support" data-i18n="calc.results.support">Even small improvements in your workflows can recover a significant amount of this time.</p>
-          <p class="leak-calc-payoff" id="calcPayoffLine">At this estimate, the audit pays for itself in about 6 weeks.</p>
+          <p class="leak-calc-payoff" id="calcPayoffLine" style="display:none;">At this estimate, the recoverable savings are 3× the cost of the review.</p>
 
           <a href="/#audit" class="btn-gold-full" id="calcCtaBtn">Book your free 30-minute call</a>
           <p class="leak-calc-microcopy" id="calcCtaMicrocopy">We'll map your biggest opportunities together. No preparation needed.</p>
@@ -412,7 +412,7 @@
       <div class="workflow-audit" id="workflowAudit" style="display:none;">
         <div class="workflow-audit-header">
           <h2 class="workflow-audit-heading" id="auditHeading">Now find exactly where it's going.</h2>
-          <p class="workflow-audit-subtext" id="auditSubtext">Add your top manual workflows below. We'll show you which ones to fix first.</p>
+          <p class="workflow-audit-subtext" id="auditSubtext">Add your top manual workflows below. We'll calculate what each one costs per year.</p>
         </div>
 
         <div class="workflow-table-wrap">
@@ -457,8 +457,8 @@
   <script src="/currency.js"></script>
   <script>
     const CALC_SALARY_DEFAULTS = { CHF: 80000, EUR: 60000, USD: 65000 };
-    const CALC_AUDIT_EQUIVALENTS = { CHF: "CHF 1’500", EUR: "EUR 1,550", USD: "USD 1,650" };
-    const CALC_AUDIT_PRICE_CHF = 1500;
+    const CALC_AUDIT_EQUIVALENTS = { CHF: "CHF 950", EUR: "EUR 980", USD: "USD 1,050" };
+    const CALC_AUDIT_PRICE_CHF = 950;
 
     function i18nText(key, fallback) {
       if (typeof t === "function") return t(key) || fallback;
@@ -492,8 +492,7 @@
       const hourlyRate = salary / 2000;
       const estimatedAnnualCost = totalYearlyHoursLost * hourlyRate;
       const recoverableSavings = estimatedAnnualCost * 0.2;
-      const weeklyRecoveredValue = recoverableSavings / 52;
-      const approxWeeksToRecoverAudit = weeklyRecoveredValue > 0 ? (CALC_AUDIT_PRICE_CHF / weeklyRecoveredValue) : Infinity;
+      const savingsMultiple = recoverableSavings > 0 ? recoverableSavings / CALC_AUDIT_PRICE_CHF : 0;
 
       document.getElementById("calcEmployeesValue").textContent = String(Math.round(employees));
       document.getElementById("calcCommHoursValue").textContent = commHours.toFixed(1);
@@ -511,17 +510,17 @@
       if (typeof updateWfAudit === "function") updateWfAudit();
 
       const payoffLine = document.getElementById("calcPayoffLine");
-      if (!Number.isFinite(approxWeeksToRecoverAudit) || approxWeeksToRecoverAudit <= 0) {
+      if (savingsMultiple < 1) {
         payoffLine.style.display = "none";
         return;
       }
 
-      const roundedWeeks = Math.max(1, Math.round(approxWeeksToRecoverAudit));
+      const multiple = Math.round(savingsMultiple);
       payoffLine.style.display = "block";
       payoffLine.textContent = i18nText(
         "calc.results.payoff",
-        "At this estimate, the audit pays for itself in about {weeks} weeks."
-      ).replace("{weeks}", String(roundedWeeks));
+        "At this estimate, the recoverable savings are {n}\u00D7 the cost of the review."
+      ).replace("{n}", String(multiple));
     }
 
     function setupLeakCalculator() {
@@ -691,7 +690,7 @@
           "wfColCat":        i18nText("audit.col.category",        "Category"),
           "wfColAnnual":     i18nText("audit.col.annual",          "Annual cost"),
           "auditHeading":    i18nText("audit.heading",             "Now find exactly where it\u2019s going."),
-          "auditSubtext":    i18nText("audit.subtext",             "Add your top manual workflows below. We\u2019ll show you which ones to fix first."),
+          "auditSubtext":    i18nText("audit.subtext",             "Add your top manual workflows below. We\u2019ll calculate what each one costs per year."),
           "workflowAddBtn":  i18nText("audit.add_row",             "+ Add workflow"),
           "prioritiesTitle": i18nText("audit.priorities.title",    "Your top priorities"),
           "calcCtaNote":     i18nText("audit.cta.note",            "Your data stays in your browser. Nothing is sent until you book.")
