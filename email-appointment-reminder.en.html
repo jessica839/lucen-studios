@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Appointment Reminder — Gamper Klimmek Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table { border-collapse: collapse; border-spacing: 0; }
+    img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+    body { margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #0a0a0f; }
+    @media only screen and (max-width: 600px) {
+      .email-container { width: 100% !important; }
+      .content-pad { padding: 32px 24px !important; }
+      .cal-btn { display: block !important; margin-bottom: 10px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#0a0a0f;font-family:'DM Sans',Arial,sans-serif;">
+
+  <!-- Preheader -->
+  <div style="display:none!important;visibility:hidden;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;color:transparent;">Reminder: your appointment with Gamper Klimmek Consulting is coming up. &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;</div>
+
+  <!-- Email wrapper -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0a0a0f;">
+    <tr>
+      <td align="center" style="padding:40px 20px;">
+
+        <!-- Email container -->
+        <table class="email-container" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
+
+          <!-- ── GOLD ACCENT TOP BAR ── -->
+          <tr>
+            <td style="height:3px;background:linear-gradient(to right, #c9a84c, #e8c97a, #c9a84c);">&nbsp;</td>
+          </tr>
+
+          <!-- ── HEADER ── -->
+          <tr>
+            <td style="background-color:#0a0a0f;padding:36px 48px 0 48px;">
+
+              <!-- Eyebrow label -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding-bottom:28px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="width:36px;height:1px;background-color:#c9a84c;vertical-align:middle;">&nbsp;</td>
+                        <td style="padding-left:14px;vertical-align:middle;">
+                          <span style="font-family:'Syne',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#c9a84c;">Gamper &middot; Klimmek</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Wordmark -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.08);">
+                    <span style="font-family:'Syne',Arial,sans-serif;font-size:18px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#ffffff;">GAMPER <span style="color:#c9a84c;">&middot;</span> KLIMMEK</span>
+                    <br>
+                    <span style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,0.4);text-transform:uppercase;">Consulting</span>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- ── HERO SECTION ── -->
+          <tr>
+            <td class="content-pad" style="background-color:#0a0a0f;padding:44px 48px 36px 48px;">
+
+              <!-- Status badge — reminder amber/gold -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
+                <tr>
+                  <td style="background-color:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.35);padding:7px 16px;">
+                    <span style="font-family:'Syne',Arial,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9a84c;">&#x23F0;&nbsp;&nbsp;Reminder</span>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Heading -->
+              <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:34px;font-weight:700;line-height:1.15;color:#ffffff;margin:0 0 16px 0;">
+                A friendly reminder<br>about your <em style="font-style:italic;color:#c9a84c;">upcoming<br>appointment.</em>
+              </h1>
+
+              <!-- Body copy -->
+              <p style="font-family:'DM Sans',Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.6);margin:0 0 36px 0;">
+                Hi {{contact.name}},<br><br>
+                This is a friendly reminder about your upcoming appointment. We're looking forward to connecting with you — here are the details below.
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- ── APPOINTMENT DETAILS CARD ── -->
+          <tr>
+            <td style="padding:0 48px 32px 48px;background-color:#0a0a0f;">
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#111118;border:1px solid rgba(201,168,76,0.2);">
+
+                <!-- Card header with gold left border accent -->
+                <tr>
+                  <td style="padding:0;border-bottom:1px solid rgba(255,255,255,0.07);">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="width:3px;background-color:#c9a84c;">&nbsp;</td>
+                        <td style="padding:20px 25px 16px 25px;">
+                          <span style="font-family:'Syne',Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#c9a84c;">Appointment Details</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Title row -->
+                <tr>
+                  <td style="padding:22px 28px 0 28px;">
+                    <span style="font-family:'Syne',Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);display:block;margin-bottom:6px;">Appointment</span>
+                    <span style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:700;color:#ffffff;display:block;">{{appointment.title}}</span>
+                  </td>
+                </tr>
+
+                <!-- Date row -->
+                <tr>
+                  <td style="padding:18px 28px 0 28px;">
+                    <span style="font-family:'Syne',Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);display:block;margin-bottom:6px;">Date &amp; Time</span>
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-right:10px;vertical-align:middle;">
+                          <span style="display:inline-block;width:3px;height:3px;background-color:#c9a84c;border-radius:50%;vertical-align:middle;">&nbsp;</span>
+                        </td>
+                        <td>
+                          <span style="font-family:'DM Sans',Arial,sans-serif;font-size:15px;font-weight:400;color:#ffffff;">{{appointment.start_time}}</span>
+                          <span style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.45);margin-left:8px;">({{appointment.timezone}})</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Location row -->
+                <tr>
+                  <td style="padding:18px 28px 24px 28px;">
+                    <span style="font-family:'Syne',Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);display:block;margin-bottom:6px;">Meeting Link / Location</span>
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-right:10px;vertical-align:middle;">
+                          <span style="display:inline-block;width:3px;height:3px;background-color:#c9a84c;border-radius:50%;vertical-align:middle;">&nbsp;</span>
+                        </td>
+                        <td>
+                          <span style="font-family:'DM Sans',Arial,sans-serif;font-size:15px;font-weight:400;color:#4eb8cc;">{{appointment.meeting_location}}</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- ── ADD TO CALENDAR SECTION ── -->
+          <tr>
+            <td style="padding:0 48px 44px 48px;background-color:#0a0a0f;">
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding-bottom:16px;">
+                    <span style="font-family:'Syne',Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Add to Calendar</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-right:10px;">
+                          <a href="{{calendar.google_link}}" class="cal-btn" style="display:inline-block;font-family:'Syne',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#ffffff;text-decoration:none;background-color:transparent;border:1px solid rgba(255,255,255,0.2);padding:11px 20px;">
+                            Google
+                          </a>
+                        </td>
+                        <td style="padding-right:10px;">
+                          <a href="{{calendar.outlook_link}}" class="cal-btn" style="display:inline-block;font-family:'Syne',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#ffffff;text-decoration:none;background-color:transparent;border:1px solid rgba(255,255,255,0.2);padding:11px 20px;">
+                            Outlook
+                          </a>
+                        </td>
+                        <td>
+                          <a href="{{calendar.ics_link}}" class="cal-btn" style="display:inline-block;font-family:'Syne',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#ffffff;text-decoration:none;background-color:transparent;border:1px solid rgba(255,255,255,0.2);padding:11px 20px;">
+                            iCloud
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- ── PRE-MEETING CTA SECTION ── -->
+          <tr>
+            <td style="padding:0 48px 30px 48px;background-color:#0a0a0f;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#111118;border:1px solid rgba(201,168,76,0.2);">
+                <tr>
+                  <td style="padding:20px 22px;">
+                    <span style="font-family:'Syne',Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c9a84c;display:block;margin-bottom:10px;">Before We Meet</span>
+                    <p style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.62);margin:0 0 16px 0;">
+                      Share a bit of context in our pre-meeting questionnaire or browse our case studies before the call.
+                    </p>
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-right:10px;">
+                          <a href="https://www.gamperklimmek.com/resources" class="cal-btn" style="display:inline-block;font-family:'Syne',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#0a0a0f;text-decoration:none;background-color:#c9a84c;border:1px solid #c9a84c;padding:11px 16px;">
+                            Pre-Meeting Questionnaire
+                          </a>
+                        </td>
+                        <td>
+                          <a href="https://www.gamperklimmek.com/resources" class="cal-btn" style="display:inline-block;font-family:'Syne',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#ffffff;text-decoration:none;background-color:transparent;border:1px solid rgba(255,255,255,0.24);padding:11px 16px;">
+                            View Case Studies
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ── "WE LOOK FORWARD" CLOSING NOTE ── -->
+          <tr>
+            <td style="padding:0 48px 40px 48px;background-color:#0a0a0f;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:rgba(26,107,122,0.08);border-left:2px solid #1a6b7a;">
+                <tr>
+                  <td style="padding:18px 22px;">
+                    <p style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.5);margin:0;font-style:italic;">
+                      If you need to reschedule or have any questions before our meeting, please don't hesitate to reply to this email.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ── DIVIDER ── -->
+          <tr>
+            <td style="padding:0 48px;background-color:#0a0a0f;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="height:1px;background:linear-gradient(to right, transparent, rgba(201,168,76,0.3), transparent);">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ── FOOTER ── -->
+          <tr>
+            <td class="content-pad" style="padding:32px 48px 40px 48px;background-color:#0a0a0f;">
+
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+                <tr>
+                  <td>
+                    <span style="font-family:'Syne',Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);">Gamper &middot; Klimmek Consulting &nbsp;&mdash;&nbsp; Lucerne, Switzerland</span>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.25);margin:0;">
+                AI automation, process optimization &amp; digital transformation for owner-operated businesses.<br>
+                Questions? Reply to this email or visit <a href="https://www.gamperklimmek.com" style="color:#c9a84c;text-decoration:none;">gamperklimmek.com</a>
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- Bottom gold bar -->
+          <tr>
+            <td style="height:3px;background:linear-gradient(to right, #c9a84c, #e8c97a, #c9a84c);">&nbsp;</td>
+          </tr>
+
+        </table>
+        <!-- /Email container -->
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

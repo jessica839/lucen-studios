@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /.claude/
 
 Sitemap: https://www.gamperklimmek.com/sitemap.xml
