@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automation for Dive Shop Operators | Gamper Klimmek</title>
+<meta name="description" content="Done-for-you automation built specifically for dive shops. Fill last-minute boats, automate guest comms, and handle inquiries 24/7. Built by operators who spent 10 years in the industry.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Automation for Dive Shop Operators | Gamper Klimmek">
+<meta property="og:description" content="Done-for-you automation for dive shops. Built by PADI IDC Staff Instructors with 10 years of resort operations experience.">
+<meta property="og:url" content="https://www.gamperklimmek.com/dive-suite">
+<meta property="og:image" content="https://www.gamperklimmek.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f4f1ec;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --teal: #1a6b7a;
+    --teal-deep: #0d3d47;
+    --white: #ffffff;
+    --muted: #6b6b7a;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--white); min-height: 100vh; display: flex; flex-direction: column; }
+
+  /* NAV */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 1.1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo span { color: var(--gold); }
+  .nav-anchors {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-anchors a {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .nav-anchors a:hover { color: var(--gold); }
+  .nav-back-link {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.25s;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .nav-back-link:hover { color: var(--gold); }
+  .nav-back-link::before { content: '←'; }
+  /* hide anchors on small screens, keep logo + back */
+  @media (max-width: 640px) {
+    .site-nav { padding: 1rem 1.5rem; }
+    .nav-anchors { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(13,61,71,0.6) 0%, transparent 65%),
+      url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1400&q=80') center/cover no-repeat;
+    filter: saturate(0.5) brightness(0.35);
+    z-index: 0;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+  }
+  .eyebrow {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .eyebrow::before,
+  .eyebrow::after { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.08;
+    margin-bottom: 2rem;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+
+  .bullets {
+    list-style: none;
+    margin: 0 auto 3rem;
+    max-width: 540px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.75);
+  }
+  .bullets li::before {
+    content: '◉';
+    font-size: 0.55rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 0.55rem;
+  }
+
+  .cta-btn {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    background: var(--gold);
+    padding: 1.25rem 3.5rem;
+    display: inline-block;
+    transition: all 0.3s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    margin-bottom: 2.5rem;
+  }
+  .cta-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 50px rgba(201,168,76,0.35);
+  }
+
+  .social-proof {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .social-proof-dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  /* STRIP */
+  .product-strip {
+    background: var(--teal-deep);
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .strip-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    flex-shrink: 0;
+  }
+  .strip-products {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .strip-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .strip-acronym {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .strip-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    white-space: nowrap;
+  }
+
+  /* BOTTOM CTA */
+  .bottom-cta {
+    background: var(--teal-deep);
+    padding: 6rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .bottom-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.12) 0%, transparent 65%);
+  }
+  .bottom-cta-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .bottom-cta-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .bottom-cta-label::before,
+  .bottom-cta-label::after { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .bottom-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+  .bottom-cta h2 em { font-style: italic; color: var(--gold); }
+  .bottom-cta p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 2.5rem;
+  }
+  .bottom-cta-note {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-top: 1.5rem;
+  }
+
+  /* STICKY CTA BAR */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.94);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sticky-cta.visible { transform: translateY(0); }
+  .sticky-cta-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    flex: 1;
+  }
+  .sticky-cta-text strong { color: var(--white); }
+  .sticky-cta-btn {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    background: var(--gold);
+    padding: 0.85rem 2.2rem;
+    white-space: nowrap;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    transition: background 0.25s, transform 0.25s;
+    flex-shrink: 0;
+  }
+  .sticky-cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+  @media (max-width: 540px) {
+    .sticky-cta { flex-direction: column; align-items: stretch; text-align: center; padding: 1rem 1.25rem; }
+    .sticky-cta-text { font-size: 0.72rem; }
+    .sticky-cta-btn { text-align: center; }
+    .bottom-cta { padding: 4rem 1.5rem; }
+  }
+
+  /* FOOTER */
+  .page-footer {
+    padding: 1.5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .page-footer a {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .page-footer a:hover { color: var(--gold); }
+  .page-footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.15);
+  }
+
+  /* MOCKUP CAROUSEL */
+  .mockup-section {
+    background: #0d0d12;
+    padding: 5rem 2rem 5rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .mockup-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .mockup-eyebrow {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .mockup-eyebrow::before,
+  .mockup-eyebrow::after { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+  /* Tab nav */
+  .carousel-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: inline-flex;
+  }
+  .ctab {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.6rem;
+    background: transparent;
+    color: rgba(255,255,255,0.3);
+    border: none;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .ctab:last-child { border-right: none; }
+  .ctab:hover { color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.03); }
+  .ctab.active { color: var(--gold); background: rgba(201,168,76,0.07); }
+
+  /* Carousel viewport — 3D stage */
+  .carousel-viewport {
+    overflow: visible;
+    position: relative;
+    height: 660px;
+    perspective: 1100px;
+    perspective-origin: 50% 38%;
+  }
+  .carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .carousel-slide {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform-origin: center center;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.55s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    cursor: pointer;
+  }
+  .carousel-slide[data-active="true"] { cursor: default; }
+
+  /* Phone frame */
+  .phone {
+    width: 265px;
+    height: 530px;
+    background: #111318;
+    border-radius: 38px;
+    border: 7px solid #1e2028;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06),
+      0 50px 100px rgba(0,0,0,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.04);
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .phone-bar {
+    height: 28px;
+    background: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .phone-notch {
+    width: 80px;
+    height: 18px;
+    background: #111318;
+    border-radius: 0 0 14px 14px;
+    border: 7px solid #1e2028;
+    border-top: none;
+  }
+  .phone-screen {
+    height: calc(100% - 28px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .phone-home {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .phone-home-bar { width: 90px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; }
+
+  /* Slide caption */
+  .slide-caption { text-align: center; }
+  .slide-acronym {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .slide-desc {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ── GLIDE ── iOS SMS */
+  .sms-header {
+    background: #1c1c1e;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+  .sms-back { color: #0a84ff; font-size: 18px; }
+  .sms-avatar-wrap { width: 32px; height: 32px; border-radius: 50%; background: var(--teal); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .sms-contact-info { flex: 1; }
+  .sms-cname { font-weight: 600; font-size: 11px; color: #fff; }
+  .sms-csub { font-size: 9px; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
+  .sms-body {
+    flex: 1;
+    background: #000;
+    padding: 10px 10px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+  }
+  .sms-time { text-align: center; font-size: 9px; color: rgba(255,255,255,0.3); }
+  .sms-bubble {
+    max-width: 88%;
+    padding: 8px 11px;
+    border-radius: 16px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .sms-bubble.in { background: #1c1c1e; color: rgba(255,255,255,0.85); align-self: flex-start; border-bottom-left-radius: 4px; }
+  .sms-link { color: #0a84ff; }
+  .sms-auto-tag {
+    align-self: flex-start;
+    font-size: 8.5px;
+    color: rgba(201,168,76,0.7);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+    padding-left: 2px;
+  }
+  .sms-stat {
+    margin-top: auto;
+    background: rgba(26,107,122,0.25);
+    border: 1px solid rgba(26,107,122,0.4);
+    border-radius: 8px;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.7);
+  }
+  .sms-input-bar {
+    background: #1c1c1e;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+  .sms-input-field { flex: 1; background: #2c2c2e; border-radius: 14px; padding: 5px 10px; font-size: 10px; color: rgba(255,255,255,0.3); }
+  .sms-send-btn { width: 24px; height: 24px; background: #0a84ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+
+  /* ── REEF ── WhatsApp */
+  .wa-header {
+    background: #075e54;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .wa-back { color: rgba(255,255,255,0.7); font-size: 16px; }
+  .wa-avatar { width: 32px; height: 32px; border-radius: 50%; background: #128c7e; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .wa-info { flex: 1; }
+  .wa-name { font-weight: 700; font-size: 11.5px; color: #fff; }
+  .wa-sub { font-size: 9px; color: rgba(255,255,255,0.65); }
+  .wa-body {
+    flex: 1;
+    background: #0d1117;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden;
+  }
+  .wa-msg { display: flex; flex-direction: column; }
+  .wa-bubble {
+    max-width: 86%;
+    padding: 6px 9px;
+    border-radius: 8px;
+    font-size: 10.5px;
+    line-height: 1.45;
+    position: relative;
+  }
+  .wa-bubble.user { background: #1f4e3d; color: rgba(255,255,255,0.9); align-self: flex-end; border-bottom-right-radius: 2px; }
+  .wa-bubble.bot { background: #1e2530; color: rgba(255,255,255,0.85); align-self: flex-start; border-bottom-left-radius: 2px; }
+  .wa-ts { font-size: 8px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+  .wa-ts.right { text-align: right; }
+  .wa-badge {
+    margin-top: auto;
+    background: rgba(7,94,84,0.3);
+    border: 1px solid rgba(18,140,126,0.4);
+    border-radius: 8px;
+    padding: 6px 9px;
+    font-size: 9px;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .wa-badge-dot { width: 6px; height: 6px; background: #25d366; border-radius: 50%; flex-shrink: 0; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .wa-input-bar { background: #1c1c1e; padding: 6px 8px; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .wa-input { flex: 1; background: #2a2a2e; border-radius: 18px; padding: 5px 10px; font-size: 10px; color: rgba(255,255,255,0.25); }
+  .wa-mic { width: 28px; height: 28px; background: #075e54; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+
+  /* ── TIDE ── Sequence timeline */
+  .seq-header {
+    background: #161b22;
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    flex-shrink: 0;
+  }
+  .seq-title { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7); font-family: 'Syne', sans-serif; letter-spacing: 0.05em; }
+  .seq-sub { font-size: 8.5px; color: rgba(255,255,255,0.3); margin-top: 1px; }
+  .seq-body { flex: 1; background: #0d1117; padding: 10px 12px; display: flex; flex-direction: column; gap: 0; overflow: hidden; }
+  .seq-step {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding-bottom: 14px;
+    position: relative;
+  }
+  .seq-step:last-child { padding-bottom: 0; }
+  .seq-line-wrap { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+  .seq-dot { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0; }
+  .seq-dot.done { background: rgba(26,107,122,0.3); border: 1px solid var(--teal); }
+  .seq-dot.pending { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); }
+  .seq-connector { width: 1px; flex: 1; min-height: 10px; background: rgba(255,255,255,0.08); margin-top: 2px; }
+  .seq-content { flex: 1; padding-top: 2px; }
+  .seq-step-label { font-size: 9px; font-weight: 700; font-family: 'Syne', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .seq-step-label.done-label { color: var(--teal); }
+  .seq-step-time { font-size: 8px; color: rgba(255,255,255,0.2); margin-bottom: 2px; }
+  .seq-step-msg { font-size: 9.5px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+  .seq-step-tag { display: inline-block; margin-top: 3px; font-size: 8px; font-weight: 700; font-family: 'Syne', sans-serif; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(201,168,76,0.7); }
+  .seq-step-tag.sent { background: rgba(26,107,122,0.15); border: 1px solid rgba(26,107,122,0.3); padding: 1px 5px; border-radius: 3px; }
+  .seq-step-tag.pending-tag { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 1px 5px; border-radius: 3px; color: rgba(255,255,255,0.25); }
+  .seq-footer { background: #161b22; padding: 6px 12px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; }
+  .seq-footer-stat { font-size: 8.5px; color: rgba(255,255,255,0.3); }
+  .seq-footer-stat span { color: rgba(201,168,76,0.8); font-weight: 700; }
+
+  /* ── CREST ── SMS blast */
+  .crest-header {
+    background: #161b22;
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .crest-title { font-size: 10.5px; font-weight: 700; color: rgba(255,255,255,0.8); font-family: 'Syne', sans-serif; letter-spacing: 0.05em; }
+  .crest-badge { font-size: 8px; font-weight: 700; font-family: 'Syne', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.35); color: var(--gold); padding: 2px 6px; border-radius: 3px; }
+  .crest-body { flex: 1; background: #0d1117; padding: 10px 12px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+  .crest-status {
+    background: rgba(26,107,122,0.15);
+    border: 1px solid rgba(26,107,122,0.3);
+    border-radius: 8px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .crest-status-icon { font-size: 16px; }
+  .crest-status-info { flex: 1; }
+  .crest-status-title { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.8); }
+  .crest-status-sub { font-size: 8.5px; color: rgba(255,255,255,0.4); margin-top: 1px; }
+  .crest-seats { display: flex; gap: 4px; margin-top: 6px; }
+  .crest-seat { width: 22px; height: 22px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+  .crest-seat.open { background: rgba(201,168,76,0.2); border: 1px solid rgba(201,168,76,0.4); }
+  .crest-seat.full { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
+  .crest-msg-label { font-size: 8.5px; font-weight: 700; font-family: 'Syne', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+  .crest-msg-preview {
+    background: #1c2030;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 9px 10px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+  .crest-recipients { display: flex; align-items: center; gap: 6px; font-size: 9.5px; color: rgba(255,255,255,0.4); }
+  .crest-recipients-count { font-weight: 700; color: rgba(255,255,255,0.7); }
+  .crest-send-btn { background: var(--gold); color: var(--ink); font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 14px; border-radius: 6px; text-align: center; }
+  .crest-recent { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 6px 9px; display: flex; align-items: center; justify-content: space-between; }
+  .crest-recent-label { font-size: 8.5px; color: rgba(255,255,255,0.3); }
+  .crest-recent-val { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 8px; }
+  .crest-recent-val .pos { color: #4caf82; }
+
+  /* ── SUITE ── Browser/dashboard frame */
+  .browser-frame {
+    width: 580px;
+    max-width: calc(100vw - 2rem);
+    background: #111318;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.09);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .browser-chrome {
+    background: #1e2028;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+  .browser-dots { display: flex; gap: 5px; flex-shrink: 0; }
+  .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .browser-dot.r { background: #ff5f57; }
+  .browser-dot.y { background: #ffbd2e; }
+  .browser-dot.g { background: #28c940; }
+  .browser-url {
+    flex: 1;
+    background: #2a2a35;
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-size: 9.5px;
+    color: rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .browser-url-lock { color: #4caf82; font-size: 9px; }
+
+  /* Suite app layout */
+  .suite-app {
+    display: flex;
+    height: 400px;
+  }
+  .suite-sidebar {
+    width: 46px;
+    background: #090d12;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+  .suite-logo-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .suite-nav-item {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8.5px;
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    color: rgba(255,255,255,0.28);
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+  .suite-nav-item.active { background: rgba(201,168,76,0.14); border: 1px solid rgba(201,168,76,0.28); color: var(--gold); }
+  .suite-nav-item.tool { color: rgba(255,255,255,0.22); }
+  .suite-nav-divider { width: 24px; height: 1px; background: rgba(255,255,255,0.06); margin: 4px 0; }
+
+  .suite-main {
+    flex: 1;
+    background: #0d1117;
+    padding: 14px 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .suite-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .suite-topbar-left {}
+  .suite-page-title { font-size: 11.5px; font-weight: 700; font-family: 'Syne', sans-serif; color: rgba(255,255,255,0.85); letter-spacing: 0.04em; }
+  .suite-shop-name { font-size: 8.5px; color: rgba(255,255,255,0.3); margin-top: 1px; }
+  .suite-date-badge {
+    font-size: 8.5px;
+    font-family: 'Syne', sans-serif;
+    color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+    padding: 3px 8px;
+  }
+
+  /* 4 metric cards */
+  .suite-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+  .suite-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 9px 10px;
+  }
+  .suite-card-name {
+    font-size: 8px;
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 5px;
+  }
+  .suite-card-metric {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .suite-card-unit { font-size: 11px; }
+  .suite-card-desc { font-size: 8px; color: rgba(255,255,255,0.3); margin-bottom: 6px; line-height: 1.4; }
+  .suite-card-status { display: flex; align-items: center; gap: 4px; font-size: 7.5px; font-family: 'Syne', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+  .sdot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .sdot.green { background: #4caf82; }
+  .sdot.gold { background: var(--gold); }
+  .suite-card-status-text { color: rgba(255,255,255,0.35); }
+
+  /* Activity feed */
+  .suite-section-label {
+    font-size: 8.5px;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+  .suite-feed { display: flex; flex-direction: column; gap: 5px; }
+  .suite-feed-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 6px;
+    padding: 6px 9px;
+  }
+  .feed-check { font-size: 9px; color: #4caf82; flex-shrink: 0; }
+  .feed-tag {
+    font-size: 7.5px;
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    min-width: 34px;
+    flex-shrink: 0;
+  }
+  .feed-text { flex: 1; font-size: 9px; color: rgba(255,255,255,0.5); }
+  .feed-time { font-size: 8px; color: rgba(255,255,255,0.18); white-space: nowrap; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .browser-frame { width: calc(100vw - 2rem); }
+    .suite-cards { grid-template-columns: repeat(2, 1fr); }
+    .suite-app { height: auto; flex-direction: column; }
+    .hero { padding: 4rem 1.5rem 3.5rem; }
+    .mockup-section { padding: 3.5rem 1.5rem; }
+    .phone { width: 230px; height: 460px; }
+    .product-strip { padding: 1.5rem; gap: 1.5rem; }
+    .strip-products { gap: 1.5rem; }
+    .page-footer { padding: 1.5rem; }
+    .cta-btn { padding: 1.1rem 2.5rem; }
+    .carousel-tabs { flex-wrap: wrap; }
+    .ctab { padding: 0.6rem 1.1rem; font-size: 0.7rem; }
+    /* Disable 3D on mobile — only active slide visible */
+    .carousel-viewport { overflow: hidden; height: 540px; perspective: none; }
+    .carousel-slide { cursor: default; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  /* ── PRICING SECTION ───────────────────────────────────── */
+  .pricing-section { background: var(--paper); color: var(--ink); padding: 7rem 4rem; }
+  .pricing-inner { max-width: 1100px; margin: 0 auto; }
+  .pricing-header { margin-bottom: 4rem; }
+  .section-label { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .section-label::before { content: ''; display: block; width: 30px; height: 1px; }
+  .pricing-section .section-label { color: var(--teal); }
+  .pricing-section .section-label::before { background: var(--teal); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 900; line-height: 1.1; }
+  .pricing-section .section-title em { font-style: italic; color: var(--teal); }
+  .pricing-free { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; background: rgba(26,107,122,0.05); border: 1px solid rgba(26,107,122,0.15); padding: 2.5rem; margin-bottom: 3rem; }
+  .pricing-free-label { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
+  .pricing-free-text { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .pricing-free-note { font-size: 0.88rem; color: rgba(10,10,15,0.5); line-height: 1.6; max-width: 460px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .pricing-card { padding: 2.5rem; border: 1px solid rgba(10,10,15,0.1); transition: all 0.3s; }
+  .pricing-card:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(26,107,122,0.08); }
+  .pricing-card-featured { background: var(--teal-deep); color: var(--white); border-color: var(--teal-deep); }
+  .pricing-card-featured:hover { border-color: var(--teal); box-shadow: 0 20px 60px rgba(26,107,122,0.2); }
+  .pricing-card-label { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+  .pricing-card-featured .pricing-card-label { color: rgba(255,255,255,0.45); }
+  .pricing-amount { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; line-height: 1; margin-bottom: 0.4rem; }
+  .pricing-amount-note { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(10,10,15,0.35); margin-bottom: 1.5rem; }
+  .pricing-card-featured .pricing-amount-note { color: rgba(255,255,255,0.35); }
+  .pricing-card-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .pricing-card-body { font-size: 0.88rem; line-height: 1.75; color: rgba(10,10,15,0.55); }
+  .pricing-card-featured .pricing-card-body { color: rgba(255,255,255,0.6); }
+  .pricing-note { margin-top: 3rem; font-size: 0.85rem; color: rgba(10,10,15,0.4); text-align: center; }
+  .btn-primary { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; background: var(--gold); padding: 1rem 2.5rem; display: inline-block; transition: all 0.3s; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); white-space: nowrap; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+  .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  @media (max-width: 768px) {
+    .pricing-section { padding: 4rem 1.5rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-free { flex-direction: column; align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<!-- Google Consent Mode v2 -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    wait_for_update: 500
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1Z1TC3H4R"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-J1Z1TC3H4R');
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="https://www.gamperklimmek.com" class="logo">Gamper Klimmek<span>.</span></a>
+  <ul class="nav-anchors">
+    <li><a href="#hero">Overview</a></li>
+    <li><a href="#tools">The Tools</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#book">Book a Call</a></li>
+  </ul>
+  <a href="https://www.gamperklimmek.com/operators" class="nav-back-link">Full Operators Page</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">For Dive Shop Operators</div>
+
+    <h1>Your shop runs smoother<br>when the <em>admin runs itself.</em></h1>
+
+    <ul class="bullets">
+      <li>Four done-for-you automations built specifically for dive shops — SMS seat filler, Google review requests, guest communication sequences, and a 24/7 WhatsApp inquiry handler.</li>
+      <li>We build it, configure it for your operation, and hand it over running. You do nothing technical. Your guests notice the difference.</li>
+    </ul>
+
+    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="cta-btn" id="book">Book Your Free 30-Minute Call</a>
+
+    <div class="social-proof">
+      <span>PADI IDC Staff Instructors</span>
+      <span class="social-proof-dot"></span>
+      <span>Liveaboard Cruise Directors</span>
+      <span class="social-proof-dot"></span>
+      <span>10 Years of Dive Operations</span>
+      <span class="social-proof-dot"></span>
+      <span>Resort Managers</span>
+    </div>
+  </div>
+</section>
+
+<!-- MOCKUP CAROUSEL -->
+<div class="mockup-section" id="tools">
+  <div class="mockup-inner">
+    <div class="mockup-eyebrow">The tools in action</div>
+
+    <div class="carousel-tabs" role="tablist">
+      <button class="ctab active" data-i="0" role="tab" aria-selected="true">GLIDE</button>
+      <button class="ctab" data-i="1" role="tab" aria-selected="false">REEF</button>
+      <button class="ctab" data-i="2" role="tab" aria-selected="false">TIDE</button>
+      <button class="ctab" data-i="3" role="tab" aria-selected="false">CREST</button>
+      <button class="ctab" data-i="4" role="tab" aria-selected="false" style="color:rgba(201,168,76,0.5);border-left:1px solid rgba(255,255,255,0.08);">THE SUITE</button>
+    </div>
+
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- ── SLIDE 1: GLIDE ── -->
+        <div class="carousel-slide">
+          <div class="phone">
+            <div class="phone-bar"><div class="phone-notch"></div></div>
+            <div class="phone-screen">
+              <!-- SMS App Header -->
+              <div class="sms-header">
+                <div class="sms-back">‹</div>
+                <div class="sms-avatar-wrap">🤿</div>
+                <div class="sms-contact-info">
+                  <div class="sms-cname">Blue Ocean Dive</div>
+                  <div class="sms-csub">TEXT MESSAGE</div>
+                </div>
+              </div>
+              <!-- Messages -->
+              <div class="sms-body">
+                <div class="sms-time">Today 14:47</div>
+                <div class="sms-bubble in">
+                  Hi Marcus 👋 Thanks for diving with us today! We hope you loved the reef at Koh Tao.<br><br>
+                  If you have 2 minutes, a Google review would mean a lot to us:<br>
+                  <span class="sms-link">g.page/blueocean-koh-tao ↗</span><br><br>
+                  See you next time! 🤿
+                </div>
+                <div class="sms-auto-tag">✦ Sent automatically · 2 hrs after dive</div>
+                <div class="sms-stat">
+                  <span>⭐</span>
+                  <span><strong style="color:#fff">4.9</strong> · 847 reviews on Google · +12 this month</span>
+                </div>
+              </div>
+              <!-- Input bar -->
+              <div class="sms-input-bar">
+                <div class="sms-input-field">Message</div>
+                <div class="sms-send-btn">↑</div>
+              </div>
+              <div class="phone-home"><div class="phone-home-bar"></div></div>
+            </div>
+          </div>
+          <div class="slide-caption">
+            <div class="slide-acronym">GLIDE</div>
+            <div class="slide-desc">Google Listing Impact &amp; Diver Engagement</div>
+          </div>
+        </div>
+
+        <!-- ── SLIDE 2: REEF ── -->
+        <div class="carousel-slide">
+          <div class="phone">
+            <div class="phone-bar"><div class="phone-notch"></div></div>
+            <div class="phone-screen">
+              <!-- WhatsApp Header -->
+              <div class="wa-header">
+                <div class="wa-back">‹</div>
+                <div class="wa-avatar">🤿</div>
+                <div class="wa-info">
+                  <div class="wa-name">Blue Ocean Dive</div>
+                  <div class="wa-sub">PADI 5★ · Online</div>
+                </div>
+              </div>
+              <!-- Chat -->
+              <div class="wa-body">
+                <div class="wa-msg">
+                  <div class="wa-bubble user">Hello, do you have open water courses next week? What's the price?</div>
+                  <div class="wa-ts right">02:14 ✓✓</div>
+                </div>
+                <div class="wa-msg">
+                  <div class="wa-bubble bot">Hi! 👋 Yes, PADI Open Water runs Mon–Sat. Full course is <strong>USD 350</strong> — gear, materials &amp; cert dives included.<br><br>First time diving? 🐠</div>
+                  <div class="wa-ts">02:14</div>
+                </div>
+                <div class="wa-msg">
+                  <div class="wa-bubble user">Yes first time. Is it safe?</div>
+                  <div class="wa-ts right">02:16 ✓✓</div>
+                </div>
+                <div class="wa-msg">
+                  <div class="wa-bubble bot">Absolutely! Max 4 students per instructor. Pool session before open water. Thursday 8:30am has spots ✅<br><br>Can I get your name to hold one?</div>
+                  <div class="wa-ts">02:16</div>
+                </div>
+                <div class="wa-badge">
+                  <div class="wa-badge-dot"></div>
+                  <span>Replied in &lt;1 sec · 02:14 local time · No staff needed</span>
+                </div>
+              </div>
+              <div class="wa-input-bar">
+                <div class="wa-input">Message</div>
+                <div class="wa-mic">🎤</div>
+              </div>
+              <div class="phone-home"><div class="phone-home-bar"></div></div>
+            </div>
+          </div>
+          <div class="slide-caption">
+            <div class="slide-acronym">REEF</div>
+            <div class="slide-desc">Respond, Engage, Enroll, Follow-up</div>
+          </div>
+        </div>
+
+        <!-- ── SLIDE 3: TIDE ── -->
+        <div class="carousel-slide">
+          <div class="phone">
+            <div class="phone-bar"><div class="phone-notch"></div></div>
+            <div class="phone-screen">
+              <div class="seq-header">
+                <div class="seq-title">Booking #2847 · Marcus W.</div>
+                <div class="seq-sub">2-Tank Reef Dive · Jun 14 · Koh Tao</div>
+              </div>
+              <div class="seq-body">
+
+                <div class="seq-step">
+                  <div class="seq-line-wrap">
+                    <div class="seq-dot done">✓</div>
+                    <div class="seq-connector"></div>
+                  </div>
+                  <div class="seq-content">
+                    <div class="seq-step-time">Jun 12 · 9:31am</div>
+                    <div class="seq-step-label done-label">Booking Confirmed</div>
+                    <div class="seq-step-msg">"Welcome Marcus! Here's everything for your dive on Jun 14…"</div>
+                    <div class="seq-step-tag sent">✓ Delivered</div>
+                  </div>
+                </div>
+
+                <div class="seq-step">
+                  <div class="seq-line-wrap">
+                    <div class="seq-dot done">✓</div>
+                    <div class="seq-connector"></div>
+                  </div>
+                  <div class="seq-content">
+                    <div class="seq-step-time">Jun 13 · 8:00am</div>
+                    <div class="seq-step-label done-label">Pre-Dive Info</div>
+                    <div class="seq-step-msg">"Tomorrow! Meet at Sairee Beach 7am. Bring mask &amp; fins…"</div>
+                    <div class="seq-step-tag sent">✓ Delivered</div>
+                  </div>
+                </div>
+
+                <div class="seq-step">
+                  <div class="seq-line-wrap">
+                    <div class="seq-dot done">✓</div>
+                    <div class="seq-connector"></div>
+                  </div>
+                  <div class="seq-content">
+                    <div class="seq-step-time">Jun 14 · 6:30am</div>
+                    <div class="seq-step-label done-label">Morning Reminder</div>
+                    <div class="seq-step-msg">"Good morning! Departs in 30 min. Conditions: excellent 🌊"</div>
+                    <div class="seq-step-tag sent">✓ Delivered</div>
+                  </div>
+                </div>
+
+                <div class="seq-step">
+                  <div class="seq-line-wrap">
+                    <div class="seq-dot done">✓</div>
+                    <div class="seq-connector"></div>
+                  </div>
+                  <div class="seq-content">
+                    <div class="seq-step-time">Jun 14 · 3:00pm</div>
+                    <div class="seq-step-label done-label">Post-Dive Follow-Up</div>
+                    <div class="seq-step-msg">"Hope you had an amazing dive! Leave us a review…"</div>
+                    <div class="seq-step-tag sent">✓ Delivered</div>
+                  </div>
+                </div>
+
+                <div class="seq-step">
+                  <div class="seq-line-wrap">
+                    <div class="seq-dot pending">→</div>
+                  </div>
+                  <div class="seq-content">
+                    <div class="seq-step-time">Jul 14 · auto</div>
+                    <div class="seq-step-label">Win-Back</div>
+                    <div class="seq-step-msg">"Miss the ocean? Come back for your Advanced…"</div>
+                    <div class="seq-step-tag pending-tag">⏳ Scheduled</div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="seq-footer">
+                <div class="seq-footer-stat">Sequence: <span>4/5 sent</span></div>
+                <div class="seq-footer-stat"><span>100%</span> delivered</div>
+              </div>
+              <div class="phone-home"><div class="phone-home-bar"></div></div>
+            </div>
+          </div>
+          <div class="slide-caption">
+            <div class="slide-acronym">TIDE</div>
+            <div class="slide-desc">Trip Itinerary &amp; Diver Experience Automation</div>
+          </div>
+        </div>
+
+        <!-- ── SLIDE 4: CREST ── -->
+        <div class="carousel-slide">
+          <div class="phone">
+            <div class="phone-bar"><div class="phone-notch"></div></div>
+            <div class="phone-screen">
+              <div class="crest-header">
+                <div class="crest-title">CREST · Tomorrow's Boat</div>
+                <div class="crest-badge">3 OPEN</div>
+              </div>
+              <div class="crest-body">
+
+                <div class="crest-status">
+                  <div class="crest-status-icon">⛵</div>
+                  <div class="crest-status-info">
+                    <div class="crest-status-title">Jun 15 · 7:00 AM · 2-Tank Reef</div>
+                    <div class="crest-status-sub">Blue Horizon · USD 95 per diver</div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="crest-msg-label" style="margin-bottom:5px;">Seats</div>
+                  <div class="crest-seats">
+                    <div class="crest-seat full">👤</div>
+                    <div class="crest-seat full">👤</div>
+                    <div class="crest-seat full">👤</div>
+                    <div class="crest-seat full">👤</div>
+                    <div class="crest-seat full">👤</div>
+                    <div class="crest-seat full">👤</div>
+                    <div class="crest-seat full">👤</div>
+                    <div class="crest-seat open">🤿</div>
+                    <div class="crest-seat open">🤿</div>
+                    <div class="crest-seat open">🤿</div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="crest-msg-label" style="margin-bottom:5px;">SMS Blast</div>
+                  <div class="crest-msg-preview">
+                    🤿 Tomorrow's morning dive still has 3 spots open. 2-tank reef, departs 7am, USD 95 all in. Reply YES to book — Blue Horizon Dive, Koh Tao
+                  </div>
+                </div>
+
+                <div class="crest-recipients">
+                  <span>📱</span>
+                  <span>Sending to</span>
+                  <span class="crest-recipients-count">47 local divers</span>
+                </div>
+
+                <div class="crest-send-btn">Send Blast Now →</div>
+
+                <div class="crest-recent">
+                  <div class="crest-recent-label">Last blast (Jun 12)</div>
+                  <div class="crest-recent-val">
+                    <span>8 replies</span>
+                    <span class="pos">✓ 6 booked</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="phone-home"><div class="phone-home-bar"></div></div>
+            </div>
+          </div>
+          <div class="slide-caption">
+            <div class="slide-acronym">CREST</div>
+            <div class="slide-desc">Cancellation, Recovery and Empty Seat Text</div>
+          </div>
+        </div>
+
+        <!-- ── SLIDE 5: THE SUITE DASHBOARD ── -->
+        <div class="carousel-slide">
+          <div class="browser-frame">
+            <!-- Browser chrome -->
+            <div class="browser-chrome">
+              <div class="browser-dots">
+                <div class="browser-dot r"></div>
+                <div class="browser-dot y"></div>
+                <div class="browser-dot g"></div>
+              </div>
+              <div class="browser-url">
+                <span class="browser-url-lock">🔒</span>
+                app.gamperklimmek.com/suite/dashboard
+              </div>
+            </div>
+            <!-- App -->
+            <div class="suite-app">
+              <!-- Sidebar -->
+              <div class="suite-sidebar">
+                <div class="suite-logo-mark">GK</div>
+                <div class="suite-nav-divider"></div>
+                <div class="suite-nav-item active" title="Dashboard">⊞</div>
+                <div class="suite-nav-item tool" title="CREST">CREST</div>
+                <div class="suite-nav-item tool" title="GLIDE">GLD</div>
+                <div class="suite-nav-item tool" title="TIDE">TIDE</div>
+                <div class="suite-nav-item tool" title="REEF">REEF</div>
+                <div class="suite-nav-divider"></div>
+                <div class="suite-nav-item" title="Settings">⚙</div>
+              </div>
+              <!-- Main content -->
+              <div class="suite-main">
+                <!-- Top bar -->
+                <div class="suite-topbar">
+                  <div class="suite-topbar-left">
+                    <div class="suite-page-title">Dashboard</div>
+                    <div class="suite-shop-name">Blue Ocean Dive · Koh Tao</div>
+                  </div>
+                  <div class="suite-date-badge">Jun 15, 2025</div>
+                </div>
+
+                <!-- 4 metric cards -->
+                <div class="suite-cards">
+                  <div class="suite-card">
+                    <div class="suite-card-name">CREST</div>
+                    <div class="suite-card-metric">3<span class="suite-card-unit"> open</span></div>
+                    <div class="suite-card-desc">Seats tomorrow · Blast ready to send</div>
+                    <div class="suite-card-status">
+                      <div class="sdot gold"></div>
+                      <span class="suite-card-status-text">Action needed</span>
+                    </div>
+                  </div>
+                  <div class="suite-card">
+                    <div class="suite-card-name">GLIDE</div>
+                    <div class="suite-card-metric">4.9<span class="suite-card-unit">★</span></div>
+                    <div class="suite-card-desc">847 reviews · +12 this month</div>
+                    <div class="suite-card-status">
+                      <div class="sdot green"></div>
+                      <span class="suite-card-status-text">Running</span>
+                    </div>
+                  </div>
+                  <div class="suite-card">
+                    <div class="suite-card-name">TIDE</div>
+                    <div class="suite-card-metric">23</div>
+                    <div class="suite-card-desc">Active sequences · 100% delivered</div>
+                    <div class="suite-card-status">
+                      <div class="sdot green"></div>
+                      <span class="suite-card-status-text">Running</span>
+                    </div>
+                  </div>
+                  <div class="suite-card">
+                    <div class="suite-card-name">REEF</div>
+                    <div class="suite-card-metric">12</div>
+                    <div class="suite-card-desc">Inquiries today · 1 handed off</div>
+                    <div class="suite-card-status">
+                      <div class="sdot green"></div>
+                      <span class="suite-card-status-text">Running</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Activity feed -->
+                <div class="suite-section-label">Recent Activity</div>
+                <div class="suite-feed">
+                  <div class="suite-feed-item">
+                    <span class="feed-check">✓</span>
+                    <span class="feed-tag">GLIDE</span>
+                    <span class="feed-text">Review request sent · Marcus W. · 2-tank reef dive</span>
+                    <span class="feed-time">14:47</span>
+                  </div>
+                  <div class="suite-feed-item">
+                    <span class="feed-check">✓</span>
+                    <span class="feed-tag">REEF</span>
+                    <span class="feed-text">Inquiry handled · OW course · Booking confirmed</span>
+                    <span class="feed-time">02:16</span>
+                  </div>
+                  <div class="suite-feed-item">
+                    <span class="feed-check">✓</span>
+                    <span class="feed-tag">TIDE</span>
+                    <span class="feed-text">Morning reminder sent · Jun 14 boat · 47 guests</span>
+                    <span class="feed-time">06:30</span>
+                  </div>
+                  <div class="suite-feed-item">
+                    <span class="feed-check">✓</span>
+                    <span class="feed-tag">CREST</span>
+                    <span class="feed-text">Last blast: 8 replies · 6 confirmed bookings · Jun 12</span>
+                    <span class="feed-time">yesterday</span>
+                  </div>
+                </div>
+
+              </div><!-- /suite-main -->
+            </div><!-- /suite-app -->
+          </div><!-- /browser-frame -->
+
+          <div class="slide-caption">
+            <div class="slide-acronym" style="font-size:1.5rem;letter-spacing:0.05em;">Dive Suite</div>
+            <div class="slide-desc">All four tools. One dashboard. Everything visible at a glance.</div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+    </div><!-- /carousel-viewport -->
+  </div>
+</div>
+
+<!-- PRODUCT STRIP -->
+<div class="product-strip">
+  <div class="strip-label">The Suite</div>
+  <div class="strip-products">
+    <div class="strip-product">
+      <div class="strip-acronym">CREST</div>
+      <div class="strip-name">Cancellation, Recovery and Empty Seat Text</div>
+    </div>
+    <div class="strip-product">
+      <div class="strip-acronym">GLIDE</div>
+      <div class="strip-name">Google Listing Impact &amp; Diver Engagement</div>
+    </div>
+    <div class="strip-product">
+      <div class="strip-acronym">TIDE</div>
+      <div class="strip-name">Trip Itinerary &amp; Diver Experience</div>
+    </div>
+    <div class="strip-product">
+      <div class="strip-acronym">REEF</div>
+      <div class="strip-name">Respond, Engage, Enroll, Follow-up</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <div class="section-label reveal">Investment</div>
+      <h2 class="section-title reveal reveal-d1">What it costs.<br>What you <em>get.</em></h2>
+    </div>
+    <div class="pricing-free reveal">
+      <div>
+        <div class="pricing-free-label">Start here</div>
+        <div class="pricing-free-text">Free 30-minute discovery call</div>
+        <div class="pricing-free-note">We map your operation, identify what to build first, and tell you exactly what a system would change. No commitment, no pitch.</div>
+      </div>
+      <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="btn-primary">Book a free 30-minute audit</a>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-card-label">Individual Product</div>
+        <div class="pricing-amount"><span data-price-usd="500">USD 500</span><span style="font-size:1.2rem">+</span></div>
+        <div class="pricing-amount-note">One-time setup</div>
+        <div class="pricing-card-title">Single product setup</div>
+        <p class="pricing-card-body">One product — CREST, GLIDE, TIDE, or REEF — fully built and configured for your operation. Start with what solves your most immediate problem.</p>
+      </div>
+      <div class="pricing-card pricing-card-featured reveal reveal-d1">
+        <div class="pricing-card-label">Full Suite</div>
+        <div class="pricing-amount" data-price-usd="1500">USD 1,500</div>
+        <div class="pricing-amount-note">One-time setup</div>
+        <div class="pricing-card-title">All four products</div>
+        <p class="pricing-card-body">CREST, GLIDE, TIDE, and REEF — built and delivered as a complete system. The full picture, configured around how your operation actually runs.</p>
+      </div>
+      <div class="pricing-card reveal reveal-d2">
+        <div class="pricing-card-label">Monthly Retainer</div>
+        <div class="pricing-amount" data-price-usd="149">USD 149</div>
+        <div class="pricing-amount-note">Per month</div>
+        <div class="pricing-card-title">Full suite managed</div>
+        <p class="pricing-card-body">We keep everything running so you don't have to think about it. Updates, prompt adjustments, system health checks, and priority support. Less than a day of staff wages — for a system that works every day.</p>
+      </div>
+    </div>
+    <p class="pricing-note reveal">Setup fees are one-time. What you build, you own. The retainer is optional — for operators who want us managing it.</p>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <div class="bottom-cta-label">Get started</div>
+    <h2>Thirty minutes.<br>A plan for your <em>whole operation.</em></h2>
+    <p>We'll map your biggest communication gaps, tell you exactly which tool solves them first, and give you a clear picture of what changes. Free, no pitch, no obligation.</p>
+    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="cta-btn">Book Your Free 30-Minute Call</a>
+    <div class="bottom-cta-note">Free discovery call · No commitment · Built for operators</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <a href="https://www.gamperklimmek.com/operators">Full Operators Page</a>
+  <a href="https://www.gamperklimmek.com/legal">Privacy Policy</a>
+  <span class="page-footer-copy">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
+</footer>
+
+<script>
+  (function() {
+    const tabs   = document.querySelectorAll('.ctab');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const N      = tabs.length;  // 5
+    let current  = 0;
+    let timer;
+
+    /* ── Position map for each offset from active slide ── */
+    function getPos(rawOffset) {
+      let o = rawOffset % N;
+      if (o >  N / 2) o -= N;
+      if (o < -N / 2) o += N;
+      switch (Math.round(o)) {
+        case  0: return { x:    0, ry:   0, s: 1.00, op: 1.00, zi: 10 };
+        case  1: return { x:  272, ry: -52, s: 0.80, op: 0.58, zi:  5 };
+        case -1: return { x: -272, ry:  52, s: 0.80, op: 0.58, zi:  5 };
+        case  2: return { x:  470, ry: -78, s: 0.58, op: 0.16, zi:  1 };
+        default: return { x: -470, ry:  78, s: 0.58, op: 0.16, zi:  1 };
+      }
+    }
+
+    function goTo(i) {
+      current = i;
+      slides.forEach((slide, idx) => {
+        const p = getPos(idx - current);
+        slide.style.transform = 'translateX(calc(-50% + ' + p.x + 'px)) rotateY(' + p.ry + 'deg) scale(' + p.s + ')';
+        slide.style.opacity   = p.op;
+        slide.style.zIndex    = p.zi;
+        slide.setAttribute('data-active', idx === i ? 'true' : 'false');
+      });
+      tabs.forEach((t, idx) => {
+        t.classList.toggle('active', idx === i);
+        t.setAttribute('aria-selected', idx === i);
+      });
+    }
+
+    function next() { goTo((current + 1) % N); }
+
+    function startAuto() {
+      clearInterval(timer);
+      timer = setInterval(next, 4500);
+    }
+
+    /* Tab clicks */
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => { goTo(i); startAuto(); });
+    });
+
+    /* Click on a side slide to navigate to it */
+    slides.forEach((slide, idx) => {
+      slide.addEventListener('click', () => {
+        if (idx !== current) { goTo(idx); startAuto(); }
+      });
+    });
+
+    /* Pause auto-advance on hover */
+    const wrap = document.querySelector('.mockup-section');
+    wrap.addEventListener('mouseenter', () => clearInterval(timer));
+    wrap.addEventListener('mouseleave', startAuto);
+
+    /* Touch swipe */
+    const viewport = document.querySelector('.carousel-viewport');
+    let startX = 0;
+    viewport.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) {
+        goTo(dx < 0 ? (current + 1) % N : (current - 1 + N) % N);
+        startAuto();
+      }
+    });
+
+    goTo(0);
+    startAuto();
+  })();
+
+  // Scroll-reveal for pricing section
+  (function() {
+    var reveals = document.querySelectorAll('.reveal');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el) { obs.observe(el); });
+  })();
+</script>
+<!-- STICKY CTA BAR -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text"><strong>Ready to automate your dive shop?</strong> Free 30-minute call.</div>
+  <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="sticky-cta-btn">Book a Free Call</a>
+</div>
+
+<script>
+  // Show sticky bar after scrolling past the hero CTA button
+  (function() {
+    const bar    = document.getElementById('stickyCta');
+    const heroCta = document.getElementById('book');
+    const observer = new IntersectionObserver(
+      ([entry]) => { bar.classList.toggle('visible', !entry.isIntersecting); },
+      { threshold: 0, rootMargin: '0px 0px -40px 0px' }
+    );
+    if (heroCta) observer.observe(heroCta);
+  })();
+</script>
+<script src="currency.js"></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>
