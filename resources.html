@@ -673,7 +673,7 @@
     chatbot:   "https://link.gamperklimmek.com/widget/form/coiWdRzKwWh7f13r3PF2"
   };
 
-  function t(key, fallback) {
+  function rt(key, fallback) {
     const el = document.querySelector('[data-i18n="' + key + '"]');
     if (el && el.innerHTML) return el.innerHTML;
     return fallback;
@@ -681,9 +681,9 @@
 
   function getLabels() {
     return {
-      tradeshow: t("resources_card_1_title", "300 Companies. Under an Hour."),
-      scraper: t("resources_card_2_title", "One Week of Research. Done in 15 Minutes."),
-      chatbot: t("resources_card_3_title", "A Full-Time Customer Assistant. Built in 3 Hours.")
+      tradeshow: rt("resources_card_1_title", "300 Companies. Under an Hour."),
+      scraper: rt("resources_card_2_title", "One Week of Research. Done in 15 Minutes."),
+      chatbot: rt("resources_card_3_title", "A Full-Time Customer Assistant. Built in 3 Hours.")
     };
   }
 
@@ -703,14 +703,14 @@
   function updateSummary() {
     const summary = document.getElementById("selection-summary");
     if (selected.size === 0) {
-      summary.innerHTML = t("resources_summary_empty", "No case studies selected yet - pick at least one above.");
+      summary.innerHTML = rt("resources_summary_empty", "No case studies selected yet - pick at least one above.");
       summary.style.color = "rgba(10,10,15,0.68)";
       return;
     }
 
     const labels = getLabels();
     const names = [...selected].map((id) => labels[id]).filter(Boolean);
-    summary.textContent = "✓ " + t("resources_summary_selected", "Selected:") + " " + names.join(" · ");
+    summary.textContent = "✓ " + rt("resources_summary_selected", "Selected:") + " " + names.join(" · ");
     summary.style.color = "#0f5967";
   }
 
@@ -762,7 +762,7 @@
 
     if (!firstName || !email || selected.size === 0) return;
 
-    btn.textContent = t("resources_submit_sending", "Sending...");
+    btn.textContent = rt("resources_submit_sending", "Sending...");
     btn.disabled = true;
 
     // Fire a silent submission to each selected case study's FEA form in parallel
