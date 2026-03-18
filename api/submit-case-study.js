@@ -3,13 +3,10 @@ const LOCATION_ID   = process.env.GHL_LOCATION_ID || "TVnVIKtzPOvL3AU4elns";
 const GHL_API_BASE  = "https://services.leadconnectorhq.com";
 const GHL_VERSION   = "2021-07-28";
 
-const TAG_MAP = {
-  cs1:       "case-study-tradeshow",
-  cs2:       "case-study-scraper",
-  cs3:       "case-study-chatbot",
-  tradeshow: "case-study-tradeshow",
-  scraper:   "case-study-scraper",
-  chatbot:   "case-study-chatbot"
+const WORKFLOW_MAP = {
+  cs1: "bd09edf6-8bb8-4084-baf4-9b1eacac2cf3",
+  cs2: "928c23d3-983e-43ee-87a4-7a0359ee6b78",
+  cs3: "080d82bc-ab78-475c-b5a8-ca7f6c25171f"
 };
 
 async function ghl(path, method, body) {
@@ -36,21 +33,32 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: "firstName, email, and cases are required" });
   }
 
-  const tags = cases.map(id => TAG_MAP[id]).filter(Boolean);
-  if (tags.length === 0) return res.status(400).json({ error: "No valid case IDs" });
+  const workflowIds = cases.map(id => WORKFLOW_MAP[id]).filter(Boolean);
+  if (workflowIds.length === 0) return res.status(400).json({ error: "No valid case IDs" });
 
-  // Try to create the contact
-  const payload = { locationId: LOCATION_ID, firstName, email, tags };
+  // Create or find the contact
+  const payload = { locationId: LOCATION_ID, firstName, email };
   if (company) payload.companyName = company;
 
   let { status, data } = await ghl("/contacts/", "POST", payload);
 
-  // Duplicate contact — GHL returns 400 with contactId in meta
+  let contactId;
   if (status === 400 && data?.meta?.contactId) {
-    await ghl(`/contacts/${data.meta.contactId}/tags`, "POST", { tags });
+    contactId = data.meta.contactId;
   } else if (status >= 400) {
     return res.status(500).json({ error: "GHL error", ghl_status: status, ghl_response: data });
+  } else {
+    contactId = data?.contact?.id;
   }
+
+  if (!contactId) return res.status(500).json({ error: "Could not resolve contact ID" });
+
+  // Enroll contact in each selected workflow directly
+  await Promise.all(
+    workflowIds.map(wfId =>
+      ghl(`/contacts/${contactId}/workflow/${wfId}`, "POST", {})
+    )
+  );
 
   return res.status(200).json({ success: true });
 }
