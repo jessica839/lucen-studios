@@ -666,11 +666,12 @@
 <script>
   const selected = new Set();
 
-  // FEA Create form endpoints — one per case study
+  // FEA Create form IDs — one per case study
+  const LOCATION_ID = "TVnVIKtzPOvL3AU4elns";
   const FEA_FORMS = {
-    tradeshow: "https://link.gamperklimmek.com/widget/form/NMznbQW9hpT81e97wK4j",
-    scraper:   "https://link.gamperklimmek.com/widget/form/gEHfRXeIVJ8SsN4tIIq7",
-    chatbot:   "https://link.gamperklimmek.com/widget/form/SRhpFpuIu0m4bKoi6Rr5"
+    tradeshow: "NMznbQW9hpT81e97wK4j",
+    scraper:   "gEHfRXeIVJ8SsN4tIIq7",
+    chatbot:   "SRhpFpuIu0m4bKoi6Rr5"
   };
 
   function rt(key, fallback) {
@@ -735,18 +736,34 @@
     return document.documentElement.lang || 'en';
   }
 
-  async function submitToFEA(formUrl, firstName, email, company, lang) {
-    const body = new URLSearchParams();
-    body.append("first_name", firstName);
-    body.append("email", email);
-    if (company) body.append("company", company);
-    body.append("language", lang);
+  async function submitToFEA(formId, firstName, email, company, lang) {
+    const sessionId = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2));
+    const formDataPayload = {
+      first_name: firstName,
+      email: email,
+      formId: formId,
+      location_id: LOCATION_ID,
+      sessionId: sessionId,
+      eventData: {
+        source: "direct", referrer: "", keyword: "", adSource: "",
+        url_params: {}, page: { url: window.location.href, title: document.title },
+        timestamp: Date.now(), campaign: "", medium: "form", mediumId: formId,
+        type: "page-visit", parentId: formId, pageVisitType: "form",
+        domain: window.location.hostname, version: "v3"
+      },
+      Timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      paymentContactId: {}
+    };
+    if (company) formDataPayload.company = company;
+    const body = new FormData();
+    body.append("formId", formId);
+    body.append("locationId", LOCATION_ID);
+    body.append("formData", JSON.stringify(formDataPayload));
     try {
-      await fetch(formUrl, {
+      await fetch(`https://backend.leadconnectorhq.com/forms/submit?formId=${formId}&locationId=${LOCATION_ID}`, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString()
+        body: body
       });
     } catch (err) {
       // no-cors swallows errors intentionally — FEA receives the submission
@@ -767,8 +784,8 @@
 
     // Fire a silent submission to each selected case study's FEA form in parallel
     const submissions = [...selected].map((id) => {
-      const url = FEA_FORMS[id];
-      if (url) return submitToFEA(url, firstName, email, company, lang);
+      const formId = FEA_FORMS[id];
+      if (formId) return submitToFEA(formId, firstName, email, company, lang);
     }).filter(Boolean);
 
     await Promise.allSettled(submissions);

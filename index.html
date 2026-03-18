@@ -564,10 +564,11 @@
   <script src="/currency.js"></script>
   <script>
     const NEWSLETTER_FORM_URL = "https://link.gamperklimmek.com/widget/form/P7rkFHPH4cRMVQgSEH80";
+    const LOCATION_ID = "TVnVIKtzPOvL3AU4elns";
     const CASE_STUDY_FORMS = {
-      cs1: "https://link.gamperklimmek.com/widget/form/NMznbQW9hpT81e97wK4j",
-      cs2: "https://link.gamperklimmek.com/widget/form/gEHfRXeIVJ8SsN4tIIq7",
-      cs3: "https://link.gamperklimmek.com/widget/form/SRhpFpuIu0m4bKoi6Rr5"
+      cs1: "NMznbQW9hpT81e97wK4j",
+      cs2: "gEHfRXeIVJ8SsN4tIIq7",
+      cs3: "SRhpFpuIu0m4bKoi6Rr5"
     };
     const selectedCases = new Set();
     let newsletterSubmitting = false;
@@ -659,21 +660,37 @@
       updateCasesFormState();
 
       const submissions = [...selectedCases].map((caseId) => {
-        const endpoint = CASE_STUDY_FORMS[caseId];
-        if (!endpoint) return null;
+        const formId = CASE_STUDY_FORMS[caseId];
+        if (!formId) return null;
 
-        const body = new URLSearchParams();
-        body.append("first_name", firstName);
-        body.append("email", email);
-        if (company) body.append("company", company);
-        body.append("language", lang);
-        body.append("selected_case", caseId);
+        const sessionId = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2));
+        const formDataPayload = {
+          first_name: firstName,
+          email: email,
+          formId: formId,
+          location_id: LOCATION_ID,
+          sessionId: sessionId,
+          eventData: {
+            source: "direct", referrer: "", keyword: "", adSource: "",
+            url_params: {}, page: { url: window.location.href, title: document.title },
+            timestamp: Date.now(), campaign: "", medium: "form", mediumId: formId,
+            type: "page-visit", parentId: formId, pageVisitType: "form",
+            domain: window.location.hostname, version: "v3"
+          },
+          Timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          paymentContactId: {}
+        };
+        if (company) formDataPayload.company = company;
 
-        return fetch(endpoint, {
+        const body = new FormData();
+        body.append("formId", formId);
+        body.append("locationId", LOCATION_ID);
+        body.append("formData", JSON.stringify(formDataPayload));
+
+        return fetch(`https://backend.leadconnectorhq.com/forms/submit?formId=${formId}&locationId=${LOCATION_ID}`, {
           method: "POST",
           mode: "no-cors",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: body.toString()
+          body: body
         });
       }).filter(Boolean);
 
