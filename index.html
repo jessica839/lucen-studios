@@ -564,12 +564,6 @@
   <script src="/currency.js"></script>
   <script>
     const NEWSLETTER_FORM_URL = "https://link.gamperklimmek.com/widget/form/P7rkFHPH4cRMVQgSEH80";
-    const LOCATION_ID = "TVnVIKtzPOvL3AU4elns";
-    const CASE_STUDY_FORMS = {
-      cs1: "NMznbQW9hpT81e97wK4j",
-      cs2: "gEHfRXeIVJ8SsN4tIIq7",
-      cs3: "SRhpFpuIu0m4bKoi6Rr5"
-    };
     const selectedCases = new Set();
     let newsletterSubmitting = false;
     let casesSubmitting = false;
@@ -659,45 +653,14 @@
       submitBtn.textContent = i18nText("cs.form.sending", "Sending...");
       updateCasesFormState();
 
-      const submissions = [...selectedCases].map((caseId) => {
-        const formId = CASE_STUDY_FORMS[caseId];
-        if (!formId) return null;
-
-        const sessionId = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2));
-        const formDataPayload = {
-          first_name: firstName,
-          email: email,
-          formId: formId,
-          location_id: LOCATION_ID,
-          sessionId: sessionId,
-          eventData: {
-            source: "direct", referrer: "", keyword: "", adSource: "",
-            url_params: {}, page: { url: window.location.href, title: document.title },
-            timestamp: Date.now(), campaign: "", medium: "form", mediumId: formId,
-            type: "page-visit", parentId: formId, pageVisitType: "form",
-            domain: window.location.hostname, version: "v3"
-          },
-          Timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          paymentContactId: {}
-        };
-        if (company) formDataPayload.company = company;
-
-        const body = new FormData();
-        body.append("formId", formId);
-        body.append("locationId", LOCATION_ID);
-        body.append("formData", JSON.stringify(formDataPayload));
-
-        return fetch(`https://backend.leadconnectorhq.com/forms/submit?formId=${formId}&locationId=${LOCATION_ID}`, {
-          method: "POST",
-          mode: "no-cors",
-          body: body
-        });
-      }).filter(Boolean);
-
       try {
-        await Promise.allSettled(submissions);
+        await fetch("/api/submit-case-study", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ firstName, email, company, cases: [...selectedCases] })
+        });
       } catch (err) {
-        // no-cors suppresses response details, continue to success state
+        // show success regardless — contact creation is best-effort
       }
 
       formPanel.style.display = "none";
