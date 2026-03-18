@@ -496,16 +496,27 @@
         <p class="contact-sub" data-i18n="contact.sub">Share a few details and we will follow up with practical next steps for your operation.</p>
       </div>
       <div>
-        <div class="contact-form" id="contactForm">
-          <input class="contact-input" type="text" id="contactFirstName" data-i18n-ph="ph.firstname" placeholder="First name" />
-          <input class="contact-input" type="email" id="contactEmail" data-i18n-ph="ph.email" placeholder="Email address" />
-          <textarea class="contact-input contact-textarea" id="contactMessage" data-i18n-ph="contact.ph.message" placeholder="What is the biggest bottleneck in your workflow right now?"></textarea>
-          <button class="contact-submit" onclick="submitContact()" data-i18n="contact.cta">Send message</button>
+        <div class="contact-form contact-embed-wrap" id="contactForm">
+          <iframe
+            src="https://link.gamperklimmek.com/widget/form/I8E5xCQafppn095FGSle"
+            style="width:100%;border:none;border-radius:3px"
+            id="inline-I8E5xCQafppn095FGSle"
+            class="contact-embed-frame"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Contact"
+            data-height="1014"
+            data-layout-iframe-id="inline-I8E5xCQafppn095FGSle"
+            data-form-id="I8E5xCQafppn095FGSle"
+            title="Contact"
+            loading="lazy"
+          ></iframe>
           <p class="contact-note" data-i18n="contact.note">No spam. We only use this to reply to your request.</p>
-        </div>
-        <div class="contact-success" id="contactSuccess">
-          <h3 data-i18n="contact.success.h3">Message received.</h3>
-          <p data-i18n="contact.success.p">Thanks for reaching out. We will get back to you soon.</p>
         </div>
       </div>
     </div>
@@ -553,7 +564,6 @@
   <script src="/currency.js"></script>
   <script>
     const NEWSLETTER_FORM_URL = "https://link.gamperklimmek.com/widget/form/P7rkFHPH4cRMVQgSEH80";
-    const CONTACT_FORM_URL = "https://link.gamperklimmek.com/widget/form/I8E5xCQafppn095FGSle";
     const CASE_STUDY_FORMS = {
       cs1: "https://link.gamperklimmek.com/widget/form/BRGYgJnPbOnPtOt8Wc7X",
       cs2: "https://link.gamperklimmek.com/widget/form/4uH80XYluvb0lyvRggti",
@@ -561,7 +571,6 @@
     };
     const selectedCases = new Set();
     let newsletterSubmitting = false;
-    let contactSubmitting = false;
     let casesSubmitting = false;
     let casesSubmitted = false;
 
@@ -683,65 +692,6 @@
       updateCasesFormState();
     }
 
-    function updateContactFormState() {
-      const form = document.getElementById("contactForm");
-      if (!form) return;
-
-      const firstName = document.getElementById("contactFirstName").value.trim();
-      const email = document.getElementById("contactEmail").value.trim();
-      const message = document.getElementById("contactMessage").value.trim();
-      const btn = form.querySelector(".contact-submit");
-      const ready = firstName && email && message && !contactSubmitting;
-
-      btn.disabled = !ready;
-      btn.style.opacity = ready ? "1" : "0.65";
-      btn.style.cursor = ready ? "pointer" : "not-allowed";
-      btn.textContent = contactSubmitting
-        ? i18nText("contact.sending", "Sending...")
-        : i18nText("contact.cta", "Send message");
-    }
-
-    async function submitContact() {
-      if (contactSubmitting) return;
-
-      const firstName = document.getElementById("contactFirstName").value.trim();
-      const email = document.getElementById("contactEmail").value.trim();
-      const message = document.getElementById("contactMessage").value.trim();
-      const form = document.getElementById("contactForm");
-      const success = document.getElementById("contactSuccess");
-
-      if (!firstName || !email || !message) {
-        updateContactFormState();
-        return;
-      }
-
-      contactSubmitting = true;
-      updateContactFormState();
-
-      const body = new URLSearchParams();
-      body.append("first_name", firstName);
-      body.append("email", email);
-      body.append("message", message);
-      body.append("language", getActiveLang());
-      body.append("gdpr_consent", "true");
-
-      try {
-        await fetch(CONTACT_FORM_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: body.toString()
-        });
-      } catch (err) {
-        // no-cors suppresses response details, continue to success state
-      }
-
-      form.style.display = "none";
-      success.style.display = "block";
-      contactSubmitting = false;
-      updateContactFormState();
-    }
-
     async function submitNewsletter() {
       if (newsletterSubmitting) return;
 
@@ -789,9 +739,6 @@
       const csFirstName = document.getElementById("csFirstName");
       const csEmail = document.getElementById("csEmail");
       const csCompany = document.getElementById("csCompany");
-      const contactFirstName = document.getElementById("contactFirstName");
-      const contactEmail = document.getElementById("contactEmail");
-      const contactMessage = document.getElementById("contactMessage");
 
       hamburger.addEventListener("click", toggleMobile);
 
@@ -808,10 +755,6 @@
         });
       });
 
-      [contactFirstName, contactEmail, contactMessage].forEach((input) => {
-        input.addEventListener("input", updateContactFormState);
-      });
-
       document.querySelectorAll(".case-card").forEach((card) => {
         card.addEventListener("keydown", (event) => {
           if (event.key === " " || event.key === "Spacebar") {
@@ -822,7 +765,6 @@
       });
 
       updateCasesFormState();
-      updateContactFormState();
       nlSubmit.disabled = true;
       nlSubmit.style.opacity = "0.65";
       nlSubmit.style.cursor = "not-allowed";
@@ -843,6 +785,7 @@
       }, { passive: true });
     })();
   </script>
+  <script src="https://link.gamperklimmek.com/js/form_embed.js"></script>
   <script src="/cookie-consent.js"></script>
 
 </body>
