@@ -53,7 +53,7 @@ module.exports = async function handler(req, res) {
       await ghl(`/contacts/${contactId}/tags`, "POST", { tags });
     }
   } else if (status >= 400) {
-    return res.status(500).json({ error: "Failed to create contact" });
+    return res.status(500).json({ error: "GHL error", ghl_status: status, ghl_response: data });
   }
 
   return res.status(200).json({ success: true });
