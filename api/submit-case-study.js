@@ -45,13 +45,9 @@ module.exports = async function handler(req, res) {
 
   let { status, data } = await ghl("/contacts/", "POST", payload);
 
-  // If contact already exists (422), look it up and add tags
-  if (status === 422) {
-    const search = await ghl(`/contacts/?locationId=${LOCATION_ID}&email=${encodeURIComponent(email)}`, "GET");
-    const contactId = search.data?.contacts?.[0]?.id;
-    if (contactId) {
-      await ghl(`/contacts/${contactId}/tags`, "POST", { tags });
-    }
+  // Duplicate contact — GHL returns 400 with contactId in meta
+  if (status === 400 && data?.meta?.contactId) {
+    await ghl(`/contacts/${data.meta.contactId}/tags`, "POST", { tags });
   } else if (status >= 400) {
     return res.status(500).json({ error: "GHL error", ghl_status: status, ghl_response: data });
   }
