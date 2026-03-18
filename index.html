@@ -67,22 +67,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css">
-  <!-- Google Consent Mode v2 — analytics denied by default until user accepts -->
+  <!-- Google Analytics — nur nach Consent laden -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consent Mode v2: Default auf 'denied' setzen
     gtag('consent', 'default', {
       analytics_storage: 'denied',
       ad_storage: 'denied',
       wait_for_update: 500
     });
-  </script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J1Z1TC3H4R"></script>
-  <script>
     gtag('js', new Date());
     gtag('config', 'G-J1Z1TC3H4R');
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J1Z1TC3H4R"></script>
 </head>
 <body>
 
@@ -111,6 +109,12 @@
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
+    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation"
+       class="nav-cta-sticky btn-gold-full"
+       style="display: none; padding: 0.5rem 1.25rem; font-size: 0.7rem; white-space: nowrap;"
+       id="navStickyBooking">
+      BOOK FREE CALL
+    </a>
   </nav>
 
   <!-- Mobile menu -->
@@ -139,7 +143,7 @@
     <div class="hero-inner">
       <p class="page-eyebrow" data-i18n="hero.eyebrow">AI · AUTOMATION · SYSTEMS</p>
       <h1 data-i18n="hero.h1">Most businesses still run on manual work that should be <em>automatic.</em></h1>
-      <p class="hero-sub" data-i18n="hero.sub">Gamper Klimmek Consulting helps owner-operated businesses simplify their systems, automate repetitive work, and run operations that actually scale.</p>
+      <p class="hero-sub" data-i18n="hero.sub">We find where your team is losing time on manual work — and fix it in a focused sprint. No vague strategy. Just systems that run without you.</p>
       <div class="hero-cta-group">
         <a href="/calculator" class="btn-primary" data-i18n="hero.cta">See how many hours you could save</a>
         <a href="#how-it-works" class="btn-ghost" data-i18n="hero.ghost">How the Systems Review works</a>
@@ -282,7 +286,7 @@
           <p class="section-label teal" data-i18n="cases.label">Proof from real operations</p>
           <h2 class="section-title" data-i18n="cases.title">What this looks like in practice.<br><em>Not theory.</em></h2>
         </div>
-        <p class="cases-intro" data-i18n="cases.intro">Three short case studies showing how we remove manual work, tighten lead handling, and improve customer communication in real businesses. Select what is relevant and we will send it to your inbox.</p>
+        <p class="cases-intro" data-i18n="cases.intro">Three case studies from our own operations and founding-phase projects — demonstrating the methodology we use with clients. Client case studies from current engagements are in progress.</p>
       </div>
 
       <!-- Selectable cards -->
@@ -473,6 +477,9 @@
           <span class="audit-price-label" data-i18n="audit.price.label">Price</span>
           <span class="audit-price-val"><span data-price-usd="1056" data-price-usd-suffix=" fixed price">CHF 950 fixed price</span></span>
         </div>
+        <p class="pricing-guarantee" style="margin-top: 1rem; padding: 0.875rem 1rem; border: 1px solid var(--gold); border-radius: 4px; font-size: 0.875rem; line-height: 1.5; color: var(--gold);">
+          If this review doesn't give you three clear, actionable improvements you can implement immediately — you pay nothing.
+        </p>
         <p class="audit-card-note" data-i18n="audit.cost.note">This is where we turn observations into a clear improvement plan.</p>
         <a href="https://link.gamperklimmek.com/widget/bookings/operations-strategy-call-90-minutes" class="btn-gold-full" data-i18n="audit.card.cta">Book your Business Systems Review</a>
         <p class="audit-card-note" data-i18n="audit.card.note">30 minutes. No preparation needed.</p>
@@ -546,7 +553,7 @@
   <script src="/currency.js"></script>
   <script>
     const NEWSLETTER_FORM_URL = "https://link.gamperklimmek.com/widget/form/P7rkFHPH4cRMVQgSEH80";
-    const CONTACT_FORM_URL = "https://link.gamperklimmek.com/widget/form/REPLACE_WITH_CONTACT_FORM_ID";
+    const CONTACT_FORM_URL = "https://link.gamperklimmek.com/widget/form/I8E5xCQafppn095FGSle";
     const CASE_STUDY_FORMS = {
       cs1: "https://link.gamperklimmek.com/widget/form/BRGYgJnPbOnPtOt8Wc7X",
       cs2: "https://link.gamperklimmek.com/widget/form/4uH80XYluvb0lyvRggti",
@@ -820,6 +827,21 @@
       nlSubmit.style.opacity = "0.65";
       nlSubmit.style.cursor = "not-allowed";
     });
+  </script>
+  <script>
+    // Sticky Nav CTA einblenden nach erstem Viewport
+    (function() {
+      const heroHeight = window.innerHeight;
+      const navBtn = document.getElementById('navStickyBooking');
+      if (!navBtn) return;
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > heroHeight * 0.8) {
+          navBtn.classList.add('visible');
+        } else {
+          navBtn.classList.remove('visible');
+        }
+      }, { passive: true });
+    })();
   </script>
   <script src="/cookie-consent.js"></script>
 

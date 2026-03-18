@@ -165,7 +165,7 @@ nav {
 .hero-bg {
   position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(13,61,71,0.7) 0%, rgba(10,10,15,0.95) 60%),
-    url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80') center/cover no-repeat;
+    url('/assets/img/hero-bg.jpg') center/cover no-repeat;
   filter: saturate(0.7);
 }
 .hero-grid {
@@ -692,4 +692,16 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .hero h1 { font-size: 2.1rem; }
   .hero-sub { font-size: 0.98rem; }
   .hero-microcopy { font-size: 0.62rem; }
+}
+
+/* Sticky Nav CTA */
+#navStickyBooking {
+  display: none !important;
+  width: auto !important;
+  margin-bottom: 0 !important;
+}
+@media (min-width: 768px) {
+  #navStickyBooking.visible {
+    display: inline-block !important;
+  }
 }

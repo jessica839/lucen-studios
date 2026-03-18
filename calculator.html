@@ -369,38 +369,38 @@
           <div class="leak-calc-field">
             <div class="leak-calc-label-row">
               <label for="calcEmployees" class="leak-calc-label" data-i18n="calc.input.employees">Number of employees</label>
-              <span class="leak-calc-live" id="calcEmployeesValue">5</span>
+              <span class="leak-calc-live" id="calcEmployeesValue">3</span>
             </div>
-            <input id="calcEmployees" class="leak-calc-range" type="range" min="1" max="25" step="1" value="5" />
+            <input id="calcEmployees" class="leak-calc-range" type="range" min="1" max="25" step="1" value="3" />
           </div>
 
           <div class="leak-calc-field">
             <label for="calcSalary" class="leak-calc-label" data-i18n="calc.input.salary">Average annual salary</label>
-            <input id="calcSalary" class="leak-calc-number" type="number" inputmode="numeric" min="0" step="1000" value="80000" />
+            <input id="calcSalary" class="leak-calc-number" type="number" inputmode="numeric" min="0" step="1000" value="60000" />
           </div>
 
           <div class="leak-calc-field">
             <div class="leak-calc-label-row">
               <label for="calcCommHours" class="leak-calc-label" data-i18n="calc.input.comm">Weekly hours per employee spent on emails / messages</label>
-              <span class="leak-calc-live" id="calcCommHoursValue">2.0</span>
+              <span class="leak-calc-live" id="calcCommHoursValue">1.5</span>
             </div>
-            <input id="calcCommHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="2" />
+            <input id="calcCommHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="1.5" />
           </div>
 
           <div class="leak-calc-field">
             <div class="leak-calc-label-row">
               <label for="calcAdminHours" class="leak-calc-label" data-i18n="calc.input.admin">Weekly hours per employee spent on admin tasks</label>
-              <span class="leak-calc-live" id="calcAdminHoursValue">2.0</span>
+              <span class="leak-calc-live" id="calcAdminHoursValue">1.5</span>
             </div>
-            <input id="calcAdminHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="2" />
+            <input id="calcAdminHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="1.5" />
           </div>
 
           <div class="leak-calc-field">
             <div class="leak-calc-label-row">
               <label for="calcOpsHours" class="leak-calc-label" data-i18n="calc.input.ops">Weekly hours per employee spent on scheduling / coordination</label>
-              <span class="leak-calc-live" id="calcOpsHoursValue">2.0</span>
+              <span class="leak-calc-live" id="calcOpsHoursValue">1.5</span>
             </div>
-            <input id="calcOpsHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="2" />
+            <input id="calcOpsHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="1.5" />
           </div>
         </div>
 
@@ -434,11 +434,10 @@
             <p class="leak-calc-audit-note" data-i18n="calc.results.audit.note">Approximate equivalent.</p>
           </div>
 
-          <p class="leak-calc-support" data-i18n="calc.results.support">Even small improvements in your workflows can recover a significant amount of this time.</p>
+          <p class="leak-calc-support" data-i18n="calc.results.support">Even small improvements in your workflows can recover a significant amount of this time. If the review doesn't give you three clear, actionable improvements — you pay nothing.</p>
 
           <a href="/#audit" class="btn-gold-full" id="calcCtaBtn">Book your free 30-minute call</a>
-          <a href="https://link.gamperklimmek.com/widget/bookings/operations-strategy-call-90-minutes" class="leak-calc-bsr-link" data-i18n="calc.bsr.cta">Book the 90-minute Business Systems Review</a>
-          <p class="leak-calc-microcopy" id="calcCtaMicrocopy">We'll map your biggest opportunities together. No preparation needed.</p>
+          <p class="leak-calc-microcopy" id="calcCtaMicrocopy">Free. 30 minutes. No preparation needed.</p>
           <p class="leak-calc-cta-note" id="calcCtaNote">Your data stays in your browser. Nothing is sent until you book.</p>
         </aside>
       </div>
@@ -472,6 +471,17 @@
           <p class="workflow-priorities-title" id="prioritiesTitle">Your top priorities</p>
           <ul class="workflow-priorities-list" id="workflowPrioritiesList"></ul>
         </div>
+
+        <!-- Bottom CTA nach Workflow-Tabelle -->
+        <div style="margin-top: 3rem; text-align: center; padding: 2.5rem; background: var(--ink); border: 1px solid rgba(201,168,76,0.3); border-radius: 8px;">
+          <p style="font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;">YOUR TOTAL ANNUAL COST OF MANUAL WORK</p>
+          <p id="workflowTotalDisplay" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: #ffffff; margin-bottom: 0.5rem;">—</p>
+          <p style="font-size: 0.875rem; color: rgba(244,241,236,0.6); margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto;">Bring these numbers to the call — we'll look at what to eliminate first.</p>
+          <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-gold-full" style="display: inline-block; max-width: 400px;">
+            BOOK YOUR FREE 30-MINUTE CALL
+          </a>
+          <p style="margin-top: 0.75rem; font-size: 0.75rem; color: rgba(244,241,236,0.4);">Free. 30 minutes. No preparation needed.</p>
+        </div>
       </div>
 
     </div>
@@ -491,7 +501,7 @@
   <script src="/i18n.js?v=20260312-2"></script>
   <script src="/currency.js"></script>
   <script>
-    const CALC_SALARY_DEFAULTS = { CHF: 80000, EUR: 60000, USD: 65000 };
+    const CALC_SALARY_DEFAULTS = { CHF: 60000, EUR: 60000, USD: 65000 };
     const CALC_AUDIT_EQUIVALENTS = { CHF: "CHF 950", EUR: "EUR 980", USD: "USD 1,050" };
     const CALC_AUDIT_PRICE_CHF = 950;
 
@@ -700,8 +710,15 @@
             ctaSub.textContent = i18nText("audit.cta.active.sub", "Your top workflows are ready. We\u2019ll build your fix plan on the call.");
           } else {
             ctaBtn.textContent = i18nText("audit.cta.default", "Book your free 30-minute call");
-            ctaSub.textContent = i18nText("audit.cta.default.sub", "We\u2019ll map your biggest opportunities together. No preparation needed.");
+            ctaSub.textContent = i18nText("audit.cta.default.sub", "Free. 30 minutes. No preparation needed.");
           }
+        }
+
+        // Keep bottom CTA total in sync with workflow table rows
+        var totalDisplay = document.getElementById("workflowTotalDisplay");
+        if (totalDisplay) {
+          var total = completed.reduce(function(sum, row) { return sum + row.cost; }, 0);
+          totalDisplay.textContent = total > 0 ? formatMoney(total, currency) : "—";
         }
 
         // Refresh translatable static labels (handles language switches)

@@ -26,18 +26,19 @@
 
   function loadFeaTracking() {
     if (document.querySelector('script[data-tracking-id="' + FEA_TID + '"]')) return;
+    if (document.querySelector('script[src*="external-tracking"]')) return;
     var s = document.createElement('script');
     s.src = FEA_SRC;
     s.setAttribute('data-tracking-id', FEA_TID);
     s.async = true;
-    document.body.appendChild(s);
+    document.head.appendChild(s);
   }
 
-  function updateGtag(storage) {
+  function updateGtag(storage, adStorage) {
     if (typeof window.gtag === 'function') {
       window.gtag('consent', 'update', {
         analytics_storage: storage,
-        ad_storage: 'denied'
+        ad_storage: adStorage || 'denied'
       });
     }
   }
@@ -140,7 +141,7 @@
 
     document.getElementById('gk-cb-accept').addEventListener('click', function () {
       saveConsent('granted');
-      updateGtag('granted');
+      updateGtag('granted', 'granted');
       loadFeaTracking();
       removeBanner();
     });
