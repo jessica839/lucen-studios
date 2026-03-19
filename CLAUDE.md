@@ -10,9 +10,11 @@ Static HTML website for **Gamper Klimmek Consulting**, an AI & automation consul
 
 ## Development
 
-**No build step required.** Edit files directly and open in a browser to test.
+**No build step required.** Edit files directly and open in a browser to test. Most features work from `file://` — the only exception is `api/submit-case-study.js` (serverless, requires Vercel or a local Node environment).
 
 **Deployment:** Vercel auto-deploys on push to `main`. Clean URLs are enabled (`/calculator` serves `calculator.html`, etc.).
+
+**Asset caching:** Static assets (`.js`, `.css`, images) are cached for 1 year (`immutable`) by Vercel. HTML files are `no-cache`. When updating shared files like `i18n.js` or `currency.js`, any in-flight visitors will keep the old cached version until their cache expires — no explicit cache-busting mechanism exists.
 
 ---
 
@@ -56,9 +58,13 @@ EUR/USD amounts are computed via `currency.js` from `data-price-usd` base values
 - `styles.css` — shared design tokens and base styles (used by index + audit pages)
 - Per-page styles are embedded in each HTML file's `<head>`
 
+### Serverless API
+
+- `api/submit-case-study.js` — Vercel serverless function (POST `/api/submit-case-study`). Accepts `{ firstName, email, company, cases }` where `cases` is an array of `"cs1"` / `"cs2"` / `"cs3"`. Creates or upserts a GoHighLevel contact and enrolls them in the corresponding GHL workflow(s). Requires env vars `GHL_API_KEY` and `GHL_LOCATION_ID` (location ID has a hardcoded fallback).
+
 ### Config
 
-- `vercel.json` — deployment config (clean URLs, security headers, 1-hour cache)
+- `vercel.json` — deployment config (clean URLs, security headers, asset caching)
 - `sitemap.xml`, `robots.txt` — SEO
 
 ### Email Templates
