@@ -323,7 +323,7 @@
     gtag('consent', 'default', {
       analytics_storage: 'denied',
       ad_storage: 'denied',
-      wait_for_update: 500
+      wait_for_update: 2000
     });
   </script>
   <!-- Google tag (gtag.js) -->
@@ -427,6 +427,21 @@
             <p class="leak-calc-result-value"><span id="calcRecoverableSavings">CHF 12’480</span> <span class="leak-calc-inline-note" data-i18n="calc.results.recoverable.suffix">/ year</span></p>
           </div>
 
+          <!-- Email summary capture — shown when annual cost > 0 -->
+          <div id="calcEmailCapture" style="display:none; margin: 1.25rem 0; padding: 1.25rem; background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.25); border-radius: 4px;">
+            <p style="font-family:’Syne’,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Save your results</p>
+            <p style="font-size:0.8rem;color:rgba(244,241,236,0.6);margin-bottom:0.875rem;line-height:1.5;">Email this summary to yourself so you have it for the call.</p>
+            <div id="calcEmailForm" style="display:flex;flex-direction:column;gap:0.5rem;">
+              <input type="text"  id="calcLeadName"  placeholder="First name" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:3px;color:#f5f0e8;font-family:’DM Sans’,sans-serif;font-size:0.82rem;padding:0.45rem 0.7rem;" />
+              <input type="email" id="calcLeadEmail" placeholder="Email address" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:3px;color:#f5f0e8;font-family:’DM Sans’,sans-serif;font-size:0.82rem;padding:0.45rem 0.7rem;" />
+              <button id="calcLeadBtn" onclick="submitCalcLead()" style="background:#c9a84c;color:#0a0a0f;border:none;cursor:pointer;font-family:’Syne’,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.55rem 1rem;border-radius:3px;transition:background 0.2s;opacity:0.65;cursor:not-allowed;">Email me this summary</button>
+              <p style="font-size:0.7rem;color:rgba(244,241,236,0.35);line-height:1.4;">No spam. Used only to send your results.</p>
+            </div>
+            <div id="calcEmailSuccess" style="display:none;text-align:center;padding:0.75rem 0;">
+              <p style="font-family:’Syne’,sans-serif;font-size:0.8rem;font-weight:700;color:var(--gold);">On its way. Check your inbox.</p>
+            </div>
+          </div>
+
           <div class="leak-calc-audit">
             <p class="leak-calc-audit-title" data-i18n="calc.results.audit.title">Business Systems Review</p>
             <p class="leak-calc-audit-price">CHF 950</p>
@@ -436,7 +451,7 @@
 
           <p class="leak-calc-support" data-i18n="calc.results.support">Even small improvements in your workflows can recover a significant amount of this time. If the review doesn't give you three clear, actionable improvements — you pay nothing.</p>
 
-          <a href="/#audit" class="btn-gold-full" id="calcCtaBtn">Book your free 30-minute call</a>
+          <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-gold-full" id="calcCtaBtn" target="_blank" rel="noopener">Book your free 30-minute call</a>
           <p class="leak-calc-microcopy" id="calcCtaMicrocopy">Free. 30 minutes. No preparation needed.</p>
           <p class="leak-calc-cta-note" id="calcCtaNote">Your data stays in your browser. Nothing is sent until you book.</p>
         </aside>
@@ -490,8 +505,8 @@
   <footer>
     <div class="footer-logo">Gamper<span>.</span>Klimmek</div>
     <ul class="footer-links">
-      <li><a href="/" data-i18n="story.back">Back to home</a></li>
-      <li><a href="/#audit" data-i18n="nav.cta">Run the Time &amp; Cost Leak Calculator</a></li>
+      <li><a href="/">Back to home</a></li>
+      <li><a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" rel="noopener">Book your free 30-minute call</a></li>
       <li><a href="/legal.html" data-i18n="footer.legal">Impressum</a></li>
       <li><a href="#" onclick="window.GK_openCookieSettings(); return false;" data-i18n="footer.cookie_settings">Cookie Settings</a></li>
     </ul>
@@ -553,6 +568,16 @@
       if (typeof showWfAudit === "function") showWfAudit(estimatedAnnualCost > 0);
       if (typeof updateWfAudit === "function") updateWfAudit();
 
+      // Show/hide email summary capture
+      if (typeof updateCalcEmailCapture === "function") updateCalcEmailCapture(estimatedAnnualCost);
+
+      // GA event: calc result shown (fires once per session when cost first > 0)
+      if (estimatedAnnualCost > 0 && !window._calcResultEventFired) {
+        window._calcResultEventFired = true;
+        if (typeof window.GK_event === "function") {
+          window.GK_event("calc_result_shown", { currency, annual_cost: Math.round(estimatedAnnualCost) });
+        }
+      }
     }
 
     function setupLeakCalculator() {
@@ -586,9 +611,76 @@
       updateLeakCalculator();
     }
 
+    /* Show/hide email capture and update button state */
+    function updateCalcEmailCapture(annualCost) {
+      const capture = document.getElementById("calcEmailCapture");
+      if (!capture) return;
+      capture.style.display = annualCost > 0 ? "block" : "none";
+      updateCalcLeadBtn();
+    }
+
+    function updateCalcLeadBtn() {
+      const btn   = document.getElementById("calcLeadBtn");
+      const name  = (document.getElementById("calcLeadName")  || {}).value || "";
+      const email = (document.getElementById("calcLeadEmail") || {}).value || "";
+      if (!btn) return;
+      const ready = name.trim() && email.trim();
+      btn.disabled = !ready;
+      btn.style.opacity = ready ? "1" : "0.65";
+      btn.style.cursor  = ready ? "pointer" : "not-allowed";
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       setupLeakCalculator();
+      ["calcLeadName","calcLeadEmail"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener("input", updateCalcLeadBtn);
+      });
     });
+
+    let calcLeadSubmitting = false;
+    let calcLeadSubmitted  = false;
+
+    async function submitCalcLead() {
+      if (calcLeadSubmitting || calcLeadSubmitted) return;
+
+      const firstName = (document.getElementById("calcLeadName")  || {}).value?.trim();
+      const email     = (document.getElementById("calcLeadEmail") || {}).value?.trim();
+      const btn       = document.getElementById("calcLeadBtn");
+
+      if (!firstName || !email) return;
+
+      /* Gather current calc values */
+      const currency    = (document.getElementById("calcCurrency") || {}).value || "CHF";
+      const employees   = Number((document.getElementById("calcEmployees") || {}).value)  || 0;
+      const salary      = Number((document.getElementById("calcSalary")    || {}).value)  || 0;
+      const commH       = Number((document.getElementById("calcCommHours") || {}).value)  || 0;
+      const adminH      = Number((document.getElementById("calcAdminHours")|| {}).value)  || 0;
+      const opsH        = Number((document.getElementById("calcOpsHours")  || {}).value)  || 0;
+      const totalWeekly = employees * (commH + adminH + opsH);
+      const annualCost  = totalWeekly * 52 * (salary / 2000);
+      const weeklySummary = `${Math.round(totalWeekly)}h/week lost across ${employees} employees`;
+
+      calcLeadSubmitting = true;
+      if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+
+      try {
+        await fetch("/api/submit-calc-lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ firstName, email, annualCost, currency, weeklySummary })
+        });
+      } catch (e) { /* best-effort */ }
+
+      if (typeof window.GK_event === "function") {
+        window.GK_event("calc_summary_emailed", { currency, annual_cost: Math.round(annualCost) });
+      }
+
+      document.getElementById("calcEmailForm").style.display    = "none";
+      document.getElementById("calcEmailSuccess").style.display = "block";
+      calcLeadSubmitted  = true;
+      calcLeadSubmitting = false;
+    }
   </script>
   <script>
     // ===== WORKFLOW AUDIT =====

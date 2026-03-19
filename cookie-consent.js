@@ -3,9 +3,15 @@
  * GDPR / Swiss FADP compliant: analytics denied by default,
  * only granted after explicit user acceptance.
  *
- * Also gates the FEA Create CRM tracking script behind consent.
+ * Gates behind consent:
+ *   - FEA Create external-tracking.js (CRM pixel)
+ *   - FEA Create form_embed.js (booking/contact forms)
+ *   - Any element with class="gk-consent-gate" and data-consent-src="<url>"
+ *     (renders as iframe after acceptance, placeholder before)
  *
- * Exposes window.GK_openCookieSettings() to reopen the banner.
+ * Public API:
+ *   window.GK_openCookieSettings()  — reopen the banner / reset choice
+ *   window.GK_consentGranted()      — returns true if consent was granted
  */
 (function () {
   'use strict';
@@ -20,7 +26,7 @@
     try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
   }
 
-  /* FEA Create / GoHighLevel CRM tracking script */
+  /* ── FEA Create external tracking (CRM pixel) ────────────────── */
   var FEA_SRC = 'https://link.gamperklimmek.com/js/external-tracking.js';
   var FEA_TID = 'tk_ae9529981d674c5ebbdeb28a95ac2143';
 
@@ -34,6 +40,94 @@
     document.head.appendChild(s);
   }
 
+  /* ── FEA Create form embed (booking / contact forms) ─────────── */
+  var FEA_FORM_SRC = 'https://link.gamperklimmek.com/js/form_embed.js';
+  var _formEmbedLoaded = false;
+
+  function loadFeaFormEmbed() {
+    if (_formEmbedLoaded) return;
+    if (document.querySelector('script[src*="form_embed"]')) {
+      _formEmbedLoaded = true;
+      return;
+    }
+    var s = document.createElement('script');
+    s.src = FEA_FORM_SRC;
+    s.async = true;
+    document.head.appendChild(s);
+    _formEmbedLoaded = true;
+  }
+
+  /* ── Consent-gated iframe rendering ──────────────────────────── */
+  /**
+   * Elements with class="gk-consent-gate" and data-consent-src="<url>"
+   * are rendered as iframes when consent is granted, or shown as
+   * explanatory placeholders when consent is denied / not yet given.
+   *
+   * Optional attributes on the container:
+   *   data-consent-title   — iframe title (accessibility)
+   *   data-consent-height  — iframe height hint (passed as data-height)
+   *   data-consent-id      — id to assign to the rendered iframe
+   *   data-consent-form-id — GoHighLevel form ID (sets data-form-id etc.)
+   *   data-consent-msg     — custom placeholder message text
+   */
+  function renderConsentGatedElements(granted) {
+    document.querySelectorAll('.gk-consent-gate').forEach(function (container) {
+      if (granted) {
+        if (container.querySelector('iframe')) return; /* already rendered */
+
+        var src    = container.getAttribute('data-consent-src')    || '';
+        var title  = container.getAttribute('data-consent-title')  || 'Embedded content';
+        var height = container.getAttribute('data-consent-height') || '';
+        var formId = container.getAttribute('data-consent-form-id') || '';
+        var elemId = container.getAttribute('data-consent-id')     || '';
+
+        var iframe = document.createElement('iframe');
+        iframe.src   = src;
+        iframe.title = title;
+        iframe.style.cssText = 'width:100%;border:none;border-radius:3px;display:block;';
+        iframe.setAttribute('loading', 'lazy');
+        if (height) iframe.setAttribute('data-height', height);
+        if (formId) {
+          iframe.setAttribute('data-form-id', formId);
+          iframe.setAttribute('data-layout', "{'id':'INLINE'}");
+          iframe.setAttribute('data-trigger-type', 'alwaysShow');
+          iframe.setAttribute('data-activation-type', 'alwaysActivated');
+          iframe.setAttribute('data-deactivation-type', 'neverDeactivate');
+          iframe.setAttribute('data-form-name', title);
+        }
+        if (elemId) {
+          iframe.id = elemId;
+          iframe.setAttribute('data-layout-iframe-id', elemId);
+        }
+
+        container.innerHTML = '';
+        container.appendChild(iframe);
+      } else {
+        if (container.querySelector('iframe') || container.querySelector('.gk-cp')) return;
+        var msg = container.getAttribute('data-consent-msg') ||
+          'This content is provided by a third-party service. Accept cookies to load it.';
+        container.innerHTML = buildPlaceholder(msg);
+      }
+    });
+  }
+
+  function buildPlaceholder(msg) {
+    return '<div class="gk-cp" style="' +
+      'border:1px solid rgba(201,168,76,0.2);border-radius:4px;' +
+      'padding:2.5rem 2rem;text-align:center;background:rgba(255,255,255,0.02);">' +
+      '<p style="font-family:\'DM Sans\',sans-serif;font-size:0.875rem;' +
+        'color:rgba(244,241,236,0.55);line-height:1.6;margin:0 auto 1.25rem;' +
+        'max-width:420px;">' + msg + '</p>' +
+      '<button onclick="window.GK_openCookieSettings();return false;" style="' +
+        'font-family:\'Syne\',sans-serif;font-size:0.78rem;font-weight:700;' +
+        'letter-spacing:0.08em;text-transform:uppercase;background:#c9a84c;' +
+        'color:#0a0a0f;border:none;cursor:pointer;padding:0.65rem 1.5rem;' +
+        'border-radius:3px;transition:background 0.2s;">' +
+      'Accept cookies to load form</button>' +
+      '</div>';
+  }
+
+  /* ── gtag consent update ─────────────────────────────────────── */
   function updateGtag(storage, adStorage) {
     if (typeof window.gtag === 'function') {
       window.gtag('consent', 'update', {
@@ -43,6 +137,14 @@
     }
   }
 
+  /* ── GA event helper (only fires when consent granted) ───────── */
+  function gkEvent(name, params) {
+    if (getConsent() === 'granted' && typeof window.gtag === 'function') {
+      window.gtag('event', name, params || {});
+    }
+  }
+
+  /* ── Banner ──────────────────────────────────────────────────── */
   function removeBanner() {
     var el = document.getElementById('gk-cb');
     if (el) {
@@ -53,9 +155,8 @@
   }
 
   function showBanner() {
-    if (document.getElementById('gk-cb')) return; // already shown
+    if (document.getElementById('gk-cb')) return;
 
-    /* ── styles ─────────────────────────────────────────────────────── */
     var css = document.createElement('style');
     css.id = 'gk-cb-css';
     css.textContent = [
@@ -104,7 +205,6 @@
     ].join('');
     document.head.appendChild(css);
 
-    /* ── markup ──────────────────────────────────────────────────────── */
     var banner = document.createElement('div');
     banner.id = 'gk-cb';
     banner.setAttribute('role', 'dialog');
@@ -120,8 +220,8 @@
         '<div id="gk-cb-text">' +
           '<strong>Cookie &amp; Analytics Notice</strong>' +
           'We use Google Analytics to understand how visitors use this site. ' +
-          'No data is shared for advertising purposes. ' +
-          'Analytics cookies are only placed after you accept.' +
+          'No data is shared for advertising. ' +
+          'Analytics and third-party contact forms only load after you accept.' +
           ' <a href="' + legalPage + '">Privacy Policy</a>' +
         '</div>' +
         '<div id="gk-cb-btns">' +
@@ -132,53 +232,72 @@
 
     document.body.appendChild(banner);
 
-    /* animate in on next frame */
     requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        banner.classList.add('gk-cb--visible');
-      });
+      requestAnimationFrame(function () { banner.classList.add('gk-cb--visible'); });
     });
 
     document.getElementById('gk-cb-accept').addEventListener('click', function () {
       saveConsent('granted');
       updateGtag('granted', 'granted');
       loadFeaTracking();
+      loadFeaFormEmbed();
+      renderConsentGatedElements(true);
       removeBanner();
     });
 
     document.getElementById('gk-cb-decline').addEventListener('click', function () {
       saveConsent('denied');
       updateGtag('denied');
+      renderConsentGatedElements(false);
       removeBanner();
     });
   }
 
-  /* ── public API ──────────────────────────────────────────────────── */
+  /* ── Public API ──────────────────────────────────────────────── */
   window.GK_openCookieSettings = function () {
-    /* Reset stored choice so banner shows again */
     try { localStorage.removeItem(CONSENT_KEY); } catch (e) {}
     showBanner();
   };
 
-  /* ── init ────────────────────────────────────────────────────────── */
+  window.GK_consentGranted = function () {
+    return getConsent() === 'granted';
+  };
+
+  /* Exposed so inline GA event calls can check consent first */
+  window.GK_event = gkEvent;
+
+  /* ── Init ────────────────────────────────────────────────────── */
   var stored = getConsent();
 
   if (stored === 'granted') {
     updateGtag('granted');
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadFeaTracking);
+      document.addEventListener('DOMContentLoaded', function () {
+        loadFeaTracking();
+        loadFeaFormEmbed();
+        renderConsentGatedElements(true);
+      });
     } else {
       loadFeaTracking();
+      loadFeaFormEmbed();
+      renderConsentGatedElements(true);
     }
-    /* no banner needed */
   } else if (stored === 'denied') {
-    /* stays denied — no banner */
-  } else {
-    /* no choice yet → show banner */
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', showBanner);
+      document.addEventListener('DOMContentLoaded', function () { renderConsentGatedElements(false); });
+    } else {
+      renderConsentGatedElements(false);
+    }
+  } else {
+    /* No choice yet — show banner and render placeholders */
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        showBanner();
+        renderConsentGatedElements(false);
+      });
     } else {
       showBanner();
+      renderConsentGatedElements(false);
     }
   }
 

@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /.claude/
+Disallow: /operators-new
+Disallow: /operators-new.html
+Disallow: /dive-suite
+Disallow: /dive-suite.html
 
 Sitemap: https://www.gamperklimmek.com/sitemap.xml

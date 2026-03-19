@@ -75,7 +75,7 @@
     gtag('consent', 'default', {
       analytics_storage: 'denied',
       ad_storage: 'denied',
-      wait_for_update: 500
+      wait_for_update: 2000
     });
     gtag('js', new Date());
     gtag('config', 'G-J1Z1TC3H4R');
@@ -112,7 +112,8 @@
     <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation"
        class="nav-cta-sticky btn-gold-full"
        style="display: none; padding: 0.5rem 1.25rem; font-size: 0.7rem; white-space: nowrap;"
-       id="navStickyBooking">
+       id="navStickyBooking"
+       onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'sticky_nav'})">
       BOOK FREE CALL
     </a>
   </nav>
@@ -141,14 +142,15 @@
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-inner">
-      <p class="page-eyebrow" data-i18n="hero.eyebrow">AI · AUTOMATION · SYSTEMS</p>
-      <h1 data-i18n="hero.h1">Most businesses still run on manual work that should be <em>automatic.</em></h1>
-      <p class="hero-sub" data-i18n="hero.sub">We find where your team is losing time on manual work — and fix it in a focused sprint. No vague strategy. Just systems that run without you.</p>
+      <p class="page-eyebrow" data-i18n="hero.eyebrow">FOR OWNER-OPERATED BUSINESSES · 5 TO 50 STAFF</p>
+      <h1 data-i18n="hero.h1">Your team is spending hours each week on work that should <em>already be automatic.</em></h1>
+      <p class="hero-sub" data-i18n="hero.sub">We find your three biggest time leaks — and fix them in a focused sprint. Fixed scope, fixed price. No vague strategy. No 6-month roadmap.</p>
       <div class="hero-cta-group">
         <a href="/calculator" class="btn-primary" data-i18n="hero.cta">See how many hours you could save</a>
         <a href="#how-it-works" class="btn-ghost" data-i18n="hero.ghost">How the Systems Review works</a>
       </div>
       <p class="hero-microcopy" data-i18n="hero.microcopy">30 minutes. No preparation needed.</p>
+      <p class="hero-guarantee">If we don't find 3 actionable improvements — you pay nothing.</p>
     </div>
   </section>
 
@@ -230,7 +232,7 @@
         </div>
         <div class="invisible-work-right">
           <p data-i18n="iw.pull">Most of this is not a staffing problem. It is a systems problem.</p>
-          <a href="#audit" class="btn-primary" data-i18n="iw.cta">See what we would fix first</a>
+          <a href="/calculator" class="btn-primary" data-i18n="iw.cta">See what we would fix first</a>
         </div>
       </div>
 
@@ -332,14 +334,14 @@
   <!-- ══ CREDIBILITY ══════════════════════════════════════════ -->
   <div class="trust-strip">
     <div class="trust-strip-inner">
-      <p class="trust-statement" data-i18n="trust.quote">"Built from real operational experience and shaped by years inside software, sales, and service businesses."</p>
+      <p class="trust-statement" data-i18n="trust.quote">10+ years of operational and commercial experience across SaaS, service businesses, and international operations — applied to the systems problems your team faces every day.</p>
       <div>
         <p class="trust-meta-name" data-i18n="trust.byline">Gamper Klimmek Consulting</p>
         <p class="trust-meta-role" data-i18n="trust.role">Founder-led · Operator-grounded · Implementation-focused</p>
         <div class="trust-badges">
-          <span class="trust-badge">PADI IDC Staff Instructors</span>
-          <span class="trust-badge">SaaS — San Francisco · Berlin · Zurich</span>
-          <span class="trust-badge">TDI Full Cave Divers</span>
+          <span class="trust-badge">10+ Years Operational Experience</span>
+          <span class="trust-badge">SaaS · Service Businesses · International Operations</span>
+          <span class="trust-badge">San Francisco · Berlin · Zurich · Lucerne</span>
         </div>
       </div>
     </div>
@@ -459,7 +461,7 @@
           <li><span class="audit-step-num">3</span><span data-i18n="audit.s3"><strong>Identify the biggest opportunities.</strong> We highlight where better systems or automation could have the biggest impact.</span></li>
           <li><span class="audit-step-num">4</span><span data-i18n="audit.s4"><strong>Decide whether a deeper review makes sense.</strong> If there is clear opportunity, the next step is a structured Business Systems Review with a full review report, discovered bottlenecks, and estimated time and cost savings per bottleneck.</span></li>
         </ul>
-        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-gold-full">BOOK YOUR FREE 30-MINUTE CALL</a>
+        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-gold-full" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'audit_section'})">BOOK YOUR FREE 30-MINUTE CALL</a>
       </div>
 
       <div class="audit-card">
@@ -481,8 +483,8 @@
           If this review doesn't give you three clear, actionable improvements you can implement immediately — you pay nothing.
         </p>
         <p class="audit-card-note" data-i18n="audit.cost.note">This is where we turn observations into a clear improvement plan.</p>
-        <a href="https://link.gamperklimmek.com/widget/bookings/operations-strategy-call-90-minutes" class="btn-gold-full" data-i18n="audit.card.cta">Book your Business Systems Review</a>
-        <p class="audit-card-note" data-i18n="audit.card.note">30 minutes. No preparation needed.</p>
+        <a href="https://link.gamperklimmek.com/widget/bookings/operations-strategy-call-90-minutes" class="btn-gold-full" data-i18n="audit.card.cta" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'bsr_card'})">Book your Business Systems Review</a>
+        <p class="audit-card-note" data-i18n="audit.card.note">Best as the next step after your free consultation.</p>
       </div>
     </div>
   </section>
@@ -497,25 +499,14 @@
       </div>
       <div>
         <div class="contact-form contact-embed-wrap" id="contactForm">
-          <iframe
-            src="https://link.gamperklimmek.com/widget/form/I8E5xCQafppn095FGSle"
-            style="width:100%;border:none;border-radius:3px"
-            id="inline-I8E5xCQafppn095FGSle"
-            class="contact-embed-frame"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Contact"
-            data-height="1014"
-            data-layout-iframe-id="inline-I8E5xCQafppn095FGSle"
-            data-form-id="I8E5xCQafppn095FGSle"
-            title="Contact"
-            loading="lazy"
-          ></iframe>
+          <div class="gk-consent-gate"
+            data-consent-src="https://link.gamperklimmek.com/widget/form/I8E5xCQafppn095FGSle"
+            data-consent-title="Contact"
+            data-consent-height="1014"
+            data-consent-id="inline-I8E5xCQafppn095FGSle"
+            data-consent-form-id="I8E5xCQafppn095FGSle"
+            data-consent-msg="This contact form is provided by GoHighLevel. Accept cookies to load it — or email us directly at hello@gamperklimmek.com."
+          ></div>
           <p class="contact-note" data-i18n="contact.note">No spam. We only use this to reply to your request.</p>
         </div>
       </div>
@@ -534,8 +525,12 @@
         <div class="newsletter-form" id="nlForm">
           <input class="nl-input" type="text"  id="nlFirstName" data-i18n-ph="ph.firstname" placeholder="First name" />
           <input class="nl-input" type="email" id="nlEmail"     data-i18n-ph="ph.email"     placeholder="Email address" />
+          <label class="nl-consent-label" style="display:flex;align-items:flex-start;gap:0.625rem;cursor:pointer;margin-top:0.25rem;">
+            <input type="checkbox" id="nlConsent" style="margin-top:0.2rem;flex-shrink:0;accent-color:#c9a84c;" />
+            <span style="font-size:0.78rem;line-height:1.5;color:rgba(244,241,236,0.5);" data-i18n="nl.consent">I agree to receive the newsletter. My data is handled under the <a href="/legal.html#cookies" style="color:rgba(201,168,76,0.75);text-decoration:underline;">privacy policy</a>.</span>
+          </label>
           <button class="nl-submit" onclick="submitNewsletter()" data-i18n="nl.cta">Subscribe</button>
-          <p class="nl-note" data-i18n="nl.note">No spam. Unsubscribe anytime. Handled under GDPR &amp; Swiss DSG.</p>
+          <p class="nl-note" data-i18n="nl.note">No spam. Unsubscribe anytime.</p>
         </div>
         <div class="nl-success" id="nlSuccess">
           <h3 data-i18n="nl.success.h3">You're in.</h3>
@@ -677,11 +672,16 @@
 
       const firstName = document.getElementById("nlFirstName").value.trim();
       const email = document.getElementById("nlEmail").value.trim();
+      const consentBox = document.getElementById("nlConsent");
       const form = document.getElementById("nlForm");
       const success = document.getElementById("nlSuccess");
       const btn = form.querySelector(".nl-submit");
 
       if (!firstName || !email) return;
+      if (!consentBox || !consentBox.checked) {
+        consentBox && consentBox.closest("label") && (consentBox.closest("label").style.outline = "1px solid #c9a84c");
+        return;
+      }
 
       newsletterSubmitting = true;
       btn.disabled = true;
@@ -691,7 +691,7 @@
       body.append("first_name", firstName);
       body.append("email", email);
       body.append("language", getActiveLang());
-      body.append("gdpr_consent", "true");
+      body.append("gdpr_consent", "true"); /* only reached when checkbox is checked */
 
       try {
         await fetch(NEWSLETTER_FORM_URL, {
@@ -702,6 +702,10 @@
         });
       } catch (err) {
         // no-cors suppresses response details, continue to success state
+      }
+
+      if (typeof window.GK_event === "function") {
+        window.GK_event("newsletter_subscribe", { method: "homepage_form" });
       }
 
       form.style.display = "none";
@@ -726,14 +730,20 @@
         input.addEventListener("input", updateCasesFormState);
       });
 
+      const nlConsent = document.getElementById("nlConsent");
+
+      function updateNlSubmitState() {
+        const ready = nlFirstName.value.trim() && nlEmail.value.trim() &&
+          nlConsent && nlConsent.checked && !newsletterSubmitting;
+        nlSubmit.disabled = !ready;
+        nlSubmit.style.opacity = ready ? "1" : "0.65";
+        nlSubmit.style.cursor = ready ? "pointer" : "not-allowed";
+      }
+
       [nlFirstName, nlEmail].forEach((input) => {
-        input.addEventListener("input", () => {
-          const ready = nlFirstName.value.trim() && nlEmail.value.trim() && !newsletterSubmitting;
-          nlSubmit.disabled = !ready;
-          nlSubmit.style.opacity = ready ? "1" : "0.65";
-          nlSubmit.style.cursor = ready ? "pointer" : "not-allowed";
-        });
+        input.addEventListener("input", updateNlSubmitState);
       });
+      if (nlConsent) nlConsent.addEventListener("change", updateNlSubmitState);
 
       document.querySelectorAll(".case-card").forEach((card) => {
         card.addEventListener("keydown", (event) => {
@@ -765,7 +775,6 @@
       }, { passive: true });
     })();
   </script>
-  <script src="https://link.gamperklimmek.com/js/form_embed.js"></script>
   <script src="/cookie-consent.js"></script>
 
 </body>

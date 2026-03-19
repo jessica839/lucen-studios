@@ -6,7 +6,7 @@
 <title>AI Automation for Dive, Surf &amp; Tour Operators | Gamper Klimmek</title>
 <meta name="description" content="AI automation for dive shops, surf camps, tour operators, and activity brands. Cut manual workload, respond faster, and improve booking conversion.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.gamperklimmek.com/operators.html">
+<link rel="canonical" href="https://www.gamperklimmek.com/operators">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -327,7 +327,7 @@
   gtag('consent', 'default', {
     analytics_storage: 'denied',
     ad_storage: 'denied',
-    wait_for_update: 500
+    wait_for_update: 2000
   });
 </script>
 <!-- Google tag (gtag.js) -->
@@ -385,7 +385,8 @@
     <p class="page-hero-sub" data-i18n="operators_hero_sub">
       Inquiry overload. Guest communication that falls through the cracks. SOPs that live in one person's head. Staff time lost to questions that should answer themselves. This work is built from years inside demanding service operations — and designed to fix exactly those problems.
     </p>
-    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="btn-primary" data-i18n="operators_cta_btn">Book a free 30-minute consultation</a>
+    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="btn-primary" data-i18n="operators_cta_btn" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'operators_hero'})">Book a free 30-minute consultation</a>
+    <p style="margin-top:0.75rem;font-size:0.85rem;color:rgba(201,168,76,0.8);font-style:italic;">If we don't find 3 actionable improvements — you pay nothing.</p>
   </div>
 </section>
 
@@ -550,8 +551,8 @@
 <!-- CTA -->
 <section class="page-cta">
   <h2 class="reveal" data-i18n="operators_cta_title">Talk to someone who's<br><em>worked your season.</em></h2>
-  <p class="reveal reveal-d1" data-i18n="operators_cta_body">A free 30-minute consultation. Jessica maps your busiest workflows, identifies what to automate first, and shows exactly what one well-built system would change. No pitch. Just an honest, practical conversation.</p>
-  <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="cta-btn-dark reveal reveal-d2" data-i18n="operators_cta_btn">Book a free 30-minute consultation</a>
+  <p class="reveal reveal-d1" data-i18n="operators_cta_body">A free 30-minute consultation. We map your busiest workflows, identify what to automate first, and show exactly what one well-built system would change. No pitch. Just an honest, practical conversation.</p>
+  <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="cta-btn-dark reveal reveal-d2" data-i18n="operators_cta_btn" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'operators_bottom_cta'})">Book a free 30-minute consultation</a>
 </section>
 
 <style>
@@ -585,7 +586,7 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
-<script src="i18n.js"></script>
-<script src="cookie-consent.js"></script>
+<script src="/i18n.js?v=20260319"></script>
+<script src="/cookie-consent.js?v=20260319"></script>
 </body>
 </html>

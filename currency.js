@@ -57,26 +57,19 @@
     updateDOM(currency);
   }
 
-  /* ── IP detection ────────────────────────────────────────── */
+  /* ── Default currency ───────────────────────────────────── */
+  /**
+   * No third-party IP geolocation (privacy-safe, no consent required).
+   * Default: CHF — primary market. User can switch via currency buttons.
+   * Preference persists in localStorage.
+   */
   function detectAndSet() {
     var stored = getStored();
     if (stored && RATES[stored]) {
       updateDOM(stored);
       return;
     }
-
-    fetch('https://ipapi.co/json/')
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        var cc       = String(data.country_code || '').toUpperCase();
-        var currency = 'USD';
-        if (cc === 'CH')     currency = 'CHF';
-        else if (EU[cc])     currency = 'EUR';
-        setCurrency(currency);
-      })
-      .catch(function () {
-        setCurrency('USD');
-      });
+    setCurrency('CHF');
   }
 
   /* ── Styles ──────────────────────────────────────────────── */

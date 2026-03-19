@@ -6,7 +6,7 @@
 <title>AI Automation for SMBs &amp; Service Businesses | Gamper Klimmek</title>
 <meta name="description" content="AI automation consulting for owner-operated SMBs. Reduce inquiry backlog, speed up follow-ups, and free your team from repetitive admin work.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.gamperklimmek.com/businesses.html">
+<link rel="canonical" href="https://www.gamperklimmek.com/businesses">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -316,7 +316,7 @@
   gtag('consent', 'default', {
     analytics_storage: 'denied',
     ad_storage: 'denied',
-    wait_for_update: 500
+    wait_for_update: 2000
   });
 </script>
 <!-- Google tag (gtag.js) -->
@@ -374,7 +374,8 @@
     <p class="page-hero-sub" data-i18n="businesses_hero_sub">
       Quote follow-up. Client intake. Renewal emails. Status replies. The repetitive, high-volume work that fills your team's day and keeps them from the work that actually grows your business. This work is built to fix that.
     </p>
-    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="btn-primary" data-i18n="hero_btn">Book a free 30-minute consultation</a>
+    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="btn-primary" data-i18n="hero_btn" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'businesses_hero'})">Book a free 30-minute consultation</a>
+    <p style="margin-top:0.75rem;font-size:0.85rem;color:rgba(201,168,76,0.8);font-style:italic;">If we don't find 3 actionable improvements — you pay nothing.</p>
   </div>
 </section>
 
@@ -417,7 +418,7 @@
       <div class="pain-card reveal reveal-d2">
         <div class="pain-icon">⏱</div>
         <div class="pain-title" data-i18n="businesses_pain_6_title">No time to fix it</div>
-        <p class="pain-body" data-i18n="businesses_pain_6_body">You know the problems. You've known for a while. But every week is too busy to step back and fix the systems that are causing the busy. Jessica steps in, maps it, and builds the fix — without disrupting your operation.</p>
+        <p class="pain-body" data-i18n="businesses_pain_6_body">You know the problems. You've known for a while. But every week is too busy to step back and fix the systems that are causing the busy. We step in, map it, and build the fix — without disrupting your operation.</p>
       </div>
     </div>
   </div>
@@ -555,8 +556,8 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
-<script src="i18n.js"></script>
-<script src="currency.js"></script>
-<script src="cookie-consent.js"></script>
+<script src="/i18n.js?v=20260319"></script>
+<script src="/currency.js?v=20260319"></script>
+<script src="/cookie-consent.js?v=20260319"></script>
 </body>
 </html>

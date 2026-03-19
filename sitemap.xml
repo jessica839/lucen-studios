@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.gamperklimmek.com/</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.gamperklimmek.com/calculator.html</loc>
+    <loc>https://www.gamperklimmek.com/calculator</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.gamperklimmek.com/start</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamperklimmek.com/start.html</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.gamperklimmek.com/businesses.html</loc>
-    <lastmod>2026-03-07</lastmod>
+    <loc>https://www.gamperklimmek.com/businesses</loc>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.gamperklimmek.com/operators.html</loc>
-    <lastmod>2026-03-07</lastmod>
+    <loc>https://www.gamperklimmek.com/operators</loc>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.gamperklimmek.com/story.html</loc>
+    <loc>https://www.gamperklimmek.com/story</loc>
     <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.gamperklimmek.com/resources.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://www.gamperklimmek.com/resources</loc>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

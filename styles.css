@@ -199,6 +199,13 @@ nav {
   text-transform: uppercase;
   color: rgba(255,255,255,0.45);
 }
+.hero-guarantee {
+  margin-top: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(201,168,76,0.8);
+  font-style: italic;
+}
 
 /* ── TIME & COST LEAK CALCULATOR ── */
 .leak-calc {

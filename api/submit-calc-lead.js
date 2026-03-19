@@ -1,21 +1,17 @@
-const GHL_API_KEY   = process.env.GHL_API_KEY;
-const LOCATION_ID   = process.env.GHL_LOCATION_ID || 'TVnVIKtzPOvL3AU4elns';
-const GHL_API_BASE  = 'https://services.leadconnectorhq.com';
-const GHL_VERSION   = '2021-07-28';
+/**
+ * Calculator lead capture endpoint.
+ * Creates / upserts a GHL contact tagged with their estimated annual cost.
+ */
+const GHL_API_KEY  = process.env.GHL_API_KEY;
+const LOCATION_ID  = process.env.GHL_LOCATION_ID || 'TVnVIKtzPOvL3AU4elns';
+const GHL_API_BASE = 'https://services.leadconnectorhq.com';
+const GHL_VERSION  = '2021-07-28';
 
-const WORKFLOW_MAP = {
-  cs1: 'bd09edf6-8bb8-4084-baf4-9b1eacac2cf3',
-  cs2: '928c23d3-983e-43ee-87a4-7a0359ee6b78',
-  cs3: '080d82bc-ab78-475c-b5a8-ca7f6c25171f'
-};
-
-/* Allowed request origins (production + preview) */
 const ALLOWED_ORIGINS = [
   'https://www.gamperklimmek.com',
   'https://gamperklimmek.com'
 ];
 
-/* In-memory rate limit: max 5 submissions per IP per rolling 10 minutes */
 const rateLimitMap = new Map();
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -23,22 +19,12 @@ const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 function isRateLimited(ip) {
   const now = Date.now();
   const entry = rateLimitMap.get(ip) || { count: 0, resetAt: now + RATE_LIMIT_WINDOW_MS };
-
-  if (now > entry.resetAt) {
-    entry.count = 0;
-    entry.resetAt = now + RATE_LIMIT_WINDOW_MS;
-  }
-
-  entry.count += 1;
+  if (now > entry.resetAt) { entry.count = 0; entry.resetAt = now + RATE_LIMIT_WINDOW_MS; }
+  entry.count++;
   rateLimitMap.set(ip, entry);
-
-  /* Cleanup stale entries (best-effort, avoids unbounded growth) */
   if (rateLimitMap.size > 500) {
-    for (const [k, v] of rateLimitMap) {
-      if (now > v.resetAt) rateLimitMap.delete(k);
-    }
+    for (const [k, v] of rateLimitMap) { if (Date.now() > v.resetAt) rateLimitMap.delete(k); }
   }
-
   return entry.count > RATE_LIMIT_MAX;
 }
 
@@ -50,8 +36,6 @@ function isValidEmail(email) {
 
 function isValidOrigin(req) {
   const origin = req.headers['origin'] || '';
-  /* Allow requests with no Origin header only in non-production
-     (e.g. server-to-server calls, Vercel preview builds) */
   if (!origin) return process.env.VERCEL_ENV !== 'production';
   return ALLOWED_ORIGINS.some(o => origin === o || origin.endsWith('.vercel.app'));
 }
@@ -70,55 +54,54 @@ async function ghl(path, method, body) {
 }
 
 module.exports = async function handler(req, res) {
-  /* CORS preflight */
   res.setHeader('Access-Control-Allow-Origin',
     ALLOWED_ORIGINS.includes(req.headers['origin'] || '') ? req.headers['origin'] : ALLOWED_ORIGINS[0]);
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== 'POST')   return res.status(405).json({ error: 'Method not allowed' });
 
-  /* Origin check */
-  if (!isValidOrigin(req)) {
-    return res.status(403).json({ error: 'Forbidden' });
-  }
+  if (!isValidOrigin(req)) return res.status(403).json({ error: 'Forbidden' });
 
-  /* Rate limiting */
   const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() ||
              req.socket?.remoteAddress || 'unknown';
-  if (isRateLimited(ip)) {
-    return res.status(429).json({ error: 'Too many requests. Please try again later.' });
-  }
+  if (isRateLimited(ip)) return res.status(429).json({ error: 'Too many requests' });
 
   if (!GHL_API_KEY) return res.status(500).json({ error: 'API key not configured' });
 
-  const { firstName, email, company, cases } = req.body || {};
+  const { firstName, email, annualCost, currency, weeklySummary } = req.body || {};
 
-  /* Input validation */
   if (!firstName || typeof firstName !== 'string' || firstName.trim().length < 1) {
     return res.status(400).json({ error: 'firstName is required' });
   }
   if (!isValidEmail(email)) {
     return res.status(400).json({ error: 'A valid email address is required' });
   }
-  if (!Array.isArray(cases) || cases.length === 0) {
-    return res.status(400).json({ error: 'At least one case study must be selected' });
-  }
 
-  const workflowIds = cases.map(id => WORKFLOW_MAP[id]).filter(Boolean);
-  if (workflowIds.length === 0) {
-    return res.status(400).json({ error: 'No valid case study IDs provided' });
-  }
-
-  /* Sanitise inputs */
   const safeFirst   = firstName.trim().slice(0, 100);
   const safeEmail   = email.trim().toLowerCase();
-  const safeCompany = (company || '').trim().slice(0, 200);
+  const safeCost    = typeof annualCost === 'number' ? Math.round(annualCost) : null;
+  const safeCurr    = ['CHF', 'EUR', 'USD'].includes(currency) ? currency : 'CHF';
+  const safeWeekly  = typeof weeklySummary === 'string' ? weeklySummary.slice(0, 500) : '';
 
-  /* Create or find the contact */
-  const payload = { locationId: LOCATION_ID, firstName: safeFirst, email: safeEmail };
-  if (safeCompany) payload.companyName = safeCompany;
+  /* Build note summarising the calculator result */
+  const note = [
+    'Source: Time & Cost Leak Calculator',
+    safeCost !== null ? `Estimated annual cost: ${safeCurr} ${safeCost.toLocaleString()}` : '',
+    safeWeekly ? `Weekly summary: ${safeWeekly}` : ''
+  ].filter(Boolean).join('\n');
+
+  const payload = {
+    locationId: LOCATION_ID,
+    firstName:  safeFirst,
+    email:      safeEmail,
+    tags:       ['calculator-lead'],
+    customFields: safeCost !== null ? [
+      { key: 'calc_annual_cost',    field_value: String(safeCost) },
+      { key: 'calc_currency',       field_value: safeCurr }
+    ] : []
+  };
 
   let { status, data } = await ghl('/contacts/', 'POST', payload);
 
@@ -133,12 +116,13 @@ module.exports = async function handler(req, res) {
 
   if (!contactId) return res.status(500).json({ error: 'Could not resolve contact ID' });
 
-  /* Enroll contact in each selected workflow */
-  await Promise.all(
-    workflowIds.map(wfId =>
-      ghl(`/contacts/${contactId}/workflow/${wfId}`, 'POST', {})
-    )
-  );
+  /* Add a note with the calculator summary */
+  if (note) {
+    await ghl('/contacts/' + contactId + '/notes', 'POST', {
+      body: note,
+      userId: contactId
+    }).catch(() => {}); /* notes are best-effort */
+  }
 
   return res.status(200).json({ success: true });
 };
