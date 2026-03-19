@@ -277,12 +277,7 @@
     wait_for_update: 500
   });
 </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1Z1TC3H4R"></script>
-<script>
-  gtag('js', new Date());
-  gtag('config', 'G-J1Z1TC3H4R');
-</script>
+  <!-- GA script is loaded post-consent by cookie-consent.js -->
 </head>
 <body data-i18n-page="start">
 
@@ -516,8 +511,8 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
-<script src="/i18n.js"></script>
-<script src="/currency.js"></script>
-<script src="cookie-consent.js"></script>
+<script src="/i18n.js?v=20260319"></script>
+<script src="/currency.js?v=20260319"></script>
+<script src="/cookie-consent.js?v=20260319"></script>
 </body>
 </html>
