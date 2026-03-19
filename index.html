@@ -89,8 +89,8 @@
     <a href="/" class="nav-logo">Gamper<span>.</span>Klimmek</a>
     <ul class="nav-links">
       <li><a href="#problem"      data-i18n="nav.problems">The Problem</a></li>
-      <li><a href="#solution"     data-i18n="nav.what_changes">What we fix</a></li>
       <li><a href="#who"          data-i18n="nav.who">Who is it for</a></li>
+      <li><a href="#solution"     data-i18n="nav.what_changes">What we fix</a></li>
       <li><a href="#how-it-works" data-i18n="nav.how_it_works">The process</a></li>
       <li><a href="#cases"        data-i18n="nav.cases">Case Studies</a></li>
       <li><a href="#story"        data-i18n="nav.story">Our Story</a></li>
@@ -120,8 +120,8 @@
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#problem"      onclick="closeMobile()" data-i18n="nav.problems">The Problem</a>
-    <a href="#solution"     onclick="closeMobile()" data-i18n="nav.what_changes">What we fix</a>
     <a href="#who"          onclick="closeMobile()" data-i18n="nav.who">Who is it for</a>
+    <a href="#solution"     onclick="closeMobile()" data-i18n="nav.what_changes">What we fix</a>
     <a href="#how-it-works" onclick="closeMobile()" data-i18n="nav.how_it_works">The process</a>
     <a href="#cases"        onclick="closeMobile()" data-i18n="nav.cases">Case Studies</a>
     <a href="#story"        onclick="closeMobile()" data-i18n="nav.story">Our Story</a>
@@ -241,6 +241,41 @@
     </div>
   </section>
 
+  <!-- ══ WHO IT'S FOR ══════════════════════════════════════════ -->
+  <section class="who" id="who">
+    <div class="who-inner">
+      <div class="who-header">
+        <p class="section-label teal" data-i18n="who.label">Who this is for</p>
+        <h2 class="section-title" data-i18n="who.title">Best for owner-run teams with <em>too much manual work.</em></h2>
+        <p class="who-intro" data-i18n="who.intro">We work best with businesses that already have demand, but are losing time and bookings because their website and systems are outdated, disconnected, or hard to run.</p>
+      </div>
+      <div class="who-grid">
+        <a class="who-card who-card-link" href="businesses.html" aria-label="Go to For Businesses page">
+          <p class="who-tag" data-i18n="who.1.tag">Service businesses under admin pressure</p>
+          <h3 data-i18n="who.1.h3">Owner-operated service businesses</h3>
+          <p data-i18n="who.1.desc">You are juggling sales, service delivery, and operations with a small team. Inquiries, scheduling, follow-ups, and client communication are eating your day.</p>
+          <ul>
+            <li data-i18n="who.1.l1">Insurance &amp; mortgage brokers</li>
+            <li data-i18n="who.1.l2">Medical spas &amp; aesthetic clinics</li>
+            <li data-i18n="who.1.l3">Tradespeople — electricians, carpenters, contractors</li>
+            <li data-i18n="who.1.l4">Professional services firms</li>
+          </ul>
+        </a>
+        <a class="who-card who-card-link" href="operators.html" aria-label="Go to Operators page">
+          <p class="who-tag" data-i18n="who.2.tag">Experience operators with booking friction</p>
+          <h3 data-i18n="who.2.h3">Dive, surf, ski, and tour operators</h3>
+          <p data-i18n="who.2.desc">You run a high-touch operation with seasonal peaks, multilingual guests, and limited admin capacity where missed follow-up quickly turns into missed revenue.</p>
+          <ul>
+            <li data-i18n="who.2.l1">Dive centres &amp; liveaboard operators</li>
+            <li data-i18n="who.2.l2">Surf schools &amp; ski schools</li>
+            <li data-i18n="who.2.l3">Tour operators &amp; activity businesses</li>
+            <li data-i18n="who.2.l4">Resort &amp; lodge operations</li>
+          </ul>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ SOLUTION ══════════════════════════════════════════════ -->
   <section class="flow" id="solution">
     <div class="flow-inner">
@@ -262,6 +297,38 @@
     </div>
   </section>
 
+  <!-- ══ PROCESS ══════════════════════════════════════════════ -->
+  <section class="process" id="how-it-works">
+    <div id="how-it-works-detail"></div>
+    <div class="process-inner">
+      <div class="process-header">
+        <p class="section-label" data-i18n="process.label">Three-step process</p>
+        <h2 class="section-title" data-i18n="process.title">Free consultation to implementation.<br><em>Clear, practical, and fixed-scope.</em></h2>
+        <p class="process-intro" data-i18n="process.intro">Start with a free discovery call, move into a paid Business Systems Review with a full review report, then implement the top priorities in a focused sprint.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <p class="process-price">Free 30-minute consultation</p>
+          <h3 data-i18n="proc.1.h3">Free 30-minute consultation</h3>
+          <p data-i18n="proc.1.desc">In a short call, we look at how customers reach you, how work moves through your business, and where time or bookings may be slipping through the cracks.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <p class="process-price">Business Systems Review — <span data-price-usd="1056">CHF 950</span></p>
+          <h3 data-i18n="proc.2.h3">Business Systems Review</h3>
+          <p data-i18n="proc.2.desc">A 90-minute structured review with a full review report, discovered bottlenecks, estimated time and cost savings per bottleneck, and practical next steps.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <p class="process-price">Implementation Sprint — <span data-price-usd="3889">CHF 3,500</span></p>
+          <h3 data-i18n="proc.3.h3">Implementation Sprint</h3>
+          <p data-i18n="proc.3.desc">Once the priorities are clear, we implement the changes in a focused sprint to remove bottlenecks and prevent bookings from slipping through the cracks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ CREDIBILITY ══════════════════════════════════════════ -->
   <div class="trust-strip">
     <div class="trust-strip-inner">
@@ -277,6 +344,45 @@
       </div>
     </div>
   </div>
+
+  <!-- ══ STORY ══════════════════════════════════════════════════ -->
+  <section class="story" id="story">
+    <div class="story-inner">
+      <div class="story-header">
+        <div>
+          <p class="section-label" data-i18n="story.label">Why owners trust us</p>
+          <h2 class="section-title" data-i18n="story.title">Built by people who've run <em>real operations.</em></h2>
+        </div>
+        <p class="story-intro-text" data-i18n="story.intro"><strong>Most consultants explain operations from slides.</strong> This perspective is built from real businesses run under real pressure, from inquiry handling and staffing to delivery and customer experience. That practical background changes the quality of the solution.</p>
+      </div>
+
+      <div class="story-excerpt">
+        <p data-i18n="story.excerpt">From Silicon Valley software sales to dive operations across four continents and back into European SaaS, this work is built on what actually holds up when teams are busy and systems are messy. That operator lens shapes every systems review and implementation.</p>
+        <a href="/story" class="btn-ghost story-excerpt-link" data-i18n="story.cta">Read the full story</a>
+      </div>
+
+      <!-- Team -->
+      <div class="team-section-header">
+        <p class="section-label" data-i18n="team.label">Meet the Founder</p>
+        <h2 class="section-title" data-i18n="team.title">Not a <em>typical consultant.</em></h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <p class="team-name">Jessica Gamper Klimmek</p>
+          <p class="team-role" data-i18n="jessica.role">Founder · AI Implementation &amp; Strategy</p>
+          <p class="team-bio" data-i18n="jessica.bio">Jessica Gamper Klimmek brings together an unusual combination of experience: Silicon Valley software sales, years of hands-on operational work across international service businesses, and more recent work across SaaS, marketing, and AI-driven systems. That mix shapes every client engagement — practical, commercial, and grounded in how businesses actually run.</p>
+          <div class="team-tags">
+            <span class="team-tag">Silicon Valley Background</span>
+            <span class="team-tag">Operations Experience</span>
+            <span class="team-tag">SaaS Sales &amp; Marketing</span>
+            <span class="team-tag">Based in Lucerne</span>
+            <span class="team-tag">AI Implementation</span>
+          </div>
+          <a href="https://www.linkedin.com/in/jessicagamper/" class="team-link" target="_blank" rel="noopener">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ══ CASE STUDIES ══════════════════════════════════════════ -->
   <section class="cases" id="cases">
@@ -335,112 +441,6 @@
             <a href="/calculator" class="btn-primary" style="margin-top:1.25rem;display:inline-block" data-i18n="hero.cta">See how many hours you could save</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ STORY ══════════════════════════════════════════════════ -->
-  <section class="story" id="story">
-    <div class="story-inner">
-      <div class="story-header">
-        <div>
-          <p class="section-label" data-i18n="story.label">Why owners trust us</p>
-          <h2 class="section-title" data-i18n="story.title">Built by people who've run <em>real operations.</em></h2>
-        </div>
-        <p class="story-intro-text" data-i18n="story.intro"><strong>Most consultants explain operations from slides.</strong> This perspective is built from real businesses run under real pressure, from inquiry handling and staffing to delivery and customer experience. That practical background changes the quality of the solution.</p>
-      </div>
-
-      <div class="story-excerpt">
-        <p data-i18n="story.excerpt">From Silicon Valley software sales to dive operations across four continents and back into European SaaS, this work is built on what actually holds up when teams are busy and systems are messy. That operator lens shapes every systems review and implementation.</p>
-        <a href="/story" class="btn-ghost story-excerpt-link" data-i18n="story.cta">Read the full story</a>
-      </div>
-
-      <!-- Team -->
-      <div class="team-section-header">
-        <p class="section-label" data-i18n="team.label">Meet the Founder</p>
-        <h2 class="section-title" data-i18n="team.title">Not a <em>typical consultant.</em></h2>
-      </div>
-      <div class="team-grid">
-        <div class="team-card">
-          <p class="team-name">Jessica Gamper Klimmek</p>
-          <p class="team-role" data-i18n="jessica.role">Founder · AI Implementation &amp; Strategy</p>
-          <p class="team-bio" data-i18n="jessica.bio">Jessica Gamper Klimmek brings together an unusual combination of experience: Silicon Valley software sales, years of hands-on operational work across international service businesses, and more recent work across SaaS, marketing, and AI-driven systems. That mix shapes every client engagement — practical, commercial, and grounded in how businesses actually run.</p>
-          <div class="team-tags">
-            <span class="team-tag">Silicon Valley Background</span>
-            <span class="team-tag">Operations Experience</span>
-            <span class="team-tag">SaaS Sales &amp; Marketing</span>
-            <span class="team-tag">Based in Lucerne</span>
-            <span class="team-tag">AI Implementation</span>
-          </div>
-          <a href="https://www.linkedin.com/in/jessicagamper/" class="team-link" target="_blank" rel="noopener">LinkedIn →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ PROCESS ══════════════════════════════════════════════ -->
-  <section class="process" id="how-it-works">
-    <div id="how-it-works-detail"></div>
-    <div class="process-inner">
-      <div class="process-header">
-        <p class="section-label" data-i18n="process.label">Three-step process</p>
-        <h2 class="section-title" data-i18n="process.title">Free consultation to implementation.<br><em>Clear, practical, and fixed-scope.</em></h2>
-        <p class="process-intro" data-i18n="process.intro">Start with a free discovery call, move into a paid Business Systems Review with a full review report, then implement the top priorities in a focused sprint.</p>
-      </div>
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="process-num">01</div>
-          <p class="process-price">Free 30-minute consultation</p>
-          <h3 data-i18n="proc.1.h3">Free 30-minute consultation</h3>
-          <p data-i18n="proc.1.desc">In a short call, we look at how customers reach you, how work moves through your business, and where time or bookings may be slipping through the cracks.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">02</div>
-          <p class="process-price">Business Systems Review — <span data-price-usd="1056">CHF 950</span></p>
-          <h3 data-i18n="proc.2.h3">Business Systems Review</h3>
-          <p data-i18n="proc.2.desc">A 90-minute structured review with a full review report, discovered bottlenecks, estimated time and cost savings per bottleneck, and practical next steps.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">03</div>
-          <p class="process-price">Implementation Sprint — <span data-price-usd="3889">CHF 3,500</span></p>
-          <h3 data-i18n="proc.3.h3">Implementation Sprint</h3>
-          <p data-i18n="proc.3.desc">Once the priorities are clear, we implement the changes in a focused sprint to remove bottlenecks and prevent bookings from slipping through the cracks.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ WHO IT'S FOR ══════════════════════════════════════════ -->
-  <section class="who" id="who">
-    <div class="who-inner">
-      <div class="who-header">
-        <p class="section-label teal" data-i18n="who.label">Who this is for</p>
-        <h2 class="section-title" data-i18n="who.title">Best for owner-run teams with <em>too much manual work.</em></h2>
-        <p class="who-intro" data-i18n="who.intro">We work best with businesses that already have demand, but are losing time and bookings because their website and systems are outdated, disconnected, or hard to run.</p>
-      </div>
-      <div class="who-grid">
-        <a class="who-card who-card-link" href="businesses.html" aria-label="Go to For Businesses page">
-          <p class="who-tag" data-i18n="who.1.tag">Service businesses under admin pressure</p>
-          <h3 data-i18n="who.1.h3">Owner-operated service businesses</h3>
-          <p data-i18n="who.1.desc">You are juggling sales, service delivery, and operations with a small team. Inquiries, scheduling, follow-ups, and client communication are eating your day.</p>
-          <ul>
-            <li data-i18n="who.1.l1">Insurance &amp; mortgage brokers</li>
-            <li data-i18n="who.1.l2">Medical spas &amp; aesthetic clinics</li>
-            <li data-i18n="who.1.l3">Tradespeople — electricians, carpenters, contractors</li>
-            <li data-i18n="who.1.l4">Professional services firms</li>
-          </ul>
-        </a>
-        <a class="who-card who-card-link" href="operators.html" aria-label="Go to Operators page">
-          <p class="who-tag" data-i18n="who.2.tag">Experience operators with booking friction</p>
-          <h3 data-i18n="who.2.h3">Dive, surf, ski, and tour operators</h3>
-          <p data-i18n="who.2.desc">You run a high-touch operation with seasonal peaks, multilingual guests, and limited admin capacity where missed follow-up quickly turns into missed revenue.</p>
-          <ul>
-            <li data-i18n="who.2.l1">Dive centres &amp; liveaboard operators</li>
-            <li data-i18n="who.2.l2">Surf schools &amp; ski schools</li>
-            <li data-i18n="who.2.l3">Tour operators &amp; activity businesses</li>
-            <li data-i18n="who.2.l4">Resort &amp; lodge operations</li>
-          </ul>
-        </a>
       </div>
     </div>
   </section>
