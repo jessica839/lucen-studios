@@ -376,8 +376,8 @@ const translations = {
     'businesses_outcome_4_num': 'OUTCOME 04',
     'businesses_outcome_4_title': 'Systems that survive staff changes',
     'businesses_outcome_4_body': 'Documented SOPs and AI-assisted workflows mean your operations no longer depend on any one person. Knowledge lives in the system, not in someone\'s head.',
-    ‘businesses_quote_text’: ‘Documented bottlenecks. Estimated time and cost savings per issue. A prioritised action plan you can implement the week after the review.’,
-    ‘businesses_quote_attr’: ‘What gets delivered in the Business Systems Review’,
+    'businesses_quote_text': 'Documented bottlenecks. Estimated time and cost savings per issue. A prioritised action plan you can implement the week after the review.',
+    'businesses_quote_attr': 'What gets delivered in the Business Systems Review',
     'businesses_cta_title': 'Ready to stop<br><em>doing it manually?</em>',
     'businesses_cta_body': 'A free 30-minute call is all it takes to find out whether this is the right fit. No pitch. No pressure. Just an honest look at your operation and what\'s possible.',
 
