@@ -19,7 +19,7 @@
         { "key": "Cache-Control",          "value": "public, max-age=0, must-revalidate" },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://link.gamperklimmek.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://link.gamperklimmek.com; img-src 'self' data: https://images.unsplash.com https://www.google-analytics.com https://stats.g.doubleclick.net; frame-src https://link.gamperklimmek.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://link.gamperklimmek.com https://backend.leadconnectorhq.com; object-src 'none'; base-uri 'self';"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://link.gamperklimmek.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://link.gamperklimmek.com; font-src 'self' data: https://fonts.gstatic.com https://link.gamperklimmek.com; img-src 'self' data: https://images.unsplash.com https://www.google-analytics.com https://stats.g.doubleclick.net; frame-src https://link.gamperklimmek.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://link.gamperklimmek.com https://backend.leadconnectorhq.com https://ipapi.co; object-src 'none'; base-uri 'self';"
         }
       ]
     }
