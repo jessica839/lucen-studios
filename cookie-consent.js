@@ -26,6 +26,22 @@
     try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
   }
 
+  /* ── Google Analytics (post-consent load) ────────────────────── */
+  var GA_ID = 'G-J1Z1TC3H4R';
+
+  function loadGa() {
+    if (document.querySelector('script[src*="googletagmanager.com/gtag"]')) return;
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    s.async = true;
+    document.head.appendChild(s);
+    /* gtag() and consent defaults are already defined inline in <head> */
+    if (typeof window.gtag === 'function') {
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID);
+    }
+  }
+
   /* ── FEA Create external tracking (CRM pixel) ────────────────── */
   var FEA_SRC = 'https://link.gamperklimmek.com/js/external-tracking.js';
   var FEA_TID = 'tk_ae9529981d674c5ebbdeb28a95ac2143';
@@ -116,14 +132,20 @@
       'border:1px solid rgba(201,168,76,0.2);border-radius:4px;' +
       'padding:2.5rem 2rem;text-align:center;background:rgba(255,255,255,0.02);">' +
       '<p style="font-family:\'DM Sans\',sans-serif;font-size:0.875rem;' +
-        'color:rgba(244,241,236,0.55);line-height:1.6;margin:0 auto 1.25rem;' +
+        'color:rgba(244,241,236,0.55);line-height:1.6;margin:0 auto 1rem;' +
         'max-width:420px;">' + msg + '</p>' +
       '<button onclick="window.GK_openCookieSettings();return false;" style="' +
         'font-family:\'Syne\',sans-serif;font-size:0.78rem;font-weight:700;' +
         'letter-spacing:0.08em;text-transform:uppercase;background:#c9a84c;' +
         'color:#0a0a0f;border:none;cursor:pointer;padding:0.65rem 1.5rem;' +
-        'border-radius:3px;transition:background 0.2s;">' +
+        'border-radius:3px;transition:background 0.2s;display:block;' +
+        'margin:0 auto 1.25rem;">' +
       'Accept cookies to load form</button>' +
+      '<p style="font-family:\'DM Sans\',sans-serif;font-size:0.8rem;' +
+        'color:rgba(244,241,236,0.35);margin:0;">Or email us directly: ' +
+        '<a href="mailto:hello@gamperklimmek.com" style="color:#c9a84c;' +
+        'text-decoration:none;font-weight:500;">hello@gamperklimmek.com →</a>' +
+      '</p>' +
       '</div>';
   }
 
@@ -239,6 +261,7 @@
     document.getElementById('gk-cb-accept').addEventListener('click', function () {
       saveConsent('granted');
       updateGtag('granted', 'granted');
+      loadGa();
       loadFeaTracking();
       loadFeaFormEmbed();
       renderConsentGatedElements(true);
@@ -273,11 +296,13 @@
     updateGtag('granted');
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function () {
+        loadGa();
         loadFeaTracking();
         loadFeaFormEmbed();
         renderConsentGatedElements(true);
       });
     } else {
+      loadGa();
       loadFeaTracking();
       loadFeaFormEmbed();
       renderConsentGatedElements(true);

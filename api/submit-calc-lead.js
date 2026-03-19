@@ -119,8 +119,7 @@ module.exports = async function handler(req, res) {
   /* Add a note with the calculator summary */
   if (note) {
     await ghl('/contacts/' + contactId + '/notes', 'POST', {
-      body: note,
-      userId: contactId
+      body: note
     }).catch(() => {}); /* notes are best-effort */
   }
 

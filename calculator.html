@@ -382,30 +382,38 @@
           <div class="leak-calc-field">
             <div class="leak-calc-label-row">
               <label for="calcCommHours" class="leak-calc-label" data-i18n="calc.input.comm">Weekly hours per employee spent on emails / messages</label>
-              <span class="leak-calc-live" id="calcCommHoursValue">1.5</span>
+              <span class="leak-calc-live" id="calcCommHoursValue">0</span>
             </div>
-            <input id="calcCommHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="1.5" />
+            <input id="calcCommHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="0" />
           </div>
 
           <div class="leak-calc-field">
             <div class="leak-calc-label-row">
               <label for="calcAdminHours" class="leak-calc-label" data-i18n="calc.input.admin">Weekly hours per employee spent on admin tasks</label>
-              <span class="leak-calc-live" id="calcAdminHoursValue">1.5</span>
+              <span class="leak-calc-live" id="calcAdminHoursValue">0</span>
             </div>
-            <input id="calcAdminHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="1.5" />
+            <input id="calcAdminHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="0" />
           </div>
 
           <div class="leak-calc-field">
             <div class="leak-calc-label-row">
               <label for="calcOpsHours" class="leak-calc-label" data-i18n="calc.input.ops">Weekly hours per employee spent on scheduling / coordination</label>
-              <span class="leak-calc-live" id="calcOpsHoursValue">1.5</span>
+              <span class="leak-calc-live" id="calcOpsHoursValue">0</span>
             </div>
-            <input id="calcOpsHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="1.5" />
+            <input id="calcOpsHours" class="leak-calc-range" type="range" min="0" max="10" step="0.5" value="0" />
           </div>
         </div>
 
         <aside class="leak-calc-results" aria-live="polite">
           <p class="leak-calc-results-label" data-i18n="calc.results.label">Estimated impact</p>
+
+          <!-- Empty state — shown until sliders are moved -->
+          <div id="calcEmptyState" style="padding:2rem 0;text-align:center;">
+            <p style="font-family:'DM Sans',sans-serif;font-size:0.9rem;color:rgba(244,241,236,0.45);line-height:1.6;">Move the sliders to see how much manual work is costing your team each year.</p>
+          </div>
+
+          <!-- Results — hidden until annual cost > 0 -->
+          <div id="calcResultsContent" style="display:none;">
 
           <div class="leak-calc-result">
             <p class="leak-calc-result-title" data-i18n="calc.results.weeklyHours.title">Estimated time lost each week</p>
@@ -434,6 +442,10 @@
             <div id="calcEmailForm" style="display:flex;flex-direction:column;gap:0.5rem;">
               <input type="text"  id="calcLeadName"  placeholder="First name" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:3px;color:#f5f0e8;font-family:’DM Sans’,sans-serif;font-size:0.82rem;padding:0.45rem 0.7rem;" />
               <input type="email" id="calcLeadEmail" placeholder="Email address" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:3px;color:#f5f0e8;font-family:’DM Sans’,sans-serif;font-size:0.82rem;padding:0.45rem 0.7rem;" />
+              <label style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;" id="calcLeadConsentLabel">
+                <input type="checkbox" id="calcLeadConsent" onchange="updateCalcLeadBtn()" style="margin-top:0.2rem;flex-shrink:0;accent-color:#c9a84c;" />
+                <span style="font-size:0.72rem;line-height:1.5;color:rgba(244,241,236,0.45);">I agree to receive my results by email. Data handled under the <a href="/legal.html#cookies" style="color:rgba(201,168,76,0.75);text-decoration:underline;">privacy policy</a>.</span>
+              </label>
               <button id="calcLeadBtn" onclick="submitCalcLead()" style="background:#c9a84c;color:#0a0a0f;border:none;cursor:pointer;font-family:’Syne’,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.55rem 1rem;border-radius:3px;transition:background 0.2s;opacity:0.65;cursor:not-allowed;">Email me this summary</button>
               <p style="font-size:0.7rem;color:rgba(244,241,236,0.35);line-height:1.4;">No spam. Used only to send your results.</p>
             </div>
@@ -454,6 +466,8 @@
           <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-gold-full" id="calcCtaBtn" target="_blank" rel="noopener">Book your free 30-minute call</a>
           <p class="leak-calc-microcopy" id="calcCtaMicrocopy">Free. 30 minutes. No preparation needed.</p>
           <p class="leak-calc-cta-note" id="calcCtaNote">Your data stays in your browser. Nothing is sent until you book.</p>
+
+          </div><!-- /calcResultsContent -->
         </aside>
       </div>
 
@@ -558,6 +572,13 @@
       document.getElementById("calcAdminHoursValue").textContent = adminHours.toFixed(1);
       document.getElementById("calcOpsHoursValue").textContent = opsHours.toFixed(1);
 
+      /* Toggle empty state vs results */
+      const hasResult = estimatedAnnualCost > 0;
+      const emptyState = document.getElementById("calcEmptyState");
+      const resultsContent = document.getElementById("calcResultsContent");
+      if (emptyState) emptyState.style.display = hasResult ? "none" : "block";
+      if (resultsContent) resultsContent.style.display = hasResult ? "block" : "none";
+
       document.getElementById("calcWeeklyHoursLost").textContent = String(Math.round(totalWeeklyHoursLost));
       document.getElementById("calcYearlyHoursLost").textContent = String(Math.round(totalYearlyHoursLost));
       document.getElementById("calcEstimatedAnnualCost").textContent = formatMoney(estimatedAnnualCost, currency);
@@ -620,11 +641,12 @@
     }
 
     function updateCalcLeadBtn() {
-      const btn   = document.getElementById("calcLeadBtn");
-      const name  = (document.getElementById("calcLeadName")  || {}).value || "";
-      const email = (document.getElementById("calcLeadEmail") || {}).value || "";
+      const btn     = document.getElementById("calcLeadBtn");
+      const name    = (document.getElementById("calcLeadName")    || {}).value || "";
+      const email   = (document.getElementById("calcLeadEmail")   || {}).value || "";
+      const consent = document.getElementById("calcLeadConsent");
       if (!btn) return;
-      const ready = name.trim() && email.trim();
+      const ready = name.trim() && email.trim() && consent && consent.checked;
       btn.disabled = !ready;
       btn.style.opacity = ready ? "1" : "0.65";
       btn.style.cursor  = ready ? "pointer" : "not-allowed";
@@ -636,6 +658,8 @@
         const el = document.getElementById(id);
         if (el) el.addEventListener("input", updateCalcLeadBtn);
       });
+      const consent = document.getElementById("calcLeadConsent");
+      if (consent) consent.addEventListener("change", updateCalcLeadBtn);
     });
 
     let calcLeadSubmitting = false;
@@ -648,7 +672,14 @@
       const email     = (document.getElementById("calcLeadEmail") || {}).value?.trim();
       const btn       = document.getElementById("calcLeadBtn");
 
-      if (!firstName || !email) return;
+      const consentEl = document.getElementById("calcLeadConsent");
+      if (!firstName || !email || !consentEl || !consentEl.checked) {
+        if (consentEl && !consentEl.checked) {
+          const label = document.getElementById("calcLeadConsentLabel");
+          if (label) label.style.outline = "1px solid #c9a84c";
+        }
+        return;
+      }
 
       /* Gather current calc values */
       const currency    = (document.getElementById("calcCurrency") || {}).value || "CHF";
