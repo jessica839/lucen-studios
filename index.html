@@ -99,7 +99,7 @@
           <button class="lang-btn"        data-lang="it">IT</button>
         </div>
       </li>
-      <li><a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="nav-cta" data-i18n="nav.book_call" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'nav'})">Book a free call</a></li>
+      <li><a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="nav-cta" id="navRegularBooking" data-i18n="nav.book_call" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'nav'})">Book a free call</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -139,8 +139,8 @@
       <p class="hero-sub" data-i18n="hero.sub">We find your three biggest time leaks — and fix them in a focused sprint. Fixed scope, fixed price. No vague strategy. No 6-month roadmap.</p>
       <p class="hero-guarantee">If we don't find 3 actionable improvements — you pay nothing.</p>
       <div class="hero-cta-group">
-        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-primary" data-i18n="hero.cta" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'hero_primary'})">Book your free 30-minute call</a>
-        <a href="/calculator" class="btn-ghost" data-i18n="hero.ghost">See what it's costing you first</a>
+        <a href="/calculator" class="btn-primary" data-i18n="hero.cta" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'hero_primary'})">Run the Time &amp; Cost Leak Calculator</a>
+        <a href="#how-it-works" class="btn-ghost" data-i18n="hero.ghost">See the 3-step process</a>
       </div>
       <p class="hero-microcopy" data-i18n="hero.microcopy">30 minutes. No preparation needed.</p>
     </div>
@@ -768,12 +768,15 @@
     (function() {
       const heroHeight = window.innerHeight;
       const navBtn = document.getElementById('navStickyBooking');
+      const navRegularBtn = document.getElementById('navRegularBooking');
       if (!navBtn) return;
       window.addEventListener('scroll', function() {
         if (window.scrollY > heroHeight * 0.8) {
           navBtn.classList.add('visible');
+          if (navRegularBtn) navRegularBtn.style.display = 'none';
         } else {
           navBtn.classList.remove('visible');
+          if (navRegularBtn) navRegularBtn.style.display = '';
         }
       }, { passive: true });
     })();
