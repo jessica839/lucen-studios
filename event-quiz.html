@@ -490,6 +490,7 @@
       // ⚠️  Replace YOUR_GHL_WEBHOOK_URL with your GHL inbound webhook URL
       fetch('https://services.leadconnectorhq.com/hooks/TVnVIKtzPOvL3AU4elns/webhook-trigger/3a01d679-5527-4712-b143-8a8ac9bc0767', {
         method:  'POST',
+        mode:    'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({
           firstName:   name,
