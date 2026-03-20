@@ -81,14 +81,12 @@ module.exports = async function handler(req, res) {
 
   if (!contactId) return res.status(500).json({ error: 'Could not resolve contact ID' });
 
-  /* Fetch existing tags, merge with new ones, then PUT the full combined set */
-  const existing = await ghl(`/contacts/${contactId}`, 'GET');
-  const existingTags = existing.data?.contact?.tags || [];
+  /* Fetch existing tags, merge with new ones, PUT full set via contact update */
+  const getRes = await ghl(`/contacts/${contactId}`, 'GET');
+  const existingTags = getRes.data?.contact?.tags || [];
   const mergedTags = Array.from(new Set([...existingTags, tag, 'source-meggen-golf']));
 
-  await ghl(`/contacts/${contactId}/tags`, 'PUT', {
-    tags: mergedTags
-  });
+  const tagRes = await ghl(`/contacts/${contactId}`, 'PUT', { tags: mergedTags });
 
-  return res.status(200).json({ success: true, contactId });
+  return res.status(200).json({ success: true, contactId, tags: mergedTags, tagStatus: tagRes.status });
 };
