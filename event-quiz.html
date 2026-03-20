@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Wo verliert Ihr Betrieb die meiste Zeit? — Gamper Klimmek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #0a0a0f;
+      --paper:      #f7f5f0;
+      --white:      #ffffff;
+      --gold:       #c9a84c;
+      --gold-bg:    #fdf8ec;
+      --muted:      #6b6b75;
+      --border:     #e4e2db;
+      --shadow:     0 4px 32px rgba(10,10,15,0.09);
+      --font:       'DM Sans', system-ui, sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+
+    /* ── Brand strip ───────────────────────────────── */
+    .brand-strip {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .brand-name em {
+      font-style: italic;
+      font-weight: 400;
+      font-size: 13px;
+    }
+    .brand-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .brand-event {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--muted);
+    }
+
+    /* ── Card ──────────────────────────────────────── */
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    .inner { padding: 32px 24px 28px; }
+
+    /* ── Progress ──────────────────────────────────── */
+    .q-meta {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+    .prog {
+      height: 3px;
+      background: #e8e6df;
+      border-radius: 2px;
+      margin-bottom: 22px;
+      overflow: hidden;
+    }
+    .prog-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    /* ── Type ──────────────────────────────────────── */
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .serif-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .serif-h1 em { font-style: italic; color: var(--gold); }
+
+    .q-h2 {
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .sub-en {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      opacity: 0.65;
+      margin-bottom: 26px;
+    }
+    .q-en {
+      font-size: 12px;
+      color: var(--muted);
+      opacity: 0.65;
+      margin-bottom: 20px;
+    }
+
+    /* ── Buttons ───────────────────────────────────── */
+    .btn-dark {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: var(--ink);
+      color: var(--gold);
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: opacity 0.15s;
+    }
+    .btn-dark:hover { opacity: 0.87; }
+
+    .opt-btn {
+      display: block;
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--white);
+      color: var(--ink);
+      border: 1px solid #d8d6cf;
+      border-radius: 10px;
+      font-family: var(--font);
+      font-size: 13px;
+      cursor: pointer;
+      text-align: left;
+      line-height: 1.45;
+      transition: all 0.15s;
+      margin-bottom: 8px;
+    }
+    .opt-btn:last-child { margin-bottom: 0; }
+    .opt-btn:hover { background: var(--gold-bg); border-color: var(--gold); }
+    .opt-btn .en { font-size: 11px; opacity: 0.55; display: block; margin-top: 2px; }
+
+    .note {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+      opacity: 0.65;
+    }
+
+    /* ── Capture ───────────────────────────────────── */
+    .capture-box {
+      background: var(--gold-bg);
+      border: 1px solid rgba(201,168,76,0.28);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+    }
+    .capture-box-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .capture-box-body {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .inp {
+      display: block;
+      width: 100%;
+      padding: 13px 14px;
+      font-family: var(--font);
+      font-size: 14px;
+      border: 1px solid #d8d6cf;
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--ink);
+      outline: none;
+      margin-bottom: 10px;
+      transition: border-color 0.15s;
+    }
+    .inp:focus { border-color: var(--gold); }
+    .inp::placeholder { color: var(--muted); opacity: 0.65; }
+
+    /* ── Result ────────────────────────────────────── */
+    .result-eyebrow {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .result-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .action-block {
+      border-left: 3px solid var(--gold);
+      padding-left: 14px;
+      margin-bottom: 18px;
+    }
+    .action-label {
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .action-text {
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    .detail-block {
+      background: #f4f2ed;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+    }
+    .detail-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .result-cta-note {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    .btn-cta {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: var(--ink);
+      color: var(--gold);
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-cta:hover { opacity: 0.87; }
+
+    /* ── Footer ────────────────────────────────────── */
+    .footer {
+      max-width: 420px;
+      width: 100%;
+      margin-top: 22px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.55;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brand-strip">
+    <span class="brand-name">Gamper Klimmek <em>Consulting</em></span>
+  </div>
+
+  <div class="card">
+
+    <!-- INTRO -->
+    <div id="screen-intro" class="screen active">
+      <div class="inner" style="text-align:center;">
+        <p class="eyebrow">3 Fragen · 2 Minuten</p>
+        <h1 class="serif-h1">Wo verliert Ihr Betrieb<br><em>die meiste Zeit?</em></h1>
+        <p class="sub">Drei Fragen. Eine konkrete Massnahme<br>— heute noch in Ihrem Postfach.</p>
+        <p class="sub-en">Where is your business losing the most time?</p>
+        <button class="btn-dark" onclick="goTo('screen-q1')">Starten — Start →</button>
+      </div>
+    </div>
+
+    <!-- Q1 -->
+    <div id="screen-q1" class="screen">
+      <div class="inner">
+        <p class="q-meta">Frage 1 von 3</p>
+        <div class="prog"><div class="prog-fill" style="width:33%"></div></div>
+        <h2 class="q-h2">Was kostet Sie täglich die meiste Zeit?</h2>
+        <p class="q-en">What eats most of your time right now?</p>
+        <button class="opt-btn" onclick="pick('q1','comms'); goTo('screen-q2')">
+          Immer wieder die gleichen Kundenfragen beantworten
+          <span class="en">Answering the same customer questions on repeat</span>
+        </button>
+        <button class="opt-btn" onclick="pick('q1','admin'); goTo('screen-q2')">
+          Administration, Papierkram und manuelle Dateneingabe
+          <span class="en">Admin, paperwork, and manual data entry</span>
+        </button>
+        <button class="opt-btn" onclick="pick('q1','followup'); goTo('screen-q2')">
+          Leads und Kunden manuell nachfassen
+          <span class="en">Following up with leads and clients manually</span>
+        </button>
+        <button class="opt-btn" onclick="pick('q1','content'); goTo('screen-q2')">
+          E-Mails, Beiträge und Texte von Grund auf schreiben
+          <span class="en">Writing emails, posts, and content from scratch</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div id="screen-q2" class="screen">
+      <div class="inner">
+        <p class="q-meta">Frage 2 von 3</p>
+        <div class="prog"><div class="prog-fill" style="width:66%"></div></div>
+        <h2 class="q-h2">Wie gross ist Ihr Team?</h2>
+        <p class="q-en">How big is your team?</p>
+        <button class="opt-btn" onclick="pick('q2','solo'); goTo('screen-q3')">Nur ich <span class="en">Just me</span></button>
+        <button class="opt-btn" onclick="pick('q2','small'); goTo('screen-q3')">2–5 Personen <span class="en">2–5 people</span></button>
+        <button class="opt-btn" onclick="pick('q2','medium'); goTo('screen-q3')">6–20 Personen <span class="en">6–20 people</span></button>
+        <button class="opt-btn" onclick="pick('q2','larger'); goTo('screen-q3')">Mehr als 20 <span class="en">20+ people</span></button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div id="screen-q3" class="screen">
+      <div class="inner">
+        <p class="q-meta">Frage 3 von 3</p>
+        <div class="prog"><div class="prog-fill" style="width:100%"></div></div>
+        <h2 class="q-h2">Nutzen Sie bereits KI-Tools?</h2>
+        <p class="q-en">Have you tried using AI tools yet?</p>
+        <button class="opt-btn" onclick="pick('q3','none'); goTo('screen-capture')">
+          Noch nicht — weiss nicht, wo anfangen
+          <span class="en">Not yet — not sure where to start</span>
+        </button>
+        <button class="opt-btn" onclick="pick('q3','tried'); goTo('screen-capture')">
+          ChatGPT ausprobiert, aber nichts geblieben
+          <span class="en">Tried ChatGPT but nothing stuck</span>
+        </button>
+        <button class="opt-btn" onclick="pick('q3','some'); goTo('screen-capture')">
+          Ein paar Tools, aber nicht systematisch
+          <span class="en">Using a few tools but not systematically</span>
+        </button>
+        <button class="opt-btn" onclick="pick('q3','yes'); goTo('screen-capture')">
+          Ja — möchte mehr daraus machen
+          <span class="en">Yes — looking to do more</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- CAPTURE -->
+    <div id="screen-capture" class="screen">
+      <div class="inner">
+        <div class="capture-box">
+          <p class="capture-box-title">Ihr Ergebnis ist bereit.</p>
+          <p class="capture-box-body">
+            Geben Sie Ihre E-Mail ein und wir schicken Ihnen noch heute eine konkrete Massnahme — zugeschnitten auf Ihre Antworten.<br>
+            <span style="opacity:0.7;">Enter your email and we'll send you one specific action today.</span>
+          </p>
+        </div>
+        <input class="inp" type="text"  id="inp-name"  placeholder="Ihr Name / Your name"           autocomplete="name" />
+        <input class="inp" type="email" id="inp-email" placeholder="E-Mail-Adresse / Email address" autocomplete="email" />
+        <button class="btn-dark" onclick="submitQuiz()">Ergebnis anzeigen — Show result</button>
+        <p class="note">Kein Spam. Jederzeit abmeldbar. / No spam, unsubscribe anytime.</p>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="screen-result" class="screen">
+      <div class="inner">
+        <p class="result-eyebrow">Ihr grösster Zeitfresser</p>
+        <h2 class="result-h2" id="result-headline"></h2>
+        <div class="action-block">
+          <p class="action-label">Eine Massnahme für diese Woche</p>
+          <p class="action-text" id="result-action"></p>
+        </div>
+        <div class="detail-block">
+          <p class="detail-text" id="result-detail"></p>
+        </div>
+        <p class="result-cta-note">
+          Ihr vollständiges Ergebnis ist unterwegs. Möchten Sie, dass wir das für Ihren Betrieb konkret durchgehen?<br>
+          <span style="opacity:0.7;">Want us to map this for your specific business?</span>
+        </p>
+        <a class="btn-cta" href="https://link.gamperklimmek.com" target="_blank" rel="noopener">
+          Kostenloses 30-min-Gespräch buchen →
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /card -->
+
+  <p class="footer">
+    Gamper Klimmek Consulting · gamperklimmek.com<br>
+    hello@gamperklimmek.com
+  </p>
+
+  <script>
+    var answers = {};
+
+    function goTo(id) {
+      document.querySelectorAll('.screen').forEach(function(s) {
+        s.classList.remove('active');
+      });
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function pick(q, val) { answers[q] = val; }
+
+    function submitQuiz() {
+      var name  = document.getElementById('inp-name').value.trim();
+      var email = document.getElementById('inp-email').value.trim();
+
+      if (!email) {
+        alert('Bitte E-Mail-Adresse eingeben. / Please enter your email address.');
+        return;
+      }
+
+      // Save locally first — works even without internet at the event
+      try {
+        var leads = JSON.parse(localStorage.getItem('gk_event_leads') || '[]');
+        leads.push({
+          ts:      new Date().toISOString(),
+          name:    name,
+          email:   email,
+          answers: JSON.parse(JSON.stringify(answers))
+        });
+        localStorage.setItem('gk_event_leads', JSON.stringify(leads));
+      } catch(e) {}
+
+      // Fire to GHL — silent fail, result always shows regardless
+      // ⚠️  Replace YOUR_GHL_WEBHOOK_URL with your GHL inbound webhook URL
+      fetch('https://services.leadconnectorhq.com/hooks/TVnVIKtzPOvL3AU4elns/webhook-trigger/3a01d679-5527-4712-b143-8a8ac9bc0767', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({
+          firstName:   name,
+          email:       email,
+          tags:        ['pain-' + (answers.q1 || 'comms'), 'source-meggen-golf'],
+          quizAnswers: answers
+        })
+      }).catch(function() {});
+
+      showResult();
+    }
+
+    var RESULTS = {
+      comms: {
+        headline: 'Sie verlieren täglich 1–2 Stunden damit, immer wieder die gleichen Fragen zu beantworten.',
+        action:   'Schreiben Sie Ihre 10 häufigsten Kundenfragen auf und geben Sie diese in ChatGPT ein mit dem Prompt: «Erstelle daraus eine wiederverwendbare FAQ-Vorlage, die ich kopieren und anpassen kann.» In 20 Minuten haben Sie eine einsatzbereite Antwortbibliothek.',
+        detail:   'Die meisten Unternehmer beantworten dieselben 8–12 Fragen hunderte Male pro Jahr. Eine Prompt-Bibliothek bedeutet: Sie hören auf, von Null zu schreiben — und fangen an, in Sekunden zu bearbeiten.'
+      },
+      admin: {
+        headline: 'Manuelle Administration stiehlt Ihnen Ihre produktivsten Stunden.',
+        action:   'Wählen Sie die eine Aufgabe, die Ihr Team am häufigsten manuell erledigt. Prüfen Sie, ob das Tool, das Sie nutzen, eine Zapier- oder Make-Verbindung hat. In den meisten Fällen existiert die Automatisierung bereits — sie wurde nur noch nie eingeschaltet.',
+        detail:   'Engpässe in der Administration brauchen selten neue Software. Sie brauchen zwei vorhandene Tools, die miteinander reden. Diese Verbindung aufzubauen dauert in der Regel einen Nachmittag.'
+      },
+      followup: {
+        headline: 'Unregelmässiges Nachfassen kostet Sie Umsatz — nicht nur Zeit.',
+        action:   'Schreiben Sie eine einfache Follow-up-E-Mail-Sequenz: Tag 1, Tag 3, Tag 7. Geben Sie Ihre bestehende Nachfass-E-Mail in ChatGPT ein und bitten Sie darum, die vollständige Sequenz in Ihrem Stil zu verfassen. Laden Sie diese in Ihr CRM oder E-Mail-Tool.',
+        detail:   'Die meisten Betriebe verlieren 20–30% ihrer warmen Leads, weil niemand ein zweites Mal nachgefasst hat. Eine automatisierte Sequenz löst das dauerhaft — und ist an einem Nachmittag eingerichtet.'
+      },
+      content: {
+        headline: 'Sie schreiben Inhalte von Grund auf — obwohl das nicht nötig wäre.',
+        action:   'Erstellen Sie einen Master-Prompt, der Ihr Unternehmen, Ihren Ton und Ihre Zielgruppe beschreibt. Jeder Text, den Sie schreiben, beginnt ab sofort mit diesem Prompt. Ab dem ersten Tag reduzieren Sie Ihre Entwurfszeit um 60–70%.',
+        detail:   'Das Problem sind nicht die KI-Tools — es ist das Fehlen eines wiederverwendbaren Ausgangspunkts. Ein gut formulierter System-Prompt ersetzt die leere Seite dauerhaft.'
+      }
+    };
+
+    function showResult() {
+      var r = RESULTS[answers.q1] || RESULTS.comms;
+      document.getElementById('result-headline').textContent = r.headline;
+      document.getElementById('result-action').textContent   = r.action;
+      document.getElementById('result-detail').textContent   = r.detail;
+      goTo('screen-result');
+    }
+
+    // In browser console, type showLeads() to see all captured contacts
+    window.showLeads = function() {
+      var leads = JSON.parse(localStorage.getItem('gk_event_leads') || '[]');
+      console.table(leads);
+      return leads;
+    };
+  </script>
+
+</body>
+</html>
