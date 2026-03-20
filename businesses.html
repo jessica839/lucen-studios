@@ -265,6 +265,33 @@
   .cta-btn-dark { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; background: var(--ink); padding: 1.2rem 3.5rem; display: inline-block; transition: all 0.3s; }
   .cta-btn-dark:hover { background: var(--teal); box-shadow: 0 20px 60px rgba(26,107,122,0.25); transform: translateY(-3px); }
 
+  /* PRICING CARDS */
+  .pricing-section { background: var(--paper); padding: 7rem 4rem; }
+  .pricing-inner { max-width: 1100px; margin: 0 auto; }
+  .pricing-header { text-align: center; margin-bottom: 4rem; }
+  .pricing-label { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+  .pricing-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--ink); line-height: 1.15; margin-bottom: 0; }
+  .pricing-title em { font-style: italic; color: var(--teal); }
+  .pricing-intro { max-width: 520px; margin: 1.25rem auto 0; font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+  .pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; }
+  .pricing-card { background: var(--white); border: 1px solid rgba(10,10,15,0.08); padding: 2.25rem 1.75rem 2rem; display: flex; flex-direction: column; position: relative; }
+  .pricing-card--featured { border: 2px solid var(--teal); box-shadow: 0 8px 40px rgba(26,107,122,0.13); margin-top: -1.25rem; }
+  .pricing-card-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--teal); color: var(--white); font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.3rem 1rem; white-space: nowrap; }
+  .pricing-card-label { font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.85rem; margin-top: 0.5rem; }
+  .pricing-card--featured .pricing-card-label { margin-top: 1.5rem; }
+  .pricing-card-price { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 0.4rem; }
+  .pricing-card-price--custom { font-size: 2.6rem; }
+  .pricing-card-subtitle { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 1.75rem; }
+  .pricing-card-features { list-style: none; flex: 1; margin-bottom: 2rem; }
+  .pricing-card-features li { font-size: 0.875rem; color: var(--ink); line-height: 1.5; padding: 0.6rem 0 0.6rem 1.25rem; border-bottom: 1px solid rgba(10,10,15,0.07); position: relative; }
+  .pricing-card-features li::before { content: '—'; position: absolute; left: 0; color: var(--teal); }
+  .pricing-card-features li:last-child { border-bottom: none; }
+  .pricing-card-cta { display: block; text-align: center; font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 1.5rem; transition: all 0.2s; margin-top: auto; }
+  .pricing-cta-outline { border: 1px solid rgba(10,10,15,0.2); color: var(--ink); background: transparent; }
+  .pricing-cta-outline:hover { border-color: var(--teal); color: var(--teal); }
+  .pricing-cta-filled { background: var(--teal); color: var(--white); border: 1px solid var(--teal); }
+  .pricing-cta-filled:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+
   /* FOOTER */
   footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; }
   .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; }
@@ -301,6 +328,9 @@
     .how-steps { grid-template-columns: 1fr; border-top: none; }
     .how-step { border-right: none; border-top: 1px solid rgba(10,10,15,0.1); padding: 2rem 0 !important; }
     .outcomes-grid { grid-template-columns: 1fr; }
+    .pricing-section { padding: 4rem 1.5rem; }
+    .pricing-cards { grid-template-columns: 1fr; }
+    .pricing-card--featured { margin-top: 0; }
     footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
     .footer-links { justify-content: center; flex-wrap: wrap; }
   }
@@ -367,7 +397,7 @@
     </p>
     <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="btn-primary" data-i18n="hero_btn" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'businesses_hero'})">Book a free 30-minute consultation</a>
     <p style="margin-top:0.75rem;font-size:0.85rem;color:rgba(201,168,76,0.8);font-style:italic;">If we don't find 3 actionable improvements — you pay nothing.</p>
-    <p style="margin-top:0.5rem;font-size:0.78rem;color:rgba(244,241,236,0.35);letter-spacing:0.04em;">Free call → Business Systems Review <span data-price-usd="1056">CHF 950</span> → Implementation Sprint <span data-price-usd="3889">CHF 3,500</span></p>
+    <p style="margin-top:0.5rem;font-size:0.78rem;color:rgba(244,241,236,0.35);letter-spacing:0.04em;">Free call → Business Systems Review <span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF 950</span> → Implementation Sprint <span data-price-chf="3500" data-price-eur="3500" data-price-usd="3900">CHF 3,500</span></p>
   </div>
 </section>
 
@@ -471,6 +501,72 @@
   </div>
 </section>
 
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <div class="pricing-label reveal">How We Work Together</div>
+      <h2 class="pricing-title reveal reveal-d1">Fixed scope.<br><em>Fixed price.</em></h2>
+      <p class="pricing-intro reveal reveal-d2">No retainers. No open-ended engagements. Every project starts with a clear scope and ends with a working system — handed off to your team.</p>
+    </div>
+    <div class="pricing-cards">
+
+      <!-- Card 1: Business Systems Review -->
+      <div class="pricing-card reveal">
+        <div class="pricing-card-label">Business Systems Review</div>
+        <div class="pricing-card-price">
+          <span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF 950</span>
+        </div>
+        <div class="pricing-card-subtitle">One-time · includes full review report</div>
+        <ul class="pricing-card-features">
+          <li>End-to-end operations mapping</li>
+          <li>Bottleneck identification &amp; cost estimates</li>
+          <li>Prioritised automation roadmap</li>
+          <li>Tool stack recommendations</li>
+          <li>Credited against any Implementation Sprint</li>
+        </ul>
+        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="pricing-card-cta pricing-cta-outline" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'businesses_pricing_bsr'})">Book a review</a>
+      </div>
+
+      <!-- Card 2: Implementation Sprint (Most Popular) -->
+      <div class="pricing-card pricing-card--featured reveal reveal-d1">
+        <div class="pricing-card-badge">Most Popular</div>
+        <div class="pricing-card-label">Implementation Sprint</div>
+        <div class="pricing-card-price">
+          <span data-price-chf="3500" data-price-eur="3500" data-price-usd="3900">CHF 3,500</span>
+        </div>
+        <div class="pricing-card-subtitle">Fixed-scope · delivered in 2–3 weeks</div>
+        <ul class="pricing-card-features">
+          <li>3–5 custom automations built &amp; deployed</li>
+          <li>Prompt libraries &amp; communication templates</li>
+          <li>Intake forms &amp; workflow automation</li>
+          <li>Full documentation &amp; team walkthrough</li>
+          <li>Everything in your accounts — yours forever</li>
+          <li>Business Systems Review included</li>
+        </ul>
+        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="pricing-card-cta pricing-cta-filled" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'businesses_pricing_sprint'})">Start with a call</a>
+      </div>
+
+      <!-- Card 3: Ongoing Partnership -->
+      <div class="pricing-card reveal reveal-d2">
+        <div class="pricing-card-label">Ongoing Partnership</div>
+        <div class="pricing-card-price pricing-card-price--custom">Custom</div>
+        <div class="pricing-card-subtitle">Scoped per engagement</div>
+        <ul class="pricing-card-features">
+          <li>Everything in the Implementation Sprint</li>
+          <li>Multi-system integration &amp; maintenance</li>
+          <li>Custom AI training on your processes</li>
+          <li>Monthly check-ins &amp; optimisation</li>
+          <li>Priority support &amp; iteration cycles</li>
+          <li>Ongoing retainer option available</li>
+        </ul>
+        <a href="mailto:hello@gamperklimmek.com" class="pricing-card-cta pricing-cta-outline">Talk to us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- OUTCOMES -->
 <section class="outcomes" id="what-changes">
   <div class="outcomes-inner">
@@ -510,7 +606,7 @@
     </div>
     <div>
       <p style="font-family:’Syne’,sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.5rem;">Fixed scope. Fixed price.</p>
-      <p style="font-size:0.95rem;color:rgba(244,241,236,0.8);line-height:1.6;">Business Systems Review: <strong style="color:#c9a84c;">CHF 950</strong>. Implementation Sprint: <strong style="color:#c9a84c;">CHF 3,500</strong>. No retainers. No open-ended engagements.</p>
+      <p style="font-size:0.95rem;color:rgba(244,241,236,0.8);line-height:1.6;">Business Systems Review: <strong style="color:#c9a84c;"><span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF 950</span></strong>. Implementation Sprint: <strong style="color:#c9a84c;"><span data-price-chf="3500" data-price-eur="3500" data-price-usd="3900">CHF 3,500</span></strong>. No retainers. No open-ended engagements.</p>
     </div>
     <div>
       <p style="font-family:’Syne’,sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:0.5rem;">The guarantee</p>

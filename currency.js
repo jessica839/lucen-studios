@@ -1,10 +1,18 @@
 /**
- * currency.js — IP-based currency detection + manual switcher
+ * currency.js — IP-based currency detection + footer switcher
  * Gamper Klimmek Consulting
  *
- * Price elements: <* data-price-usd="1500">USD 1,500</*>
- * Optional suffix: data-price-usd-suffix=" fixed price"
+ * NEW scheme (explicit per-currency prices):
+ *   <span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF 950</span>
+ *
+ * LEGACY scheme (still supported — computed from rates):
+ *   <span data-price-usd="1056">CHF 950</span>
+ *
+ * Optional suffix: data-price-suffix=" fixed price"
  * Storage key: gk_currency  (CHF | EUR | USD)
+ *
+ * IP detection: ipapi.co → CH=CHF, EU=EUR, else=USD
+ * Switcher: injected into <footer> before .footer-copy
  */
 (function () {
   'use strict';
@@ -12,7 +20,9 @@
   /* ── Config ──────────────────────────────────────────────── */
   var STORAGE_KEY = 'gk_currency';
   var CURRENCIES  = ['CHF', 'EUR', 'USD'];
-  var RATES       = { USD: 1, CHF: 0.90, EUR: 0.92 };
+
+  // Legacy fallback rates (only used for elements without explicit per-currency prices)
+  var RATES = { USD: 1, CHF: 0.90, EUR: 0.92 };
 
   var EU = {
     AT:1, BE:1, BG:1, HR:1, CY:1, CZ:1, DK:1, EE:1, FI:1, FR:1,
@@ -20,13 +30,20 @@
     PL:1, PT:1, RO:1, SK:1, SI:1, ES:1, SE:1
   };
 
-  /* ── Helpers ─────────────────────────────────────────────── */
-  function fmt(usdVal, currency) {
-    var val = Math.round(usdVal * RATES[currency]);
-    var s   = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return currency + '\u00a0' + s;   // non-breaking space between code and number
+  /* ── Formatting ──────────────────────────────────────────── */
+  function fmtNum(val) {
+    return Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
+  function fmtExact(currency, val) {
+    return currency + '\u00a0' + fmtNum(val);
+  }
+
+  function fmtLegacy(usdVal, currency) {
+    return currency + '\u00a0' + fmtNum(usdVal * RATES[currency]);
+  }
+
+  /* ── Storage ─────────────────────────────────────────────── */
   function getStored() {
     try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }
@@ -37,11 +54,27 @@
 
   /* ── DOM update ──────────────────────────────────────────── */
   function updateDOM(currency) {
-    document.querySelectorAll('[data-price-usd]').forEach(function (el) {
-      var usd = parseFloat(el.getAttribute('data-price-usd'));
-      if (isNaN(usd)) return;
+    var key = 'data-price-' + currency.toLowerCase();
+
+    // New scheme: elements with explicit per-currency prices (data-price-chf present)
+    document.querySelectorAll('[data-price-chf]').forEach(function (el) {
+      var val    = el.getAttribute(key);
+      var suffix = el.getAttribute('data-price-suffix') || '';
+      if (val !== null) {
+        var num = parseFloat(val);
+        if (!isNaN(num)) el.textContent = fmtExact(currency, num) + suffix;
+      } else {
+        // Specific currency attr missing — fall back to USD attr with rate
+        var usd = parseFloat(el.getAttribute('data-price-usd') || '');
+        if (!isNaN(usd)) el.textContent = fmtLegacy(usd, currency) + suffix;
+      }
+    });
+
+    // Legacy scheme: only data-price-usd, no data-price-chf
+    document.querySelectorAll('[data-price-usd]:not([data-price-chf])').forEach(function (el) {
+      var usd    = parseFloat(el.getAttribute('data-price-usd'));
       var suffix = el.getAttribute('data-price-usd-suffix') || '';
-      el.textContent = fmt(usd, currency) + suffix;
+      if (!isNaN(usd)) el.textContent = fmtLegacy(usd, currency) + suffix;
     });
 
     // Sync active state on all switcher buttons across the page
@@ -52,56 +85,51 @@
 
   /* ── Set & persist ───────────────────────────────────────── */
   function setCurrency(currency) {
-    if (!RATES[currency]) return;
+    if (CURRENCIES.indexOf(currency) === -1) return;
     store(currency);
     updateDOM(currency);
   }
 
-  /* ── Default currency ───────────────────────────────────── */
-  /**
-   * No third-party IP geolocation (privacy-safe, no consent required).
-   * Default: CHF — primary market. User can switch via currency buttons.
-   * Preference persists in localStorage.
-   */
+  /* ── IP-based detection ──────────────────────────────────── */
   function detectAndSet() {
     var stored = getStored();
-    if (stored && RATES[stored]) {
+    if (stored && CURRENCIES.indexOf(stored) !== -1) {
       updateDOM(stored);
       return;
     }
-    setCurrency('CHF');
+
+    // Detect by IP: CH → CHF, EU countries → EUR, everyone else → USD
+    fetch('https://ipapi.co/json/')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var cc       = (data.country_code || '').toUpperCase();
+        var currency = cc === 'CH' ? 'CHF' : EU[cc] ? 'EUR' : 'USD';
+        setCurrency(currency);
+      })
+      .catch(function () {
+        setCurrency('USD'); // safe international fallback
+      });
   }
 
   /* ── Styles ──────────────────────────────────────────────── */
   function injectStyles() {
     var css = [
-      /* Wrapper sits inline next to the language switcher */
+      /* Footer currency switcher wrapper */
       '.gk-currency-switcher{',
         'display:inline-flex;',
         'align-items:center;',
         'gap:.25rem;',
-        'margin-left:.6rem;',
       '}',
 
-      /* Thin separator rule before the currency block */
-      '.gk-currency-switcher::before{',
-        'content:"";',
-        'display:block;',
-        'width:1px;',
-        'height:10px;',
-        'background:rgba(255,255,255,.18);',
-        'margin-right:.5rem;',
-      '}',
-
-      /* Buttons — match .gk-lang-btn / .lang-btn style exactly */
+      /* Buttons */
       '.gk-currency-btn{',
         'font-family:"Syne",sans-serif;',
         'font-size:.62rem;',
         'letter-spacing:.08em;',
         'text-transform:uppercase;',
-        'border:1px solid rgba(255,255,255,.2);',
+        'border:1px solid rgba(255,255,255,.15);',
         'background:transparent;',
-        'color:rgba(255,255,255,.6);',
+        'color:rgba(255,255,255,.35);',
         'padding:.28rem .45rem;',
         'cursor:pointer;',
         'line-height:1;',
@@ -116,15 +144,11 @@
         'border-color:var(--gold,#c9a84c);',
       '}',
 
-      /* On dive-suite nav (dark, flex, space-between) keep it compact */
-      '.site-nav .gk-currency-switcher{margin-left:0;margin-right:.75rem;}',
-
-      /* Mobile: hide switcher text on very small screens, show only on ≥400px */
       '@media(max-width:399px){.gk-currency-switcher{display:none;}}',
     ].join('');
 
-    var style    = document.createElement('style');
-    style.id     = 'gk-currency-styles';
+    var style       = document.createElement('style');
+    style.id        = 'gk-currency-styles';
     style.textContent = css;
     document.head.appendChild(style);
   }
@@ -137,8 +161,8 @@
     wrap.setAttribute('aria-label', 'Currency');
 
     CURRENCIES.forEach(function (c) {
-      var btn       = document.createElement('button');
-      btn.className = 'gk-currency-btn';
+      var btn              = document.createElement('button');
+      btn.className        = 'gk-currency-btn';
       btn.dataset.currency = c;
       btn.textContent      = c;
       btn.type             = 'button';
@@ -150,24 +174,16 @@
     return wrap;
   }
 
-  /* ── Inject into the right place in the nav ─────────────── */
+  /* ── Inject into footer ──────────────────────────────────── */
   function injectSwitcher() {
-    // operators.html — uses .gk-lang-switcher
-    // index.html     — uses .lang-switcher (inside a <li>)
-    // dive-suite.html — no lang switcher; append before .nav-back-link
-    var langSwitch = document.querySelector('.gk-lang-switcher, .lang-switcher');
+    var footer = document.querySelector('footer');
+    if (!footer) return;
 
-    if (langSwitch) {
-      // Insert immediately after the language switcher
-      langSwitch.parentNode.insertBefore(buildSwitcher(), langSwitch.nextSibling);
-      return;
-    }
-
-    // Fallback: insert before the last child of the first <nav>
-    var nav = document.querySelector('nav');
-    if (nav) {
-      var last = nav.lastElementChild;
-      nav.insertBefore(buildSwitcher(), last || null);
+    var copy = footer.querySelector('.footer-copy');
+    if (copy) {
+      footer.insertBefore(buildSwitcher(), copy);
+    } else {
+      footer.appendChild(buildSwitcher());
     }
   }
 
@@ -178,7 +194,7 @@
     detectAndSet();
   });
 
-  /* ── Public API (for external re-trigger if needed) ─────── */
+  /* ── Public API ──────────────────────────────────────────── */
   window.GK_setCurrency = setCurrency;
 
 }());
