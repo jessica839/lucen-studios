@@ -81,12 +81,10 @@ module.exports = async function handler(req, res) {
 
   if (!contactId) return res.status(500).json({ error: 'Could not resolve contact ID' });
 
-  /* If contact already existed, make sure the tag is applied */
-  if (status === 400) {
-    await ghl(`/contacts/${contactId}/tags`, 'PUT', {
-      tags: [tag, 'source-meggen-golf']
-    });
-  }
+  /* Always apply tags — works for both new and existing contacts */
+  await ghl(`/contacts/${contactId}`, 'PUT', {
+    tags: [tag, 'source-meggen-golf']
+  });
 
   return res.status(200).json({ success: true, contactId });
 };
