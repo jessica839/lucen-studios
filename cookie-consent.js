@@ -17,13 +17,33 @@
   'use strict';
 
   var CONSENT_KEY = 'gk_cookie_consent';
+  var CONSENT_VERSION = '1';
+  var CONSENT_TTL_MS = 180 * 24 * 60 * 60 * 1000; /* 6 months */
 
   function getConsent() {
-    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+    try {
+      var raw = localStorage.getItem(CONSENT_KEY);
+      if (!raw) return null;
+      /* Legacy: plain string stored before versioned format */
+      if (raw === 'granted' || raw === 'denied') return raw;
+      var obj = JSON.parse(raw);
+      /* Expire after 6 months */
+      if (Date.now() - obj.ts > CONSENT_TTL_MS) {
+        localStorage.removeItem(CONSENT_KEY);
+        return null;
+      }
+      return obj.value;
+    } catch (e) { return null; }
   }
 
   function saveConsent(value) {
-    try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify({
+        value: value,
+        ts: Date.now(),
+        v: CONSENT_VERSION
+      }));
+    } catch (e) {}
   }
 
   /* ── Google Analytics (post-consent load) ────────────────────── */
@@ -212,13 +232,13 @@
         'font-size:.82rem;font-weight:600;letter-spacing:.03em;',
         'padding:.55rem 1.15rem;transition:all .2s;white-space:nowrap;',
       '}',
-      '.gk-cb-btn--accept{background:#c9a84c;color:#0a0a0f;}',
-      '.gk-cb-btn--accept:hover{background:#e8c97a;}',
+      '.gk-cb-btn--accept{background:transparent;color:#c9a84c;border:1px solid #c9a84c;}',
+      '.gk-cb-btn--accept:hover{background:rgba(201,168,76,.12);}',
       '.gk-cb-btn--decline{',
-        'background:transparent;color:rgba(244,241,236,.55);',
-        'border:1px solid rgba(244,241,236,.2);',
+        'background:transparent;color:rgba(244,241,236,.75);',
+        'border:1px solid rgba(244,241,236,.35);',
       '}',
-      '.gk-cb-btn--decline:hover{color:#f4f1ec;border-color:rgba(244,241,236,.5);}',
+      '.gk-cb-btn--decline:hover{color:#f4f1ec;border-color:rgba(244,241,236,.65);}',
       '@media(max-width:560px){',
         '#gk-cb-inner{gap:.85rem;}',
         '#gk-cb-btns{width:100%;}',
@@ -241,13 +261,13 @@
       '<div id="gk-cb-inner">' +
         '<div id="gk-cb-text">' +
           '<strong>Cookie &amp; Analytics Notice</strong>' +
-          'We use Google Analytics to understand how visitors use this site. ' +
+          'We use Google Analytics and a CRM tool (GoHighLevel) to understand site usage and manage contact requests. ' +
           'No data is shared for advertising. ' +
-          'Analytics and third-party contact forms only load after you accept.' +
+          'These only load after you accept.' +
           ' <a href="' + legalPage + '">Privacy Policy</a>' +
         '</div>' +
         '<div id="gk-cb-btns">' +
-          '<button class="gk-cb-btn gk-cb-btn--accept" id="gk-cb-accept">Accept analytics</button>' +
+          '<button class="gk-cb-btn gk-cb-btn--accept" id="gk-cb-accept">Accept</button>' +
           '<button class="gk-cb-btn gk-cb-btn--decline" id="gk-cb-decline">Decline</button>' +
         '</div>' +
       '</div>';
