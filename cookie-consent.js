@@ -120,7 +120,8 @@
         var iframe = document.createElement('iframe');
         iframe.src   = src;
         iframe.title = title;
-        iframe.style.cssText = 'width:100%;border:none;border-radius:3px;display:block;';
+        var minH = height ? (parseInt(height, 10) + 'px') : '700px';
+        iframe.style.cssText = 'width:100%;border:none;border-radius:3px;display:block;min-height:' + minH + ';';
         iframe.setAttribute('loading', 'lazy');
         if (height) iframe.setAttribute('data-height', height);
         if (formId) {
@@ -149,8 +150,8 @@
 
   function buildPlaceholder(msg) {
     return '<div class="gk-cp" style="' +
-      'border:1px solid rgba(201,168,76,0.2);border-radius:4px;' +
-      'padding:2.5rem 2rem;text-align:center;background:rgba(255,255,255,0.02);">' +
+      'border:1px solid rgba(201,168,76,0.35);border-radius:4px;' +
+      'padding:2.5rem 2rem;text-align:center;background:rgba(255,255,255,0.06);">' +
       '<p style="font-family:\'DM Sans\',sans-serif;font-size:0.875rem;' +
         'color:rgba(244,241,236,0.55);line-height:1.6;margin:0 auto 1rem;' +
         'max-width:420px;">' + msg + '</p>' +
