@@ -125,7 +125,7 @@ Always provide a meaningful English fallback string — it's shown if i18n.js ha
 
 ### Language preference
 
-Stored in `localStorage` under `gk_language`. Default: `en`. Auto-detected from browser on first visit.
+Stored in `localStorage` under `gk_lang`. Default: `en`. Auto-detected from browser on first visit. The on-site language switcher lists **EN, DE, and FR** only; Spanish and Italian blocks remain in `i18n.js` (and still apply for browser auto-detect / saved preference) but are not offered as toggle options.
 
 ### When editing copy
 

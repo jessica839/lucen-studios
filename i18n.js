@@ -1,6 +1,6 @@
 /**
  * i18n.js — Gamper Klimmek Consulting
- * Translation system: EN / DE / FR / ES / IT
+ * Translation system: EN / DE / FR (+ ES / IT in data, not in the site language switcher)
  * Usage: attribute data-i18n="key" on any element
  * HTML content supported (for <em>, <strong> etc.)
  * Browser language is auto-detected on load.
