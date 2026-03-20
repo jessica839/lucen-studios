@@ -121,8 +121,9 @@
         iframe.src   = src;
         iframe.title = title;
         var minH = height ? (parseInt(height, 10) + 'px') : '700px';
-        iframe.style.cssText = 'width:100%;border:none;border-radius:3px;display:block;min-height:' + minH + ';';
+        iframe.style.cssText = 'width:100%;border:none;border-radius:3px;display:block;min-height:' + minH + ';background:transparent;';
         iframe.setAttribute('loading', 'lazy');
+        iframe.setAttribute('allowtransparency', 'true');
         if (height) iframe.setAttribute('data-height', height);
         if (formId) {
           iframe.setAttribute('data-form-id', formId);

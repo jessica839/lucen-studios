@@ -586,7 +586,7 @@ nav {
 
 /* ── NEWSLETTER ── */
 .contact { background: var(--ink); color: var(--white); padding: 7rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
-.contact-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.contact-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
 .contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
 .contact h2 em { font-style: italic; color: var(--gold); }
 .contact-sub { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.8; }
