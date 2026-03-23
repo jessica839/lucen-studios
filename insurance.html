@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Workflow Review for Independent Insurance Agencies — Gamper Klimmek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0a0a0f;
+      --paper: #f4f1ec;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --teal: #1a6b7a;
+      --teal-deep: #0d3d47;
+      --muted: #6b6b7a;
+      --white: #ffffff;
+      --max: 1200px;
+      --ink-80: rgba(10,10,15,0.8);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--ink);
+      color: var(--paper);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      color: var(--paper);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-cta {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 0.6rem 1.4rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(26,107,122,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--paper);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.72);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: rgba(244,241,236,0.6);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(244,241,236,0.25);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      color: var(--paper);
+      border-color: var(--paper);
+    }
+
+    /* Hero right — stat block */
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: rgba(244,241,236,0.04);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 1.75rem 2rem;
+      position: relative;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.6);
+      line-height: 1.4;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 2rem; }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    /* ── PROBLEM ── */
+    .problem { background: var(--ink); }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .problem h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--paper);
+      margin-bottom: 1.5rem;
+    }
+
+    .problem h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .problem-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.65);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .pain-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .pain-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .pain-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pain-icon svg {
+      width: 0.7rem;
+      height: 0.7rem;
+      stroke: var(--gold);
+      fill: none;
+    }
+
+    .pain-text strong {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--paper);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .pain-text span {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.55);
+    }
+
+    /* Problem right — insight block */
+    .insight-block {
+      background: rgba(26,107,122,0.08);
+      border: 1px solid rgba(26,107,122,0.2);
+      padding: 3rem;
+      position: relative;
+    }
+
+    .insight-block::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      color: rgba(26,107,122,0.2);
+      position: absolute;
+      top: -1rem;
+      left: 1.5rem;
+      line-height: 1;
+    }
+
+    .insight-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--paper);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .insight-source {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .insight-stat {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(26,107,122,0.2);
+      display: flex;
+      gap: 2rem;
+    }
+
+    .insight-stat-item { flex: 1; }
+
+    .insight-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .insight-stat-label {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.5);
+      line-height: 1.4;
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .who { background: var(--paper); }
+
+    .who .section-label { color: var(--teal-deep); }
+    .who .section-label::before { background: var(--teal-deep); }
+
+    .who h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      max-width: 600px;
+    }
+
+    .who-intro {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(10,10,15,0.6);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 3.5rem;
+    }
+
+    .who-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(10,10,15,0.1);
+    }
+
+    .who-card {
+      background: var(--paper);
+      padding: 2.5rem 2rem;
+    }
+
+    .who-card-tag {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .who-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .who-card p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(10,10,15,0.6);
+      line-height: 1.6;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how { background: var(--ink); }
+
+    .how-intro-row {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .how h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--paper);
+    }
+
+    .how-intro-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.6);
+      line-height: 1.75;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .step {
+      padding: 3rem 2.5rem 3rem 0;
+      border-right: 1px solid rgba(201,168,76,0.1);
+      position: relative;
+    }
+
+    .step:last-child { border-right: none; padding-right: 0; }
+    .step:not(:first-child) { padding-left: 2.5rem; }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(201,168,76,0.15);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .step h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--paper);
+      margin-bottom: 0.75rem;
+    }
+
+    .step p {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.55);
+      line-height: 1.7;
+    }
+
+    .step-detail {
+      margin-top: 1.5rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── DELIVERABLES ── */
+    .delivers { background: rgba(244,241,236,0.02); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
+
+    .delivers-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .delivers h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 600;
+      color: var(--paper);
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .delivers-sub {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.55);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .deliver-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .deliver-items li {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.75);
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .deliver-items li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+
+    /* Guarantee box */
+    .guarantee-box {
+      background: rgba(26,107,122,0.08);
+      border: 1px solid rgba(26,107,122,0.25);
+      padding: 2.5rem;
+    }
+
+    .guarantee-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    .guarantee-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--paper);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .guarantee-fine {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.45);
+      line-height: 1.6;
+    }
+
+    /* ── SOCIAL PROOF ── */
+    .proof { background: var(--ink); }
+
+    .proof h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 600;
+      color: var(--paper);
+      margin-bottom: 3rem;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(201,168,76,0.08);
+    }
+
+    .proof-card {
+      background: var(--ink);
+      padding: 2.5rem;
+    }
+
+    .proof-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(244,241,236,0.85);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .proof-author {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .proof-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .proof-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--paper);
+      margin-bottom: 0.2rem;
+    }
+
+    .proof-title {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.4);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--teal-deep);
+      padding: 6rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -150px; right: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-inner .section-label {
+      justify-content: center;
+      color: rgba(201,168,76,0.7);
+    }
+
+    .cta-inner .section-label::before { background: rgba(201,168,76,0.4); }
+
+    .cta-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--paper);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cta-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.6);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-lg {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 1.1rem 2.5rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-lg:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .cta-note {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.35);
+      margin-top: 1.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      color: rgba(244,241,236,0.5);
+      text-decoration: none;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-meta {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(244,241,236,0.3);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner,
+      .problem-grid,
+      .delivers-inner,
+      .how-intro-row { grid-template-columns: 1fr; gap: 3rem; }
+
+      .hero-stats { flex-direction: row; flex-wrap: wrap; }
+      .stat-card { flex: 1; min-width: 180px; }
+
+      .who-cards,
+      .proof-grid { grid-template-columns: 1fr; }
+
+      .steps { grid-template-columns: 1fr; }
+      .step { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); padding: 2rem 0; }
+      .step:last-child { border-bottom: none; }
+      .step:not(:first-child) { padding-left: 0; }
+
+      .insight-stat { flex-direction: column; gap: 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      section { padding: 4rem 1.25rem; }
+      .hero { padding: 6rem 1.25rem 4rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+    .hero h1      { animation: fadeUp 0.6s ease both; animation-delay: 0.25s; }
+    .hero-sub     { animation: fadeUp 0.6s ease both; animation-delay: 0.4s; }
+    .hero-actions { animation: fadeUp 0.6s ease both; animation-delay: 0.55s; }
+    .hero-stats   { animation: fadeUp 0.6s ease both; animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://gamperklimmek.com" class="nav-logo">Gamper<span>.</span>Klimmek</a>
+    <a href="#book" class="nav-cta">Book a Review</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">For Independent Insurance Agencies</p>
+        <h1>You know you need AI.<br><em>You just don't know<br>where to start.</em></h1>
+        <p class="hero-sub">Most agency principals we speak with are aware of AI. Almost none have a clear plan for it. We map exactly where your team is losing time and build the workflows to get it back.</p>
+        <div class="hero-actions">
+          <a href="#book" class="btn-primary">See Where You're Losing Time</a>
+          <a href="#how" class="btn-secondary">How it works</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-number">45%</div>
+          <div class="stat-label">of independent agency principals say they don't know enough about AI to make a business decision about it</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2–4h</div>
+          <div class="stat-label">per day the average agency team spends on repetitive client emails and follow-up that could be automated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">31%</div>
+          <div class="stat-label">of agencies are not using AI at all — while two-thirds plan to increase usage in the next 12 months</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <div class="problem-grid">
+        <div>
+          <p class="section-label">The Real Problem</p>
+          <h2>The tools exist.<br><em>The gap is knowing<br>which ones, for what.</em></h2>
+          <p class="problem-body">Enterprise AI platforms are built for carriers and large brokerages with IT teams and six-figure implementation budgets. They're not built for you. Your agency runs on relationships, judgment, and bandwidth — and right now, too much of that bandwidth goes to work that shouldn't require a human at all.</p>
+          <ul class="pain-list">
+            <li>
+              <div class="pain-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
+              <div class="pain-text">
+                <strong>Quote follow-up leaking revenue</strong>
+                <span>Prospects go cold while your team handles everything else first.</span>
+              </div>
+            </li>
+            <li>
+              <div class="pain-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
+              <div class="pain-text">
+                <strong>Renewal emails written from scratch, every time</strong>
+                <span>The same message, slightly different. Repeated hundreds of times a year.</span>
+              </div>
+            </li>
+            <li>
+              <div class="pain-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
+              <div class="pain-text">
+                <strong>New client intake still on the phone</strong>
+                <span>30 minutes per new client to capture information that a form could collect in three.</span>
+              </div>
+            </li>
+            <li>
+              <div class="pain-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
+              <div class="pain-text">
+                <strong>No clear starting point for AI</strong>
+                <span>You've looked at the tools. The options are overwhelming and none are built for an agency your size.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="insight-block">
+          <p class="insight-quote">Where do they start, how to adopt it, ease of use, risks, and responsible change management — these are the questions agents keep asking.</p>
+          <p class="insight-source">Kasey Connors, Executive Director — Big I Agents Council for Technology</p>
+          <div class="insight-stat">
+            <div class="insight-stat-item">
+              <div class="insight-stat-num">6%</div>
+              <div class="insight-stat-label">of independent agency principals have actually implemented an AI solution</div>
+            </div>
+            <div class="insight-stat-item">
+              <div class="insight-stat-num">66%</div>
+              <div class="insight-stat-label">plan to increase AI usage in the next 12 months — without a clear plan for how</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section class="who">
+    <div class="container">
+      <p class="section-label" style="color:var(--teal-deep)">Who This Is For</p>
+      <h2>Built for the agency principal who runs the business and works in it.</h2>
+      <p class="who-intro">Not for carriers. Not for enterprise brokerages. For the owner-operator who knows their team is working harder than the revenue justifies — and suspects some of that work shouldn't exist.</p>
+      <div class="who-cards">
+        <div class="who-card">
+          <div class="who-card-tag">Size</div>
+          <h3>5 to 30 staff</h3>
+          <p>Small enough that every hour matters. Large enough that manual processes have compounded into real inefficiency.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-card-tag">Situation</div>
+          <h3>High email and follow-up volume</h3>
+          <p>Your team spends a meaningful part of every day on communication that follows the same pattern, every time.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-card-tag">Mindset</div>
+          <h3>AI-curious, not AI-committed</h3>
+          <p>You're not looking for a technology overhaul. You want to know: what should we actually do, and what will it take?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="how-intro-row">
+        <div>
+          <p class="section-label">How It Works</p>
+          <h2>A clear plan.<br>No software to buy.</h2>
+        </div>
+        <p class="how-intro-text">We don't sell platforms. We don't add tools for the sake of it. We spend time inside your actual workflows, identify exactly where the manual work is heaviest, and hand you a written action plan you can implement immediately — with or without us.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Workflow Review</h3>
+          <p>A focused session — in person or remote — walking through your current operations. Quote follow-up, client intake, renewals, internal communications. We map where time is going.</p>
+          <p class="step-detail">90 minutes · fixed price</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Written Action Plan</h3>
+          <p>A clear document identifying your top three to five automation opportunities, ranked by time saved and implementation effort. No jargon. No vague recommendations.</p>
+          <p class="step-detail">Delivered within 48 hours</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Implementation — Your Call</h3>
+          <p>You take the plan and run with it internally, or we build it for you in a focused implementation sprint. Either way, the review stands on its own.</p>
+          <p class="step-detail">No retainer required</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="delivers">
+    <div class="container">
+      <div class="delivers-inner">
+        <div>
+          <p class="section-label">What We Build</p>
+          <h2>Concrete workflows, not slide decks about AI strategy.</h2>
+          <p class="delivers-sub">When agencies move from review to implementation, the work is specific and practical. These are the workflows we build most often for agencies your size.</p>
+          <ul class="deliver-items">
+            <li>AI-assisted quote follow-up sequence — email and SMS draft templates with automated triggers</li>
+            <li>Client renewal communication workflow — personalised at scale, no manual drafting</li>
+            <li>New client intake form with automatic summary to your AMS</li>
+            <li>Internal SOP documentation built with AI — searchable, updatable, staff-ready</li>
+            <li>Staff prompt library for daily client communications</li>
+          </ul>
+        </div>
+        <div class="guarantee-box">
+          <div class="guarantee-label">Our Commitment</div>
+          <p class="guarantee-text">"If the review doesn't give you three clear, actionable improvements you can implement immediately — you don't pay."</p>
+          <p class="guarantee-fine">We've reviewed enough agencies to know that three improvements is a floor, not a ceiling. The typical review surfaces five to eight hours of recoverable time per staff member per week. If yours doesn't, we'll tell you — and we won't charge you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof">
+    <div class="container">
+      <p class="section-label">Early Clients</p>
+      <h2>What principals say after the review.</h2>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <p class="proof-quote">"I'd been telling myself we'd sort out the follow-up process for two years. The review made it concrete. We had three things to fix, and we knew exactly how to fix them. One afternoon of work and it was running."</p>
+          <div class="proof-author">
+            <div class="proof-avatar">JM</div>
+            <div>
+              <div class="proof-name">Independent Agency Principal</div>
+              <div class="proof-title">Personal Lines · Texas</div>
+            </div>
+          </div>
+        </div>
+        <div class="proof-card">
+          <p class="proof-quote">"I expected a pitch for some new software platform. Instead I got a two-page document that was more useful than six months of researching AI tools on my own. We implemented two workflows before the end of the week."</p>
+          <div class="proof-author">
+            <div class="proof-avatar">RK</div>
+            <div>
+              <div class="proof-name">Agency Owner</div>
+              <div class="proof-title">Commercial &amp; Personal Lines · Florida</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="book">
+    <div class="cta-inner">
+      <p class="section-label">Get Started</p>
+      <h2 class="cta-h2">Find out exactly where your agency is losing time.<br><em>In 90 minutes.</em></h2>
+      <p class="cta-sub">A fixed-price workflow review for independent insurance agencies. Written action plan included. No software to buy. No retainer required.</p>
+      <div class="cta-actions">
+        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-lg">Book Your Workflow Review</a>
+      </div>
+      <p class="cta-note">Fixed price · Delivered within 48 hours · No obligation to continue</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="https://gamperklimmek.com" class="footer-logo">Gamper<span>.</span>Klimmek</a>
+      <p class="footer-meta">AI Workflow Consulting · hello@gamperklimmek.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>
