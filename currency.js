@@ -190,6 +190,16 @@
   /* ── Init ────────────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     injectStyles();
+
+    /* Pages that target US buyers: USD prices only, no footer switcher (e.g. insurance.html) */
+    var usdOnly =
+      document.body &&
+      document.body.getAttribute('data-gk-currency-page') === 'usd';
+    if (usdOnly) {
+      updateDOM('USD');
+      return;
+    }
+
     injectSwitcher();
     detectAndSet();
   });

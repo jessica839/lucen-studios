@@ -3,953 +3,569 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Workflow Review for Independent Insurance Agencies — Gamper Klimmek</title>
+  <title>Business Systems Review for Independent Insurance Agencies | Gamper Klimmek</title>
+  <meta name="description" content="A fixed-scope Business Systems Review for independent insurance agencies: map where time is lost, get a written action plan, and optional implementation — no platform pitch." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.gamperklimmek.com/insurance" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Business Systems Review for Independent Insurance Agencies | Gamper Klimmek" />
+  <meta property="og:description" content="Map where your agency loses time to repetitive work. Written action plan in 48 hours. Fixed price. No software to buy." />
+  <meta property="og:url" content="https://www.gamperklimmek.com/insurance" />
+  <meta property="og:image" content="https://www.gamperklimmek.com/og-image.png" />
+  <meta property="og:site_name" content="Gamper Klimmek Consulting" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Business Systems Review for Independent Insurance Agencies | Gamper Klimmek" />
+  <meta name="twitter:description" content="Map where your agency loses time to repetitive work. Written action plan in 48 hours. Fixed price." />
+  <meta name="twitter:image" content="https://www.gamperklimmek.com/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.gamperklimmek.com/#organization",
+        "name": "Gamper Klimmek Consulting",
+        "url": "https://www.gamperklimmek.com/",
+        "logo": "https://www.gamperklimmek.com/apple-touch-icon.png"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.gamperklimmek.com/insurance#webpage",
+        "url": "https://www.gamperklimmek.com/insurance",
+        "name": "Business Systems Review for Independent Insurance Agencies",
+        "isPartOf": { "@id": "https://www.gamperklimmek.com/#website" },
+        "about": { "@id": "https://www.gamperklimmek.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gamperklimmek.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Insurance Agencies", "item": "https://www.gamperklimmek.com/insurance" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css?v=2" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag("consent", "default", {
+      analytics_storage: "denied",
+      ad_storage: "denied",
+      wait_for_update: 2000
+    });
+  </script>
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink: #0a0a0f;
-      --paper: #f4f1ec;
-      --gold: #c9a84c;
-      --gold-light: #e8c97a;
-      --teal: #1a6b7a;
-      --teal-deep: #0d3d47;
-      --muted: #6b6b7a;
-      --white: #ffffff;
-      --max: 1200px;
-      --ink-80: rgba(10,10,15,0.8);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--ink);
-      color: var(--paper);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 1.25rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(10,10,15,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(201,168,76,0.12);
-    }
-
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      color: var(--paper);
-      text-decoration: none;
-    }
-
-    .nav-logo span { color: var(--gold); }
-
-    .nav-cta {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink);
-      background: var(--gold);
-      padding: 0.6rem 1.4rem;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .nav-cta:hover { background: var(--gold-light); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 8rem 2rem 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px; right: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(26,107,122,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -100px; left: -100px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-inner {
+    /* Insurance landing — layout & sections (tokens + nav/hero/buttons from styles.css) */
+    .insurance-page .hero-inner {
       max-width: var(--max);
-      margin: 0 auto;
+      width: 100%;
+    }
+    .ins-hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 2rem;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-      font-weight: 600;
-      line-height: 1.15;
-      color: var(--paper);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.72);
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-      max-width: 480px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 3rem 4rem;
       align-items: center;
     }
-
-    .btn-primary {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink);
-      background: var(--gold);
-      padding: 1rem 2rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: rgba(244,241,236,0.6);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(244,241,236,0.25);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .btn-secondary:hover {
-      color: var(--paper);
-      border-color: var(--paper);
-    }
-
-    /* Hero right — stat block */
-    .hero-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .stat-card {
-      background: rgba(244,241,236,0.04);
-      border: 1px solid rgba(201,168,76,0.15);
-      padding: 1.75rem 2rem;
-      position: relative;
-    }
-
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--gold);
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-
-    .stat-label {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.6);
-      line-height: 1.4;
-    }
-
-    /* ── SECTION BASE ── */
-    section { padding: 6rem 2rem; }
-
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 1.5rem;
-      height: 1px;
-      background: var(--teal);
-    }
-
-    /* ── PROBLEM ── */
-    .problem { background: var(--ink); }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .problem h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-weight: 600;
-      line-height: 1.2;
-      color: var(--paper);
-      margin-bottom: 1.5rem;
-    }
-
-    .problem h2 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .problem-body {
-      font-size: 1rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.65);
-      line-height: 1.75;
-      margin-bottom: 2rem;
-    }
-
-    .pain-list {
-      list-style: none;
+    .ins-hero-stats {
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
     }
-
-    .pain-list li {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
+    .ins-stat-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 1.75rem 2rem;
+      position: relative;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    .ins-stat-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gold);
+    }
+    .ins-stat-num {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.45rem;
+    }
+    .ins-stat-label {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.55;
     }
 
-    .pain-icon {
+    .ins-section { padding: 6rem 4rem; }
+    .ins-container { max-width: var(--max); margin: 0 auto; }
+
+    .ins-problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .ins-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.58);
+      margin-bottom: 2rem;
+    }
+    .ins-pain-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+    .ins-pain-list li { display: flex; gap: 1rem; align-items: flex-start; }
+    .ins-pain-icon {
       width: 1.5rem;
       height: 1.5rem;
-      background: rgba(201,168,76,0.12);
-      border: 1px solid rgba(201,168,76,0.3);
+      flex-shrink: 0;
+      margin-top: 2px;
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
     }
-
-    .pain-icon svg {
-      width: 0.7rem;
-      height: 0.7rem;
-      stroke: var(--gold);
-      fill: none;
-    }
-
-    .pain-text strong {
-      font-family: 'Syne', sans-serif;
+    .ins-pain-icon svg { width: 0.7rem; height: 0.7rem; stroke: var(--gold); fill: none; }
+    .ins-pain-text strong {
+      font-family: "Syne", sans-serif;
       font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--paper);
+      font-weight: 700;
+      color: var(--white);
       display: block;
       margin-bottom: 0.2rem;
     }
+    .ins-pain-text span { font-size: 0.86rem; color: rgba(255, 255, 255, 0.48); line-height: 1.55; }
 
-    .pain-text span {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.55);
-    }
-
-    /* Problem right — insight block */
-    .insight-block {
-      background: rgba(26,107,122,0.08);
-      border: 1px solid rgba(26,107,122,0.2);
-      padding: 3rem;
+    .ins-insight {
+      background: rgba(26, 107, 122, 0.1);
+      border: 1px solid rgba(26, 107, 122, 0.25);
+      padding: 2.5rem 2.5rem 2rem;
       position: relative;
     }
-
-    .insight-block::before {
-      content: '"';
-      font-family: 'Playfair Display', serif;
-      font-size: 8rem;
-      color: rgba(26,107,122,0.2);
-      position: absolute;
-      top: -1rem;
-      left: 1.5rem;
-      line-height: 1;
-    }
-
-    .insight-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
+    .ins-insight-quote {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
       font-style: italic;
       font-weight: 400;
-      color: var(--paper);
+      color: rgba(255, 255, 255, 0.92);
       line-height: 1.6;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       position: relative;
       z-index: 1;
     }
-
-    .insight-source {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
+    .ins-insight-source {
+      font-family: "Syne", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--teal);
     }
-
-    .insight-stat {
+    .ins-insight-stats {
       margin-top: 2rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(26,107,122,0.2);
+      border-top: 1px solid rgba(26, 107, 122, 0.25);
       display: flex;
       gap: 2rem;
     }
-
-    .insight-stat-item { flex: 1; }
-
-    .insight-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
+    .ins-insight-stats > div { flex: 1; }
+    .ins-insight-num {
+      font-family: "Playfair Display", serif;
+      font-size: 1.85rem;
+      font-weight: 900;
       color: var(--gold);
       line-height: 1;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.35rem;
     }
+    .ins-insight-stat-label { font-size: 0.78rem; color: rgba(255, 255, 255, 0.45); line-height: 1.45; }
 
-    .insight-stat-label {
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.5);
-      line-height: 1.4;
-    }
-
-    /* ── WHO IT'S FOR ── */
-    .who { background: var(--paper); }
-
-    .who .section-label { color: var(--teal-deep); }
-    .who .section-label::before { background: var(--teal-deep); }
-
-    .who h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 600;
-      line-height: 1.2;
+    .ins-who {
+      background: var(--paper);
       color: var(--ink);
-      margin-bottom: 1rem;
-      max-width: 600px;
     }
-
-    .who-intro {
-      font-size: 1rem;
-      font-weight: 300;
-      color: rgba(10,10,15,0.6);
+    .ins-who .section-label { color: var(--teal); }
+    .ins-who .section-label::before { background: var(--teal); }
+    .ins-who h2.section-title { color: var(--ink); }
+    .ins-who h2.section-title em { color: var(--teal); }
+    .ins-who-intro {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(10, 10, 15, 0.6);
       max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
     }
-
-    .who-cards {
+    .ins-who-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: rgba(10,10,15,0.1);
+      gap: 1.5rem;
     }
-
-    .who-card {
-      background: var(--paper);
-      padding: 2.5rem 2rem;
+    .ins-who-card {
+      padding: 2.25rem 2rem;
+      border: 1px solid rgba(10, 10, 15, 0.1);
+      background: var(--white);
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
-
-    .who-card-tag {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.68rem;
+    .ins-who-card:hover {
+      border-color: rgba(26, 107, 122, 0.35);
+      box-shadow: 0 16px 48px rgba(26, 107, 122, 0.08);
+    }
+    .ins-who-tag {
+      font-family: "Syne", sans-serif;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--teal);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.65rem;
     }
-
-    .who-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
+    .ins-who-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      font-weight: 700;
       color: var(--ink);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.65rem;
       line-height: 1.3;
     }
+    .ins-who-card p { font-size: 0.9rem; color: rgba(10, 10, 15, 0.6); line-height: 1.65; }
 
-    .who-card p {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: rgba(10,10,15,0.6);
-      line-height: 1.6;
-    }
-
-    /* ── HOW IT WORKS ── */
-    .how { background: var(--ink); }
-
-    .how-intro-row {
+    .ins-how .section-label.teal { color: var(--teal); }
+    .ins-how .section-label.teal::before { background: var(--teal); }
+    .ins-how-intro-row {
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 4rem;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
       align-items: end;
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
     }
-
-    .how h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 600;
-      line-height: 1.2;
-      color: var(--paper);
+    .ins-how-intro-text {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.55);
     }
-
-    .how-intro-text {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.6);
-      line-height: 1.75;
-    }
-
-    .steps {
+    .ins-steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      border-top: 1px solid rgba(201,168,76,0.15);
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
     }
-
-    .step {
-      padding: 3rem 2.5rem 3rem 0;
-      border-right: 1px solid rgba(201,168,76,0.1);
-      position: relative;
+    .ins-step {
+      padding: 2.75rem 2rem 2.75rem 0;
+      border-right: 1px solid rgba(201, 168, 76, 0.1);
     }
-
-    .step:last-child { border-right: none; padding-right: 0; }
-    .step:not(:first-child) { padding-left: 2.5rem; }
-
-    .step-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: rgba(201,168,76,0.15);
+    .ins-step:last-child { border-right: 0; padding-right: 0; }
+    .ins-step:not(:first-child) { padding-left: 2rem; }
+    .ins-step-num {
+      font-family: "Playfair Display", serif;
+      font-size: 3.25rem;
+      font-weight: 900;
+      color: rgba(201, 168, 76, 0.18);
       line-height: 1;
       margin-bottom: 1rem;
     }
-
-    .step h3 {
-      font-family: 'Syne', sans-serif;
+    .ins-step h3 {
+      font-family: "Syne", sans-serif;
       font-size: 0.95rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--paper);
-      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 0.65rem;
     }
-
-    .step p {
-      font-size: 0.875rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.55);
-      line-height: 1.7;
-    }
-
-    .step-detail {
-      margin-top: 1.5rem;
-      font-family: 'Syne', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
+    .ins-step p { font-size: 0.88rem; color: rgba(255, 255, 255, 0.52); line-height: 1.7; }
+    .ins-step-tag {
+      margin-top: 1.25rem;
+      font-family: "Syne", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gold);
     }
 
-    /* ── DELIVERABLES ── */
-    .delivers { background: rgba(244,241,236,0.02); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
-
-    .delivers-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 5rem;
-      align-items: center;
+    .ins-delivers {
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
     }
-
-    .delivers h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 600;
-      color: var(--paper);
-      line-height: 1.25;
-      margin-bottom: 1.25rem;
+    .ins-delivers-inner { max-width: 720px; }
+    .ins-delivers-sub {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.52);
+      line-height: 1.75;
+      margin-bottom: 2rem;
     }
-
-    .delivers-sub {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.55);
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
-
-    .deliver-items {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .deliver-items li {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.75);
-      padding-left: 1.25rem;
+    .ins-deliver-items { list-style: none; }
+    .ins-deliver-items li {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.72);
+      padding: 0.65rem 0 0.65rem 1.35rem;
       position: relative;
-      line-height: 1.5;
+      line-height: 1.55;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
-
-    .deliver-items li::before {
-      content: '→';
+    .ins-deliver-items li:last-child { border-bottom: 0; }
+    .ins-deliver-items li::before {
+      content: "→";
       position: absolute;
       left: 0;
       color: var(--gold);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
 
-    /* Guarantee box */
-    .guarantee-box {
-      background: rgba(26,107,122,0.08);
-      border: 1px solid rgba(26,107,122,0.25);
-      padding: 2.5rem;
-    }
-
-    .guarantee-label {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 1rem;
-    }
-
-    .guarantee-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-style: italic;
-      color: var(--paper);
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-    }
-
-    .guarantee-fine {
-      font-size: 0.8rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.45);
-      line-height: 1.6;
-    }
-
-    /* ── SOCIAL PROOF ── */
-    .proof { background: var(--ink); }
-
-    .proof h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 600;
-      color: var(--paper);
-      margin-bottom: 3rem;
-    }
-
-    .proof-grid {
+    .ins-proof-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 1px;
-      background: rgba(201,168,76,0.08);
+      background: rgba(201, 168, 76, 0.12);
+      margin-top: 2.5rem;
     }
-
-    .proof-card {
+    .ins-proof-card {
       background: var(--ink);
       padding: 2.5rem;
     }
-
-    .proof-quote {
-      font-family: 'Playfair Display', serif;
+    .ins-proof-quote {
+      font-family: "Playfair Display", serif;
       font-size: 1.05rem;
       font-style: italic;
-      color: rgba(244,241,236,0.85);
+      color: rgba(255, 255, 255, 0.88);
       line-height: 1.65;
       margin-bottom: 1.5rem;
     }
-
-    .proof-author {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .proof-avatar {
+    .ins-proof-author { display: flex; gap: 1rem; align-items: center; }
+    .ins-proof-avatar {
       width: 2.5rem;
       height: 2.5rem;
-      background: rgba(201,168,76,0.15);
-      border: 1px solid rgba(201,168,76,0.3);
+      flex-shrink: 0;
+      background: rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(201, 168, 76, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-family: "Syne", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
       color: var(--gold);
-      flex-shrink: 0;
     }
-
-    .proof-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--paper);
-      margin-bottom: 0.2rem;
+    .ins-proof-name {
+      font-family: "Syne", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--white);
     }
+    .ins-proof-title { font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); }
 
-    .proof-title {
-      font-size: 0.75rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.4);
-    }
-
-    /* ── CTA ── */
-    .cta-section {
-      background: var(--teal-deep);
-      padding: 6rem 2rem;
+    .ins-cta-band {
+      background: linear-gradient(135deg, var(--teal-deep) 0%, #0a1520 100%);
+      padding: 6rem 4rem;
+      text-align: center;
       position: relative;
       overflow: hidden;
     }
-
-    .cta-section::before {
-      content: '';
+    .ins-cta-band::after {
+      content: "";
       position: absolute;
-      top: -150px; right: -150px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 65%);
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.07) 0%, transparent 55%);
       pointer-events: none;
     }
-
-    .cta-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      z-index: 1;
+    .ins-cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+    .ins-cta-inner .section-label { justify-content: center; }
+    .ins-cta-inner .section-label::before { flex: 0 0 auto; }
+    .ins-cta-sub {
+      font-size: 1.02rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .ins-cta-note {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.35);
     }
 
-    .cta-inner .section-label {
-      justify-content: center;
-      color: rgba(201,168,76,0.7);
-    }
-
-    .cta-inner .section-label::before { background: rgba(201,168,76,0.4); }
-
-    .cta-h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 600;
-      color: var(--paper);
-      line-height: 1.2;
-      margin-bottom: 1.25rem;
-    }
-
-    .cta-h2 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .cta-sub {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.6);
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .btn-lg {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.85rem;
+    .ins-hero-micro {
+      margin-top: 1rem;
+      font-family: "Syne", sans-serif;
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--ink);
-      background: var(--gold);
-      padding: 1.1rem 2.5rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s, transform 0.2s;
+      color: rgba(255, 255, 255, 0.4);
     }
-
-    .btn-lg:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-
-    .cta-note {
+    .ins-pricing-hint {
+      margin-top: 0.85rem;
       font-size: 0.78rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.35);
-      margin-top: 1.5rem;
+      color: rgba(255, 255, 255, 0.38);
+      letter-spacing: 0.03em;
+      line-height: 1.5;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      border-top: 1px solid rgba(201,168,76,0.1);
-      padding: 2.5rem 2rem;
-    }
-
-    .footer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      color: rgba(244,241,236,0.5);
-      text-decoration: none;
-    }
-
-    .footer-logo span { color: var(--gold); }
-
-    .footer-meta {
-      font-size: 0.75rem;
-      font-weight: 300;
-      color: rgba(244,241,236,0.3);
-    }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .hero-inner,
-      .problem-grid,
-      .delivers-inner,
-      .how-intro-row { grid-template-columns: 1fr; gap: 3rem; }
-
-      .hero-stats { flex-direction: row; flex-wrap: wrap; }
-      .stat-card { flex: 1; min-width: 180px; }
-
-      .who-cards,
-      .proof-grid { grid-template-columns: 1fr; }
-
-      .steps { grid-template-columns: 1fr; }
-      .step { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); padding: 2rem 0; }
-      .step:last-child { border-bottom: none; }
-      .step:not(:first-child) { padding-left: 0; }
-
-      .insight-stat { flex-direction: column; gap: 1.5rem; }
+      .ins-hero-grid,
+      .ins-problem-grid,
+      .ins-how-intro-row { grid-template-columns: 1fr; gap: 2.5rem; }
+      .ins-who-cards { grid-template-columns: 1fr; }
+      .ins-steps { grid-template-columns: 1fr; border-top: none; }
+      .ins-step {
+        border-right: none;
+        border-top: 1px solid rgba(201, 168, 76, 0.12);
+        padding: 2rem 0 !important;
+      }
+      .ins-step:first-child { border-top: none; }
+      .ins-proof-grid { grid-template-columns: 1fr; }
+      .ins-insight-stats { flex-direction: column; gap: 1.25rem; }
     }
-
-    @media (max-width: 600px) {
-      nav { padding: 1rem 1.25rem; }
-      section { padding: 4rem 1.25rem; }
-      .hero { padding: 6rem 1.25rem 4rem; }
+    @media (max-width: 768px) {
+      .ins-section { padding: 4rem 1.5rem; }
+      .ins-cta-band { padding: 4rem 1.5rem; }
     }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-eyebrow { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
-    .hero h1      { animation: fadeUp 0.6s ease both; animation-delay: 0.25s; }
-    .hero-sub     { animation: fadeUp 0.6s ease both; animation-delay: 0.4s; }
-    .hero-actions { animation: fadeUp 0.6s ease both; animation-delay: 0.55s; }
-    .hero-stats   { animation: fadeUp 0.6s ease both; animation-delay: 0.5s; }
   </style>
 </head>
-<body>
+<body class="insurance-page" data-gk-currency-page="usd">
 
-  <!-- NAV -->
   <nav>
-    <a href="https://gamperklimmek.com" class="nav-logo">Gamper<span>.</span>Klimmek</a>
-    <a href="#book" class="nav-cta">Book a Review</a>
+    <a href="/" class="nav-logo">Gamper<span>.</span>Klimmek</a>
+    <ul class="nav-links">
+      <li><a href="#problem" data-i18n="nav.problems">The Problem</a></li>
+      <li><a href="#who" data-i18n="nav.who">Who is it for</a></li>
+      <li><a href="#how" data-i18n="nav.how_it_works">How it works</a></li>
+      <li><a href="/resources" data-i18n="nav.cases">Case Studies</a></li>
+      <li>
+        <div class="lang-switcher">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="de">DE</button>
+          <button type="button" class="lang-btn" data-lang="fr">FR</button>
+        </div>
+      </li>
+      <li>
+        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="nav-cta" id="navRegularBooking" data-i18n="nav.book_call" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'insurance_nav'})">Book a call</a>
+      </li>
+    </ul>
+    <button type="button" class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation"
+       class="nav-cta-sticky btn-gold-full"
+       style="display: none; padding: 0.5rem 1.25rem; font-size: 0.7rem; white-space: nowrap;"
+       id="navStickyBooking"
+       onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'insurance_sticky_nav'})"
+       data-i18n="nav.book_sticky">BOOK A CALL</a>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#problem" onclick="closeMobile()" data-i18n="nav.problems">The Problem</a>
+    <a href="#who" onclick="closeMobile()" data-i18n="nav.who">Who is it for</a>
+    <a href="#how" onclick="closeMobile()" data-i18n="nav.how_it_works">How it works</a>
+    <a href="/resources" onclick="closeMobile()" data-i18n="nav.cases">Case Studies</a>
+    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" onclick="closeMobile();if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'insurance_mobile_nav'})" style="color:var(--gold)" data-i18n="nav.book_call">Book a call</a>
+    <div class="mobile-lang">
+      <button type="button" data-lang="en" class="active">EN</button>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="fr">FR</button>
+    </div>
+  </div>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
     <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="hero-eyebrow">For Independent Insurance Agencies</p>
-        <h1>You know you need AI.<br><em>You just don't know<br>where to start.</em></h1>
-        <p class="hero-sub">Most agency principals we speak with are aware of AI. Almost none have a clear plan for it. We map exactly where your team is losing time and build the workflows to get it back.</p>
-        <div class="hero-actions">
-          <a href="#book" class="btn-primary">See Where You're Losing Time</a>
-          <a href="#how" class="btn-secondary">How it works</a>
+      <div class="ins-hero-grid">
+        <div>
+          <p class="page-eyebrow">For Independent Insurance Agencies</p>
+          <h1>You know you need AI.<br><em>You just don't know where to start.</em></h1>
+          <p class="hero-sub">Most agency principals we speak with are aware of AI. Almost none have a clear plan for it. We map exactly where your team is losing time and build the workflows to get it back.</p>
+          <div class="hero-cta-group">
+            <a href="#book" class="btn-primary" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'insurance_hero_primary'})">See where you're losing time</a>
+            <a href="#how" class="btn-ghost">How it works</a>
+          </div>
+          <p class="ins-pricing-hint">Free consultation → Business Systems Review <span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF 950</span> → Implementation Sprint <span data-price-chf="3500" data-price-eur="3500" data-price-usd="3900">CHF 3,500</span></p>
+          <p class="ins-hero-micro">Fixed scope · No software to buy</p>
         </div>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-number">45%</div>
-          <div class="stat-label">of independent agency principals say they don't know enough about AI to make a business decision about it</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">2–4h</div>
-          <div class="stat-label">per day the average agency team spends on repetitive client emails and follow-up that could be automated</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">31%</div>
-          <div class="stat-label">of agencies are not using AI at all — while two-thirds plan to increase usage in the next 12 months</div>
+        <div class="ins-hero-stats" aria-hidden="true">
+          <div class="ins-stat-card">
+            <div class="ins-stat-num">45%</div>
+            <div class="ins-stat-label">of independent agency principals say they don't know enough about AI to make a business decision about it</div>
+          </div>
+          <div class="ins-stat-card">
+            <div class="ins-stat-num">2–4h</div>
+            <div class="ins-stat-label">per day the average agency team spends on repetitive client emails and follow-up that could be automated</div>
+          </div>
+          <div class="ins-stat-card">
+            <div class="ins-stat-num">31%</div>
+            <div class="ins-stat-label">of agencies are not using AI at all — while two-thirds plan to increase usage in the next 12 months</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROBLEM -->
-  <section class="problem">
-    <div class="container">
-      <div class="problem-grid">
+  <section class="ins-section ins-problem" id="problem">
+    <div class="ins-container">
+      <div class="ins-problem-grid">
         <div>
-          <p class="section-label">The Real Problem</p>
-          <h2>The tools exist.<br><em>The gap is knowing<br>which ones, for what.</em></h2>
-          <p class="problem-body">Enterprise AI platforms are built for carriers and large brokerages with IT teams and six-figure implementation budgets. They're not built for you. Your agency runs on relationships, judgment, and bandwidth — and right now, too much of that bandwidth goes to work that shouldn't require a human at all.</p>
-          <ul class="pain-list">
+          <p class="section-label teal">The real problem</p>
+          <h2 class="section-title">The tools exist.<br><em>The gap is knowing which ones, for what.</em></h2>
+          <p class="ins-body">Enterprise AI platforms are built for carriers and large brokerages with IT teams and six-figure implementation budgets. They're not built for you. Your agency runs on relationships, judgment, and bandwidth — and right now, too much of that bandwidth goes to work that shouldn't require a human at all.</p>
+          <ul class="ins-pain-list">
             <li>
-              <div class="pain-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
-              <div class="pain-text">
+              <div class="ins-pain-icon"><svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,6 5,9 10,3" stroke-width="1.5"></polyline></svg></div>
+              <div class="ins-pain-text">
                 <strong>Quote follow-up leaking revenue</strong>
                 <span>Prospects go cold while your team handles everything else first.</span>
               </div>
             </li>
             <li>
-              <div class="pain-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
-              <div class="pain-text">
+              <div class="ins-pain-icon"><svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,6 5,9 10,3" stroke-width="1.5"></polyline></svg></div>
+              <div class="ins-pain-text">
                 <strong>Renewal emails written from scratch, every time</strong>
                 <span>The same message, slightly different. Repeated hundreds of times a year.</span>
               </div>
             </li>
             <li>
-              <div class="pain-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
-              <div class="pain-text">
+              <div class="ins-pain-icon"><svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,6 5,9 10,3" stroke-width="1.5"></polyline></svg></div>
+              <div class="ins-pain-text">
                 <strong>New client intake still on the phone</strong>
                 <span>30 minutes per new client to capture information that a form could collect in three.</span>
               </div>
             </li>
             <li>
-              <div class="pain-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
-              <div class="pain-text">
+              <div class="ins-pain-icon"><svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,6 5,9 10,3" stroke-width="1.5"></polyline></svg></div>
+              <div class="ins-pain-text">
                 <strong>No clear starting point for AI</strong>
                 <span>You've looked at the tools. The options are overwhelming and none are built for an agency your size.</span>
               </div>
             </li>
           </ul>
         </div>
-        <div class="insight-block">
-          <p class="insight-quote">Where do they start, how to adopt it, ease of use, risks, and responsible change management — these are the questions agents keep asking.</p>
-          <p class="insight-source">Kasey Connors, Executive Director — Big I Agents Council for Technology</p>
-          <div class="insight-stat">
-            <div class="insight-stat-item">
-              <div class="insight-stat-num">6%</div>
-              <div class="insight-stat-label">of independent agency principals have actually implemented an AI solution</div>
+        <div class="ins-insight">
+          <p class="ins-insight-quote">Where do they start, how to adopt it, ease of use, risks, and responsible change management — these are the questions agents keep asking.</p>
+          <p class="ins-insight-source">Kasey Connors, Executive Director — Big I Agents Council for Technology</p>
+          <div class="ins-insight-stats">
+            <div>
+              <div class="ins-insight-num">6%</div>
+              <div class="ins-insight-stat-label">of independent agency principals have actually implemented an AI solution</div>
             </div>
-            <div class="insight-stat-item">
-              <div class="insight-stat-num">66%</div>
-              <div class="insight-stat-label">plan to increase AI usage in the next 12 months — without a clear plan for how</div>
+            <div>
+              <div class="ins-insight-num">66%</div>
+              <div class="ins-insight-stat-label">plan to increase AI usage in the next 12 months — without a clear plan for how</div>
             </div>
           </div>
         </div>
@@ -957,25 +573,24 @@
     </div>
   </section>
 
-  <!-- WHO -->
-  <section class="who">
-    <div class="container">
-      <p class="section-label" style="color:var(--teal-deep)">Who This Is For</p>
-      <h2>Built for the agency principal who runs the business and works in it.</h2>
-      <p class="who-intro">Not for carriers. Not for enterprise brokerages. For the owner-operator who knows their team is working harder than the revenue justifies — and suspects some of that work shouldn't exist.</p>
-      <div class="who-cards">
-        <div class="who-card">
-          <div class="who-card-tag">Size</div>
+  <section class="ins-section ins-who" id="who">
+    <div class="ins-container">
+      <p class="section-label">Who this is for</p>
+      <h2 class="section-title">Built for the agency principal who runs the business <em>and works in it.</em></h2>
+      <p class="ins-who-intro">Not for carriers. Not for enterprise brokerages. For the owner-operator who knows their team is working harder than the revenue justifies — and suspects some of that work shouldn't exist.</p>
+      <div class="ins-who-cards">
+        <div class="ins-who-card">
+          <div class="ins-who-tag">Size</div>
           <h3>5 to 30 staff</h3>
           <p>Small enough that every hour matters. Large enough that manual processes have compounded into real inefficiency.</p>
         </div>
-        <div class="who-card">
-          <div class="who-card-tag">Situation</div>
+        <div class="ins-who-card">
+          <div class="ins-who-tag">Situation</div>
           <h3>High email and follow-up volume</h3>
           <p>Your team spends a meaningful part of every day on communication that follows the same pattern, every time.</p>
         </div>
-        <div class="who-card">
-          <div class="who-card-tag">Mindset</div>
+        <div class="ins-who-card">
+          <div class="ins-who-tag">Mindset</div>
           <h3>AI-curious, not AI-committed</h3>
           <p>You're not looking for a technology overhaul. You want to know: what should we actually do, and what will it take?</p>
         </div>
@@ -983,87 +598,75 @@
     </div>
   </section>
 
-  <!-- HOW -->
-  <section class="how" id="how">
-    <div class="container">
-      <div class="how-intro-row">
+  <section class="ins-section ins-how" id="how">
+    <div class="ins-container">
+      <div class="ins-how-intro-row">
         <div>
-          <p class="section-label">How It Works</p>
-          <h2>A clear plan.<br>No software to buy.</h2>
+          <p class="section-label teal">How it works</p>
+          <h2 class="section-title">A clear plan.<br><em>No software to buy.</em></h2>
         </div>
-        <p class="how-intro-text">We don't sell platforms. We don't add tools for the sake of it. We spend time inside your actual workflows, identify exactly where the manual work is heaviest, and hand you a written action plan you can implement immediately — with or without us.</p>
+        <p class="ins-how-intro-text">We don't sell platforms. We don't add tools for the sake of it. We spend time inside your actual workflows, identify exactly where the manual work is heaviest, and hand you a written action plan you can implement immediately — with or without us.</p>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <h3>Workflow Review</h3>
+      <div class="ins-steps">
+        <div class="ins-step">
+          <div class="ins-step-num">01</div>
+          <h3>Business Systems Review</h3>
           <p>A focused session — in person or remote — walking through your current operations. Quote follow-up, client intake, renewals, internal communications. We map where time is going.</p>
-          <p class="step-detail">90 minutes · fixed price</p>
+          <p class="ins-step-tag">90 minutes · fixed price</p>
         </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <h3>Written Action Plan</h3>
+        <div class="ins-step">
+          <div class="ins-step-num">02</div>
+          <h3>Written action plan</h3>
           <p>A clear document identifying your top three to five automation opportunities, ranked by time saved and implementation effort. No jargon. No vague recommendations.</p>
-          <p class="step-detail">Delivered within 48 hours</p>
+          <p class="ins-step-tag">Delivered within 48 hours</p>
         </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <h3>Implementation — Your Call</h3>
-          <p>You take the plan and run with it internally, or we build it for you in a focused implementation sprint. Either way, the review stands on its own.</p>
-          <p class="step-detail">No retainer required</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DELIVERABLES -->
-  <section class="delivers">
-    <div class="container">
-      <div class="delivers-inner">
-        <div>
-          <p class="section-label">What We Build</p>
-          <h2>Concrete workflows, not slide decks about AI strategy.</h2>
-          <p class="delivers-sub">When agencies move from review to implementation, the work is specific and practical. These are the workflows we build most often for agencies your size.</p>
-          <ul class="deliver-items">
-            <li>AI-assisted quote follow-up sequence — email and SMS draft templates with automated triggers</li>
-            <li>Client renewal communication workflow — personalised at scale, no manual drafting</li>
-            <li>New client intake form with automatic summary to your AMS</li>
-            <li>Internal SOP documentation built with AI — searchable, updatable, staff-ready</li>
-            <li>Staff prompt library for daily client communications</li>
-          </ul>
-        </div>
-        <div class="guarantee-box">
-          <div class="guarantee-label">Our Commitment</div>
-          <p class="guarantee-text">"If the review doesn't give you three clear, actionable improvements you can implement immediately — you don't pay."</p>
-          <p class="guarantee-fine">We've reviewed enough agencies to know that three improvements is a floor, not a ceiling. The typical review surfaces five to eight hours of recoverable time per staff member per week. If yours doesn't, we'll tell you — and we won't charge you.</p>
+        <div class="ins-step">
+          <div class="ins-step-num">03</div>
+          <h3>Implementation — your call</h3>
+          <p>You take the plan and run with it internally, or we build it for you in a focused Implementation Sprint. Either way, the review stands on its own.</p>
+          <p class="ins-step-tag">No retainer required</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROOF -->
-  <section class="proof">
-    <div class="container">
-      <p class="section-label">Early Clients</p>
-      <h2>What principals say after the review.</h2>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <p class="proof-quote">"I'd been telling myself we'd sort out the follow-up process for two years. The review made it concrete. We had three things to fix, and we knew exactly how to fix them. One afternoon of work and it was running."</p>
-          <div class="proof-author">
-            <div class="proof-avatar">JM</div>
+  <section class="ins-section ins-delivers" id="delivers">
+    <div class="ins-container ins-delivers-inner">
+      <p class="section-label teal">What we build</p>
+      <h2 class="section-title">Concrete workflows, <em>not slide decks about AI strategy.</em></h2>
+      <p class="ins-delivers-sub">When agencies move from review to implementation, the work is specific and practical. These are the workflows we build most often for agencies your size.</p>
+      <ul class="ins-deliver-items">
+        <li>AI-assisted quote follow-up sequence — email and SMS draft templates with automated triggers</li>
+        <li>Client renewal communication workflow — personalised at scale, no manual drafting</li>
+        <li>New client intake form with automatic summary to your AMS</li>
+        <li>Internal SOP documentation built with AI — searchable, updatable, staff-ready</li>
+        <li>Staff prompt library for daily client communications</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ins-section ins-proof" id="proof">
+    <div class="ins-container">
+      <p class="section-label">Early clients</p>
+      <h2 class="section-title">What principals say <em>after the review.</em></h2>
+      <div class="ins-proof-grid">
+        <div class="ins-proof-card">
+          <p class="ins-proof-quote">"I'd been telling myself we'd sort out the follow-up process for two years. The review made it concrete. We had three things to fix, and we knew exactly how to fix them. One afternoon of work and it was running."</p>
+          <div class="ins-proof-author">
+            <div class="ins-proof-avatar">JM</div>
             <div>
-              <div class="proof-name">Independent Agency Principal</div>
-              <div class="proof-title">Personal Lines · Texas</div>
+              <div class="ins-proof-name">Independent agency principal</div>
+              <div class="ins-proof-title">Personal lines · Texas</div>
             </div>
           </div>
         </div>
-        <div class="proof-card">
-          <p class="proof-quote">"I expected a pitch for some new software platform. Instead I got a two-page document that was more useful than six months of researching AI tools on my own. We implemented two workflows before the end of the week."</p>
-          <div class="proof-author">
-            <div class="proof-avatar">RK</div>
+        <div class="ins-proof-card">
+          <p class="ins-proof-quote">"I expected a pitch for some new software platform. Instead I got a two-page document that was more useful than six months of researching AI tools on my own. We implemented two workflows before the end of the week."</p>
+          <div class="ins-proof-author">
+            <div class="ins-proof-avatar">RK</div>
             <div>
-              <div class="proof-name">Agency Owner</div>
-              <div class="proof-title">Commercial &amp; Personal Lines · Florida</div>
+              <div class="ins-proof-name">Agency owner</div>
+              <div class="ins-proof-title">Commercial &amp; personal lines · Florida</div>
             </div>
           </div>
         </div>
@@ -1071,26 +674,78 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section" id="book">
-    <div class="cta-inner">
-      <p class="section-label">Get Started</p>
-      <h2 class="cta-h2">Find out exactly where your agency is losing time.<br><em>In 90 minutes.</em></h2>
-      <p class="cta-sub">A fixed-price workflow review for independent insurance agencies. Written action plan included. No software to buy. No retainer required.</p>
-      <div class="cta-actions">
-        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-lg">Book Your Workflow Review</a>
-      </div>
-      <p class="cta-note">Fixed price · Delivered within 48 hours · No obligation to continue</p>
+  <section class="ins-cta-band" id="book">
+    <div class="ins-cta-inner">
+      <p class="section-label">Get started</p>
+      <h2 class="section-title">Find out exactly where your agency is losing time.<br><em>In 90 minutes.</em></h2>
+      <p class="ins-cta-sub">A fixed-price Business Systems Review for independent insurance agencies. Written action plan included. No software to buy. No retainer required.</p>
+      <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-primary" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'insurance_footer_cta'})">Book your Business Systems Review</a>
+      <p class="ins-cta-note">Fixed price · Delivered within 48 hours · No obligation to continue</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <style>
+    .footer-nl{background:#0a0a0f;border-top:1px solid rgba(255,255,255,0.04);padding:1.5rem 4rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+    .footer-nl-label{font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+    .footer-nl-link{font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.04em;color:#c9a84c;text-decoration:none;transition:color 0.2s,letter-spacing 0.2s;}
+    .footer-nl-link:hover{color:#e8c97a;letter-spacing:0.06em;}
+    @media(max-width:768px){.footer-nl{padding:1.25rem 2rem;}}
+  </style>
+  <div class="footer-nl">
+    <span class="footer-nl-label" data-i18n="footer.newsletter">Newsletter</span>
+    <a href="/#newsletter" class="footer-nl-link" data-i18n="footer.newsletter_cta">Get practical AI insights — subscribe →</a>
+  </div>
+
   <footer>
-    <div class="footer-inner">
-      <a href="https://gamperklimmek.com" class="footer-logo">Gamper<span>.</span>Klimmek</a>
-      <p class="footer-meta">AI Workflow Consulting · hello@gamperklimmek.com</p>
-    </div>
+    <a href="/" class="footer-logo" style="text-decoration:none">Gamper<span>.</span>Klimmek</a>
+    <ul class="footer-links">
+      <li><a href="/#who" data-i18n="nav.who">Who It's For</a></li>
+      <li><a href="/story" data-i18n="nav.story">Our Story</a></li>
+      <li><a href="/businesses" data-i18n="nav.businesses">For Businesses</a></li>
+      <li><a href="/resources" data-i18n="nav.cases">Case Studies</a></li>
+      <li><a href="/#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <a href="/legal.html" style="font-size:0.8rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer.legal">Impressum &amp; Privacy Policy</a>
+    <button type="button" onclick="window.GK_openCookieSettings()" style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:rgba(255,255,255,0.2);font-family:inherit;padding:0;margin-left:1rem;transition:color 0.3s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='rgba(255,255,255,0.2)'" data-i18n="footer.cookie_settings">Cookie Settings</button>
+    <span class="footer-copy" data-i18n="footer.copyright">© 2026 Gamper Klimmek Consulting · Lucerne, Switzerland</span>
   </footer>
 
+  <script src="/i18n.js?v=20260320"></script>
+  <script src="/currency.js?v=20260319"></script>
+  <script>
+    function closeMobile() {
+      const menu = document.getElementById("mobileMenu");
+      const hamburger = document.getElementById("hamburger");
+      if (menu) menu.classList.remove("open");
+      if (hamburger) hamburger.classList.remove("active");
+    }
+    function toggleMobile() {
+      const menu = document.getElementById("mobileMenu");
+      const hamburger = document.getElementById("hamburger");
+      if (menu) menu.classList.toggle("open");
+      if (hamburger) hamburger.classList.toggle("active");
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.getElementById("hamburger");
+      if (hamburger) hamburger.addEventListener("click", toggleMobile);
+    });
+    (function () {
+      const hero = document.getElementById("hero");
+      const navBtn = document.getElementById("navStickyBooking");
+      const navRegularBtn = document.getElementById("navRegularBooking");
+      if (!hero || !navBtn) return;
+      window.addEventListener("scroll", function () {
+        const h = hero.offsetHeight || window.innerHeight;
+        if (window.scrollY > h * 0.8) {
+          navBtn.classList.add("visible");
+          if (navRegularBtn) navRegularBtn.style.display = "none";
+        } else {
+          navBtn.classList.remove("visible");
+          if (navRegularBtn) navRegularBtn.style.display = "";
+        }
+      }, { passive: true });
+    })();
+  </script>
+  <script src="/cookie-consent.js?v=20260319"></script>
 </body>
 </html>
