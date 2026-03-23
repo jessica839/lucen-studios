@@ -374,7 +374,7 @@ nav {
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ── PHILOSOPHY ── */
-.philosophy { background: var(--ink); padding: 8rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.philosophy { background: var(--ink); padding: 7rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
 .philosophy-inner { max-width: 720px; margin: 0 auto; }
 .philosophy-inner .section-label { color: var(--gold); }
 .philosophy-inner .section-label::before { background: var(--gold); }
@@ -661,7 +661,8 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .nav-hamburger { display: block; }
 
   .hero { padding: 8rem 1.5rem 5rem; }
-  .problem, .flow, .who, .process, .cases, .story, .philosophy, .audit-embed, .contact, .newsletter, .leak-calc { padding: 5rem 1.5rem; }
+  .problem, .flow, .who, .process, .cases, .story, .philosophy { padding: 5rem 1.25rem; }
+  .audit-embed, .contact, .newsletter, .leak-calc { padding: 5rem 1.5rem; }
   .newsletter { padding: 4rem 1.5rem; }
   .trust-strip { padding: 2.5rem 1.5rem; }
   footer { padding: 2.5rem 1.5rem; flex-direction: column; align-items: flex-start; }
