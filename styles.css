@@ -373,6 +373,17 @@ nav {
 .ticker-item span { color: var(--gold); margin-right: 1rem; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+/* ── PHILOSOPHY ── */
+.philosophy { background: var(--ink); padding: 8rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.philosophy-inner { max-width: 720px; margin: 0 auto; }
+.philosophy-inner .section-label { color: var(--gold); }
+.philosophy-inner .section-label::before { background: var(--gold); }
+.philosophy-inner .section-title { color: var(--white); }
+.philosophy-inner .section-title em { color: var(--gold); }
+.philosophy-body { margin-top: 2.5rem; }
+.philosophy-body p { font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
+.philosophy-sign { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 2rem; }
+
 /* ── TRUST STRIP ── */
 .trust-strip { background: var(--paper); color: var(--ink); padding: 3rem 4rem; border-bottom: 1px solid rgba(10,10,15,0.08); }
 .trust-strip-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
@@ -384,7 +395,7 @@ nav {
 .trust-badge { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(10,10,15,0.5); border: 1px solid rgba(10,10,15,0.15); padding: 0.35rem 0.8rem; }
 
 /* ── PROBLEM ── */
-.problem { background: var(--paper); color: var(--ink); padding: 7rem 4rem; }
+.problem { background: var(--paper); color: var(--ink); padding: 8rem 4rem; }
 .problem-inner { max-width: var(--max); margin: 0 auto; }
 .problem-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
 .problem-intro { font-size: 1.05rem; line-height: 1.8; color: rgba(10,10,15,0.6); }
@@ -400,14 +411,14 @@ nav {
 .invisible-work-list li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: rgba(10,10,15,0.7); }
 .invisible-work-list li::before { content: '—'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
 .invisible-work-right { display: flex; flex-direction: column; justify-content: center; border-left: 1px solid rgba(10,10,15,0.08); padding-left: 2rem; }
-.invisible-work-right p { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; font-style: italic; line-height: 1.5; color: var(--ink); margin-bottom: 1.5rem; }
+.invisible-work-right p { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; font-style: italic; line-height: 1.5; color: var(--ink); margin-bottom: 0; }
 
 .problem-cta-band { margin-top: 4rem; background: var(--ink); padding: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
 .problem-cta-band p { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; font-style: italic; color: var(--white); max-width: 520px; line-height: 1.4; }
 .problem-cta-band p em { color: var(--gold); font-style: normal; }
 
 /* ── FLOW ── */
-.flow { background: var(--ink); padding: 7rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.flow { background: var(--ink); padding: 8rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
 .flow-inner { max-width: var(--max); margin: 0 auto; }
 .flow-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
 .flow-intro { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.5); }
@@ -423,11 +434,11 @@ nav {
 }
 
 /* ── WHO ── */
-.who { background: var(--paper); color: var(--ink); padding: 7rem 4rem; }
+.who { background: var(--paper); color: var(--ink); padding: 8rem 4rem; }
 .who-inner { max-width: var(--max); margin: 0 auto; }
 .who-header { margin-bottom: 4rem; }
 .who-intro { font-size: 1.05rem; line-height: 1.8; color: rgba(10,10,15,0.6); max-width: 600px; margin-top: 1rem; }
-.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 .who-card { padding: 3rem 2.5rem; background: var(--white); border: 1px solid rgba(10,10,15,0.08); transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
 .who-card-link { display: block; color: inherit; text-decoration: none; cursor: pointer; }
 .who-card-link:hover { border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(26,107,122,0.08); }
@@ -440,7 +451,7 @@ nav {
 .who-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
 
 /* ── PROCESS ── */
-.process { background: var(--ink); padding: 7rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.process { background: var(--ink); padding: 8rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
 .process-inner { max-width: var(--max); margin: 0 auto; }
 .process-header { margin-bottom: 4rem; }
 .process-intro { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.5); max-width: 540px; margin-top: 1rem; }
@@ -453,7 +464,7 @@ nav {
 .process-step p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.75; }
 
 /* ── CASE STUDIES ── */
-.cases { background: var(--paper); color: var(--ink); padding: 7rem 4rem; }
+.cases { background: var(--paper); color: var(--ink); padding: 8rem 4rem; }
 .cases-inner { max-width: var(--max); margin: 0 auto; }
 .cases-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
 .cases-intro { font-size: 1rem; line-height: 1.8; color: rgba(10,10,15,0.6); }
@@ -507,7 +518,7 @@ nav {
 .form-note { font-size: 0.72rem; color: rgba(255,255,255,0.22); text-align: center; }
 
 /* ── STORY / OUR HISTORY ── */
-.story { background: var(--ink); padding: 7rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.story { background: var(--ink); padding: 8rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
 .story-inner { max-width: var(--max); margin: 0 auto; }
 .story-header { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; margin-bottom: 5rem; }
 .story-intro-text { font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,0.55); padding-top: 0.5rem; }
@@ -650,7 +661,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .nav-hamburger { display: block; }
 
   .hero { padding: 8rem 1.5rem 5rem; }
-  .problem, .flow, .who, .process, .cases, .story, .audit-embed, .contact, .newsletter, .leak-calc { padding: 5rem 1.5rem; }
+  .problem, .flow, .who, .process, .cases, .story, .philosophy, .audit-embed, .contact, .newsletter, .leak-calc { padding: 5rem 1.5rem; }
   .newsletter { padding: 4rem 1.5rem; }
   .trust-strip { padding: 2.5rem 1.5rem; }
   footer { padding: 2.5rem 1.5rem; flex-direction: column; align-items: flex-start; }
