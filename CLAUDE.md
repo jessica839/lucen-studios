@@ -42,6 +42,8 @@ EUR/USD amounts are computed via `currency.js` from `data-price-usd` base values
 - `operators.html` — service page for experience/tour operators
 - `operators-new.html` — in-progress updated operators page
 - `dive-suite.html` — dive-specific product page
+- `insurance.html` — service page for independent insurance agencies
+- `event-quiz.html` — German-language pain-point quiz (lead-gen, posts to `/api/submit-quiz`)
 - `story.html` — team/about page
 - `resources.html` — resources/newsletter page
 - `start.html` — engagement/start page
@@ -60,7 +62,11 @@ EUR/USD amounts are computed via `currency.js` from `data-price-usd` base values
 
 ### Serverless API
 
-- `api/submit-case-study.js` — Vercel serverless function (POST `/api/submit-case-study`). Accepts `{ firstName, email, company, cases }` where `cases` is an array of `"cs1"` / `"cs2"` / `"cs3"`. Creates or upserts a GoHighLevel contact and enrolls them in the corresponding GHL workflow(s). Requires env vars `GHL_API_KEY` and `GHL_LOCATION_ID` (location ID has a hardcoded fallback).
+All three endpoints are Vercel serverless functions that upsert contacts into GoHighLevel. They share the env vars `GHL_API_KEY` and `GHL_LOCATION_ID` (location ID has a hardcoded fallback). Each endpoint enforces an `ALLOWED_ORIGINS` allowlist (`gamperklimmek.com` plus `*.vercel.app` previews).
+
+- `api/submit-case-study.js` — POST `/api/submit-case-study`. Accepts `{ firstName, email, company, cases }` where `cases` is an array of `"cs1"` / `"cs2"` / `"cs3"`. Creates or upserts a GHL contact and enrolls them in the corresponding GHL workflow(s).
+- `api/submit-calc-lead.js` — POST `/api/submit-calc-lead`. Calculator lead-capture: tags the GHL contact with their estimated annual cost. Has an in-memory rate limiter (5 requests / 10 min per IP).
+- `api/submit-quiz.js` — POST `/api/submit-quiz`. Receives quiz results from `event-quiz.html` and tags the contact with one of the pain-point tags: `pain-comms`, `pain-admin`, `pain-followup`, `pain-content`.
 
 ### Config
 
