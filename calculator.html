@@ -449,9 +449,7 @@
 
           <div class="leak-calc-audit">
             <p class="leak-calc-audit-title" data-i18n="calc.results.audit.title">Business Systems Review</p>
-            <p class="leak-calc-audit-price">CHF 950</p>
-            <p class="leak-calc-audit-equivalent" id="calcAuditEquivalent">CHF 1’500</p>
-            <p class="leak-calc-audit-note" data-i18n="calc.results.audit.note">Approximate equivalent.</p>
+            <p class="leak-calc-audit-equivalent" data-i18n="calc.results.audit.note">Fixed scope · contact for pricing</p>
           </div>
 
           <p class="leak-calc-support" data-i18n="calc.results.support">Even small improvements in your workflows can recover a significant amount of this time.</p>
@@ -524,8 +522,6 @@
   <script src="/currency.js"></script>
   <script>
     const CALC_SALARY_DEFAULTS = { CHF: 60000, EUR: 60000, USD: 65000 };
-    const CALC_AUDIT_EQUIVALENTS = { CHF: "CHF 950", EUR: "EUR 950", USD: "USD 990" };
-    const CALC_AUDIT_PRICE_CHF = 950;
 
     function i18nText(key, fallback) {
       if (typeof t === "function") return t(key) || fallback;
@@ -576,7 +572,6 @@
       document.getElementById("calcYearlyHoursLost").textContent = String(Math.round(totalYearlyHoursLost));
       document.getElementById("calcEstimatedAnnualCost").textContent = formatMoney(estimatedAnnualCost, currency);
       document.getElementById("calcRecoverableSavings").textContent = formatMoney(recoverableSavings, currency);
-      document.getElementById("calcAuditEquivalent").textContent = CALC_AUDIT_EQUIVALENTS[currency] || CALC_AUDIT_EQUIVALENTS.CHF;
 
       // Show/hide workflow audit and refresh its costs when main inputs change
       if (typeof showWfAudit === "function") showWfAudit(estimatedAnnualCost > 0);
