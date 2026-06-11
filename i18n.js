@@ -121,7 +121,7 @@ const translations = {
 
     /* Work showcase */
     'work.hero.label': 'Selected work',
-    'work.hero.title': 'Web design &amp; automation projects.<br><em>Built by us. Running in production.</em>',
+    'work.hero.title': 'Web design &amp; AI automation projects.<br><em>Built by us. Running in production.</em>',
     'work.hero.intro': 'Selected web builds and systems sites from Gamper Klimmek Consulting and Lucen Studios. Websites like these are one output of an Implementation Sprint: strategy, copy, design, build, launch, and the operational workflows around it.',
     'work.projects.title': 'Selected projects',
     'work.visit': 'Visit live site &rarr;',
