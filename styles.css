@@ -500,6 +500,84 @@ nav {
 .cases-success h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; margin-bottom: 0.5rem; }
 .cases-success p { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin-bottom: 1.25rem; }
 
+/* ── SELECTED WORK TEASER ── */
+.work-teaser {
+  background: var(--ink);
+  color: var(--white);
+  padding: 6rem 4rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.work-teaser-inner { max-width: var(--max); margin: 0 auto; }
+.work-teaser-header {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: end;
+  margin-bottom: 2.5rem;
+}
+.work-teaser h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.7rem);
+  line-height: 1.08;
+  font-weight: 900;
+}
+.work-teaser h2 em { color: var(--gold); font-style: italic; }
+.work-teaser-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+.work-teaser-copy p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.58);
+  max-width: 34rem;
+}
+.work-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.work-teaser-card {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-width: 0;
+  color: var(--white);
+  text-decoration: none;
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.11);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.work-teaser-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(201,168,76,0.48);
+  background: rgba(255,255,255,0.055);
+}
+.work-teaser-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.work-teaser-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.work-teaser-tag {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 1rem 1rem 0.35rem;
+}
+.work-teaser-card strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.22rem;
+  line-height: 1.12;
+  font-weight: 900;
+  padding: 0 1rem 1.1rem;
+}
+
 /* Shared form inputs */
 .form-input {
   background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
@@ -662,13 +740,15 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
 
   .hero { padding: 8rem 1.5rem 5rem; }
   .problem, .flow, .who, .process, .cases, .story, .philosophy { padding: 5rem 1.25rem; }
+  .work-teaser { padding: 5rem 1.5rem; }
   .audit-embed, .contact, .newsletter, .leak-calc { padding: 5rem 1.5rem; }
   .newsletter { padding: 4rem 1.5rem; }
   .trust-strip { padding: 2.5rem 1.5rem; }
   footer { padding: 2.5rem 1.5rem; flex-direction: column; align-items: flex-start; }
 
-  .problem-header, .flow-header, .cases-header, .story-header, .contact-inner, .newsletter-inner, .audit-embed-inner, .leak-calc-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .problem-header, .flow-header, .cases-header, .story-header, .work-teaser-header, .contact-inner, .newsletter-inner, .audit-embed-inner, .leak-calc-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .problem-grid, .process-steps, .cases-grid, .who-grid, .team-grid { grid-template-columns: 1fr; }
+  .work-teaser-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .flow-diagram { grid-template-columns: repeat(3, 1fr); }
   .invisible-work-block { grid-template-columns: 1fr; }
   .invisible-work-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(10,10,15,0.08); padding-top: 1.5rem; }
@@ -705,6 +785,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .contact-inner,
   .newsletter-inner { gap: 2rem; }
   .newsletter { padding: 3.5rem 1.25rem; }
+  .work-teaser-grid { grid-template-columns: 1fr; }
   .contact-embed-frame { min-height: 460px; }
   .hero h1 { font-size: 2.4rem; }
 }

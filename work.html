@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selected Work | Gamper Klimmek Consulting</title>
+  <meta name="description" content="Selected live website and systems work by Gamper Klimmek Consulting and Lucen Studios." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.gamperklimmek.com/work" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Selected Work | Gamper Klimmek Consulting" />
+  <meta property="og:description" content="Selected live website and systems work by Gamper Klimmek Consulting and Lucen Studios." />
+  <meta property="og:url" content="https://www.gamperklimmek.com/work" />
+  <meta property="og:image" content="https://www.gamperklimmek.com/og-image.png" />
+  <meta property="og:site_name" content="Gamper Klimmek Consulting" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Selected Work | Gamper Klimmek Consulting" />
+  <meta name="twitter:description" content="Selected live website and systems work by Gamper Klimmek Consulting and Lucen Studios." />
+  <meta name="twitter:image" content="https://www.gamperklimmek.com/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.gamperklimmek.com/#organization",
+        "name": "Gamper Klimmek Consulting",
+        "url": "https://www.gamperklimmek.com/",
+        "image": "https://www.gamperklimmek.com/og-image.png",
+        "logo": "https://www.gamperklimmek.com/apple-touch-icon.png",
+        "email": "hello@gamperklimmek.com"
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.gamperklimmek.com/work#webpage",
+        "url": "https://www.gamperklimmek.com/work",
+        "name": "Selected Work",
+        "isPartOf": {
+          "@id": "https://www.gamperklimmek.com/#organization"
+        },
+        "about": [
+          "Website design",
+          "Static websites",
+          "AI automation",
+          "Business systems"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="/fonts.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      wait_for_update: 500
+    });
+  </script>
+
+  <style>
+    body.work-page { background: var(--paper); color: var(--ink); }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .work-hero {
+      min-height: 72vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 10rem 4rem 5rem;
+      background:
+        linear-gradient(135deg, rgba(13,61,71,0.74) 0%, rgba(10,10,15,0.97) 62%),
+        url('/assets/img/hero-bg.jpg') center/cover no-repeat;
+    }
+    .work-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.026) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at 36% 54%, black 18%, transparent 70%);
+      pointer-events: none;
+    }
+    .work-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+    }
+    .work-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.65rem, 6vw, 5.6rem);
+      line-height: 1.02;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .work-hero h1 em { font-style: italic; color: var(--gold); }
+    .work-hero-sub {
+      max-width: 640px;
+      font-size: 1.06rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.66);
+    }
+
+    .work-projects {
+      background: var(--paper);
+      padding: 6.5rem 4rem 5rem;
+    }
+    .work-projects-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .work-project {
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(280px, 5fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+      padding: 4.25rem 0;
+      border-top: 1px solid rgba(10,10,15,0.1);
+    }
+    .work-project:first-child { padding-top: 0; border-top: 0; }
+    .work-project:nth-child(even) .work-shot { order: 2; }
+    .work-shot {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      background: rgba(10,10,15,0.08);
+      border: 1px solid rgba(10,10,15,0.12);
+      box-shadow: 0 28px 80px rgba(10,10,15,0.16);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .work-shot:hover {
+      transform: translateY(-4px);
+      border-color: rgba(26,107,122,0.45);
+      box-shadow: 0 34px 90px rgba(10,10,15,0.2);
+    }
+    .work-shot:focus-visible,
+    .work-link:focus-visible,
+    .work-cta .btn-primary:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 4px;
+    }
+    .work-shot img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+    .work-client {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.85rem;
+    }
+    .work-project h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.85rem, 3vw, 3rem);
+      line-height: 1.08;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .work-desc {
+      font-size: 1rem;
+      line-height: 1.78;
+      color: rgba(10,10,15,0.66);
+      margin-bottom: 1.4rem;
+    }
+    .work-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .work-tag {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-deep);
+      background: rgba(26,107,122,0.08);
+      border: 1px solid rgba(26,107,122,0.18);
+      padding: 0.42rem 0.64rem;
+    }
+    .work-note {
+      border-top: 1px solid rgba(10,10,15,0.1);
+      border-bottom: 1px solid rgba(10,10,15,0.1);
+      padding: 1rem 0;
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: rgba(10,10,15,0.56);
+    }
+    .work-link {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,107,122,0.3);
+      padding-bottom: 0.18rem;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .work-link:hover { color: var(--teal-deep); border-color: var(--teal-deep); }
+
+    .work-cta {
+      background: var(--teal-deep);
+      color: var(--white);
+      padding: 5rem 4rem;
+    }
+    .work-cta-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+    .work-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.08;
+      font-weight: 900;
+    }
+    .work-cta p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.68);
+      max-width: 620px;
+    }
+
+    .work-hero .section-label,
+    .work-hero h1,
+    .work-hero-sub { animation: fadeUp 0.8s ease both; }
+    .work-hero h1 { animation-delay: 0.18s; }
+    .work-hero-sub { animation-delay: 0.32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .work-hero .section-label,
+      .work-hero h1,
+      .work-hero-sub {
+        animation: none;
+      }
+      .work-shot,
+      .work-shot:hover {
+        transition: none;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .work-hero { padding: 8rem 1.5rem 4.5rem; min-height: 62vh; }
+      .work-projects { padding: 5rem 1.5rem 4rem; }
+      .work-project,
+      .work-cta-inner { grid-template-columns: 1fr; }
+      .work-project:nth-child(even) .work-shot { order: 0; }
+      .work-cta { padding: 4rem 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .work-hero { padding: 7rem 1.25rem 4rem; }
+      .work-projects { padding: 4rem 1.25rem 3rem; }
+      .work-project { padding: 3rem 0; }
+      .work-tags { gap: 0.42rem; }
+      .work-tag { font-size: 0.54rem; }
+    }
+  </style>
+</head>
+<body class="work-page">
+
+  <nav>
+    <a href="/" class="nav-logo">Gamper<span>.</span>Klimmek</a>
+    <ul class="nav-links">
+      <li><a href="/#problem" data-i18n="nav.problems">The Problem</a></li>
+      <li><a href="/#solution" data-i18n="nav.what_changes">What We Fix</a></li>
+      <li><a href="/#cases" data-i18n="nav.cases">Case Studies</a></li>
+      <li><a href="/work" data-i18n="nav.work">Work</a></li>
+      <li>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+        </div>
+      </li>
+      <li><a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="nav-cta" data-i18n="nav.book_call">Book a call</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#problem" onclick="closeMobile()" data-i18n="nav.problems">The Problem</a>
+    <a href="/#solution" onclick="closeMobile()" data-i18n="nav.what_changes">What We Fix</a>
+    <a href="/#cases" onclick="closeMobile()" data-i18n="nav.cases">Case Studies</a>
+    <a href="/work" onclick="closeMobile()" data-i18n="nav.work">Work</a>
+    <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" onclick="closeMobile()" style="color:var(--gold)" data-i18n="nav.book_call">Book a call</a>
+    <div class="mobile-lang">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="de">DE</button>
+      <button data-lang="fr">FR</button>
+    </div>
+  </div>
+
+  <main>
+    <section class="work-hero">
+      <div class="work-hero-inner">
+        <p class="section-label" data-i18n="work.hero.label">Selected work</p>
+        <h1 data-i18n="work.hero.title">Built by us.<br><em>Running in production.</em></h1>
+        <p class="work-hero-sub" data-i18n="work.hero.intro">Selected web builds and systems sites from Gamper Klimmek Consulting and Lucen Studios. Websites like these are one output of an Implementation Sprint: strategy, copy, design, build, launch, and the operational workflows around it.</p>
+      </div>
+    </section>
+
+    <section class="work-projects" aria-labelledby="work-projects-title">
+      <div class="work-projects-inner">
+        <h2 id="work-projects-title" class="sr-only" data-i18n="work.projects.title">Selected projects</h2>
+
+        <article class="work-project" id="project-jahresanzeigen">
+          <a class="work-shot" href="https://jahresanzeigen.de" target="_blank" rel="noopener">
+            <img src="/assets/img/work/jahresanzeigen-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of Jahresanzeigen.de homepage with headline Ihre Stelle bleibt der Mittelpunkt." data-i18n="work.alt.1" data-i18n-attr="alt">
+          </a>
+          <div class="work-copy">
+            <p class="work-client" data-i18n="work.p1.client">Prime Job Consulting</p>
+            <h2 data-i18n="work.p1.title">Jahresanzeigen.de - Recruiting, planbar gemacht</h2>
+            <p class="work-desc" data-i18n="work.p1.desc">Conversion-focused B2B site for a recruiting multiposting service. Framework-free static build, AI-search-optimized, live SEO blog, and German legal compliance.</p>
+            <div class="work-tags">
+              <span class="work-tag" data-i18n="work.p1.tag1">B2B</span>
+              <span class="work-tag" data-i18n="work.p1.tag2">Static HTML</span>
+              <span class="work-tag" data-i18n="work.p1.tag3">SEO / GEO</span>
+              <span class="work-tag" data-i18n="work.p1.tag4">German market</span>
+            </div>
+            <p class="work-note" data-i18n="work.p1.note">Static HTML/CSS/JS with JSON-LD schema, FAQPage markup, llms.txt, and SEO content built around real recruiting searches.</p>
+            <a class="work-link" href="https://jahresanzeigen.de" target="_blank" rel="noopener" data-i18n="work.visit">Visit live site &rarr;</a>
+          </div>
+        </article>
+
+        <article class="work-project" id="project-xolo">
+          <a class="work-shot" href="https://www.energybyxolo.com/en" target="_blank" rel="noopener">
+            <img src="/assets/img/work/xolo-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of Energy by XOLO homepage with headline Awaken the Ancient. Live the Now." data-i18n="work.alt.2" data-i18n-attr="alt">
+          </a>
+          <div class="work-copy">
+            <p class="work-client" data-i18n="work.p2.client">XOLO Energy Drink</p>
+            <h2 data-i18n="work.p2.title">Energy by XOLO - Brand Launch Site</h2>
+            <p class="work-desc" data-i18n="work.p2.desc">Full brand experience for a premium energy drink ahead of retail launch. Next.js and Tailwind site with flavor pages, story, recipes, locator, shop route, and waitlist funnel.</p>
+            <div class="work-tags">
+              <span class="work-tag" data-i18n="work.p2.tag1">D2C</span>
+              <span class="work-tag" data-i18n="work.p2.tag2">Next.js</span>
+              <span class="work-tag" data-i18n="work.p2.tag3">Brand launch</span>
+              <span class="work-tag" data-i18n="work.p2.tag4">Pre-launch waitlist</span>
+            </div>
+            <p class="work-note" data-i18n="work.p2.note">Live brand launch site with D2C pre-launch framing. The site builds demand without implying retail availability.</p>
+            <a class="work-link" href="https://www.energybyxolo.com/en" target="_blank" rel="noopener" data-i18n="work.visit">Visit live site &rarr;</a>
+          </div>
+        </article>
+
+        <article class="work-project" id="project-planet-scuba">
+          <a class="work-shot" href="https://www.planetscubamexico.com/" target="_blank" rel="noopener">
+            <img src="/assets/img/work/planet-scuba-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of Planet Scuba Mexico homepage with Cave Diving hero." data-i18n="work.alt.3" data-i18n-attr="alt">
+          </a>
+          <div class="work-copy">
+            <p class="work-client" data-i18n="work.p3.client">Planet Scuba Mexico</p>
+            <h2 data-i18n="work.p3.title">Planet Scuba Mexico - Dive Operator Web Project</h2>
+            <p class="work-desc" data-i18n="work.p3.desc">Client web project for an owner-run cave, cenote, and technical diving operation in Puerto Aventuras. The public site is live; newer static rebuild work remains in the client pipeline.</p>
+            <div class="work-tags">
+              <span class="work-tag" data-i18n="work.p3.tag1">Dive tourism</span>
+              <span class="work-tag" data-i18n="work.p3.tag2">Bilingual</span>
+              <span class="work-tag" data-i18n="work.p3.tag3">Static rebuild</span>
+              <span class="work-tag" data-i18n="work.p3.tag4">Client pipeline</span>
+            </div>
+            <p class="work-note" data-i18n="work.p3.note">Bilingual DE/EN content strategy, WhatsApp-first inquiry flow, static-page architecture, and SEO structure for cave and cenote search demand.</p>
+            <a class="work-link" href="https://www.planetscubamexico.com/" target="_blank" rel="noopener" data-i18n="work.visit">Visit live site &rarr;</a>
+          </div>
+        </article>
+
+        <article class="work-project" id="project-200bar">
+          <a class="work-shot" href="https://www.200bar.ai/" target="_blank" rel="noopener">
+            <img src="/assets/img/work/200bar-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of 200bar.ai homepage with headline We worked your high season. Now we help you run it." data-i18n="work.alt.4" data-i18n-attr="alt">
+          </a>
+          <div class="work-copy">
+            <p class="work-client" data-i18n="work.p4.client">Lucen Studios</p>
+            <h2 data-i18n="work.p4.title">200bar.ai - Dive Automation Brand</h2>
+            <p class="work-desc" data-i18n="work.p4.desc">Vertical brand site for AI automation and web design for dive shops, liveaboards, resorts, and tour operators. Zero-build static site with consent-gated analytics and conversion tracking.</p>
+            <div class="work-tags">
+              <span class="work-tag" data-i18n="work.p4.tag1">Vertical brand</span>
+              <span class="work-tag" data-i18n="work.p4.tag2">Static HTML</span>
+              <span class="work-tag" data-i18n="work.p4.tag3">AI automation</span>
+              <span class="work-tag" data-i18n="work.p4.tag4">Tourism</span>
+            </div>
+            <p class="work-note" data-i18n="work.p4.note">Built as a focused sales surface: service ladder, proof, case study hub, lead magnet downloads, legal pages, and live booking flow.</p>
+            <a class="work-link" href="https://www.200bar.ai/" target="_blank" rel="noopener" data-i18n="work.visit">Visit live site &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="work-cta">
+      <div class="work-cta-inner">
+        <p class="section-label" data-i18n="work.cta.label">Next build</p>
+        <div>
+          <h2 data-i18n="work.cta.title">A website is only useful if it helps the operation run better.</h2>
+          <p data-i18n="work.cta.body">We use sites as part of systems work: clearer intake, faster follow-up, better handoff, and a cleaner path from first contact to booked work.</p>
+        </div>
+        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-primary" data-i18n="work.cta.button">Book a 30-minute consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Gamper<span>.</span>Klimmek</div>
+    <ul class="footer-links">
+      <li><a href="/calculator" data-i18n="nav.cta">See how many hours you could save</a></li>
+      <li><a href="/work" data-i18n="nav.work">Work</a></li>
+      <li><a href="/#cases" data-i18n="nav.cases">Case Studies</a></li>
+      <li><a href="/story" data-i18n="nav.story">Our Story</a></li>
+      <li><a href="mailto:hello@gamperklimmek.com">hello@gamperklimmek.com</a></li>
+      <li><a href="/legal.html#privacy" data-i18n="legal_tab_privacy">Privacy Policy</a></li>
+      <li><a href="/legal.html" data-i18n="footer.legal">Impressum</a></li>
+      <li><a href="#" onclick="window.GK_openCookieSettings(); return false;" data-i18n="footer.cookie_settings">Cookie Settings</a></li>
+    </ul>
+    <p class="footer-meta" data-i18n="footer_copyright">© 2026 Gamper Klimmek Consulting · Seeburgstrasse 22, 6006 Luzern, Switzerland · CHE-235.928.528</p>
+  </footer>
+
+  <script src="/i18n.js?v=20260611"></script>
+  <script src="/currency.js?v=20260319"></script>
+  <script>
+    function closeMobile() {
+      const menu = document.getElementById("mobileMenu");
+      const hamburger = document.getElementById("hamburger");
+      if (menu) menu.classList.remove("open");
+      if (hamburger) hamburger.classList.remove("active");
+    }
+
+    function toggleMobile() {
+      const menu = document.getElementById("mobileMenu");
+      const hamburger = document.getElementById("hamburger");
+      if (menu) menu.classList.toggle("open");
+      if (hamburger) hamburger.classList.toggle("active");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      if (hamburger) hamburger.addEventListener("click", toggleMobile);
+    });
+  </script>
+  <script src="/cookie-consent.js?v=20260319"></script>
+</body>
+</html>
