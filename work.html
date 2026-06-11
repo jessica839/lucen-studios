@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selected Work | Gamper Klimmek Consulting</title>
-  <meta name="description" content="Selected live website and systems work by Gamper Klimmek Consulting and Lucen Studios." />
+  <title>Web Design & AI Automation Projects | Gamper Klimmek</title>
+  <meta name="description" content="Web design + AI automation projects we built: Jahresanzeigen/Prime Job Consulting, Energy by XOLO, Planet Scuba Mexico and 200bar.ai." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.gamperklimmek.com/work" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Selected Work | Gamper Klimmek Consulting" />
-  <meta property="og:description" content="Selected live website and systems work by Gamper Klimmek Consulting and Lucen Studios." />
+  <meta property="og:title" content="Web Design & AI Automation Projects | Gamper Klimmek" />
+  <meta property="og:description" content="Web design + AI automation projects we built: Jahresanzeigen/Prime Job Consulting, Energy by XOLO, Planet Scuba Mexico and 200bar.ai." />
   <meta property="og:url" content="https://www.gamperklimmek.com/work" />
   <meta property="og:image" content="https://www.gamperklimmek.com/og-image.png" />
   <meta property="og:site_name" content="Gamper Klimmek Consulting" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Selected Work | Gamper Klimmek Consulting" />
-  <meta name="twitter:description" content="Selected live website and systems work by Gamper Klimmek Consulting and Lucen Studios." />
+  <meta name="twitter:title" content="Web Design & AI Automation Projects | Gamper Klimmek" />
+  <meta name="twitter:description" content="Web design + AI automation projects we built: Jahresanzeigen/Prime Job Consulting, Energy by XOLO, Planet Scuba Mexico and 200bar.ai." />
   <meta name="twitter:image" content="https://www.gamperklimmek.com/og-image.png" />
 
   <script type="application/ld+json">
@@ -46,7 +46,64 @@
           "Static websites",
           "AI automation",
           "Business systems"
-        ]
+        ],
+        "hasPart": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Jahresanzeigen.de — Recruiting Platform Website",
+                "url": "https://jahresanzeigen.de",
+                "image": "https://www.gamperklimmek.com/assets/img/work/jahresanzeigen-home-v1.webp",
+                "creator": {
+                  "@id": "https://www.gamperklimmek.com/#organization"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Energy by XOLO — Brand Launch Site",
+                "url": "https://www.energybyxolo.com/en",
+                "image": "https://www.gamperklimmek.com/assets/img/work/xolo-home-v1.webp",
+                "creator": {
+                  "@id": "https://www.gamperklimmek.com/#organization"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Planet Scuba Mexico — Dive Operator Website",
+                "url": "https://planet-scuba.vercel.app",
+                "image": "https://www.gamperklimmek.com/assets/img/work/planet-scuba-home-v1.webp",
+                "creator": {
+                  "@id": "https://www.gamperklimmek.com/#organization"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "200bar.ai — Dive Shop Automation Brand",
+                "url": "https://www.200bar.ai/",
+                "image": "https://www.gamperklimmek.com/assets/img/work/200bar-home-v1.webp",
+                "creator": {
+                  "@id": "https://www.gamperklimmek.com/#organization"
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }
@@ -187,6 +244,16 @@
       line-height: 1.78;
       color: rgba(10,10,15,0.66);
       margin-bottom: 1.4rem;
+    }
+    .work-desc a {
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,107,122,0.3);
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .work-desc a:hover {
+      color: var(--teal-deep);
+      border-color: var(--teal-deep);
     }
     .work-tags {
       display: flex;
@@ -331,7 +398,7 @@
     <section class="work-hero">
       <div class="work-hero-inner">
         <p class="section-label" data-i18n="work.hero.label">Selected work</p>
-        <h1 data-i18n="work.hero.title">Built by us.<br><em>Running in production.</em></h1>
+        <h1 data-i18n="work.hero.title">Web design &amp; automation projects.<br><em>Built by us. Running in production.</em></h1>
         <p class="work-hero-sub" data-i18n="work.hero.intro">Selected web builds and systems sites from Gamper Klimmek Consulting and Lucen Studios. Websites like these are one output of an Implementation Sprint: strategy, copy, design, build, launch, and the operational workflows around it.</p>
       </div>
     </section>
@@ -342,12 +409,12 @@
 
         <article class="work-project" id="project-jahresanzeigen">
           <a class="work-shot" href="https://jahresanzeigen.de" target="_blank" rel="noopener">
-            <img src="/assets/img/work/jahresanzeigen-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of Jahresanzeigen.de homepage with headline Ihre Stelle bleibt der Mittelpunkt." data-i18n="work.alt.1" data-i18n-attr="alt">
+            <img src="/assets/img/work/jahresanzeigen-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of Jahresanzeigen.de homepage with headline Ihre Stelle bleibt der Mittelpunkt — recruiting website built by Gamper Klimmek Consulting." data-i18n="work.page.alt.1" data-i18n-attr="alt">
           </a>
           <div class="work-copy">
             <p class="work-client" data-i18n="work.p1.client">Prime Job Consulting</p>
             <h2 data-i18n="work.p1.title">Jahresanzeigen.de - Recruiting, planbar gemacht</h2>
-            <p class="work-desc" data-i18n="work.p1.desc">Conversion-focused B2B site for a recruiting multiposting service. Framework-free static build, AI-search-optimized, live SEO blog, and German legal compliance.</p>
+            <p class="work-desc" data-i18n="work.p1.desc">Conversion-focused B2B site for a recruiting multiposting service. Framework-free static build, AI-search-optimized, live SEO blog, German legal compliance, and a clear pattern for <a href="/businesses">owner-run business systems</a>.</p>
             <div class="work-tags">
               <span class="work-tag" data-i18n="work.p1.tag1">B2B</span>
               <span class="work-tag" data-i18n="work.p1.tag2">Static HTML</span>
@@ -361,7 +428,7 @@
 
         <article class="work-project" id="project-xolo">
           <a class="work-shot" href="https://www.energybyxolo.com/en" target="_blank" rel="noopener">
-            <img src="/assets/img/work/xolo-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of Energy by XOLO homepage with headline Awaken the Ancient. Live the Now." data-i18n="work.alt.2" data-i18n-attr="alt">
+            <img src="/assets/img/work/xolo-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of Energy by XOLO homepage with headline Awaken the Ancient. Live the Now — brand launch website built by Lucen Studios." data-i18n="work.page.alt.2" data-i18n-attr="alt">
           </a>
           <div class="work-copy">
             <p class="work-client" data-i18n="work.p2.client">XOLO Energy Drink</p>
@@ -379,32 +446,32 @@
         </article>
 
         <article class="work-project" id="project-planet-scuba">
-          <a class="work-shot" href="https://www.planetscubamexico.com/" target="_blank" rel="noopener">
-            <img src="/assets/img/work/planet-scuba-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of Planet Scuba Mexico homepage with Cave Diving hero." data-i18n="work.alt.3" data-i18n-attr="alt">
+          <a class="work-shot" href="https://planet-scuba.vercel.app" target="_blank" rel="noopener">
+            <img src="/assets/img/work/planet-scuba-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of Planet Scuba Mexico V2 homepage with cave diving hero — dive operator website built by Lucen Studios." data-i18n="work.page.alt.3" data-i18n-attr="alt">
           </a>
           <div class="work-copy">
             <p class="work-client" data-i18n="work.p3.client">Planet Scuba Mexico</p>
             <h2 data-i18n="work.p3.title">Planet Scuba Mexico - Dive Operator Web Project</h2>
-            <p class="work-desc" data-i18n="work.p3.desc">Client web project for an owner-run cave, cenote, and technical diving operation in Puerto Aventuras. The public site is live; newer static rebuild work remains in the client pipeline.</p>
+            <p class="work-desc" data-i18n="work.p3.desc">Live V2 redesign for an owner-run cave, cenote, and technical diving operation in Puerto Aventuras. Built for the same high-intent guest flow we support in <a href="/operators">tour operator automation</a>.</p>
             <div class="work-tags">
               <span class="work-tag" data-i18n="work.p3.tag1">Dive tourism</span>
               <span class="work-tag" data-i18n="work.p3.tag2">Bilingual</span>
               <span class="work-tag" data-i18n="work.p3.tag3">Static rebuild</span>
-              <span class="work-tag" data-i18n="work.p3.tag4">Client pipeline</span>
+              <span class="work-tag" data-i18n="work.p3.tag4">Live V2 redesign</span>
             </div>
             <p class="work-note" data-i18n="work.p3.note">Bilingual DE/EN content strategy, WhatsApp-first inquiry flow, static-page architecture, and SEO structure for cave and cenote search demand.</p>
-            <a class="work-link" href="https://www.planetscubamexico.com/" target="_blank" rel="noopener" data-i18n="work.visit">Visit live site &rarr;</a>
+            <a class="work-link" href="https://planet-scuba.vercel.app" target="_blank" rel="noopener" data-i18n="work.visit">Visit live site &rarr;</a>
           </div>
         </article>
 
         <article class="work-project" id="project-200bar">
           <a class="work-shot" href="https://www.200bar.ai/" target="_blank" rel="noopener">
-            <img src="/assets/img/work/200bar-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of 200bar.ai homepage with headline We worked your high season. Now we help you run it." data-i18n="work.alt.4" data-i18n-attr="alt">
+            <img src="/assets/img/work/200bar-home-v1.webp" width="1440" height="900" loading="lazy" alt="Screenshot of 200bar.ai homepage with headline We worked your high season. Now we help you run it — AI automation brand built by Lucen Studios." data-i18n="work.page.alt.4" data-i18n-attr="alt">
           </a>
           <div class="work-copy">
             <p class="work-client" data-i18n="work.p4.client">Lucen Studios</p>
             <h2 data-i18n="work.p4.title">200bar.ai - Dive Automation Brand</h2>
-            <p class="work-desc" data-i18n="work.p4.desc">Vertical brand site for AI automation and web design for dive shops, liveaboards, resorts, and tour operators. Zero-build static site with consent-gated analytics and conversion tracking.</p>
+            <p class="work-desc" data-i18n="work.p4.desc">Vertical brand site for AI automation and web design for dive shops, liveaboards, resorts, and tour operators. It anchors the same <a href="/operators">operator systems offer</a> on this site.</p>
             <div class="work-tags">
               <span class="work-tag" data-i18n="work.p4.tag1">Vertical brand</span>
               <span class="work-tag" data-i18n="work.p4.tag2">Static HTML</span>
