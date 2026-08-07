@@ -7,3 +7,5 @@ Disallow: /dive-suite
 Disallow: /dive-suite.html
 
 Sitemap: https://www.gamperklimmek.com/sitemap.xml
+
+Disallow: /kit/

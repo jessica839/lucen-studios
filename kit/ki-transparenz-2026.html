@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>KI-Transparenz-Kit: EU AI Act Artikel 50 für KMU — Gamper Klimmek Consulting</title>
+<style>
+  :root{
+    --accent:#0f4c5c;
+    --accent-tint:rgba(15,76,92,0.06);
+    --accent-tint-strong:rgba(15,76,92,0.10);
+    --accent-border:rgba(15,76,92,0.28);
+    --text:#1a1a1a;
+    --muted:#5a6b70;
+    --line:#e2e6e7;
+    --bg:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.62;
+    font-size:16px;
+  }
+  .page{max-width:860px;margin:0 auto;padding:48px 24px 80px;}
+  a{color:var(--accent);}
+  h1,h2,h3,h4{color:var(--accent);line-height:1.25;}
+  h1{font-size:2.1rem;margin:0 0 6px;}
+  h2{font-size:1.5rem;margin:56px 0 18px;padding-bottom:10px;border-bottom:2px solid var(--accent);}
+  h3{font-size:1.15rem;margin:32px 0 10px;}
+  h4{font-size:1rem;margin:0 0 8px;color:var(--text);}
+  p{margin:0 0 14px;}
+  ul,ol{margin:0 0 14px;padding-left:22px;}
+  li{margin-bottom:6px;}
+  .small{font-size:0.88rem;color:var(--muted);}
+  .muted{color:var(--muted);}
+
+  /* Cover */
+  .cover{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:8px;}
+  .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;font-weight:700;color:var(--muted);margin:0 0 10px;}
+  .subtitle{font-size:1.2rem;color:var(--text);margin:2px 0 10px;}
+  .meta{font-size:.95rem;color:var(--muted);margin:0 0 18px;}
+  .disclaimer{
+    background:var(--accent-tint);
+    border-left:4px solid var(--accent);
+    border-radius:0 4px 4px 0;
+    padding:14px 18px;
+    font-size:.95rem;
+  }
+  .disclaimer strong{color:var(--accent);}
+
+  /* TOC */
+  .toc{background:var(--accent-tint);border-radius:6px;padding:18px 22px;margin:28px 0 8px;}
+  .toc h2{border:none;margin:0 0 10px;font-size:1.05rem;padding:0;}
+  .toc ol{margin:0;padding-left:20px;columns:1;}
+  .toc a{text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+
+  /* Callouts */
+  .callout{border-left:4px solid var(--accent);background:var(--accent-tint);border-radius:0 4px 4px 0;padding:16px 20px;margin:18px 0;}
+  .callout h4{margin-top:0;}
+  .callout.strong-box{background:var(--accent-tint-strong);}
+  .chip{display:inline-block;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 9px;border-radius:20px;margin-right:8px;vertical-align:middle;}
+
+  /* Decision tree */
+  ul.tree{list-style:none;margin:0 0 10px;padding-left:0;}
+  ul.tree ul{list-style:none;margin:8px 0 0 0;padding-left:22px;border-left:2px solid var(--line);}
+  ul.tree > li{margin-bottom:10px;}
+  .q{font-weight:700;color:var(--accent);}
+  li.branch{padding:6px 0 6px 4px;}
+  li.branch .tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:20px;margin-right:8px;}
+  li.branch.no .tag{background:#eceff0;color:var(--muted);}
+  li.branch.yes .tag{background:var(--accent);color:#fff;}
+  li.branch.ch .tag{background:var(--accent);color:#fff;}
+
+  /* Tables */
+  .table-wrap{overflow-x:auto;margin:16px 0;}
+  table{width:100%;border-collapse:collapse;min-width:680px;font-size:.92rem;}
+  th{background:var(--accent);color:#fff;text-align:left;padding:10px 12px;font-weight:600;}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td strong, th strong{color:var(--accent);}
+
+  /* Checklist */
+  .checklist{margin:12px 0 24px;}
+  .check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);}
+  .check-item:last-child{border-bottom:none;}
+  .check-item input[type=checkbox]{width:18px;height:18px;margin-top:3px;flex-shrink:0;accent-color:var(--accent);}
+  .check-item label{cursor:pointer;}
+
+  /* Templates */
+  .template{border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin:14px 0;}
+  .template h4{color:var(--accent);}
+  .lang-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:10px 0 4px;}
+  .lang-label:first-of-type{margin-top:0;}
+  blockquote.copy{margin:0 0 4px;padding:10px 14px;background:#f6f9f9;border-left:3px solid var(--accent);font-style:normal;font-size:.95rem;}
+
+  /* Sources */
+  .sources li{margin-bottom:8px;font-size:.92rem;}
+
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted);}
+
+  @media (max-width:600px){
+    .page{padding:28px 16px 60px;}
+    h1{font-size:1.7rem;}
+    h2{font-size:1.3rem;}
+    table{font-size:.85rem;}
+  }
+
+  @page{size:A4;margin:16mm 14mm;}
+  @media print{
+    .toc{display:none;}
+    body{font-size:11pt;}
+    .page{max-width:100%;padding:0;}
+    a{color:inherit;text-decoration:none;}
+    h2{border-bottom-color:#000;}
+    table, .callout, .template{break-inside:avoid;page-break-inside:avoid;}
+    th{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:var(--accent) !important;color:#fff !important;}
+    .callout{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .chip, li.branch .tag{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="cover">
+    <p class="eyebrow">Gamper Klimmek Consulting</p>
+    <h1>KI-Transparenz-Kit</h1>
+    <p class="subtitle">EU AI Act Artikel 50 für KMU</p>
+    <p class="meta">Stand: 7. August 2026</p>
+    <div class="disclaimer">
+      <strong>Dieses Kit ist eine praxisorientierte Aufbereitung – keine Rechtsberatung.</strong>
+      Es unterstützt Sie bei der praktischen Umsetzung der Transparenzpflichten aus Artikel 50 EU AI Act und ersetzt keine anwaltliche Prüfung im Einzelfall.
+    </div>
+  </header>
+
+  <nav class="toc">
+    <h2>Inhalt</h2>
+    <ol>
+      <li><a href="#betroffenheit">In 5 Minuten: Bin ich betroffen?</a></li>
+      <li><a href="#pflichten">Die 4 Pflichten-Typen</a></li>
+      <li><a href="#fristen">Fristen &amp; Bußgelder</a></li>
+      <li><a href="#checkliste">Umsetzungs-Checkliste</a></li>
+      <li><a href="#vorlagen">Copy-Paste-Vorlagen (DE/EN)</a></li>
+      <li><a href="#code-of-practice">Code of Practice</a></li>
+      <li><a href="#behoerden">Behörden &amp; Aufsicht DACH</a></li>
+      <li><a href="#warnhinweis">Wichtigster Warnhinweis</a></li>
+      <li><a href="#quellen">Quellenverzeichnis</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. BETROFFENHEIT -->
+  <h2 id="betroffenheit">1. In 5 Minuten: Bin ich betroffen?</h2>
+  <p>Beantworten Sie die folgenden Fragen der Reihe nach. Der Test führt Sie zur nächsten relevanten Frage oder zu einem Ergebnis.</p>
+
+  <ul class="tree">
+    <li>
+      <span class="q">Frage 1:</span> Setzt Ihr Unternehmen ein KI-System ein, das …
+      <ul>
+        <li>mit Menschen direkt interagiert (Chatbot, Sprachassistent, KI-Verkaufsagent)?</li>
+        <li>Bilder, Audio, Video oder Text erzeugt oder verändert (KI-Bildgenerator, KI-Texttool, KI-Voiceover)?</li>
+        <li>Emotionen oder biometrische Merkmale von Personen erkennt?</li>
+        <li>realistische Deepfakes erzeugt oder KI-Texte zu Themen von öffentlichem Interesse veröffentlicht?</li>
+      </ul>
+      <ul>
+        <li class="branch no"><span class="tag">Nein</span> zu allem &rarr; Artikel 50 betrifft Sie aktuell nicht. Prüfen Sie diesen Test erneut, sobald Sie ein neues KI-Tool einführen.</li>
+        <li class="branch yes"><span class="tag">Ja</span> zu mindestens einem Punkt &rarr; weiter zu Frage 2.
+          <ul>
+            <li>
+              <span class="q">Frage 2:</span> Wo ist Ihr Unternehmen ansässig bzw. von wo aus bieten Sie an?
+              <ul>
+                <li class="branch yes"><span class="tag">EU</span> ansässig (z.&nbsp;B. Deutschland, Österreich) &rarr; Sie sind Anbieter und/oder Betreiber nach Art. 2(1)(a)/(b) AI Act. Sie sind betroffen &rarr; weiter zu Kapitel 2.</li>
+                <li class="branch ch"><span class="tag">Schweiz / Drittstaat</span> ansässig &rarr; weiter zu Frage 3, dem EU-Marktbezugstest.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="callout strong-box">
+    <h4><span class="chip">Schweiz</span>Frage 3 — der EU-Marktbezugstest (Art. 2(1)(a) und (c) AI Act)</h4>
+    <p>Ein Schweizer Unternehmen ist nicht automatisch an den AI Act gebunden — aber gebunden, sobald sein KI-System oder dessen Output den EU-Markt berührt. Zwei Wege lösen die Pflicht aus:</p>
+    <ul>
+      <li><strong>Marktplatzierung:</strong> Sie bringen Ihr KI-System aktiv auf den EU-Markt oder in EU-Betrieb (z.&nbsp;B. Sie verkaufen oder bieten ein KI-Produkt/eine KI-Dienstleistung aktiv EU-Kunden an).</li>
+      <li><strong>Output-in-der-EU:</strong> Der Output Ihres Systems wird in der EU verwendet — konkret dort, wo Sie diese Verbreitung in die EU vorhersehen oder ermöglichen (z.&nbsp;B. ein Website-Chatbot, den EU-Besucher erreichen können; Marketinginhalte, die gezielt an EU-Kundschaft gerichtet sind).</li>
+    </ul>
+    <ul>
+      <li class="branch no"><span class="tag">Nein</span> zu beidem, rein interne/inländische Nutzung ohne erkennbaren EU-Bezug &rarr; nach dieser Lesart nicht betroffen.</li>
+      <li class="branch yes"><span class="tag">Ja</span> zu einem der beiden Punkte &rarr; betroffen, weiter zu Kapitel 2.</li>
+    </ul>
+    <p style="margin-top:14px;"><strong>Kein sauberer Freifahrtschein:</strong> Rein zufällige, unvorhersehbare oder nicht autorisierte Nutzung Ihrer Inhalte in der EU löst die Pflichten laut EU-Kommission <em>nicht</em> aus. Sobald Sie EU-Publikum aber gezielt ansprechen oder eine Verbreitung in die EU erkennbar in Kauf nehmen — offen zugängliche Inhalte im Internet, deutschsprachiges Marketing an EU-Interessenten —, ist das keine belastbare Ausnahme mehr, sondern eine Einzelfallfrage. Eine Aufsichtsbehörde kann hier anders urteilen. Behandeln Sie den Output-Test als Risikominderungsfaktor, nicht als Freibrief.</p>
+  </div>
+
+  <!-- 2. PFLICHTEN -->
+  <h2 id="pflichten">2. Die 4 Pflichten-Typen</h2>
+  <p>Artikel 50 unterscheidet vier eigenständige Pflichten. Welche für Sie gilt, hängt vom eingesetzten KI-System ab — mehrere Typen können gleichzeitig zutreffen.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Pflicht</th>
+          <th>Wer</th>
+          <th>Was</th>
+          <th>Typisches KMU-Beispiel</th>
+          <th>Ausnahmen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Art. 50(1)</strong><br>Interaktive KI offenlegen</td>
+          <td>Anbieter — wer das System unter eigenem Namen auf den Markt bringt oder in Betrieb nimmt (auch ein KMU, das sich einen eigenen Chatbot bauen lässt)</td>
+          <td>System so gestalten, dass die Person erkennt, dass sie mit einer KI kommuniziert — außer es ist für eine „vernünftig informierte, aufmerksame und besonnene&#8220; Person ohnehin offensichtlich</td>
+          <td>Website-Chatbot, Sprachassistent, KI-Verkaufsagent: Hinweis wie „Sie chatten mit einem KI-Assistenten&#8220; spätestens bei der ersten Nachricht — nicht in den AGB versteckt</td>
+          <td>Offensichtlich aus dem Kontext (bei Text-Chat selten der Fall; eine realistische KI-Stimme oder ein KI-Avatar gilt <em>nicht</em> als offensichtlich); Strafverfolgung</td>
+        </tr>
+        <tr>
+          <td><strong>Art. 50(2)</strong><br>Synthetische Inhalte kennzeichnen</td>
+          <td>Anbieter des generativen Systems</td>
+          <td>Jede KI-generierte Bild-, Audio-, Video- oder Textausgabe maschinenlesbar markieren (Wasserzeichen, Metadaten o.&nbsp;Ä.) und erkennbar machen</td>
+          <td>Ein KI-Text-, Bild- oder Voiceover-Tool muss Marker in seine Ausgaben einbauen — diese Pflicht trifft meist den Tool-Anbieter, nicht das nutzende KMU, außer Sie betreiben das Modell selbst</td>
+          <td>Unterstützende Standardbearbeitung (Rechtschreibprüfung, Formatkonvertierung, kleinere Farb-/Zuschnittkorrektur); keine wesentliche Veränderung von zugeliefertem Input; Strafverfolgung</td>
+        </tr>
+        <tr>
+          <td><strong>Art. 50(3)</strong><br>Emotionserkennung / biometrische Kategorisierung</td>
+          <td>Betreiber — das Unternehmen, das das System einsetzt</td>
+          <td>Betroffene Person informieren, dass ein solches System läuft (nicht wozu oder was mit den Daten geschieht — das regelt die DSGVO separat)</td>
+          <td>Einzelhandel misst per Kamera die Kundenstimmung, oder ein HR-Tool erkennt Emotionen im Video-Interview: sichtbarer Hinweis vor der Erfassung nötig. Achtung: Art. 5 AI Act kann Emotionserkennung am Arbeitsplatz/in der Bildung ganz verbieten — das zuerst prüfen</td>
+          <td>Nur Strafverfolgung</td>
+        </tr>
+        <tr>
+          <td><strong>Art. 50(4)</strong><br>Deepfakes &amp; KI-Texte zu öffentlichem Interesse</td>
+          <td>Betreiber</td>
+          <td>Bild-/Audio-/Video-Deepfakes, die eine echte Person/einen echten Ort/ein echtes Ereignis täuschend echt wirken lassen, offenlegen. Ebenso KI-Text, der zu Themen von öffentlichem Interesse veröffentlicht wird</td>
+          <td>Ein KI-generierter „synthetischer CEO-Avatar&#8220;, der Kunden begrüßt, ist laut Kommissions-Beispiel ein Deepfake und muss offengelegt werden. Werbetexte liegen grundsätzlich <strong>außerhalb</strong> des Anwendungsbereichs — außer bei Gesundheits-, Sicherheits- oder Nachhaltigkeitsaussagen</td>
+          <td>Strafverfolgung; erkennbar künstlerisches/kreatives/satirisches/fiktionales Werk (Pflicht wird abgeschwächt, nicht aufgehoben); für Text: zwei kumulative Bedingungen — siehe Kapitel 4</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="small">Zusätzlich regelt <strong>Art. 50(5)</strong>: Die Offenlegung muss klar, unterscheidbar und spätestens beim ersten Kontakt bzw. der ersten Exposition erfolgen und den geltenden Barrierefreiheitsanforderungen entsprechen. Eine reine Erwähnung in den AGB oder unsichtbare Metadaten allein genügen bei 50(1)/50(4) <strong>nicht</strong>.</p>
+
+  <!-- 3. FRISTEN -->
+  <h2 id="fristen">3. Fristen &amp; Bußgelder</h2>
+
+  <div class="callout strong-box">
+    <h4>Der KMU-Kniff, den die meisten Erklärungen falsch darstellen</h4>
+    <p>Die oft zitierte Zahl „bis zu 15 Mio. Euro oder 3&nbsp;% des Jahresumsatzes&#8220; gilt für Großunternehmen als Maximum — dort wird der jeweils <strong>höhere</strong> Wert verlangt (Art. 99(4) AI Act). Für KMU dreht Art. 99(6) AI Act das Prinzip um: Es gilt der jeweils <strong>niedrigere</strong> Wert. Für praktisch jedes KMU im DACH-Raum liegt 3&nbsp;% des Jahresumsatzes weit unter 15&nbsp;Mio. Euro — Ihre reale Bußgeld-Exposure bei einem Verstoß gegen Art. 50 ist also <strong>3&nbsp;% Ihres Jahresumsatzes</strong>, nicht ein Deckel von 15&nbsp;Mio. Euro.</p>
+    <p class="small">KMU-Definition (EU-Standarddefinition nach Empfehlung 2003/361/EG): weniger als 250 Mitarbeitende <strong>und</strong> (Jahresumsatz ≤ 50&nbsp;Mio. Euro <strong>oder</strong> Bilanzsumme ≤ 43&nbsp;Mio. Euro).</p>
+    <p class="small"><strong>Beispielrechnung:</strong> KMU mit 2&nbsp;Mio. Euro Jahresumsatz &rarr; theoretisches Maximalbußgeld bei einem Art.-50-Verstoß: 60.000 Euro (3&nbsp;% von 2&nbsp;Mio.), nicht 15&nbsp;Mio. Euro.</p>
+  </div>
+
+  <h3>Zeitachse</h3>
+  <ul>
+    <li><strong>02.08.2026</strong> — Art. 50 ist anwendbar. Ab diesem Datum gelten alle vier Pflichtentypen aus Kapitel 2.</li>
+    <li><strong>02.08.2026</strong> — <strong>Keine Schonfrist</strong> für die Offenlegungspflicht bei interaktiven Systemen (Art. 50(1)). Diese Pflicht gilt sofort und ausnahmslos, unabhängig davon, wann das System eingeführt wurde.</li>
+    <li><strong>02.12.2026</strong> — Übergangsfrist <strong>ausschließlich</strong> für die maschinenlesbare Kennzeichnung generativer Ausgaben (Art. 50(2)) bei Alt-Systemen, die bereits vor dem 02.08.2026 im Einsatz waren. Diese Systeme haben bis zum 02.12.2026 Zeit, die technische Kennzeichnung nachzurüsten. Diese Übergangsregel wurde durch die Digital-Omnibus-Verordnung (EU) 2026/1744 eingefügt.</li>
+    <li>Ein System, das teils interaktiv, teils generativ ist, profitiert von der Übergangsfrist nur auf der Kennzeichnungs-Seite (50(2)) — seine Offenlegungspflicht nach 50(1) gilt trotzdem sofort ab 02.08.2026.</li>
+    <li><strong>Alt-Content</strong>, der vor dem 02.08.2026 erzeugt wurde, muss <strong>nicht</strong> nachträglich gekennzeichnet werden — auch nicht nach diesem Datum. Inhalte, die ab dem 02.08.2026 erzeugt werden, brauchen die Kennzeichnung, selbst wenn das verwendete Tool selbst älter ist.</li>
+  </ul>
+
+  <!-- 4. CHECKLISTE -->
+  <h2 id="checkliste">4. Umsetzungs-Checkliste</h2>
+  <p>Konkrete Schritte pro Pflicht. Die Checkboxen sind interaktiv (anklickbar) und drucken sich als ausfüllbare Kästchen aus.</p>
+
+  <h3>4.1 Interaktive KI offenlegen (Art. 50(1))</h3>
+  <div class="checklist">
+    <div class="check-item"><input type="checkbox" id="c1-1"><label for="c1-1">Hinweistext direkt im Chat-/Interaktionsfenster platzieren — sichtbar vor oder bei der ersten Nachricht, nicht nur in den AGB oder im Impressum.</label></div>
+    <div class="check-item"><input type="checkbox" id="c1-2"><label for="c1-2">Formulierung ist eindeutig („Sie kommunizieren mit einem KI-Assistenten&#8220;), keine Umschreibungen.</label></div>
+    <div class="check-item"><input type="checkbox" id="c1-3"><label for="c1-3">Bei Sprach-/Voice-Interfaces: akustischer oder visueller Hinweis zusätzlich zum reinen Text — „offensichtlich aus dem Kontext&#8220; greift bei realistischen KI-Stimmen praktisch nie.</label></div>
+    <div class="check-item"><input type="checkbox" id="c1-4"><label for="c1-4">Barrierefreiheit geprüft: Hinweis ist auch für Screenreader zugänglich, nicht nur ein Icon ohne Alt-Text.</label></div>
+    <div class="check-item"><input type="checkbox" id="c1-5"><label for="c1-5">Geprüft, ob eine Ausnahme wirklich greift — der Maßstab ist streng: „kaum Zweifel&#8220; bei einer durchschnittlichen Person aus dem tatsächlich erreichten Publikum, nicht nur der Zielgruppe.</label></div>
+  </div>
+
+  <h3>4.2 Synthetische Inhalte kennzeichnen (Art. 50(2))</h3>
+  <div class="checklist">
+    <div class="check-item"><input type="checkbox" id="c2-1"><label for="c2-1">Geprüft, ob Sie selbst „Anbieter&#8220; eines generativen Systems sind (eigenes Modell/eigene Plattform) oder nur ein fremdes Tool nutzen (dann i.&nbsp;d.&nbsp;R. Pflicht des Tool-Anbieters).</label></div>
+    <div class="check-item"><input type="checkbox" id="c2-2"><label for="c2-2">Bei eigenem Tool: maschinenlesbare Kennzeichnung technisch umgesetzt (Wasserzeichen, Metadaten, kryptografischer Herkunftsnachweis o.&nbsp;Ä.).</label></div>
+    <div class="check-item"><input type="checkbox" id="c2-3"><label for="c2-3">Geprüft, ob die Ausnahme „unterstützende Standardbearbeitung&#8220; wirklich zutrifft — Rechtschreibprüfung ja, KI-Zusammenfassung oder Stilumschreibung nein.</label></div>
+    <div class="check-item"><input type="checkbox" id="c2-4"><label for="c2-4">Frist im Blick: Alt-Systeme (vor 02.08.2026 im Einsatz) haben bis 02.12.2026 Zeit für die technische Nachrüstung.</label></div>
+  </div>
+
+  <h3>4.3 Emotionserkennung / biometrische Kategorisierung (Art. 50(3))</h3>
+  <div class="checklist">
+    <div class="check-item"><input type="checkbox" id="c3-1"><label for="c3-1">Zuerst geprüft: Ist der Einsatz überhaupt erlaubt? Art. 5 AI Act verbietet Emotionserkennung am Arbeitsplatz und in Bildungseinrichtungen weitgehend — das ist eine strengere, vorgelagerte Norm.</label></div>
+    <div class="check-item"><input type="checkbox" id="c3-2"><label for="c3-2">Sichtbarer Hinweis vor Erfassung platziert (Kamera-Piktogramm plus Text, Aushang o.&nbsp;Ä.).</label></div>
+    <div class="check-item"><input type="checkbox" id="c3-3"><label for="c3-3">Separates DSGVO-Fundament für die Datenverarbeitung sichergestellt — Art. 50 regelt nur die Informationspflicht, nicht die Rechtmäßigkeit der Verarbeitung selbst.</label></div>
+  </div>
+
+  <h3>4.4 Deepfakes &amp; KI-Texte zu öffentlichem Interesse (Art. 50(4))</h3>
+  <div class="checklist">
+    <div class="check-item"><input type="checkbox" id="c4-1"><label for="c4-1">Deepfake-Definition geprüft: Täuscht der Inhalt eine echte Person, einen echten Ort oder ein echtes Ereignis vor?</label></div>
+    <div class="check-item"><input type="checkbox" id="c4-2"><label for="c4-2">Offenlegung sichtbar und verständlich platziert, ohne das Werk unnötig zu stören.</label></div>
+    <div class="check-item"><input type="checkbox" id="c4-3"><label for="c4-3">Bei Werbeinhalten: Gesundheits-, Sicherheits- oder Nachhaltigkeitsclaims besonders geprüft — dort gilt die Ausnahme für reine Werbetexte <strong>nicht</strong>.</label></div>
+    <div class="check-item"><input type="checkbox" id="c4-4"><label for="c4-4">Für KI-Text zu öffentlichem Interesse: beide kumulativen Bedingungen für die Ausnahme dokumentiert — (1) echte inhaltliche Prüfung durch einen Menschen (nicht nur eine Rechtschreibprüfung) <strong>und</strong> (2) eine namentlich benannte Person oder Stelle mit redaktioneller Verantwortung.</label></div>
+    <div class="check-item"><input type="checkbox" id="c4-5"><label for="c4-5">Falls eine der beiden Bedingungen fehlt: Offenlegung ergänzt.</label></div>
+  </div>
+
+  <!-- 5. VORLAGEN -->
+  <h2 id="vorlagen">5. Copy-Paste-Vorlagen (DE / EN)</h2>
+  <p>Kurze, direkt verwendbare Formulierungen. Passen Sie die Platzhalter in eckigen Klammern an.</p>
+
+  <div class="template">
+    <h4>Chatbot-Banner</h4>
+    <div class="lang-label">DE</div>
+    <blockquote class="copy">Sie chatten mit einem KI-Assistenten. Bei Anliegen, die eine persönliche Einschätzung erfordern, erreichen Sie unser Team unter [Kontakt].</blockquote>
+    <div class="lang-label">EN</div>
+    <blockquote class="copy">You are chatting with an AI assistant. For matters that need a personal judgement call, reach our team at [contact].</blockquote>
+  </div>
+
+  <div class="template">
+    <h4>KI-Hinweis fürs Impressum / AGB-nahe Seite</h4>
+    <div class="lang-label">DE</div>
+    <blockquote class="copy">KI-Einsatz auf dieser Website: Wir setzen auf ausgewählten Seiten und in unserem Chat künstliche Intelligenz ein, u.&nbsp;a. für [z.&nbsp;B. Kundenchat, Produktempfehlungen, generierte Bild- oder Textinhalte]. Wo dies für Sie unmittelbar relevant ist, weisen wir gesondert darauf hin, z.&nbsp;B. direkt im jeweiligen Chat- oder Inhaltsbereich. Diese Angabe ergänzt, ersetzt aber nicht die unmittelbare Kennzeichnung nach Art. 50 EU AI Act am Ort der Interaktion.</blockquote>
+    <div class="lang-label">EN</div>
+    <blockquote class="copy">AI use on this website: We use artificial intelligence on selected pages and in our chat, including for [e.g. customer chat, product recommendations, generated image or text content]. Where directly relevant to you, we flag this separately, e.g. within the relevant chat or content area itself. This notice supplements, but does not replace, the direct disclosure required under Article 50 EU AI Act at the point of interaction.</blockquote>
+  </div>
+
+  <div class="template">
+    <h4>Social-Media-Caption-Kennzeichnung</h4>
+    <div class="lang-label">DE</div>
+    <blockquote class="copy">KI-generiert / KI-bearbeitet.</blockquote>
+    <div class="lang-label">EN</div>
+    <blockquote class="copy">AI-generated / AI-edited.</blockquote>
+  </div>
+
+  <div class="template">
+    <h4>Hinweis für KI-generierte Bilder/Videos in Marketing</h4>
+    <div class="lang-label">DE</div>
+    <blockquote class="copy">Dieses Bild-/Videomaterial wurde ganz oder teilweise mit künstlicher Intelligenz erzeugt und zeigt, sofern nicht anders angegeben, keine reale Situation bzw. keine reale Person.</blockquote>
+    <div class="lang-label">EN</div>
+    <blockquote class="copy">This image/video material was created in whole or in part using artificial intelligence and, unless stated otherwise, does not depict a real situation or a real person.</blockquote>
+  </div>
+
+  <div class="template">
+    <h4>E-Mail-Fußnote für KI-unterstützte Inhalte</h4>
+    <div class="lang-label">DE</div>
+    <blockquote class="copy">Diese E-Mail wurde mit Unterstützung von KI-Werkzeugen erstellt und vor dem Versand inhaltlich von [Name/Team] geprüft.</blockquote>
+    <div class="lang-label">EN</div>
+    <blockquote class="copy">This email was drafted with the support of AI tools and reviewed for content by [name/team] before sending.</blockquote>
+  </div>
+
+  <!-- 6. CODE OF PRACTICE -->
+  <h2 id="code-of-practice">6. Code of Practice</h2>
+  <p>Der „Code of Practice on Transparency of AI-generated Content&#8220; ist ein von der EU-Kommission moderiertes, freiwilliges Regelwerk, das die technische Umsetzung von Art. 50(2)/(4)/(5) konkretisiert. Veröffentlicht am 10. Juni 2026, von der Kommission und vom AI Board im Juli 2026 als adäquat eingestuft.</p>
+  <p>Ein Beitritt bzw. eine Ausrichtung am Code ist keine Pflicht, der praktische Unterschied ist aber real:</p>
+  <ul>
+    <li>Aufsichtsbehörden konzentrieren sich bei Signataren darauf, ob der Code eingehalten wird — statt jede technische Einzellösung eigenständig zu bewerten.</li>
+    <li>Nicht-Signatare müssen bei einer Prüfung mit <strong>detaillierteren Auskunftsverlangen</strong> rechnen und erhalten keine vergleichbare Vermutung der Regelkonformität.</li>
+    <li>Für ein KMU heißt das: Ausrichtung am Code — auch ohne formellen Beitritt — ist ein echter Risikominderungs-Hebel, kein reines Marketing-Siegel, insbesondere für die Kennzeichnungspflicht nach Art. 50(2)/(4).</li>
+  </ul>
+
+  <!-- 7. BEHÖRDEN -->
+  <h2 id="behoerden">7. Behörden &amp; Aufsicht DACH</h2>
+
+  <h3>Deutschland</h3>
+  <p>Die <strong>Bundesnetzagentur</strong> ist seit <strong>29.07.2026</strong> die zentrale Marktüberwachungsbehörde für KI in Deutschland (KI-Marktüberwachungs- und Innovationsförderungsgesetz, KI-MIG, vom Bundestag am 11.06.2026 verabschiedet, in Kraft seit 29.07.2026 — vier Tage vor Geltungsbeginn von Art. 50). Sie fungiert als zentrale Koordinierungs- und Kompetenzstelle, einheitliche Anlaufstelle und zentrale Beschwerdestelle, auch für Art.-50-Sachverhalte, mit einer eigenen KI-Marktüberwachungskammer.</p>
+
+  <h3>Österreich</h3>
+  <p>Stand Frühjahr 2026 war die Zuständigkeit noch nicht final geklärt: Ein Regierungsentwurf befand sich in der Bundeskanzlei in Vorbereitung. Erwartet wird eine Aufteilung auf die <strong>Datenschutzbehörde (DSB)</strong> für Hochrisiko-/personenbezogene Fälle, <strong>KommAustria</strong> für Medien-, Plattform- und Telekom-KI, sowie sektorale Regulatoren wie die <strong>FMA</strong> für den Finanzsektor. Die KI-Servicestelle bei der RTR-GmbH ist bereits seit September 2024 im Medienbereich aktiv — das ist jedoch enger gefasst als ein vollständiges Art.-50-Marktüberwachungsmandat. Empfehlung: aktuellen Stand vor einer konkreten Anfrage direkt bei der Bundeskanzlei bzw. den genannten Stellen verifizieren, da sich die Zuständigkeit seit Frühjahr 2026 geändert haben kann.</p>
+
+  <h3>Schweiz</h3>
+  <p>Keine eigene Art.-50-Aufsichtsbehörde, da die Schweiz zum Redaktionsstand kein zum AI Act äquivalentes eigenes Gesetz erlassen hat. Die Pflicht entsteht ausschließlich über den EU-Marktbezug (siehe Kapitel 1), nicht über Schweizer Recht. Bei EU-Bezug ist im Zweifel die Behörde des jeweiligen EU-Mitgliedstaats zuständig, in dem der Output verwendet wird bzw. das Angebot erfolgt.</p>
+
+  <!-- 8. WARNHINWEIS -->
+  <h2 id="warnhinweis">8. Wichtigster Warnhinweis</h2>
+  <div class="callout strong-box">
+    <p><strong>Konformität mit Artikel 50 bedeutet nicht, dass Ihr KI-Einsatz insgesamt rechtmäßig ist.</strong> Laut Erwägungsgrund 137 AI Act steht die Erfüllung der Transparenzpflichten unter dem ausdrücklichen Vorbehalt, dass andere Pflichten davon unberührt bleiben.</p>
+    <p>Ein perfekt gekennzeichneter Chatbot kann trotzdem gegen die DSGVO verstoßen (z.&nbsp;B. bei der Verarbeitung von Chat-Daten), gegen die in Art. 5 AI Act verbotenen Praktiken (z.&nbsp;B. bestimmte Formen von Emotionserkennung am Arbeitsplatz, Social Scoring, manipulative Techniken) oder gegen das Lauterkeitsrecht (z.&nbsp;B. irreführende Werbung). Dieses Kit deckt ausschließlich die Transparenzpflichten aus Art. 50 ab — es ersetzt keine umfassende Compliance-Prüfung.</p>
+  </div>
+
+  <!-- 9. QUELLEN -->
+  <h2 id="quellen">9. Quellenverzeichnis</h2>
+  <p class="small">Abgerufen bzw. zuletzt geprüft am 6. August 2026.</p>
+  <ul class="sources">
+    <li>Europäische Kommission, <em>Guidelines on the implementation of the transparency obligations for certain AI systems under Article 50 of Regulation (EU) 2024/1689</em>, C(2026) 5054 final, Brüssel, 20.07.2026.</li>
+    <li>Verordnung (EU) 2024/1689 (AI Act), insbesondere Art. 2, 50, 99 sowie Erwägungsgründe 132–137.</li>
+    <li>Verordnung (EU) 2026/1744 (Digital-Omnibus-Verordnung zur KI-Verordnung).</li>
+    <li>Deutscher Bundestag, Dokumentation zur Verabschiedung des KI-Marktüberwachungs- und Innovationsförderungsgesetzes (KI-MIG).</li>
+    <li>Code of Practice on Transparency of AI-generated Content, veröffentlicht 10.06.2026.</li>
+  </ul>
+
+  <footer>
+    <p>© Gamper Klimmek Consulting. Weitergabe nur mit Lizenz.</p>
+    <p>Kontakt: matthias@gamperklimmek.com</p>
+  </footer>
+
+</div>
+</body>
+</html>
