@@ -1,0 +1,121 @@
+{
+  "origin": "https://www.gamperklimmek.com",
+  "pages": {
+    "index": {
+      "de": {
+        "title": "Business Systems Review für Ihr KMU | Gamper Klimmek",
+        "description": "Wir prüfen Abläufe, erkennen Engpässe und automatisieren wiederkehrende Arbeit. Entdecken Sie, wo Ihr Team jede Woche Zeit zurückgewinnen kann.",
+        "locale": "de_CH"
+      },
+      "fr": {
+        "title": "Business Systems Review pour PME | Gamper Klimmek Suisse",
+        "description": "Nous analysons vos processus et automatisons les tâches répétitives. Découvrez où votre équipe peut gagner du temps chaque semaine.",
+        "locale": "fr_CH"
+      }
+    },
+    "businesses": {
+      "de": {
+        "title": "KI und Automatisierung für Ihr KMU | Gamper Klimmek",
+        "description": "Weniger manuelle Arbeit in Ihrem Unternehmen: Anfragen bearbeiten, Nachfassen automatisieren und Ihr Team im Betriebsalltag gezielt entlasten.",
+        "locale": "de_CH"
+      },
+      "fr": {
+        "title": "Automatisation et IA pour les PME | Gamper Klimmek Suisse",
+        "description": "Réduisez les tâches manuelles de votre entreprise : traitez les demandes, automatisez les relances et libérez du temps pour votre équipe.",
+        "locale": "fr_CH"
+      }
+    },
+    "calculator": {
+      "de": {
+        "title": "Zeit und Kosten manueller Arbeit | Gamper Klimmek Rechner",
+        "description": "Berechnen Sie, wie viel Zeit und Geld manuelle Verwaltung, Nachrichten und Koordination jährlich kosten. Erkennen Sie das Potenzial Ihres Teams.",
+        "locale": "de_CH"
+      },
+      "fr": {
+        "title": "Calculez le coût du travail manuel | Gamper Klimmek Suisse",
+        "description": "Estimez les heures et les coûts annuels liés aux tâches administratives, aux messages et à la coordination. Identifiez vos pistes d’amélioration.",
+        "locale": "fr_CH"
+      }
+    },
+    "story": {
+      "de": {
+        "title": "Unsere Geschichte: aus der Praxis | Gamper Klimmek Schweiz",
+        "description": "Lernen Sie Jessica Gamper Klimmek kennen. Ihre Erfahrung im operativen Geschäft prägt unsere KI-Beratung und Systeme für den Unternehmensalltag.",
+        "locale": "de_CH"
+      },
+      "fr": {
+        "title": "Notre histoire : du terrain à l’IA | Gamper Klimmek Suisse",
+        "description": "Découvrez Jessica Gamper Klimmek et son parcours dans les opérations. Une expérience de terrain qui guide notre conseil en IA et nos systèmes.",
+        "locale": "fr_CH"
+      }
+    },
+    "work": {
+      "de": {
+        "title": "Webdesign und KI: unsere Projekte | Gamper Klimmek Schweiz",
+        "description": "Einblicke in unsere Webdesign- und Automatisierungsprojekte: Jahresanzeigen.de, Energy by XOLO, Planet Scuba Mexico und 200bar.ai.",
+        "locale": "de_CH"
+      },
+      "fr": {
+        "title": "Nos projets web et automatisation | Gamper Klimmek Suisse",
+        "description": "Découvrez nos projets de sites web et d’automatisation : Jahresanzeigen.de, Energy by XOLO, Planet Scuba Mexico et 200bar.ai.",
+        "locale": "fr_CH"
+      }
+    },
+    "operators": {
+      "de": {
+        "title": "KI für Tauch-, Surf- und Touranbieter | Gamper Klimmek",
+        "description": "Automatisierung für Tauchbasen, Surfcamps und Touranbieter: weniger manuelle Arbeit, schnellere Antworten und bessere Abläufe bei Buchungen.",
+        "locale": "de_CH"
+      },
+      "fr": {
+        "title": "IA pour centres de plongée et séjours | Gamper Klimmek",
+        "description": "Automatisation pour centres de plongée, camps de surf et voyagistes : moins de tâches manuelles, des réponses rapides et des réservations facilitées.",
+        "locale": "fr_CH"
+      }
+    },
+    "legal": {
+      "de": {
+        "title": "Impressum und Datenschutz | Gamper Klimmek Consulting",
+        "description": "Impressum und Datenschutzhinweise von Gamper Klimmek Consulting in Luzern: Informationen zur Datenverarbeitung, zu Cookies und Ihren Rechten.",
+        "locale": "de_CH"
+      },
+      "fr": {
+        "title": "Mentions légales et confidentialité | Gamper Klimmek",
+        "description": "Informations légales et protection des données de Gamper Klimmek Consulting à Lucerne : traitement des données, cookies et droits des visiteurs.",
+        "locale": "fr_CH"
+      }
+    }
+  },
+  "allowlist": [
+    "Gamper Klimmek Consulting",
+    "Jessica Gamper Klimmek",
+    "Gamper Klimmek",
+    "Gamper",
+    "Klimmek",
+    "Business Systems Review",
+    "Implementation Sprint",
+    "Ongoing Partnership",
+    "Care Plan",
+    "LinkedIn",
+    "EN",
+    "DE",
+    "FR",
+    "CHF",
+    "EUR",
+    "USD",
+    "hello@gamperklimmek.com",
+    "hello [at] gamperklimmek [dot] com",
+    "gamperklimmek.com",
+    "UID: CHE-235.928.528",
+    "Seeburgstrasse",
+    "Luzern",
+    "gk_lang",
+    "_ga_*",
+    "_ga",
+    "Google Analytics 4"
+  ],
+  "protectedNames": [
+    "Business Systems Review",
+    "Implementation Sprint"
+  ]
+}

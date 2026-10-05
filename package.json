@@ -1,0 +1,8 @@
+{
+  "name": "gamper-klimmek-site",
+  "private": true,
+  "scripts": {
+    "build:lang": "node scripts/build-lang-pages.mjs",
+    "test": "node scripts/check-lang-pages.mjs && node scripts/check-i18n-runtime.mjs && node scripts/check-lang-parser.mjs"
+  }
+}
