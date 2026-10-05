@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+import assert from 'node:assert/strict';
+import { parseHTML, serialize, rewriteURL, rewriteSrcset, rewriteCSS, patchAlternates, translateTree } from './build-lang-pages.mjs';
+
+const fragment = '<!-- <p data-i18n="missing">ignore > this</p> --><div title="a > b &amp; &quot;c&quot;"><input placeholder="a > b"><img src="x.png"><br><span>visible</span><script>if (x < 3) text = "<p>not markup</p>";</script><style>/* <b> */ p::after { content: ">"; }</style></div>';
+const parsed = parseHTML(fragment);
+assert.equal(parsed.children[1].attrs.title, 'a > b & "c"');
+assert.equal(parsed.children[1].children[3].children[0].value, 'visible');
+assert.equal(serialize(parsed), fragment.replaceAll('a > b', 'a &gt; b'));
+assert.equal(serialize(parseHTML('<input data-i18n="x" data-i18n-attr="placeholder" placeholder="a &lt; b">')), '<input data-i18n="x" data-i18n-attr="placeholder" placeholder="a &lt; b">');
+assert.throws(() => parseHTML('<!-- unfinished'), /comment/);
+assert.throws(() => parseHTML('<div title="unfinished>'), /tag/);
+const origin = 'https://www.gamperklimmek.com';
+const rewrite = (s, navigation = false) => rewriteURL(s, 'de', ['index', 'work', 'legal'], origin, navigation);
+assert.equal(rewrite('../styles.css?v=2'), '/styles.css?v=2');
+assert.equal(rewrite('legal.html?tab=privacy#cookies', true), '/de/legal?tab=privacy#cookies');
+assert.equal(rewrite(origin + '/work', true), '/de/work');
+assert.equal(rewrite('index.html#newsletter', true), '/de#newsletter');
+assert.equal(rewrite('resources.html#cases', true), '/resources.html#cases');
+for (const value of ['#contact', '?tab=1', '//cdn.example.com/x.js', 'https://example.com/work', 'mailto:a@example.com', 'tel:+4141', 'data:image/png;base64,abc']) assert.equal(rewrite(value, true), value);
+assert.equal(rewriteSrcset('small.jpg 480w, big.jpg 2x', rewrite), '/small.jpg 480w, /big.jpg 2x');
+assert.equal(rewriteSrcset('data:image/png;base64,abc 1x, large.png 2x', rewrite), 'data:image/png;base64,abc 1x, /large.png 2x');
+assert.equal(rewriteCSS('background:url("img/hero.jpg"); mask:url(#mask); src:url(https://cdn.example.com/font.woff2)', rewrite), 'background:url("/img/hero.jpg"); mask:url(#mask); src:url(https://cdn.example.com/font.woff2)');
+const en = '<html><head><title>Unchanged</title></head><body>English</body></html>';
+const patched = patchAlternates(en, 'index', origin);
+assert.equal(patchAlternates(patched, 'index', origin), patched);
+assert.ok(patched.includes('hreflang="de" href="https://www.gamperklimmek.com/de"'));
+const tree = parseHTML('<body><button data-i18n="menu" data-i18n-attr="aria-label"><span>✓</span></button><input data-i18n-ph="name"><p data-i18n="copy">English <em>copy</em></p><p data-i18n="missing">Missing</p><p>Unmarked English</p></body>');
+const errors = new Set();
+translateTree(tree, 'de', { de: { menu: 'Menü "öffnen" >', name: 'Name & Firma', copy: 'Deutscher <em>Text</em>' } }, { allowlist: [] }, { text: {} }, 'fixture', errors);
+const translated = serialize(tree);
+assert.ok(translated.includes('aria-label="Menü &quot;öffnen&quot; &gt;"><span>✓</span></button>'), 'Attribute translation must not replace children');
+assert.ok(translated.includes('placeholder="Name &amp; Firma"'));
+assert.ok(translated.includes('<p data-i18n="copy">Deutscher <em>Text</em></p>'));
+assert.deepEqual([...errors], ['fixture/de: missing translation missing', 'fixture/de: text outside data-i18n: Unmarked English']);
+console.log('HTML parser and URL regression checks OK.');
