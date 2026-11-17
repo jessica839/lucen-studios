@@ -295,6 +295,11 @@
   }
 
   /* RESPONSIVE */
+  .nav-ai-check { display: none; white-space: nowrap; }
+  @media (min-width: 1500px) {
+    .nav-ai-check { display: list-item; }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
@@ -348,6 +353,7 @@
     <li><a href="#how-it-works" data-i18n="nav.how_it_works">Comment ça marche</a></li>
     <li><a href="#what-changes" data-i18n="nav.what_changes">Ce que nous corrigeons</a></li>
     <li><a href="/fr#cases" data-i18n="nav.cases">Études de cas</a></li>
+    <li class="nav-ai-check"><a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" data-i18n="nav.ai_check" onclick="if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})">Check IA gratuit</a></li>
   </ul>
   <a href="/fr" class="nav-back" data-i18n="nav.back_home">Retour à l'accueil</a>
   <div class="gk-lang-switcher" aria-label="Sélecteur de langue" data-static-i18n-aria-label="static.aria.language_switcher">
@@ -366,6 +372,7 @@
   <a href="#what-changes" data-i18n="nav.what_changes">Ce que nous corrigeons</a>
   <a href="/fr#cases" data-i18n="nav.cases">Études de cas</a>
   <a href="/fr" data-i18n="nav.back_home">Retour à l'accueil</a>
+  <a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" data-i18n="nav.ai_check" onclick="if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})">Check IA gratuit</a>
   <div class="gk-lang-switcher mobile-lang" aria-label="Sélecteur de langue" data-static-i18n-aria-label="static.aria.language_switcher">
     <button class="gk-lang-btn lang-btn" data-lang="en" type="button">EN</button>
     <button class="gk-lang-btn lang-btn" data-lang="de" type="button">DE</button>
@@ -582,7 +589,7 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
-<script src="/i18n.js?v=b9fd00d26c"></script>
+<script src="/i18n.js?v=7224f33d3f"></script>
 <script src="/currency.js?v=92fb1393ec"></script>
 <script src="/cookie-consent.js?v=edcfaba4f8"></script>
 </body>

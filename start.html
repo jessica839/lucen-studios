@@ -248,6 +248,11 @@
   }
 
   /* RESPONSIVE */
+  .nav-ai-check { display: none; white-space: nowrap; }
+  @media (min-width: 1500px) {
+    .nav-ai-check { display: list-item; }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
@@ -288,6 +293,7 @@
     <li><a href="businesses.html" data-i18n="nav_for_businesses">For Businesses</a></li>
     <li><a href="story.html" data-i18n="nav_our_story">Our Story</a></li>
     <li><a href="resources.html" data-i18n="nav_case_studies">Case Studies</a></li>
+    <li class="nav-ai-check"><a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" data-i18n="nav.ai_check" onclick="if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})">Free AI check</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open'); this.classList.toggle('active');">
     <span></span><span></span><span></span>
@@ -305,6 +311,7 @@
   <a href="businesses.html" data-i18n="nav_for_businesses" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">For Businesses</a>
   <a href="story.html" data-i18n="nav_our_story" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Our Story</a>
   <a href="resources.html" data-i18n="nav_case_studies" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');">Case Studies</a>
+  <a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" data-i18n="nav.ai_check" onclick="document.querySelector('.mobile-menu').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('active');if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})">Free AI check</a>
   <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="mobile-cta" data-i18n="mobile_book_call">Book a Call</a>
   <div hidden style="display:none" class="mobile-lang" aria-label="Language switcher">
     <button class="gk-lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>

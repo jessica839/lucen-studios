@@ -101,6 +101,7 @@
           <button class="lang-btn"        data-lang="fr">FR</button>
         </div>
       </li>
+      <li class="nav-ai-check"><a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" data-i18n="nav.ai_check" onclick="if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})">Free AI check</a></li>
       <li><a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="nav-cta" id="navRegularBooking" data-i18n="nav.book_call" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'nav'})">Book a call</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
@@ -122,6 +123,7 @@
     <a href="#solution" onclick="closeMobile()" data-i18n="nav.what_changes">What We Fix</a>
     <a href="#cases"    onclick="closeMobile()" data-i18n="nav.cases">Case Studies</a>
     <a href="/work"     onclick="closeMobile()" data-i18n="nav.work">Work</a>
+    <a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" onclick="closeMobile();if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})" data-i18n="nav.ai_check">Free AI check</a>
     <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" onclick="closeMobile();if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'mobile_nav'})" style="color:var(--gold)" data-i18n="nav.book_call">Book a call</a>
     <div class="mobile-lang">
       <button data-lang="en" class="active">EN</button>
@@ -507,6 +509,21 @@
           <span class="work-teaser-tag" data-i18n="workteaser.p4.tag">AI · Tourism</span>
           <strong data-i18n="workteaser.p4.title">200bar.ai</strong>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FREE AI CHECK ═══════════════════════════════════════ -->
+  <section class="ai-check" id="ai-check">
+    <div class="ai-check-inner">
+      <div>
+        <p class="section-label" data-i18n="ai_check.eyebrow">Free tool</p>
+        <h2 data-i18n="ai_check.headline">How does your website look to Google and AI search?</h2>
+      </div>
+      <div class="ai-check-copy">
+        <p data-i18n="ai_check.body">Enter your web address. In about a minute you get Google's speed and SEO results for mobile and desktop, a check of how well AI search engines can read your site, and the three changes that matter most. Free, no login.</p>
+        <a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=homepage&amp;utm_campaign=site" class="btn-primary" data-i18n="ai_check.cta" onclick="if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'homepage'})">Run the free check</a>
+        <p class="ai-check-note" data-i18n="ai_check.note"></p>
       </div>
     </div>
   </section>

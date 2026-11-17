@@ -294,6 +294,11 @@
   }
 
   /* RESPONSIVE */
+  .nav-ai-check { display: none; white-space: nowrap; }
+  @media (min-width: 1500px) {
+    .nav-ai-check { display: list-item; }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
@@ -345,6 +350,7 @@
     <li><a href="#how-it-works" data-i18n="nav.how_it_works">How It Works</a></li>
     <li><a href="#what-changes" data-i18n="nav.what_changes">What Changes</a></li>
     <li><a href="resources.html" data-i18n="nav.cases">Case Studies</a></li>
+    <li class="nav-ai-check"><a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" data-i18n="nav.ai_check" onclick="if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})">Free AI check</a></li>
   </ul>
   <a href="index.html" class="nav-back" data-i18n="nav.back_home">Back to home</a>
   <div class="gk-lang-switcher" aria-label="Language switcher">
@@ -363,6 +369,7 @@
   <a href="#what-changes" data-i18n="nav.what_changes">What Changes</a>
   <a href="resources.html" data-i18n="nav.cases">Case Studies</a>
   <a href="index.html" data-i18n="nav.back_home">Back to home</a>
+  <a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" data-i18n="nav.ai_check" onclick="if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})">Free AI check</a>
   <div class="gk-lang-switcher mobile-lang" aria-label="Language switcher">
     <button class="gk-lang-btn lang-btn" data-lang="en" type="button">EN</button>
     <button class="gk-lang-btn lang-btn" data-lang="de" type="button">DE</button>
