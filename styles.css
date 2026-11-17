@@ -744,8 +744,9 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
 .audit-page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse at 40% 50%, black 20%, transparent 70%); }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 1400px) {
-  .nav-links li:has([data-i18n="nav.ai_check"]) { display: none; }
+.nav-ai-check { display: none; white-space: nowrap; }
+@media (min-width: 1500px) {
+  .nav-ai-check { display: list-item; }
 }
 
 @media (max-width: 960px) {
