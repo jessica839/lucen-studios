@@ -337,7 +337,7 @@
 
     <h3 data-i18n="legal_contact_h3">Contact</h3>
     <div class="info-block">
-      <p><strong>Email:</strong> <a href="#" class="gk-obfuscated-email" data-email-user="hello" data-email-host="gamperklimmek" data-email-tld="com">hello [at] gamperklimmek [dot] com</a></p>
+      <p><strong>Email:</strong> <a href="mailto:hello@gamperklimmek.com">hello@gamperklimmek.com</a></p>
       <p data-i18n="legal_contact_website"><strong>Website:</strong> <a href="https://www.gamperklimmek.com">www.gamperklimmek.com</a></p>
     </div>
 
@@ -365,7 +365,7 @@
       <p><strong>Gamper Klimmek Consulting</strong></p>
       <p>Jessica Gamper Klimmek</p>
       <p data-i18n="legal_controller_line_3">Seeburgstrasse 22, 6006 Luzern, Switzerland</p>
-      <p><a href="#" class="gk-obfuscated-email" data-email-user="hello" data-email-host="gamperklimmek" data-email-tld="com">hello [at] gamperklimmek [dot] com</a></p>
+      <p><a href="mailto:hello@gamperklimmek.com">hello@gamperklimmek.com</a></p>
     </div>
 
     <h3 data-i18n="legal_data_h3">Data We Collect</h3>
@@ -382,6 +382,15 @@
 
     <h3 data-i18n="legal_nl_h3">Newsletter</h3>
     <p data-i18n="legal_nl_p">If you subscribe to our newsletter, we process the email address you provide in order to send you practical AI and automation insights. The newsletter is handled through our CRM and scheduling platform (GoHighLevel / LeadConnector). We send it only on the basis of the explicit consent you give when subscribing, and you can unsubscribe at any time using the link in any newsletter or by emailing us. We do not use your address for any other purpose. Legal basis: consent (Art. 6 nDSG).</p>
+
+    <h3 data-i18n="legal_leads_h3">Lead Forms</h3>
+    <p data-i18n="legal_leads_p">When you use a newsletter, calculator-email, case-study request, or event-quiz form, the details you submit are stored in GoHighLevel / LeadConnector (USA) and used for the follow-up you requested. The legal basis is your consent (Art. 6 nDSG).</p>
+
+    <h3 data-i18n="legal_tracking_h3">GoHighLevel Site Tracking</h3>
+    <p data-i18n="legal_tracking_p">The GoHighLevel / LeadConnector site-tracking script is loaded only after you accept cookies. It may set a session cookie to recognise a visit and help us manage contact requests. The legal basis is your consent (Art. 6 nDSG).</p>
+
+    <h3 data-i18n="legal_stripe_h3">Stripe Payments</h3>
+    <p data-i18n="legal_stripe_p">Payments for the KI-Transparenz-Kit are processed by Stripe. Stripe processes payment data as an independent controller and, where applicable, as a processor; its services involve Stripe entities in Ireland and the USA. We do not receive or store your full payment-card details.</p>
 
     <h3 data-i18n="legal_ga_h3">Google Analytics 4</h3>
     <p data-i18n="legal_ga_p1">This website uses Google Analytics 4 (GA4), a web analytics service provided by Google Ireland Ltd (Gordon House, Barrow Street, Dublin 4, Ireland) and Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). GA4 helps us understand, in aggregate, how visitors use the site so we can improve it.</p>
@@ -408,9 +417,20 @@
         <tr><th>Cookie</th><th>Provider</th><th>Purpose</th><th>Type</th><th>Expiry</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>gk_lang</code> / consent</td><td>gamperklimmek.com</td><td>Stores your language and cookie-consent choice</td><td>Functional (1st party)</td><td>Up to 1 year</td></tr>
         <tr><td><code>_ga</code></td><td>Google Analytics 4</td><td>Distinguishes unique visitors</td><td>Analytics (1st party)</td><td>2 years</td></tr>
-        <tr><td><code>_ga_*</code></td><td>Google Analytics 4</td><td>Holds session state</td><td>Analytics (1st party)</td><td>Session / 24 h</td></tr>
+        <tr><td><code>_ga_*</code></td><td>Google Analytics 4</td><td>Holds session state</td><td>Analytics (1st party)</td><td>2 years</td></tr>
+        <tr><td><code data-i18n="legal_storage_lc_session">lc_session_tk_*</code></td><td data-i18n="legal_storage_ghl">GoHighLevel / LeadConnector</td><td data-i18n="legal_cookie_ghl_purpose">Stores session state for the consented site-tracking script</td><td data-i18n="legal_cookie_ghl_type">Analytics (1st party)</td><td data-i18n="legal_cookie_ghl_expiry">Set by GoHighLevel</td></tr>
+      </tbody>
+    </table>
+    <h4 data-i18n="legal_storage_h4">Local storage</h4>
+    <table class="gk-cookie-table">
+      <thead>
+        <tr><th data-i18n="legal_storage_key">Key</th><th>Provider</th><th>Purpose</th><th>Type</th><th>Expiry</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>gk_lang</code></td><td>gamperklimmek.com</td><td data-i18n="legal_storage_lang_purpose">Stores your language choice</td><td data-i18n="legal_storage_functional">Functional (1st party)</td><td data-i18n="legal_storage_persistent">Until you clear browser storage</td></tr>
+        <tr><td><code data-i18n="legal_storage_consent_key">gk_cookie_consent</code></td><td>gamperklimmek.com</td><td data-i18n="legal_storage_consent_purpose">Stores your cookie-consent choice</td><td data-i18n="legal_storage_functional">Functional (1st party)</td><td data-i18n="legal_storage_consent_expiry">180 days</td></tr>
+        <tr><td><code data-i18n="legal_storage_currency_key">gk_currency</code></td><td>gamperklimmek.com</td><td data-i18n="legal_storage_currency_purpose">Stores your currency choice</td><td data-i18n="legal_storage_functional">Functional (1st party)</td><td data-i18n="legal_storage_persistent">Until you clear browser storage</td></tr>
       </tbody>
     </table>
     <p data-i18n="legal_cookies_p3" style="font-size:0.85rem;color:rgba(10,10,15,0.55);">Analytics cookies are only set after you accept. Functional storage is required for the site and your preferences to work.</p>
@@ -423,13 +443,13 @@
     <p data-i18n="legal_rights_object"><strong>Right to object:</strong> You may object to the processing of your data for certain purposes.</p>
     <p data-i18n="legal_rights_portability"><strong>Right to data portability:</strong> You may request the personal data you have provided to us in a common, machine-readable format (Art. 28 nDSG).</p>
     <p data-i18n="legal_rights_withdraw"><strong>Right to withdraw consent:</strong> Where processing is based on consent (e.g. analytics or the newsletter), you may withdraw it at any time, without affecting the lawfulness of processing carried out before withdrawal.</p>
-    <p data-i18n="legal_rights_contact">To exercise any of these rights, please contact us at <a href="#" class="gk-obfuscated-email" data-email-user="hello" data-email-host="gamperklimmek" data-email-tld="com">hello [at] gamperklimmek [dot] com</a>. We will respond within 30 days.</p>
+    <p data-i18n="legal_rights_contact">To exercise any of these rights, please contact us at <a href="mailto:hello@gamperklimmek.com">hello@gamperklimmek.com</a>. We will respond within 30 days.</p>
 
     <h3 data-i18n="legal_retention_h3">Data Retention</h3>
     <p data-i18n="legal_retention_p">We retain personal data only for as long as necessary for the purpose for which it was collected, or as required by Swiss law. Contact and booking data is retained for the duration of our business relationship and for a maximum of 10 years thereafter in accordance with Swiss commercial record-keeping obligations.</p>
 
     <h3 data-i18n="legal_transfers_h3">International Data Transfers</h3>
-    <p data-i18n="legal_transfers_p">Some processors are based in the United States. Our host (Vercel) and Google (Analytics) are certified under the Swiss–US and EU–US Data Privacy Frameworks, which the Swiss FDPIC recognises as providing adequate protection. Our booking, CRM and newsletter platform (GoHighLevel / LeadConnector, USA) relies on Standard Contractual Clauses and equivalent safeguards. Our fonts are self-hosted, so no font data leaves our server; ipapi.co is used only for a momentary region lookup. We transfer only what is necessary for each service to function.</p>
+    <p data-i18n="legal_transfers_p">Some processors are based in the United States. The Federal Council determines which countries provide adequate protection under Annex 1 of the Data Protection Ordinance. Where an adequacy decision does not apply, we use appropriate safeguards, such as Standard Contractual Clauses. Our booking, CRM and newsletter platform (GoHighLevel / LeadConnector, USA) relies on such safeguards. Our fonts are self-hosted, so no font data leaves our server; ipapi.co is used only for a momentary region lookup. We transfer only what is necessary for each service to function.</p>
 
     <h3 data-i18n="legal_children_h3">Children</h3>
     <p data-i18n="legal_children_p">This website addresses businesses and professionals and is not directed at children. We do not knowingly collect personal data from anyone under 16. If you believe a minor has provided us with personal data, please contact us and we will delete it.</p>
@@ -438,10 +458,10 @@
     <p data-i18n="legal_changes_p">We reserve the right to update this privacy policy at any time. The current version will always be available on this page. We recommend checking this page periodically for any changes.</p>
 
     <h3 data-i18n="legal_complaints_h3">Contact & Complaints</h3>
-    <p data-i18n="legal_complaints_p1">For any questions about this privacy policy or how we handle your data, please contact us at <a href="#" class="gk-obfuscated-email" data-email-user="hello" data-email-host="gamperklimmek" data-email-tld="com">hello [at] gamperklimmek [dot] com</a>.</p>
+    <p data-i18n="legal_complaints_p1">For any questions about this privacy policy or how we handle your data, please contact us at <a href="mailto:hello@gamperklimmek.com">hello@gamperklimmek.com</a>.</p>
     <p data-i18n="legal_complaints_p2">If you believe your data protection rights have been violated, you have the right to lodge a complaint with the Swiss Federal Data Protection and Information Commissioner (FDPIC): <a href="https://www.edoeb.admin.ch" target="_blank">www.edoeb.admin.ch</a></p>
 
-    <p class="last-updated" data-i18n="legal_last_updated">Last updated: June 2026</p>
+    <p class="last-updated" data-i18n="legal_last_updated">Last updated: November 2026</p>
   </section>
 
   <hr class="divider">
@@ -458,7 +478,7 @@
     <p data-i18n="legal_a11y_limits_p">Some embedded third-party tools — such as the GoHighLevel booking widget — are rendered by their providers, and their accessibility is outside our direct control. If one of them blocks you, email us and we will help you complete the same action another way.</p>
 
     <h3 data-i18n="legal_a11y_feedback_h3">Feedback</h3>
-    <p data-i18n="legal_a11y_feedback_p">If you encounter a barrier on this site, please tell us at <a href="#" class="gk-obfuscated-email" data-email-user="hello" data-email-host="gamperklimmek" data-email-tld="com">hello [at] gamperklimmek [dot] com</a>. We aim to respond within 30 days and to offer an accessible alternative where a fix takes longer.</p>
+    <p data-i18n="legal_a11y_feedback_p">If you encounter a barrier on this site, please tell us at <a href="mailto:hello@gamperklimmek.com">hello@gamperklimmek.com</a>. We aim to respond within 30 days and to offer an accessible alternative where a fix takes longer.</p>
   </section>
 
 </div>

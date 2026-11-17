@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Wo verliert Ihr Betrieb die meiste Zeit? — Gamper Klimmek</title>
@@ -413,6 +414,9 @@
         </div>
         <input class="inp" type="text"  id="inp-name"  placeholder="Ihr Name / Your name"           autocomplete="name" />
         <input class="inp" type="email" id="inp-email" placeholder="E-Mail-Adresse / Email address" autocomplete="email" />
+        <p class="privacy-note">Mit dem Absenden stimmen Sie unserer <a href="/de/legal#privacy">Datenschutzerklärung</a> zu.</p>
+        <input type="text" name="website" id="quizWebsite" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;" />
+        <p id="quizError" role="alert" hidden>Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie an hello@gamperklimmek.com.</p>
         <button class="btn-dark" onclick="submitQuiz()">Ergebnis anzeigen — Show result</button>
         <p class="note">Kein Spam. Jederzeit abmeldbar. / No spam, unsubscribe anytime.</p>
       </div>
@@ -449,6 +453,7 @@
 
   <script>
     var answers = {};
+    var quizSubmitting = false;
 
     function goTo(id) {
       document.querySelectorAll('.screen').forEach(function(s) {
@@ -463,7 +468,8 @@
 
     function pick(q, val) { answers[q] = val; }
 
-    function submitQuiz() {
+    async function submitQuiz() {
+      if (quizSubmitting) return;
       var name  = document.getElementById('inp-name').value.trim();
       var email = document.getElementById('inp-email').value.trim();
 
@@ -484,16 +490,29 @@
         localStorage.setItem('gk_event_leads', JSON.stringify(leads));
       } catch(e) {}
 
-      // Fire to GHL via serverless function — silent fail, result always shows
-      fetch('/api/submit-quiz', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({
-          firstName:  name,
-          email:      email,
-          painPoint:  answers.q1 || 'comms'
-        })
-      }).catch(function() {});
+      var button = document.querySelector('[onclick="submitQuiz()"]');
+      quizSubmitting = true;
+      button.disabled = true;
+      document.getElementById('quizError').hidden = true;
+      try {
+        var res = await fetch('/api/submit-quiz', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName: name,
+            email: email,
+            painPoint: answers.q1 || 'comms',
+            website: document.getElementById('quizWebsite').value
+          })
+        });
+        if (!res.ok) throw new Error('Submission failed');
+      } catch (err) {
+        document.getElementById('quizError').hidden = false;
+        return;
+      } finally {
+        quizSubmitting = false;
+        button.disabled = false;
+      }
 
       showResult();
     }

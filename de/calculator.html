@@ -349,7 +349,7 @@
   <section class="leak-calc" id="leak-calculator">
     <div class="leak-calc-inner">
       <div class="leak-calc-header">
-        <p class="section-label" data-i18n="calc.label">Zeit- &amp; Kosten-Leck-Rechner</p>
+        <p class="section-label" data-i18n="calc.label">Zeit- und Kostenrechner</p>
         <h1 class="section-title" data-i18n="calc.title">Wie viel Zeit und Geld kostet manuelle Arbeit Ihr Unternehmen?</h1>
         <p class="leak-calc-sub" data-i18n="calc.sub">Nutzen Sie den Rechner, um einzuschätzen, was wiederkehrende Adminarbeit, Kommunikation und Koordination Ihr Team pro Jahr kosten können.</p>
       </div>
@@ -440,11 +440,13 @@
             <p style="font-family:’Syne’,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;"><span data-i18n="static.calculator.save.title">Ergebnisse speichern</span></p>
             <p style="font-size:0.8rem;color:rgba(244,241,236,0.6);margin-bottom:0.875rem;line-height:1.5;"><span data-i18n="static.calculator.save.body">Senden Sie sich diese Zusammenfassung per E-Mail, damit Sie sie für das Gespräch haben.</span></p>
             <div id="calcEmailForm" style="display:flex;flex-direction:column;gap:0.5rem;">
+              <input type="text" name="website" id="calcWebsite" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">
+              <p id="calcError" role="alert" data-i18n="form.error" hidden>Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie an hello@gamperklimmek.com.</p>
               <input type="text" id="calcLeadName" placeholder="Vorname" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:3px;color:#f5f0e8;font-family:’DM Sans’,sans-serif;font-size:0.82rem;padding:0.45rem 0.7rem;" data-i18n-ph="ph.firstname">
               <input type="email" id="calcLeadEmail" placeholder="E-Mail-Adresse" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:3px;color:#f5f0e8;font-family:’DM Sans’,sans-serif;font-size:0.82rem;padding:0.45rem 0.7rem;" data-i18n-ph="ph.email">
               <label style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;" id="calcLeadConsentLabel">
                 <input type="checkbox" id="calcLeadConsent" onchange="updateCalcLeadBtn()" style="margin-top:0.2rem;flex-shrink:0;accent-color:#c9a84c;">
-                <span style="font-size:0.72rem;line-height:1.5;color:rgba(244,241,236,0.45);"><span data-i18n="static.calculator.consent.prefix">Ich stimme zu, meine Ergebnisse per E-Mail zu erhalten. Für die Datenverarbeitung gilt die</span> <a href="/de/legal#cookies" style="color:rgba(201,168,76,0.75);text-decoration:underline;"><span data-i18n="static.privacy_policy_lower">Datenschutzerklärung</span></a>.</span>
+                <span style="font-size:0.72rem;line-height:1.5;color:rgba(244,241,236,0.45);"><span data-i18n="static.calculator.consent.prefix">Ich stimme zu, meine Ergebnisse per E-Mail zu erhalten. Für die Datenverarbeitung gilt die</span> <a href="/de/legal#privacy" style="color:rgba(201,168,76,0.75);text-decoration:underline;"><span data-i18n="static.privacy_policy_lower">Datenschutzerklärung</span></a>.</span>
               </label>
               <button id="calcLeadBtn" onclick="submitCalcLead()" style="background:#c9a84c;color:#0a0a0f;border:none;cursor:pointer;font-family:’Syne’,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.55rem 1rem;border-radius:3px;transition:background 0.2s;opacity:0.65;cursor:not-allowed;"><span data-i18n="static.calculator.email.cta">Diese Zusammenfassung per E-Mail senden</span></button>
               <p style="font-size:0.7rem;color:rgba(244,241,236,0.35);line-height:1.4;"><span data-i18n="static.calculator.email.note">Kein Spam. Nur für den Versand Ihrer Ergebnisse.</span></p>
@@ -459,11 +461,11 @@
             <p class="leak-calc-audit-equivalent"><span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF&nbsp;950</span> <span data-i18n="static.review.credit">· wird auf die Umsetzung angerechnet</span></p>
           </div>
 
-          <p class="leak-calc-support" data-i18n="calc.results.support">Schon kleine Verbesserungen in Ihren Abläufen können einen großen Teil dieser Zeit zurückholen.</p>
+          <p class="leak-calc-support" data-i18n="calc.results.support">Schon kleine Verbesserungen in Ihren Abläufen können einen grossen Teil dieser Zeit zurückholen.</p>
 
           <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-gold-full" id="calcCtaBtn" target="_blank" rel="noopener"><span data-i18n="nav.book_call">Gespräch buchen</span></a>
           <p class="leak-calc-microcopy" id="calcCtaMicrocopy"><span data-i18n="static.free_call.note">Kostenlos. 30 Minuten. Keine Vorbereitung nötig.</span></p>
-          <p class="leak-calc-cta-note" id="calcCtaNote"><span data-i18n="static.calculator.data_note">Ihre Daten bleiben in Ihrem Browser. Erst beim Buchen wird etwas gesendet.</span></p>
+          <p class="leak-calc-cta-note" id="calcCtaNote"><span data-i18n="static.calculator.data_note">Ihre Zahlen bleiben in Ihrem Browser, ausser Sie entscheiden sich, sie sich per E-Mail zu senden.</span></p>
 
           </div><!-- /calcResultsContent -->
         </aside>
@@ -525,8 +527,8 @@
     <p class="footer-meta"><span data-i18n="footer.copyright">© 2026 Gamper Klimmek Consulting · Seeburgstrasse 22, 6006 Luzern, Schweiz · CHE-235.928.528</span></p>
   </footer>
 
-  <script src="/i18n.js?v=60ee9e1031"></script>
-  <script src="/currency.js?v=a98176028a"></script>
+  <script src="/i18n.js?v=b9fd00d26c"></script>
+  <script src="/currency.js?v=92fb1393ec"></script>
   <script>
     const CALC_SALARY_DEFAULTS = { CHF: 60000, EUR: 60000, USD: 65000 };
 
@@ -641,7 +643,7 @@
       const email   = (document.getElementById("calcLeadEmail")   || {}).value || "";
       const consent = document.getElementById("calcLeadConsent");
       if (!btn) return;
-      const ready = name.trim() && email.trim() && consent && consent.checked;
+      const ready = !calcLeadSubmitting && name.trim() && email.trim() && consent && consent.checked;
       btn.disabled = !ready;
       btn.style.opacity = ready ? "1" : "0.65";
       btn.style.cursor  = ready ? "pointer" : "not-allowed";
@@ -687,16 +689,25 @@
       const annualCost  = totalWeekly * 52 * (salary / 2000);
       const weeklySummary = `${Math.round(totalWeekly)}h/week lost across ${employees} employees`;
 
+      document.getElementById("calcError").hidden = true;
+      const originalLabel = btn.textContent;
       calcLeadSubmitting = true;
-      if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+      if (btn) { btn.disabled = true; btn.textContent = (typeof t === "function" && t("form.sending")) || "Sending..."; }
 
       try {
-        await fetch("/api/submit-calc-lead", {
+        const res = await fetch("/api/submit-calc-lead", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ firstName, email, annualCost, currency, weeklySummary })
+          body: JSON.stringify({ firstName, email, annualCost, currency, weeklySummary, website: document.getElementById("calcWebsite").value })
         });
-      } catch (e) { /* best-effort */ }
+        if (!res.ok) throw new Error("Submission failed");
+      } catch (e) {
+        document.getElementById("calcError").hidden = false;
+        calcLeadSubmitting = false;
+        btn.textContent = originalLabel;
+        updateCalcLeadBtn();
+        return;
+      }
 
       if (typeof window.GK_event === "function") {
         window.GK_event("calc_summary_emailed", { currency, annual_cost: Math.round(annualCost) });
@@ -850,7 +861,7 @@
           "auditSubtext":    i18nText("audit.subtext",             "Add your top manual workflows below. We\u2019ll calculate what each one costs per year."),
           "workflowAddBtn":  i18nText("audit.add_row",             "+ Add workflow"),
           "prioritiesTitle": i18nText("audit.priorities.title",    "Your top priorities"),
-          "calcCtaNote":     i18nText("audit.cta.note",            "Your data stays in your browser. Nothing is sent until you book.")
+          "calcCtaNote":     i18nText("audit.cta.note",            "Your numbers stay in your browser unless you choose to email them to yourself.")
         };
         Object.keys(staticMap).forEach(function(id) {
           var el = document.getElementById(id);
@@ -916,6 +927,6 @@
       if (typeof setupWfAudit === "function") setupWfAudit();
     });
   </script>
-  <script src="/cookie-consent.js?v=92c3e2ab95"></script>
+  <script src="/cookie-consent.js?v=edcfaba4f8"></script>
 </body>
 </html>

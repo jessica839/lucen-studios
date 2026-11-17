@@ -4,7 +4,9 @@ The marketing site is static HTML at `https://www.gamperklimmek.com`. Vercel ser
 
 ## Internationalization
 
-`i18n.js` contains the EN/DE/FR dictionaries, plus existing ES/IT data. Existing root pages retain browser language detection and their client-side translation behavior. The public language buttons expose EN/DE/FR.
+`i18n.js` contains the EN/DE/FR dictionaries, plus dormant ES/IT data that no page uses. Since 2026-11-17 the root EN pages stay English: no browser-language detection, no in-place translation on load. The EN/DE/FR buttons navigate to the page's hreflang alternate, using the alternate's path on the current origin (so previews stay on the preview). Pages without DE/FR versions (`start`, `resources`, `insurance`) hide the switcher. In-place translation remains only as a fallback for pages without alternates.
+
+Other runtime behaviour (2026-11-17): the cookie banner and consent placeholders follow `document.documentElement.lang` (EN/DE/FR). The newsletter is the GoHighLevel form `P7rkFHPH4cRMVQgSEH80`, embedded behind the same consent gate as the contact form (the old custom `fetch` posted to a URL that answers 404). The `api/` handlers accept only the production origins and this project's previews, require the hidden `website` honeypot field from every caller, cap and type-check inputs, return 502 when the CRM step fails, and rate-limit per instance in memory (no KV, so the limit is per warm instance).
 
 On generated pages, `<html lang="de|fr" data-static-lang="de|fr">` selects the language immediately. Initial page load does **not** call `applyTranslations`; the HTML already contains translated content. `t()` remains available for dynamic calculator text. A language button on a static page stores `gk_lang` and navigates to its matching hreflang URL; if no alternate exists, it uses the previous translation fallback. Pages without `data-static-lang` retain their previous behavior.
 
@@ -13,8 +15,8 @@ On generated pages, `<html lang="de|fr" data-static-lang="de|fr">` selects the l
 Nach jeder Textänderung an den HTML-Vorlagen, den Übersetzungen oder den Metadaten die Sprachseiten neu bauen und prüfen:
 
 ```sh
-npm run build:lang
-npm test
+bun run build:lang
+bun run test
 ```
 
 Node.js 20 oder neuer genügt; es gibt keine Paketabhängigkeiten und kein notwendiges `npm install`. Die Skripte lösen ihre Dateipfade relativ zum Repository auf.

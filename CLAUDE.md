@@ -23,15 +23,17 @@ Two-system project for **Gamper Klimmek Consulting**, an AI & automation consult
 
 ### Service & Pricing
 
-Three fixed-scope offerings. These prices appear throughout the site — keep them consistent everywhere:
+What the pages state (verified 2026-11-17; introduced 2026-06-13 in `80ede1e`/`7da2f96`). Keep them consistent everywhere:
 
 | Service | CHF | EUR | USD |
 |---|---|---|---|
-| Free 30-minute consultation | — | — | — |
-| Business Systems Review (BSR) | 950 | 980 | 1,050 |
-| Implementation Sprint | 3,500 | 3,610 | 3,889 |
+| Free consultation (30 min) | free | free | free |
+| Business Systems Review (BSR), credited toward a Sprint | 950 | 950 | 990 |
+| Implementation Sprint | from 2’900 | from 2’900 | from 3’000 |
+| Care Plan | from 390/month | | |
+| KI-Transparenz-Kit | 99 | | |
 
-EUR/USD amounts are computed via `currency.js` from `data-price-usd` base values. The CHF price is always the reference.
+The `data-price-*` attributes carry the amounts; `currency.js` formats them (CHF with the Swiss `’` separator). The CHF price is always the reference.
 
 **Never write "Website & Workflow Review" or any other name — the product is called Business Systems Review.**
 
@@ -50,13 +52,17 @@ Supabase's default is `verify_jwt: true`. If you deploy without explicitly setti
 
 ### Caching
 
-Static assets (`.js`, `.css`, images) are cached for 1 year (`immutable`) by Vercel. HTML files are `no-cache`. When updating shared files like `i18n.js` or `currency.js`, any in-flight visitors will keep the old cached version until their cache expires — no explicit cache-busting mechanism exists.
+`vercel.json` declares a 1-year `immutable` rule for assets, but production serves them with `max-age=0, must-revalidate` (the catch-all rule wins; checked 2026-11-17). Do not "fix" the rule order without adding cache-busting first: `i18n.js`/`currency.js` are referenced without consistent version hashes, so visitors would keep stale scripts for a year.
+
+### Deploy surface (allowlist)
+
+`.vercelignore` is an allowlist: only the listed pages, folders and assets are deployed. Docs (`*.md`), `scripts/`, `package.json`, the `email-appointment-*.html` GHL templates and anything else in the repo stay private. **A new public file or folder must be added to `.vercelignore`**, or it will 404 in production. `scripts/check-deploy-set.mjs` (part of `npm test`) fails when a deployed page references something outside the allowlist or when a doc slips in. The GitHub repo itself is public, so internal documents do not belong in it at all; keep them in the untracked `internal/` folder.
 
 ---
 
 ## Development
 
-**Marketing site:** no build step. Edit files directly and open in a browser to test. Most features work from `file://` — the only exception is `api/submit-case-study.js` (serverless, requires Vercel or a local Node environment). Vercel auto-deploys on push to `main`. Clean URLs are enabled (`/calculator` serves `calculator.html`, etc.).
+**Marketing site:** no build step for the EN pages. `de/` and `fr/` are generated: edit the root page / `i18n.js` / `scripts/lang-*.json`, then `bun run build:lang` and `bun run test`. `bun run dev` serves the site with clean URLs, the `vercel.json` redirects and the `api/` handlers (set `GHL_API_BASE` to a stub to test forms without touching the CRM). Vercel (project `lucen-studios` in Jess's team `jessica-8829s-projects`) deploys `main`; ship via branch → PR → merge on GitHub when the Vercel check is green.
 
 **Agent UI:** `cd "agent team/lucen-agent-ui" && npm run dev` → `localhost:5173`.
 
