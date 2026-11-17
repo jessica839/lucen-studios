@@ -31,16 +31,16 @@
   };
 
   /* ── Formatting ──────────────────────────────────────────── */
-  function fmtNum(val) {
-    return Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  function fmtNum(val, currency) {
+    return Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, currency === 'CHF' ? '’' : ',');
   }
 
   function fmtExact(currency, val) {
-    return currency + '\u00a0' + fmtNum(val);
+    return currency + '\u00a0' + fmtNum(val, currency);
   }
 
   function fmtLegacy(usdVal, currency) {
-    return currency + '\u00a0' + fmtNum(usdVal * RATES[currency]);
+    return currency + '\u00a0' + fmtNum(usdVal * RATES[currency], currency);
   }
 
   /* ── Storage ─────────────────────────────────────────────── */

@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const source = fs.readFileSync(new URL('../i18n.js', import.meta.url), 'utf8');
 
-function run({ staticLang = null, saved = null, browser = 'en-US' } = {}) {
+function run({ staticLang = null, saved = null, browser = 'en-US', pathname = '/', withMenu = false } = {}) {
   const listeners = {};
   const writes = [];
   const events = [];
@@ -12,24 +12,33 @@ function run({ staticLang = null, saved = null, browser = 'en-US' } = {}) {
   const elements = [];
   const buttons = [];
   const links = [];
+  const switchers = [{ hidden: false, style: {} }];
+  const observers = [];
+  let menuOpen = false;
+  const menu = { id: '', classList: { contains: () => menuOpen } };
+  const hamburger = element({});
   const document = {
     documentElement: { dataset: staticLang ? { staticLang } : {}, lang: staticLang || 'en' },
     addEventListener(name, fn) { listeners[name] = fn; },
+    querySelector(selector) { return withMenu ? (selector === '.mobile-menu' ? menu : selector === '.nav-hamburger' ? hamburger : null) : null; },
     querySelectorAll(selector) {
       if (selector.startsWith('link')) return links;
+      if (selector === '.lang-switcher, .gk-lang-switcher, .mobile-lang') return switchers;
       if (selector.startsWith('[data-i18n')) return elements.filter(el => Object.hasOwn(el.attrs, selector.slice(1, -1)));
       return buttons;
     },
   };
   const context = vm.createContext({
     document,
-    window: { location: { set href(value) { events.push(['navigate', value]); writes.push(value); }, get href() { return writes.at(-1); } } },
+    URL,
+    MutationObserver: class { constructor(fn) { observers.push(fn); } observe() {} },
+    window: { location: { pathname, set href(value) { events.push(['navigate', value]); writes.push(value); }, get href() { return writes.at(-1) || "https://lucen-studios-preview-jessica-8829s-projects.vercel.app" + pathname; } } },
     navigator: { language: browser },
     localStorage: { getItem: key => local.get(key) ?? null, setItem: (key, value) => { events.push(['store', key, value]); local.set(key, value); } },
     console,
   });
   vm.runInContext(source, context);
-  return { context, document, listeners, local, writes, events, elements, buttons, links };
+  return { context, document, listeners, local, writes, events, elements, buttons, links, switchers, hamburger, setMenuOpen(value) { menuOpen = value; observers.forEach(fn => fn()); } };
 }
 
 function element(attrs, content = 'server text') {
@@ -67,8 +76,8 @@ function button(lang) {
   runState.listeners.DOMContentLoaded();
   runState.buttons[0].listeners.click();
   assert.equal(runState.local.get('gk_lang'), 'de');
-  assert.equal(runState.writes.at(-1), 'https://www.gamperklimmek.com/de/calculator');
-  assert.deepEqual(runState.events, [['store', 'gk_lang', 'de'], ['navigate', 'https://www.gamperklimmek.com/de/calculator']]);
+  assert.equal(runState.writes.at(-1), '/de/calculator');
+  assert.deepEqual(runState.events, [['store', 'gk_lang', 'de'], ['navigate', '/de/calculator']]);
 }
 
 // Missing alternates use the previous in-place fallback; unsupported languages do nothing.
@@ -85,21 +94,40 @@ function button(lang) {
   assert.equal(JSON.stringify(state.events), before);
 }
 
-// With no static marker, the existing browser detection and DOM translation path remains active.
-{
-  const runState = run({ saved: 'fr', browser: 'de-CH' });
-  runState.elements.push(element({ 'data-i18n': 'nav_home' }));
-  runState.links.push({ getAttribute: () => 'de', href: '/de' });
-  runState.listeners.DOMContentLoaded();
-  assert.equal(runState.elements[0].innerHTML, 'Accueil', 'Saved language wins over browser preference');
-  vm.runInContext("switchLang('de')", runState.context);
-  assert.equal(runState.elements[0].innerHTML, 'Startseite');
-  assert.deepEqual(runState.writes, [], 'Non-static pages keep the existing in-place language switch');
-}
-for (const [browser, expected] of [['de-CH', 'de'], ['fr-FR', 'fr'], ['xx-XX', 'en']]) {
-  const state = run({ browser });
+// English URLs stay English even with a German browser and saved French preference.
+for (const saved of [null, 'fr']) {
+  const state = run({ saved, browser: 'de-CH' });
+  state.elements.push(element({ 'data-i18n': 'nav_home' }, 'Home'));
+  state.links.push({ getAttribute: () => 'de', href: 'https://www.gamperklimmek.com/de' });
   state.listeners.DOMContentLoaded();
-  assert.equal(vm.runInContext('currentLang', state.context), expected);
+  assert.equal(state.elements[0].innerHTML, 'Home');
+  assert.equal(state.document.documentElement.lang, 'en');
+  assert.deepEqual(state.events, [], 'Initialization neither navigates nor rewrites preferences');
+  vm.runInContext("switchLang('de')", state.context);
+  assert.equal(state.elements[0].innerHTML, 'Home');
+  assert.equal(state.writes.at(-1), '/de', 'English-page alternates use a path on the current origin');
+}
+for (const pathname of ['/start', '/resources', '/insurance', '/start.html']) {
+  const state = run({ pathname });
+  state.listeners.DOMContentLoaded();
+  assert.equal(state.switchers[0].hidden, true, pathname);
+  assert.equal(state.switchers[0].style.display, 'none', pathname);
+}
+for (const lang of ['es', 'it', 'xx']) {
+  const state = run();
+  vm.runInContext(`switchLang('${lang}')`, state.context);
+  assert.deepEqual(state.events, []);
 }
 
-console.log('i18n runtime checks passed');
+{
+  const state = run({ withMenu: true });
+  state.listeners.DOMContentLoaded();
+  assert.equal(state.hamburger.attrs['aria-controls'], 'mobileMenu');
+  assert.equal(state.hamburger.attrs['aria-expanded'], 'false');
+  state.setMenuOpen(true);
+  assert.equal(state.hamburger.attrs['aria-expanded'], 'true');
+  state.setMenuOpen(false);
+  assert.equal(state.hamburger.attrs['aria-expanded'], 'false');
+}
+
+console.log('i18n runtime checks passed: static content, alternate navigation, EN stability, fallback and hidden switchers');

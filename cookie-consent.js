@@ -19,6 +19,13 @@
   var CONSENT_KEY = 'gk_cookie_consent';
   var CONSENT_VERSION = '1';
   var CONSENT_TTL_MS = 180 * 24 * 60 * 60 * 1000; /* 6 months */
+  var LANG = ((document.documentElement.lang || 'en').toLowerCase().split('-')[0]);
+  if (['en', 'de', 'fr'].indexOf(LANG) === -1) LANG = 'en';
+  var COPY = {
+    en: { dialog: 'Cookie consent', embedded: 'Embedded content', contact: 'Contact', newsletter: 'Newsletter', thirdParty: 'This content is provided by a third-party service. Accept cookies to load it.', contactGate: 'This contact form is provided by GoHighLevel and only loads after you accept cookies.', newsletterGate: 'This newsletter form is provided by GoHighLevel and only loads after you accept cookies.', acceptForm: 'Accept cookies to load form', email: 'Or email us directly:', heading: 'Cookie &amp; Analytics Notice', banner: 'We use Google Analytics and a CRM tool (GoHighLevel) to understand site usage and manage contact requests. No data is shared for advertising. These only load after you accept.', privacy: 'Privacy Policy', accept: 'Accept', decline: 'Decline' },
+    de: { dialog: 'Cookie-Einwilligung', embedded: 'Eingebetteter Inhalt', contact: 'Kontakt', newsletter: 'Newsletter', thirdParty: 'Dieser Inhalt wird von einem Drittanbieter bereitgestellt. Akzeptieren Sie Cookies, um ihn zu laden.', contactGate: 'Dieses Kontaktformular wird von GoHighLevel bereitgestellt und erst geladen, nachdem Sie Cookies akzeptiert haben.', newsletterGate: 'Dieses Newsletter-Formular wird von GoHighLevel bereitgestellt und erst geladen, nachdem Sie Cookies akzeptiert haben.', acceptForm: 'Cookies akzeptieren und Formular laden', email: 'Oder schreiben Sie uns direkt:', heading: 'Hinweis zu Cookies &amp; Analytics', banner: 'Wir nutzen Google Analytics und ein CRM-Tool (GoHighLevel), um die Nutzung der Website zu verstehen und Kontaktanfragen zu verwalten. Es werden keine Daten für Werbung weitergegeben. Beides wird erst nach Ihrer Zustimmung geladen.', privacy: 'Datenschutzerklärung', accept: 'Akzeptieren', decline: 'Ablehnen' },
+    fr: { dialog: 'Consentement aux cookies', embedded: 'Contenu intégré', contact: 'Contact', newsletter: 'Newsletter', thirdParty: 'Ce contenu est fourni par un service tiers. Acceptez les cookies pour le charger.', contactGate: 'Ce formulaire de contact est fourni par GoHighLevel et ne se charge qu’après votre acceptation des cookies.', newsletterGate: 'Ce formulaire de newsletter est fourni par GoHighLevel et ne se charge qu’après votre acceptation des cookies.', acceptForm: 'Accepter les cookies pour charger le formulaire', email: 'Ou écrivez-nous directement :', heading: 'Information sur les cookies et l’analyse', banner: 'Nous utilisons Google Analytics et un outil CRM (GoHighLevel) pour comprendre l’utilisation du site et gérer les demandes de contact. Aucune donnée n’est partagée à des fins publicitaires. Ils ne se chargent qu’après votre acceptation.', privacy: 'Politique de confidentialité', accept: 'Accepter', decline: 'Refuser' }
+  }[LANG];
 
   function getConsent() {
     try {
@@ -112,7 +119,9 @@
         if (container.querySelector('iframe')) return; /* already rendered */
 
         var src    = container.getAttribute('data-consent-src')    || '';
-        var title  = container.getAttribute('data-consent-title')  || 'Embedded content';
+        var title  = container.getAttribute('data-consent-title')  || COPY.embedded;
+        if (title === 'Contact') title = COPY.contact;
+        if (title === 'Newsletter') title = COPY.newsletter;
         var height = container.getAttribute('data-consent-height') || '';
         var formId = container.getAttribute('data-consent-form-id') || '';
         var elemId = container.getAttribute('data-consent-id')     || '';
@@ -142,8 +151,9 @@
         container.appendChild(iframe);
       } else {
         if (container.querySelector('iframe') || container.querySelector('.gk-cp')) return;
-        var msg = container.getAttribute('data-consent-msg') ||
-          'This content is provided by a third-party service. Accept cookies to load it.';
+        var consentTitle = container.getAttribute('data-consent-title');
+        var msg = (consentTitle === 'Contact' || container.closest('.contact-form')) ? COPY.contactGate :
+          (consentTitle === 'Newsletter' ? COPY.newsletterGate : COPY.thirdParty);
         container.innerHTML = buildPlaceholder(msg);
       }
     });
@@ -162,9 +172,9 @@
         'color:#0a0a0f;border:none;cursor:pointer;padding:0.65rem 1.5rem;' +
         'border-radius:3px;transition:background 0.2s;display:block;' +
         'margin:0 auto 1.25rem;">' +
-      'Accept cookies to load form</button>' +
+      COPY.acceptForm + '</button>' +
       '<p style="font-family:\'DM Sans\',sans-serif;font-size:0.8rem;' +
-        'color:rgba(244,241,236,0.35);margin:0;">Or email us directly: ' +
+        'color:rgba(244,241,236,0.35);margin:0;">' + COPY.email + ' ' +
         '<a href="mailto:hello@gamperklimmek.com" style="color:#c9a84c;' +
         'text-decoration:none;font-weight:500;">hello@gamperklimmek.com →</a>' +
       '</p>' +
@@ -253,24 +263,20 @@
     banner.id = 'gk-cb';
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-modal', 'false');
-    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.setAttribute('aria-label', COPY.dialog);
 
-    var legalPage = (window.location.pathname.indexOf('legal') !== -1)
-      ? '#cookies'
-      : '/legal.html#cookies';
+    var legalPage = LANG === 'en' ? '/legal#cookies' : '/' + LANG + '/legal#cookies';
 
     banner.innerHTML =
       '<div id="gk-cb-inner">' +
         '<div id="gk-cb-text">' +
-          '<strong>Cookie &amp; Analytics Notice</strong>' +
-          'We use Google Analytics and a CRM tool (GoHighLevel) to understand site usage and manage contact requests. ' +
-          'No data is shared for advertising. ' +
-          'These only load after you accept.' +
-          ' <a href="' + legalPage + '">Privacy Policy</a>' +
+          '<strong>' + COPY.heading + '</strong>' +
+          COPY.banner +
+          ' <a href="' + legalPage + '">' + COPY.privacy + '</a>' +
         '</div>' +
         '<div id="gk-cb-btns">' +
-          '<button class="gk-cb-btn gk-cb-btn--accept" id="gk-cb-accept">Accept</button>' +
-          '<button class="gk-cb-btn gk-cb-btn--decline" id="gk-cb-decline">Decline</button>' +
+          '<button class="gk-cb-btn gk-cb-btn--accept" id="gk-cb-accept">' + COPY.accept + '</button>' +
+          '<button class="gk-cb-btn gk-cb-btn--decline" id="gk-cb-decline">' + COPY.decline + '</button>' +
         '</div>' +
       '</div>';
 

@@ -24,5 +24,27 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/operators-new",
+      "destination": "https://www.200bar.ai/",
+      "permanent": true
+    },
+    {
+      "source": "/operators-new.html",
+      "destination": "https://www.200bar.ai/",
+      "permanent": true
+    },
+    {
+      "source": "/dive-suite",
+      "destination": "https://www.200bar.ai/",
+      "permanent": true
+    },
+    {
+      "source": "/dive-suite.html",
+      "destination": "https://www.200bar.ai/",
+      "permanent": true
+    }
   ]
 }

@@ -290,6 +290,9 @@ async function updateURLs(tree, lang, meta) {
   const scripts = [];
   walk(tree, node => {
     const a = node.attrs;
+    if (node.tag === 'a' && ['nav_case_studies', 'nav.cases'].includes(a['data-i18n'])) {
+      a.href = `/${lang}#cases`;
+    }
     for (const attr of ['href', 'src', 'poster']) {
       if (a[attr]) {
         // Canonical and alternate links are already absolute and intentionally language-specific.
