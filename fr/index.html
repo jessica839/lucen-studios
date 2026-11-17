@@ -105,6 +105,7 @@
           <button class="lang-btn active" data-lang="fr">FR</button>
         </div>
       </li>
+      <li><a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" data-i18n="nav.ai_check" onclick="if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})">Check IA gratuit</a></li>
       <li><a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="nav-cta" id="navRegularBooking" data-i18n="nav.book_call" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'nav'})">Réserver un appel</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Ouvrir le menu" data-static-i18n-aria-label="aria.open_menu">
@@ -119,6 +120,7 @@
     <a href="#solution" onclick="closeMobile()" data-i18n="nav.what_changes">Ce que nous corrigeons</a>
     <a href="/fr#cases" onclick="closeMobile()" data-i18n="nav.cases">Études de cas</a>
     <a href="/fr/work" onclick="closeMobile()" data-i18n="nav.work">Réalisations</a>
+    <a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=nav&amp;utm_campaign=site" onclick="closeMobile();if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'nav'})" data-i18n="nav.ai_check">Check IA gratuit</a>
     <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" onclick="closeMobile();if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'mobile_nav'})" style="color:var(--gold)" data-i18n="nav.book_call">Réserver un appel</a>
     <div class="mobile-lang">
       <button data-lang="en">EN</button>
@@ -508,6 +510,21 @@
     </div>
   </section>
 
+  <!-- ══ FREE AI CHECK ═══════════════════════════════════════ -->
+  <section class="ai-check" id="ai-check">
+    <div class="ai-check-inner">
+      <div>
+        <p class="section-label" data-i18n="ai_check.eyebrow">Outil gratuit</p>
+        <h2 data-i18n="ai_check.headline">Comment Google et la recherche IA voient-ils votre site ?</h2>
+      </div>
+      <div class="ai-check-copy">
+        <p data-i18n="ai_check.body">Saisissez l’adresse de votre site. En une minute environ, vous obtenez les résultats de vitesse et de SEO de Google pour mobile et ordinateur, une analyse de la lisibilité de votre site pour les moteurs de recherche IA et les trois améliorations les plus importantes. Gratuit, sans inscription.</p>
+        <a href="https://audit.gamperklimmek.com/?utm_source=gamperklimmek.com&amp;utm_medium=homepage&amp;utm_campaign=site" class="btn-primary" data-i18n="ai_check.cta" onclick="if(typeof GK_event==='function')GK_event('ai_check_clicked',{location:'homepage'})">Lancer l’analyse gratuite</a>
+        <p class="ai-check-note" data-i18n="ai_check.note">L’outil est en anglais.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ AUDIT EMBED ══════════════════════════════════════════ -->
   <section class="audit-embed" id="audit">
     <div class="audit-embed-inner">
@@ -597,7 +614,7 @@
   </footer>
 
   <!-- ══ SCRIPTS ══════════════════════════════════════════════ -->
-  <script src="/i18n.js?v=b9fd00d26c"></script>
+  <script src="/i18n.js?v=7224f33d3f"></script>
   <script src="/currency.js?v=92fb1393ec"></script>
   <script>
     const selectedCases = new Set();

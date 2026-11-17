@@ -578,6 +578,17 @@ nav {
   padding: 0 1rem 1.1rem;
 }
 
+/* ── FREE AI CHECK ── */
+.ai-check { background: var(--paper); color: var(--ink); padding: 6rem 4rem; }
+.ai-check-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: end; }
+.ai-check .section-label { color: var(--teal); }
+.ai-check .section-label::before { background: var(--teal); }
+.ai-check h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.7rem); font-weight: 900; line-height: 1.08; }
+.ai-check-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+.ai-check-copy > p:first-child { font-size: 0.98rem; line-height: 1.75; color: rgba(10,10,15,0.62); max-width: 34rem; }
+.ai-check-note { font-size: 0.78rem; color: rgba(10,10,15,0.55); }
+.ai-check-note:empty { display: none; }
+
 /* Shared form inputs */
 .form-input {
   background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
@@ -733,6 +744,10 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
 .audit-page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse at 40% 50%, black 20%, transparent 70%); }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 1400px) {
+  .nav-links li:has([data-i18n="nav.ai_check"]) { display: none; }
+}
+
 @media (max-width: 960px) {
   nav { padding: 1.1rem 1.5rem; }
   .nav-links { display: none; }
@@ -740,13 +755,13 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
 
   .hero { padding: 8rem 1.5rem 5rem; }
   .problem, .flow, .who, .process, .cases, .story, .philosophy { padding: 5rem 1.25rem; }
-  .work-teaser { padding: 5rem 1.5rem; }
+  .work-teaser, .ai-check { padding: 5rem 1.5rem; }
   .audit-embed, .contact, .newsletter, .leak-calc { padding: 5rem 1.5rem; }
   .newsletter { padding: 4rem 1.5rem; }
   .trust-strip { padding: 2.5rem 1.5rem; }
   footer { padding: 2.5rem 1.5rem; flex-direction: column; align-items: flex-start; }
 
-  .problem-header, .flow-header, .cases-header, .story-header, .work-teaser-header, .contact-inner, .newsletter-inner, .audit-embed-inner, .leak-calc-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .problem-header, .flow-header, .cases-header, .story-header, .work-teaser-header, .ai-check-inner, .contact-inner, .newsletter-inner, .audit-embed-inner, .leak-calc-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .problem-grid, .process-steps, .cases-grid, .who-grid, .team-grid { grid-template-columns: 1fr; }
   .work-teaser-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .flow-diagram { grid-template-columns: repeat(3, 1fr); }
