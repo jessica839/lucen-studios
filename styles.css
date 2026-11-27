@@ -34,6 +34,7 @@ nav {
 .nav-logo {
   font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem;
   letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none;
+  white-space: nowrap;
 }
 .nav-logo span { color: var(--gold); }
 
@@ -70,6 +71,7 @@ nav {
 .nav-hamburger {
   display: none; background: none; border: none; cursor: pointer;
   width: 32px; height: 22px; position: relative; z-index: 110;
+  flex-shrink: 0;
 }
 .nav-hamburger span {
   display: block; width: 100%; height: 2px; background: var(--white);
@@ -93,6 +95,7 @@ nav {
   font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700;
   letter-spacing: 0.15em; text-transform: uppercase;
   color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.25s;
+  max-width: calc(100% - 3rem); text-align: center; overflow-wrap: anywhere;
 }
 .mobile-menu a:hover { color: var(--gold); }
 .mobile-lang { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
@@ -126,6 +129,7 @@ nav {
 .section-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 900; line-height: 1.1;
+  overflow-wrap: anywhere;
 }
 .section-title em { font-style: italic; color: var(--gold); }
 .problem .section-title em, .who .section-title em, .cases .section-title em, .insurance-page .ins-who h2.section-title em { color: var(--ink); }
@@ -438,8 +442,8 @@ nav {
 .who-inner { max-width: var(--max); margin: 0 auto; }
 .who-header { margin-bottom: 4rem; }
 .who-intro { font-size: 1.05rem; line-height: 1.8; color: rgba(10,10,15,0.6); max-width: 600px; margin-top: 1rem; }
-.who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.who-card { padding: 3rem 2.5rem; background: var(--white); border: 1px solid rgba(10,10,15,0.08); transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
+.who-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; }
+.who-card { min-width: 0; overflow-wrap: anywhere; padding: 3rem 2.5rem; background: var(--white); border: 1px solid rgba(10,10,15,0.08); transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
 .who-card-link { display: block; color: inherit; text-decoration: none; cursor: pointer; }
 .who-card-link:hover { border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(26,107,122,0.08); }
 .who-card-link:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
@@ -468,9 +472,10 @@ nav {
 .cases-inner { max-width: var(--max); margin: 0 auto; }
 .cases-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
 .cases-intro { font-size: 1rem; line-height: 1.8; color: rgba(10,10,15,0.6); }
-.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem; }
+.cases-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-bottom: 3rem; }
 
 .case-card {
+  min-width: 0;
   background: var(--white); border: 2px solid rgba(10,10,15,0.08);
   padding: 2.5rem; transition: all 0.3s; cursor: pointer; position: relative;
   user-select: none;
@@ -483,6 +488,9 @@ nav {
   font-size: 0.72rem; display: flex; align-items: center; justify-content: center;
   border-radius: 50%; line-height: 1;
 }
+.case-card .case-tag, .case-card h3, .case-card p, .case-card .case-metric { overflow-wrap: anywhere; }
+:lang(de) .section-title, :lang(de) .case-card,
+:lang(fr) .section-title, :lang(fr) .case-card { hyphens: auto; }
 .case-icon { font-size: 2rem; margin-bottom: 1.25rem; }
 .case-tag { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
 .case-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; margin-bottom: 0.75rem; line-height: 1.35; }
@@ -750,11 +758,14 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .nav-ai-check { display: list-item; }
 }
 
-@media (max-width: 960px) {
-  nav { padding: 1.1rem 1.5rem; }
+/* The widest translated link row needs 1233px including desktop padding. */
+@media (width < 1280px) {
+  nav { padding: 1.1rem 1.5rem; gap: 12px; }
   .nav-links { display: none; }
   .nav-hamburger { display: block; }
+}
 
+@media (max-width: 960px) {
   .hero { padding: 8rem 1.5rem 5rem; }
   .problem, .flow, .who, .process, .cases, .story, .philosophy { padding: 5rem 1.25rem; }
   .work-teaser, .ai-check { padding: 5rem 1.5rem; }
@@ -814,13 +825,18 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   .hero-microcopy { font-size: 0.62rem; }
 }
 
+/* At 320px: 48px padding + 221px wordmark + 12px gap + 32px menu. */
+@media (width < 481px) {
+  .nav-logo { font-size: 0.8rem; letter-spacing: 0.08em; }
+}
+
 /* Sticky Nav CTA */
 #navStickyBooking {
   display: none !important;
   width: auto !important;
   margin-bottom: 0 !important;
 }
-@media (min-width: 961px) {
+@media (width >= 1280px) {
   #navStickyBooking.visible {
     display: inline-block !important;
   }
@@ -828,7 +844,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
 
 /* Keep the story navigation inside narrow screens. */
 .story-nav-actions { display: flex; align-items: center; gap: 1rem; }
-@media (max-width: 600px) {
+@media (width < 769px) {
   .story-page nav { flex-wrap: wrap; gap: 0.6rem; padding: 1rem 1.25rem; }
   .story-nav-actions { width: 100%; justify-content: space-between; gap: 0.5rem; }
 }
@@ -841,17 +857,24 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
 .not-found-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 2rem 0; }
 .not-found-links a { color: var(--gold); text-underline-offset: 0.3em; }
 
-/* Keep the booking action between the logo and hamburger on both shared-nav pages. */
-@media (max-width: 960px) {
-  nav:has(#navStickyBooking) { gap: 0.5rem; }
-  nav:has(#navStickyBooking) .nav-logo { flex-shrink: 0; }
-  nav:has(#navStickyBooking) .nav-hamburger { order: 2; flex-shrink: 0; }
-  #navStickyBooking { display: inline-block !important; order: 1; flex-shrink: 0; padding: 0.5rem !important; font-size: 0.65rem !important; letter-spacing: 0; }
-}
-@media (max-width: 480px) {
-  nav:has(#navStickyBooking) { padding: 1.1rem 0.75rem; gap: 0.4rem; }
-  nav:has(#navStickyBooking) .nav-logo { font-size: clamp(0.7rem, 3.5vw, 1.05rem); letter-spacing: 0.05em; }
-  nav:has(#navStickyBooking) .nav-hamburger { width: 26px; }
+/* On small screens, the scroll-triggered booking action anchors to the viewport. */
+@media (width < 1280px) {
+  nav:has(#navStickyBooking) { backdrop-filter: none; }
+  #navStickyBooking {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 98;
+    min-height: 48px;
+    padding: 1rem 1.5rem calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
+    font-size: 0.82rem !important; line-height: 1.5;
+    white-space: normal !important; overflow-wrap: anywhere;
+    text-align: center; clip-path: none;
+    transform: none; transition: background 0.3s;
+  }
+  #navStickyBooking.visible { display: block !important; }
+  #navStickyBooking:hover { transform: none; }
+  /* The nav stacks above the menu, so its booking bar must be hidden explicitly. */
+  body:has(.mobile-menu.open) #navStickyBooking { display: none !important; }
+  /* Generous clearance for wrapped labels plus the device's bottom safe area. */
+  body:has(#navStickyBooking) footer { padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
 }
 
 /* Inset rings remain visible inside clipped buttons, including during hover. */
