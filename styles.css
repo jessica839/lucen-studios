@@ -128,6 +128,7 @@ nav {
   font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 900; line-height: 1.1;
 }
 .section-title em { font-style: italic; color: var(--gold); }
+.problem .section-title em, .who .section-title em, .cases .section-title em, .insurance-page .ins-who h2.section-title em { color: var(--ink); }
 
 .btn-primary {
   font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700;
@@ -197,7 +198,7 @@ nav {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.6);
 }
 .hero-guarantee {
   margin-top: 0.75rem;
@@ -368,10 +369,9 @@ nav {
   border-top: 1px solid rgba(201,168,76,0.2);
   border-bottom: 1px solid rgba(201,168,76,0.2);
 }
-.ticker-track { display: flex; gap: 3rem; white-space: nowrap; animation: ticker 32s linear infinite; width: max-content; }
+.ticker-track { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem 3rem; text-align: center; }
 .ticker-item { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
 .ticker-item span { color: var(--gold); margin-right: 1rem; }
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ── PHILOSOPHY ── */
 .philosophy { background: var(--ink); padding: 7rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
@@ -492,7 +492,7 @@ nav {
 
 /* Case studies form panel */
 .cases-cta { background: var(--ink); padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-.cases-cta-left h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 0.75rem; }
+.cases-cta-left h3 { color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 0.75rem; }
 .cases-cta-left p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.75; }
 .cases-cta-right { display: flex; flex-direction: column; gap: 0.75rem; }
 .cases-none-selected { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); text-align: center; padding: 1rem 0; }
@@ -679,10 +679,11 @@ nav {
 .audit-includes li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.87rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
 .audit-includes li:last-child { border-bottom: none; }
 .audit-check { color: var(--gold); flex-shrink: 0; font-size: 0.82rem; }
-.audit-price-row { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid rgba(201,168,76,0.25); padding-top: 1.25rem; margin-bottom: 1.5rem; }
-.audit-price-label { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+.audit-price-row { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; border-top: 1px solid rgba(201,168,76,0.25); padding-top: 1.25rem; margin-bottom: 1.5rem; }
+.audit-price-label { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
 .audit-price-val { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; }
-.audit-card-note { font-family: 'Syne', sans-serif; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.2); text-align: center; }
+.audit-price-note { display: block; margin-top: 0.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 400; line-height: 1.5; color: rgba(255,255,255,0.6); }
+.audit-card-note { font-family: 'Syne', sans-serif; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.6); text-align: center; }
 
 /* ── NEWSLETTER ── */
 .contact { background: var(--ink); color: var(--white); padding: 7rem 4rem; border-top: 1px solid rgba(255,255,255,0.06); }
@@ -727,7 +728,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
 .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
 .footer-links a { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.25s; }
 .footer-links a:hover { color: var(--gold); }
-.footer-meta { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+.footer-meta { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
 
 /* ── HERO ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
@@ -819,7 +820,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
   width: auto !important;
   margin-bottom: 0 !important;
 }
-@media (min-width: 768px) {
+@media (min-width: 961px) {
   #navStickyBooking.visible {
     display: inline-block !important;
   }
@@ -839,3 +840,25 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); p
 .not-found > p { color: var(--paper); }
 .not-found-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 2rem 0; }
 .not-found-links a { color: var(--gold); text-underline-offset: 0.3em; }
+
+/* Keep the booking action between the logo and hamburger on both shared-nav pages. */
+@media (max-width: 960px) {
+  nav:has(#navStickyBooking) { gap: 0.5rem; }
+  nav:has(#navStickyBooking) .nav-logo { flex-shrink: 0; }
+  nav:has(#navStickyBooking) .nav-hamburger { order: 2; flex-shrink: 0; }
+  #navStickyBooking { display: inline-block !important; order: 1; flex-shrink: 0; padding: 0.5rem !important; font-size: 0.65rem !important; letter-spacing: 0; }
+}
+@media (max-width: 480px) {
+  nav:has(#navStickyBooking) { padding: 1.1rem 0.75rem; gap: 0.4rem; }
+  nav:has(#navStickyBooking) .nav-logo { font-size: clamp(0.7rem, 3.5vw, 1.05rem); letter-spacing: 0.05em; }
+  nav:has(#navStickyBooking) .nav-hamburger { width: 26px; }
+}
+
+/* Inset rings remain visible inside clipped buttons, including during hover. */
+.nav-cta:focus-visible, .btn-primary:focus-visible, .btn-gold-full:focus-visible, .leak-calc .btn-gold-full:focus-visible, .form-submit:focus-visible, .contact-submit:focus-visible, .nl-submit:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--ink), inset 0 0 0 4px var(--gold-light); }
+.form-input:focus-visible, .contact-input:focus-visible, .nl-input:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
+}

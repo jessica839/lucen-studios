@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build:lang": "node scripts/build-lang-pages.mjs",
-    "test": "node scripts/check-lang-pages.mjs && node scripts/check-i18n-runtime.mjs && node scripts/check-lang-parser.mjs && node scripts/check-deploy-set.mjs && node scripts/check-api.mjs && node scripts/check-ai-check.mjs",
+    "test": "node scripts/check-lang-pages.mjs && node scripts/check-i18n-runtime.mjs && node scripts/check-lang-parser.mjs && node scripts/check-deploy-set.mjs && node scripts/check-api.mjs && node scripts/check-ai-check.mjs && node scripts/check-fonts.mjs",
     "dev": "node scripts/dev-server.mjs"
   }
 }

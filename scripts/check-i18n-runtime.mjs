@@ -15,9 +15,23 @@ function run({ staticLang = null, saved = null, browser = 'en-US', pathname = '/
   const switchers = [{ hidden: false, style: {} }];
   const observers = [];
   let menuOpen = false;
-  const menu = { id: '', classList: { contains: () => menuOpen } };
+  const menuLink = element({ href: '#section' });
+  const menu = {
+    ...element({}), id: '', listeners: {},
+    classList: { contains: () => menuOpen, add() { menuOpen = true; }, remove() { menuOpen = false; } },
+    addEventListener(name, fn) { this.listeners[name] = fn; },
+    querySelector() { return menuLink; },
+    querySelectorAll() { return [menuLink]; },
+    contains(el) { return el === menuLink; },
+  };
   const hamburger = element({});
+  const hamburgerClasses = new Set();
+  hamburger.classList = { contains: name => hamburgerClasses.has(name), add: name => hamburgerClasses.add(name), remove: name => hamburgerClasses.delete(name) };
+  const nav = { ...element({}), contains: el => el === hamburger };
+  const main = { ...element({}), contains: () => false };
   const document = {
+    body: { children: [nav, menu, main] },
+    activeElement: null,
     documentElement: { dataset: staticLang ? { staticLang } : {}, lang: staticLang || 'en' },
     addEventListener(name, fn) { listeners[name] = fn; },
     querySelector(selector) { return withMenu ? (selector === '.mobile-menu' ? menu : selector === '.nav-hamburger' ? hamburger : null) : null; },
@@ -28,6 +42,11 @@ function run({ staticLang = null, saved = null, browser = 'en-US', pathname = '/
       return buttons;
     },
   };
+  for (const el of [menuLink, hamburger]) {
+    el.focus = () => { document.activeElement = el; };
+    el.getClientRects = () => [{}];
+    el.closest = selector => selector === 'a' && el === menuLink ? menuLink : null;
+  }
   const context = vm.createContext({
     document,
     URL,
@@ -42,7 +61,7 @@ function run({ staticLang = null, saved = null, browser = 'en-US', pathname = '/
 }
 
 function element(attrs, content = 'server text') {
-  return { attrs, innerHTML: content, placeholder: 'server placeholder', getAttribute(name) { return this.attrs[name] ?? null; }, setAttribute(name, value) { this.attrs[name] = value; } };
+  return { attrs, innerHTML: content, placeholder: 'server placeholder', getAttribute(name) { return this.attrs[name] ?? null; }, setAttribute(name, value) { this.attrs[name] = value; }, hasAttribute(name) { return Object.hasOwn(this.attrs, name); }, removeAttribute(name) { delete this.attrs[name]; } };
 }
 function button(lang) {
   const result = { dataset: { lang }, active: false, listeners: {}, addEventListener(name, fn) { this.listeners[name] = fn; } };
@@ -128,6 +147,9 @@ for (const lang of ['es', 'it', 'xx']) {
   assert.equal(state.hamburger.attrs['aria-expanded'], 'true');
   state.setMenuOpen(false);
   assert.equal(state.hamburger.attrs['aria-expanded'], 'false');
+  state.setMenuOpen(true);
+  state.listeners.keydown({ key: 'Escape', preventDefault() {} });
+  assert.equal(state.document.querySelector('.mobile-menu').classList.contains('open'), false, 'Escape closes an open menu');
 }
 
 console.log('i18n runtime checks passed: static content, alternate navigation, EN stability, fallback and hidden switchers');

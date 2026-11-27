@@ -141,8 +141,8 @@
       <h1 data-i18n="hero.h1">Your team is spending hours each week on work that should <em>already be automatic.</em></h1>
       <p class="hero-sub" data-i18n="hero.sub">We review how your business runs, identify where time is going, and build the workflows to get it back. Fixed scope. Fixed price per sprint.</p>
       <div class="hero-cta-group">
-        <a href="/calculator" class="btn-primary" data-i18n="hero.cta" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'hero_primary'})">Run the Time &amp; Cost Leak Calculator</a>
-        <a href="#how-it-works" class="btn-ghost" data-i18n="hero.ghost">See the 3-step process</a>
+        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-primary" data-i18n="hero.book" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'hero_primary'})">Book a 30-minute call</a>
+        <a href="/calculator" class="btn-ghost" data-i18n="hero.cta" onclick="if(typeof GK_event==='function')GK_event('calculator_cta_clicked',{location:'hero_secondary'})">Run the Time &amp; Cost Leak Calculator</a>
       </div>
       <p class="hero-microcopy" data-i18n="hero.microcopy">30 minutes. No preparation needed.</p>
     </div>
@@ -151,13 +151,6 @@
   <!-- ══ TICKER ══════════════════════════════════════════════ -->
   <div class="ticker">
     <div class="ticker-track">
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.1">Inquiry Automation</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.2">Booking Communication</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.3">Client Follow-Up</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.4">Multilingual Messaging</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.5">Staff Knowledge Systems</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.6">Built to Run Without You</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.7">Real-World Workflows</span></span>
       <span class="ticker-item"><span>·</span> <span data-i18n="ticker.1">Inquiry Automation</span></span>
       <span class="ticker-item"><span>·</span> <span data-i18n="ticker.2">Booking Communication</span></span>
       <span class="ticker-item"><span>·</span> <span data-i18n="ticker.3">Client Follow-Up</span></span>
@@ -424,21 +417,21 @@
 
       <!-- Selectable cards -->
       <div class="cases-grid">
-        <div class="case-card" id="cs1" onclick="toggleCase('cs1')" tabindex="0" onkeypress="if(event.key==='Enter')toggleCase('cs1')">
+        <div class="case-card" id="cs1" onclick="toggleCase('cs1')" tabindex="0" role="button" aria-pressed="false">
           <div class="case-icon">🗺️</div>
           <p class="case-tag" data-i18n="cs.1.tag">Lead Qualification</p>
           <h3 data-i18n="cs.1.h3">300 Companies. Under an Hour.</h3>
           <p data-i18n="cs.1.desc">How we used AI to qualify a full tradeshow exhibitor list and walked in knowing exactly who to talk to — before the doors opened.</p>
           <div class="case-metric"><strong data-i18n="cs.1.val">15h</strong> <span data-i18n="cs.1.metric">Saved on qualification</span></div>
         </div>
-        <div class="case-card" id="cs2" onclick="toggleCase('cs2')" tabindex="0" onkeypress="if(event.key==='Enter')toggleCase('cs2')">
+        <div class="case-card" id="cs2" onclick="toggleCase('cs2')" tabindex="0" role="button" aria-pressed="false">
           <div class="case-icon">🎯</div>
           <p class="case-tag" data-i18n="cs.2.tag">Lead Generation</p>
           <h3 data-i18n="cs.2.h3">One Week of Research. Done in 15 Minutes.</h3>
           <p data-i18n="cs.2.desc">How we built a no-code AI lead scraper that generated 500+ qualified contacts in the diving industry — reusable every time.</p>
           <div class="case-metric"><strong data-i18n="cs.2.val">1 week</strong> <span data-i18n="cs.2.metric">Saved on lead research</span></div>
         </div>
-        <div class="case-card" id="cs3" onclick="toggleCase('cs3')" tabindex="0" onkeypress="if(event.key==='Enter')toggleCase('cs3')">
+        <div class="case-card" id="cs3" onclick="toggleCase('cs3')" tabindex="0" role="button" aria-pressed="false">
           <div class="case-icon">💬</div>
           <p class="case-tag" data-i18n="cs.3.tag">Customer Automation</p>
           <h3 data-i18n="cs.3.h3">A Full-Time Customer Assistant. Built in 3 Hours.</h3>
@@ -558,7 +551,7 @@
         </ul>
         <div class="audit-price-row">
           <span class="audit-price-label" data-i18n="audit.price.label">Pricing</span>
-          <span class="audit-price-val"><span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF&nbsp;950</span> · credited toward your build</span>
+          <span class="audit-price-val"><span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF&nbsp;950</span><span class="audit-price-note"> · credited toward your build</span></span>
         </div>
         <p class="audit-card-note" data-i18n="audit.cost.note">This is where we turn observations into a clear improvement plan.</p>
         <a href="https://link.gamperklimmek.com/widget/bookings/operations-strategy-call-90-minutes" class="btn-gold-full" data-i18n="audit.card.cta" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'bsr_card'})">Book your Business Systems Review</a>
@@ -697,6 +690,7 @@
         selectedCases.add(caseId);
         card.classList.add("selected");
       }
+      card.setAttribute("aria-pressed", String(selectedCases.has(caseId)));
 
       updateCasesFormState();
     }
@@ -761,7 +755,7 @@
 
       document.querySelectorAll(".case-card").forEach((card) => {
         card.addEventListener("keydown", (event) => {
-          if (event.key === " " || event.key === "Spacebar") {
+          if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
             event.preventDefault();
             toggleCase(card.id);
           }

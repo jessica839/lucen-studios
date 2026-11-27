@@ -215,6 +215,7 @@ const translations = {
     'hero.h1':      'Your team is spending hours each week on work that should <em>already be automatic.</em>',
     'hero.sub':     'We review how your business runs, identify where time is going, and build the workflows to get it back. Fixed scope. Fixed price per sprint.',
     'hero.cta':     'Run the Time &amp; Cost Leak Calculator',
+    'hero.book':    'Book a 30-minute call',
     'hero.microcopy': '30 minutes. No preparation needed.',
     'hero.guarantee': '',
     'hero.ghost':   'See the 3-step process',
@@ -912,6 +913,7 @@ const translations = {
     'hero.h1':      'Ihr Team verbringt Stunden pro Woche mit Arbeit, die <em>längst automatisch laufen sollte.</em>',
     'hero.sub':     'Wir analysieren, wie Ihr Unternehmen arbeitet, identifizieren, wo Zeit verloren geht, und bauen die Abläufe, die sie zurückbringen. Fester Umfang. Festpreis pro Sprint.',
     'hero.cta':     'Rechner starten: Was kostet manuelle Arbeit?',
+    'hero.book':    '30-Minuten-Gespräch buchen',
     'hero.microcopy': '30 Minuten. Keine Vorbereitung nötig.',
     'hero.guarantee': '',
     'hero.ghost':   'Den 3-Schritte-Prozess ansehen',
@@ -1568,6 +1570,7 @@ const translations = {
     'hero.h1':      'Votre équipe passe des heures par semaine sur des tâches qui <em>devraient déjà être automatiques.</em>',
     'hero.sub':     'Nous analysons le fonctionnement de votre entreprise, identifions où le temps se perd, et construisons les processus pour le récupérer. Périmètre fixe. Prix fixe par sprint.',
     'hero.cta':     'Calculer le coût du travail manuel',
+    'hero.book':    'Réserver un appel de 30 minutes',
     'hero.microcopy': '30 minutes. Aucune préparation nécessaire.',
     'hero.guarantee': '',
     'hero.ghost':   'Voir le processus en 3 étapes',
@@ -2111,6 +2114,7 @@ const translations = {
     'hero.h1':      'Tu equipo dedica horas cada semana a trabajo que ya debería ser <em>automático.</em>',
     'hero.sub':     'Analizamos cómo funciona su negocio, identificamos dónde se pierde tiempo y construimos los flujos de trabajo para recuperarlo. Alcance fijo. Precio fijo.',
     'hero.cta':     'Abrir la calculadora de fugas de tiempo y coste',
+    'hero.book':    'Reservar una llamada de 30 minutos',
     'hero.microcopy': '30 minutos. No necesitas preparar nada.',
     'hero.guarantee': '',
     'hero.ghost':   'Ver el proceso en 3 pasos',
@@ -2652,6 +2656,7 @@ const translations = {
     'hero.h1':      'Il tuo team passa ore ogni settimana su lavoro che dovrebbe già essere <em>automatico.</em>',
     'hero.sub':     'Analizziamo come funziona la vostra azienda, identifichiamo dove si perde tempo e costruiamo i flussi di lavoro per recuperarlo. Ambito fisso. Prezzo fisso.',
     'hero.cta':     'Avvia il calcolatore perdite tempo/costo',
+    'hero.book':    'Prenota una chiamata di 30 minuti',
     'hero.microcopy': '30 minuti. Nessuna preparazione necessaria.',
     'hero.guarantee': '',
     'hero.ghost':   'Guarda il processo in 3 fasi',
@@ -3381,7 +3386,54 @@ document.addEventListener('DOMContentLoaded', () => {
   if (menu && hamburger) {
     if (!menu.id) menu.id = 'mobileMenu';
     hamburger.setAttribute('aria-controls', menu.id);
-    const syncExpanded = () => hamburger.setAttribute('aria-expanded', String(menu.classList.contains('open')));
+    let wasOpen = false;
+    let inertSiblings = [];
+    const syncExpanded = () => {
+      const open = menu.classList.contains('open');
+      hamburger.setAttribute('aria-expanded', String(open));
+      if (open && !wasOpen) {
+        inertSiblings = Array.from(document.body.children).filter(child =>
+          child !== menu && !child.contains(hamburger) && !child.hasAttribute('inert'));
+        inertSiblings.forEach(child => child.setAttribute('inert', ''));
+        const firstLink = menu.querySelector('a[href]');
+        if (firstLink) firstLink.focus();
+      } else if (!open && wasOpen) {
+        inertSiblings.forEach(child => child.removeAttribute('inert'));
+        inertSiblings = [];
+      }
+      wasOpen = open;
+    };
+    const closeMenu = () => {
+      menu.classList.remove('open');
+      hamburger.classList.remove('active');
+      syncExpanded();
+    };
+    menu.addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (link && menu.contains(link)) closeMenu();
+    });
+    document.addEventListener('keydown', event => {
+      if (!menu.classList.contains('open')) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMenu();
+        hamburger.focus();
+      } else if (event.key === 'Tab') {
+        const focusable = Array.from(menu.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+          .filter(el => el.getClientRects().length && !el.closest('[hidden]'));
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (!first) {
+          event.preventDefault();
+          hamburger.focus();
+        } else if (!focusable.includes(document.activeElement) ||
+          (event.shiftKey && document.activeElement === first) ||
+          (!event.shiftKey && document.activeElement === last)) {
+          event.preventDefault();
+          (event.shiftKey ? last : first).focus();
+        }
+      }
+    });
     syncExpanded();
     new MutationObserver(syncExpanded).observe(menu, { attributes: true, attributeFilter: ['class'] });
   }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add('js')</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Automation for Dive, Surf &amp; Tour Operators | Gamper Klimmek</title>
@@ -187,6 +188,7 @@
   .page-hero-sub { font-size: 1.15rem; line-height: 1.75; color: rgba(255,255,255,0.6); max-width: 580px; margin-bottom: 3rem; }
   .btn-primary { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; background: var(--gold); padding: 1rem 2.5rem; display: inline-block; transition: all 0.3s; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+  .btn-primary:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--ink), inset 0 0 0 4px var(--gold-light); }
 
   /* SHARED */
   .section-label { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
@@ -270,6 +272,7 @@
   .page-cta p { font-size: 1.1rem; color: rgba(10,10,15,0.55); max-width: 500px; margin: 0 auto 3rem; line-height: 1.7; }
   .cta-btn-dark { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; background: var(--ink); padding: 1.2rem 3.5rem; display: inline-block; transition: all 0.3s; }
   .cta-btn-dark:hover { background: var(--teal); box-shadow: 0 20px 60px rgba(26,107,122,0.25); transform: translateY(-3px); }
+  .cta-btn-dark:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--ink), inset 0 0 0 4px var(--gold-light); }
 
   /* FOOTER */
   footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; }
@@ -281,15 +284,16 @@
   .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
 
   /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
+  .js .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .js .reveal.visible { opacity: 1; transform: translateY(0); }
+  .js .reveal-d1 { transition-delay: 0.1s; }
+  .js .reveal-d2 { transition-delay: 0.2s; }
+  .js .reveal-d3 { transition-delay: 0.3s; }
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
+    .js .reveal, .js .reveal.visible { opacity: 1 !important; transform: none !important; transition: none !important; }
     html { scroll-behavior: auto; }
   }
 
@@ -554,7 +558,7 @@
 <section class="page-cta">
   <h2 class="reveal" data-i18n="operators_cta_title">Talk to someone who's<br><em>worked your season.</em></h2>
   <p class="reveal reveal-d1" data-i18n="operators_cta_body">We map your busiest workflows, identify what to automate first, and show exactly what one well-built system would change — a direct, practical conversation.</p>
-  <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="cta-btn-dark reveal reveal-d2" data-i18n="operators_cta_btn" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'operators_bottom_cta'})">Book a 30-minute consultation</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="cta-btn-dark" data-i18n="operators_cta_btn" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'operators_bottom_cta'})">Book a 30-minute consultation</a>
 </section>
 
 <style>
@@ -582,11 +586,19 @@
 </footer>
 
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  try {
+    if (!('IntersectionObserver' in window)) {
+      document.documentElement.classList.remove('js');
+    } else {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => observer.observe(el));
+    }
+  } catch (e) {
+    document.documentElement.classList.remove('js');
+  }
 </script>
 <script src="/i18n.js?v=20260504"></script>
 <script src="/currency.js?v=20260319"></script>
