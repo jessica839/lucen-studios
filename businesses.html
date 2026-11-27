@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add('js')</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Automation for SMBs &amp; Service Businesses | Gamper Klimmek</title>
@@ -120,7 +121,7 @@
     display: none;
     background: none; border: none; cursor: pointer;
     width: 32px; height: 24px;
-    position: relative; z-index: 110;
+    position: relative; z-index: 110; flex-shrink: 0;
   }
   .nav-hamburger span {
     display: block; width: 100%; height: 2px;
@@ -152,6 +153,7 @@
     letter-spacing: 0.15em; text-transform: uppercase;
     color: rgba(255,255,255,0.7); text-decoration: none;
     transition: color 0.3s;
+    max-width: calc(100% - 3rem); overflow-wrap: anywhere; text-align: center;
   }
   .mobile-menu a:hover { color: var(--gold); }
   .mobile-menu .mobile-cta {
@@ -187,6 +189,7 @@
   .page-hero-sub { font-size: 1.15rem; line-height: 1.75; color: rgba(255,255,255,0.6); max-width: 580px; margin-bottom: 3rem; }
   .btn-primary { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; background: var(--gold); padding: 1rem 2.5rem; display: inline-block; transition: all 0.3s; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+  .btn-primary:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--ink), inset 0 0 0 4px var(--gold-light); }
 
   /* SHARED */
   .section-label { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
@@ -198,10 +201,10 @@
   .pain-inner { max-width: 1100px; margin: 0 auto; }
   .pain .section-label { color: var(--teal); }
   .pain .section-label::before { background: var(--teal); }
-  .pain-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
+  .pain-header { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; align-items: end; margin-bottom: 5rem; }
   .pain-intro { font-size: 1.05rem; line-height: 1.8; color: rgba(10,10,15,0.6); padding-top: 0.5rem; }
-  .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .pain-card { padding: 2.5rem; border: 1px solid rgba(10,10,15,0.1); transition: all 0.3s; }
+  .pain-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+  .pain-card { min-width: 0; overflow-wrap: anywhere; padding: 2.5rem; border: 1px solid rgba(10,10,15,0.1); transition: all 0.3s; }
   .pain-card:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(26,107,122,0.08); }
   .pain-icon { font-size: 2rem; margin-bottom: 1.25rem; }
   .pain-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
@@ -209,7 +212,7 @@
 
   /* WHO */
   .who { background: var(--ink); padding: 7rem 4rem; }
-  .who-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .who-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6rem; align-items: center; }
   .who-content h2 { margin-bottom: 1.5rem; }
   .who-content p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
   .who-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
@@ -225,10 +228,10 @@
   .how-inner { max-width: 1100px; margin: 0 auto; }
   .how .section-label { color: var(--teal); }
   .how .section-label::before { background: var(--teal); }
-  .how-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
+  .how-header { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; align-items: end; margin-bottom: 5rem; }
   .how-intro { font-size: 1.05rem; line-height: 1.8; color: rgba(10,10,15,0.6); padding-top: 0.5rem; }
-  .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(10,10,15,0.1); }
-  .how-step { padding: 3rem 2.5rem 3rem 0; border-right: 1px solid rgba(10,10,15,0.1); padding-right: 2.5rem; padding-left: 0; }
+  .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid rgba(10,10,15,0.1); }
+  .how-step { min-width: 0; overflow-wrap: anywhere; padding: 3rem 2.5rem 3rem 0; border-right: 1px solid rgba(10,10,15,0.1); padding-right: 2.5rem; padding-left: 0; }
   .how-step:first-child { padding-left: 0; }
   .how-step:last-child { border-right: none; padding-right: 0; padding-left: 2.5rem; }
   .how-step:nth-child(2) { padding-left: 2.5rem; }
@@ -240,8 +243,8 @@
   /* OUTCOMES */
   .outcomes { background: var(--ink); padding: 7rem 4rem; }
   .outcomes-inner { max-width: 1100px; margin: 0 auto; }
-  .outcomes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 4rem; }
-  .outcome-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 2.5rem; transition: border-color 0.3s; }
+  .outcomes-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; margin-top: 4rem; }
+  .outcome-item { min-width: 0; overflow-wrap: anywhere; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 2.5rem; transition: border-color 0.3s; }
   .outcome-item:hover { border-color: rgba(201,168,76,0.25); }
   .outcome-num { font-family: 'Playfair Display', serif; font-size: 0.85rem; font-weight: 700; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 1rem; }
   .outcome-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
@@ -262,6 +265,7 @@
   .page-cta p { font-size: 1.1rem; color: rgba(10,10,15,0.55); max-width: 500px; margin: 0 auto 3rem; line-height: 1.7; }
   .cta-btn-dark { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; background: var(--ink); padding: 1.2rem 3.5rem; display: inline-block; transition: all 0.3s; }
   .cta-btn-dark:hover { background: var(--teal); box-shadow: 0 20px 60px rgba(26,107,122,0.25); transform: translateY(-3px); }
+  .cta-btn-dark:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--ink), inset 0 0 0 4px var(--gold-light); }
 
   /* PRICING CARDS */
   .pricing-section { background: var(--paper); padding: 7rem 4rem; }
@@ -271,28 +275,29 @@
   .pricing-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--ink); line-height: 1.15; margin-bottom: 0; }
   .pricing-title em { font-style: italic; color: var(--teal); }
   .pricing-intro { max-width: 520px; margin: 1.25rem auto 0; font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
-  .pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; }
-  .pricing-card { background: var(--white); border: 1px solid rgba(10,10,15,0.08); padding: 2.25rem 1.75rem 2rem; display: flex; flex-direction: column; position: relative; }
+  .pricing-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; align-items: start; }
+  .pricing-card { background: var(--white); border: 1px solid rgba(10,10,15,0.08); padding: 2.25rem 1.75rem 2rem; display: flex; flex-direction: column; position: relative; min-width: 0; }
   .pricing-card--featured { border: 2px solid var(--teal); box-shadow: 0 8px 40px rgba(26,107,122,0.13); margin-top: -1.25rem; }
-  .pricing-card-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--teal); color: var(--white); font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.3rem 1rem; white-space: nowrap; }
-  .pricing-card-label { font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.85rem; margin-top: 0.5rem; }
+  .pricing-card-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--teal); color: var(--white); font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.3rem 1rem; width: max-content; max-width: 100%; text-align: center; overflow-wrap: anywhere; }
+  .pricing-card-label { font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.85rem; margin-top: 0.5rem; overflow-wrap: anywhere; hyphens: auto; }
   .pricing-card--featured .pricing-card-label { margin-top: 1.5rem; }
-  .pricing-card-price { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 0.4rem; }
-  .pricing-card-price--custom { font-size: 2.6rem; }
-  .pricing-card-subtitle { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 1.75rem; }
+  .pricing-card-price { font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 2.222vw, 2rem); font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 0.4rem; overflow-wrap: anywhere; hyphens: auto; }
+  .pricing-card-price--custom { font-size: clamp(1.65rem, 2.89vw, 2.6rem); }
+  .pricing-card-subtitle { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 1.75rem; overflow-wrap: anywhere; hyphens: auto; }
   .pricing-card-features { list-style: none; flex: 1; margin-bottom: 2rem; }
-  .pricing-card-features li { font-size: 0.875rem; color: var(--ink); line-height: 1.5; padding: 0.6rem 0 0.6rem 1.25rem; border-bottom: 1px solid rgba(10,10,15,0.07); position: relative; }
+  .pricing-card-features li { font-size: 0.875rem; color: var(--ink); line-height: 1.5; padding: 0.6rem 0 0.6rem 1.25rem; border-bottom: 1px solid rgba(10,10,15,0.07); position: relative; overflow-wrap: anywhere; hyphens: auto; }
   .pricing-card-features li::before { content: '—'; position: absolute; left: 0; color: var(--teal); }
   .pricing-card-features li:last-child { border-bottom: none; }
-  .pricing-card-cta { display: block; text-align: center; font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 1.5rem; transition: all 0.2s; margin-top: auto; }
+  .pricing-card-cta { display: block; text-align: center; font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 1.5rem; transition: all 0.2s; margin-top: auto; overflow-wrap: anywhere; hyphens: auto; }
   .pricing-cta-outline { border: 1px solid rgba(10,10,15,0.2); color: var(--ink); background: transparent; }
   .pricing-cta-outline:hover { border-color: var(--teal); color: var(--teal); }
   .pricing-cta-filled { background: var(--teal); color: var(--white); border: 1px solid var(--teal); }
   .pricing-cta-filled:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
 
   /* FOOTER */
-  footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; }
-  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 4rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+  footer > * { min-width: 0; overflow-wrap: anywhere; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; white-space: nowrap; }
   .footer-logo span { color: var(--gold); }
   .footer-links { display: flex; gap: 2rem; list-style: none; }
   .footer-links a { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.3s; }
@@ -300,29 +305,46 @@
   .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
 
   /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
+  .js .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .js .reveal.visible { opacity: 1; transform: translateY(0); }
+  .js .reveal-d1 { transition-delay: 0.1s; }
+  .js .reveal-d2 { transition-delay: 0.2s; }
+  .js .reveal-d3 { transition-delay: 0.3s; }
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
+    .js .reveal, .js .reveal.visible { opacity: 1 !important; transform: none !important; transition: none !important; }
     html { scroll-behavior: auto; }
   }
+
+  /* Long translated text must wrap within its grid track. */
+  .pain-header > *, .how-header > *, .who-inner > * { min-width: 0; overflow-wrap: anywhere; }
 
   /* RESPONSIVE */
   .nav-ai-check { display: none; white-space: nowrap; }
   @media (min-width: 1500px) {
     .nav-ai-check { display: list-item; }
+    .nav-links { gap: 2rem; }
   }
 
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
+  @media (width < 1400px) {
     .nav-links { display: none; }
     .nav-back { display: none; }
+    nav > .gk-lang-switcher { display: none; }
     .nav-hamburger { display: block; margin-left: auto; }
+  }
+  html[lang="de"] nav, html[lang="fr"] nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+  html[lang="de"] .nav-links, html[lang="fr"] .nav-links { gap: 0.75rem; }
+  html[lang="de"] .nav-links a, html[lang="fr"] .nav-links a { font-size: 0.75rem; }
+  @media (768px < width < 1280px) {
+    .pricing-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (768px < width < 1280px) {
+    .pain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
     .page-hero { padding: 8rem 1.5rem 4rem; }
     .pain, .who, .how, .outcomes, .quote-band, .page-cta { padding: 4rem 1.5rem; }
     .pain-header, .how-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
@@ -336,6 +358,10 @@
     .pricing-card--featured { margin-top: 0; }
     footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
     .footer-links { justify-content: center; flex-wrap: wrap; }
+  }
+  @media (width < 481px) {
+    nav { gap: 12px; }
+    .nav-logo, .footer-logo { font-size: 0.8rem; letter-spacing: 0.08em; white-space: nowrap; }
   }
 </style>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -623,7 +649,7 @@
 <section class="page-cta">
   <h2 class="reveal" data-i18n="businesses_cta_title">Ready to stop<br><em>doing it manually?</em></h2>
   <p class="reveal reveal-d1" data-i18n="businesses_cta_body">A short call to see whether this is the right fit — an honest look at your operation and what's possible.</p>
-  <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="cta-btn-dark reveal reveal-d2" data-i18n="hero_btn">Book a 30-minute consultation</a>
+  <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" target="_blank" class="cta-btn-dark" data-i18n="hero_btn">Book a 30-minute consultation</a>
 </section>
 
 <style>
@@ -651,11 +677,19 @@
 </footer>
 
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  try {
+    if (!('IntersectionObserver' in window)) {
+      document.documentElement.classList.remove('js');
+    } else {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => observer.observe(el));
+    }
+  } catch (e) {
+    document.documentElement.classList.remove('js');
+  }
 </script>
 <script src="/i18n.js?v=20260504"></script>
 <script src="/currency.js?v=20260319"></script>

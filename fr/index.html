@@ -138,8 +138,8 @@
       <h1 data-i18n="hero.h1">Votre équipe passe des heures par semaine sur des tâches qui <em>devraient déjà être automatiques.</em></h1>
       <p class="hero-sub" data-i18n="hero.sub">Nous analysons le fonctionnement de votre entreprise, identifions où le temps se perd, et construisons les processus pour le récupérer. Périmètre fixe. Prix fixe par sprint.</p>
       <div class="hero-cta-group">
-        <a href="/fr/calculator" class="btn-primary" data-i18n="hero.cta" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'hero_primary'})">Calculer le coût du travail manuel</a>
-        <a href="#how-it-works" class="btn-ghost" data-i18n="hero.ghost">Voir le processus en 3 étapes</a>
+        <a href="https://link.gamperklimmek.com/widget/bookings/30min_conversation" class="btn-primary" data-i18n="hero.book" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'hero_primary'})">Réserver un appel de 30 minutes</a>
+        <a href="/fr/calculator" class="btn-ghost" data-i18n="hero.cta" onclick="if(typeof GK_event==='function')GK_event('calculator_cta_clicked',{location:'hero_secondary'})">Calculer le coût du travail manuel</a>
       </div>
       <p class="hero-microcopy" data-i18n="hero.microcopy">30 minutes. Aucune préparation nécessaire.</p>
     </div>
@@ -148,13 +148,6 @@
   <!-- ══ TICKER ══════════════════════════════════════════════ -->
   <div class="ticker">
     <div class="ticker-track">
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.1">Automatisation des demandes</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.2">Communication de réservation</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.3">Suivi clients</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.4">Messagerie multilingue</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.5">Systèmes de connaissances</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.6">Fonctionne sans vous</span></span>
-      <span class="ticker-item"><span>·</span> <span data-i18n="ticker.7">Flux de travail réels</span></span>
       <span class="ticker-item"><span>·</span> <span data-i18n="ticker.1">Automatisation des demandes</span></span>
       <span class="ticker-item"><span>·</span> <span data-i18n="ticker.2">Communication de réservation</span></span>
       <span class="ticker-item"><span>·</span> <span data-i18n="ticker.3">Suivi clients</span></span>
@@ -421,21 +414,21 @@
 
       <!-- Selectable cards -->
       <div class="cases-grid">
-        <div class="case-card" id="cs1" onclick="toggleCase('cs1')" tabindex="0" onkeypress="if(event.key==='Enter')toggleCase('cs1')">
+        <div class="case-card" id="cs1" onclick="toggleCase('cs1')" tabindex="0" role="button" aria-pressed="false">
           <div class="case-icon">🗺️</div>
           <p class="case-tag" data-i18n="cs.1.tag">Qualification de leads</p>
           <h3 data-i18n="cs.1.h3">300 entreprises. En moins d'une heure.</h3>
           <p data-i18n="cs.1.desc">Comment nous avons utilisé l'IA pour qualifier une liste complète d'exposants et comment nous savions exactement qui rencontrer.</p>
           <div class="case-metric"><strong data-i18n="cs.1.val">15h</strong> <span data-i18n="cs.1.metric">Économisés sur la qualification</span></div>
         </div>
-        <div class="case-card" id="cs2" onclick="toggleCase('cs2')" tabindex="0" onkeypress="if(event.key==='Enter')toggleCase('cs2')">
+        <div class="case-card" id="cs2" onclick="toggleCase('cs2')" tabindex="0" role="button" aria-pressed="false">
           <div class="case-icon">🎯</div>
           <p class="case-tag" data-i18n="cs.2.tag">Génération de leads</p>
           <h3 data-i18n="cs.2.h3">Une semaine de recherche. En 15 minutes.</h3>
           <p data-i18n="cs.2.desc">Comment nous avons construit un scraper IA sans code qui a généré 500+ contacts qualifiés dans l'industrie de la plongée.</p>
           <div class="case-metric"><strong data-i18n="cs.2.val">1 semaine</strong> <span data-i18n="cs.2.metric">Économisés en recherche</span></div>
         </div>
-        <div class="case-card" id="cs3" onclick="toggleCase('cs3')" tabindex="0" onkeypress="if(event.key==='Enter')toggleCase('cs3')">
+        <div class="case-card" id="cs3" onclick="toggleCase('cs3')" tabindex="0" role="button" aria-pressed="false">
           <div class="case-icon">💬</div>
           <p class="case-tag" data-i18n="cs.3.tag">Automatisation client</p>
           <h3 data-i18n="cs.3.h3">Un assistant client à plein temps. Construit en 3 heures.</h3>
@@ -555,7 +548,7 @@
         </ul>
         <div class="audit-price-row">
           <span class="audit-price-label" data-i18n="audit.price.label">Tarif</span>
-          <span class="audit-price-val"><span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF&nbsp;950</span> <span data-i18n="static.review.credit">· déduit de votre projet</span></span>
+          <span class="audit-price-val"><span data-price-chf="950" data-price-eur="950" data-price-usd="990">CHF&nbsp;950</span><span class="audit-price-note"> <span data-i18n="static.review.credit">· déduit de votre projet</span></span></span>
         </div>
         <p class="audit-card-note" data-i18n="audit.cost.note">C'est ici que nous transformons les constats en plan d'amélioration clair.</p>
         <a href="https://link.gamperklimmek.com/widget/bookings/operations-strategy-call-90-minutes" class="btn-gold-full" data-i18n="audit.card.cta" onclick="if(typeof GK_event==='function')GK_event('booking_cta_clicked',{location:'bsr_card'})">Réserver votre Business Systems Review</a>
@@ -614,7 +607,7 @@
   </footer>
 
   <!-- ══ SCRIPTS ══════════════════════════════════════════════ -->
-  <script src="/i18n.js?v=7224f33d3f"></script>
+  <script src="/i18n.js?v=9ae5209b32"></script>
   <script src="/currency.js?v=92fb1393ec"></script>
   <script>
     const selectedCases = new Set();
@@ -681,6 +674,7 @@
         selectedCases.add(caseId);
         card.classList.add("selected");
       }
+      card.setAttribute("aria-pressed", String(selectedCases.has(caseId)));
 
       updateCasesFormState();
     }
@@ -745,7 +739,7 @@
 
       document.querySelectorAll(".case-card").forEach((card) => {
         card.addEventListener("keydown", (event) => {
-          if (event.key === " " || event.key === "Spacebar") {
+          if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
             event.preventDefault();
             toggleCase(card.id);
           }
@@ -773,7 +767,7 @@
       }, { passive: true });
     })();
   </script>
-  <script src="/cookie-consent.js?v=edcfaba4f8"></script>
+  <script src="/cookie-consent.js?v=c05388a349"></script>
 
 </body>
 </html>
